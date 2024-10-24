@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.section-container {
+  @apply px-4 lg:px-11 2xl:px-16;
+}
+
+.about-bg {
+  background: radial-gradient(
+    133.05% 133.05% at 48.02% 29.5%,
+    #82cfff 0%,
+    #7cc7f7 3.4%,
+    #398ac4 34.91%,
+    #215178 61.05%,
+    #093256 80.54%,
+    #00264a 91.18%
+  );
+  /* filter: blur(31.6667px); */
+}
+
+.burger-line {
+  @apply h-1 w-11 bg-qiskit-white rounded;
+}
+.hero-bg {
+  /* background: radial-gradient(
+    137.29% 137.29% at 50% 50%,
+    #82cfff 0%,
+    #7cc7f7 3.4%,
+    #398ac4 34.91%,
+    #215178 61.05%,
+    #093256 80.54%,
+    #00264a 91.18%
+  ); */
+
+  /* background: radial-gradient(
+    137.29% 137.29% at 50% 50%,
+    #000000 0%,  
+    #0d1b2a 20%, 
+    #1b263b 40%, 
+    #415a77 60%, 
+    #778da9 80%, 
+    #a3cef1 100% 
+); */
+
+
+  background: url("../images/sectionsAssets/Hero-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.footer-bg {
+  background: radial-gradient(
+    137.29% 137.29% at 50% 50%,
+    #3db4fe 0%,
+    #58bcfc 3.4%,
+    #398ac4 34.91%,
+    #215178 61.05%,
+    #093256 80.54%,
+    #00264a 91.18%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.bounce {
+  animation: bounce 2s ease infinite;
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
