@@ -9,19 +9,18 @@
 .about-bg {
   background: radial-gradient(
     133.05% 133.05% at 48.02% 29.5%,
-    #82cfff 0%,
-    #7cc7f7 3.4%,
-    #398ac4 34.91%,
-    #215178 61.05%,
-    #093256 80.54%,
-    #00264a 91.18%
+    #5a5a5a 20%,
+    #313131 40%,
+    #2d2d2d 60%,
+    #141414 80%,
+    #1a1a1a 100%
   );
-  /* filter: blur(31.6667px); */
 }
 
 .burger-line {
   @apply h-1 w-11 bg-qiskit-white rounded;
 }
+
 .hero-bg {
   /* background: radial-gradient(
     137.29% 137.29% at 50% 50%,
@@ -48,20 +47,20 @@
   background-repeat: no-repeat;
   width: 100%;
 }
+
 .hero-bg::before {
   background-image: url("../images/sectionsAssets/Hero-background.png");
-  @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-[3px]
+  @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-[2px]
 }
 
 .footer-bg {
   background: radial-gradient(
-    137.29% 137.29% at 50% 50%,
-    #3db4fe 0%,
-    #58bcfc 3.4%,
-    #398ac4 34.91%,
-    #215178 61.05%,
-    #093256 80.54%,
-    #00264a 91.18%
+    133.05% 133.05% at 48.02% 29.5%,
+    #5a5a5a 20%,
+    #313131 40%,
+    #2d2d2d 60%,
+    #141414 80%,
+    #1a1a1a 100%
   );
 }
 
