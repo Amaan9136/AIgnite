@@ -42,13 +42,15 @@
     #778da9 80%, 
     #a3cef1 100% 
 ); */
-
-
-  background: url("../images/sectionsAssets/Hero-background.png");
+  position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
+}
+.hero-bg::before {
+  background-image: url("../images/sectionsAssets/Hero-background.png");
+  @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-sm
 }
 
 .footer-bg {
