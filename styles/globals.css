@@ -50,7 +50,7 @@
 }
 .hero-bg::before {
   background-image: url("../images/sectionsAssets/Hero-background.png");
-  @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-sm
+  @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-[3px]
 }
 
 .footer-bg {
@@ -72,6 +72,20 @@ html {
 .bounce {
   animation: bounce 2s ease infinite;
 }
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #00000030;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1D1D1D;
+  border-radius: 999px;
+}
+
 @keyframes bounce {
   0%,
   20%,
