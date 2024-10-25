@@ -1,5 +1,6 @@
 import Image from "next/image";
-import YellowButton from "../shared/YellowButton"
+import Tilt from "react-parallax-tilt";
+import YellowButton from "../shared/YellowButton";
 const ParagSection = ({
   keyword1,
   paragraph1,
@@ -13,9 +14,9 @@ const ParagSection = ({
     <div className="flex flex-col gap-10 items-center lg:flex-row">
       <div className="flex flex-col gap-11 flex-1">
         <p className="text-qiskit-white text-sm lg:text-xl font-medium leading-6 lg:leading-8 2xl:text-4xl 2xl:leading-[3rem] lg:pl-8">
-          <span className="font-bold text-qiskit-black">{keyword1}</span>
+          <span className="font-bold text-qiskit-yellow">{keyword1}</span>
           {paragraph1}
-          <span className="font-bold text-qiskit-black">{keyword2}</span>
+          <span className="font-bold text-qiskit-yellow">{keyword2}</span>
           {paragraph2}
         </p>
 
@@ -29,7 +30,9 @@ const ParagSection = ({
           reverse && "lg:order-first"
         }`}
       >
-        <Image src={img} alt="" layout="fill" />
+        <Tilt className="cursor-pointer">
+        <Image src={img} width={"500px"} height={"500px"} alt="" />
+        </Tilt>
       </div>
     </div>
   );

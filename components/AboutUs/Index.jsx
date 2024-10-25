@@ -1,10 +1,11 @@
 import Image from "next/image";
-import WTM from "../../images/logos/WTMAlgiers.png";
-import SectionTitle from "../shared/SectionTitle";
 import GDG from "../../images/logos/GDGAlgiers.png";
-import ParagSection from "../shared/ParagSection";
+import WTM from "../../images/logos/WTMAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
+import ParagSection from "../shared/ParagSection";
+import SectionTitle from "../shared/SectionTitle";
+
 const AboutUs = () => {
   return (
     <section id="about-us">

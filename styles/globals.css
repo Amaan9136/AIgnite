@@ -7,15 +7,18 @@
 }
 
 .about-bg {
-  background: radial-gradient(
-    133.05% 133.05% at 48.02% 29.5%,
-    #5a5a5a 20%,
-    #313131 40%,
-    #2d2d2d 60%,
-    #141414 80%,
-    #1a1a1a 100%
-  );
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
 }
+
+.about-bg::before {
+  background-image: url("../images/sectionsAssets/About-bg.png");
+  @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-[0px]
+}
+
 
 .burger-line {
   @apply h-1 w-11 bg-qiskit-white rounded;
@@ -66,6 +69,8 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #000000;
+  color: white;
 }
 
 .bounce {

@@ -52,7 +52,7 @@ const Hero = () => {
             </div>
 
             <div className="flex-1 pt-10 lg:pt-0 order-first lg:order-last">
-              <Tilt>
+              <Tilt className="cursor-pointer">
                 <Image src={AIML_Logo} width={"500px"} height={"500px"}/>
               </Tilt>
             </div>
