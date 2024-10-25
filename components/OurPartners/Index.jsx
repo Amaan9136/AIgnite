@@ -1,13 +1,13 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import CQTech from "../../images/logos/CQTech.png";
 import IBM from "../../images/logos/IBM.png";
 import Qiskit from "../../images/logos/Qiskit.png";
-import CQTech from "../../images/logos/CQTech.png";
 import atom from "../../images/shapes/atom.png";
-import globe from "../../images/shapes/globe.png";
 import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
-import SectionTitle from "../shared/SectionTitle";
+import globe from "../../images/shapes/globe.png";
+import SectionTitle from "../helpers/SectionTitle";
 
 const OurPartners = () => {
   const partners = [

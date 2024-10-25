@@ -3,8 +3,8 @@ import GDG from "../../images/logos/GDGAlgiers.png";
 import WTM from "../../images/logos/WTMAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
-import ParagSection from "../shared/ParagSection";
-import SectionTitle from "../shared/SectionTitle";
+import ParagSection from "../helpers/ParagSection";
+import SectionTitle from "../helpers/SectionTitle";
 
 const AboutUs = () => {
   return (
@@ -23,9 +23,8 @@ const AboutUs = () => {
         <div className="absolute bottom-1/2 left-8 w-[75px] h-[53px] md:w-[40px] md:h-[40px] lg:w-[106px] lg:h-[76px] 2xl:w-[160px] 2xl:h-[112px]">
           <Image src={maqam} layout="fill" />
         </div>
-        <div className="w-10/12 mx-auto flex flex-col gap-8">
-          <SectionTitle isWhite={true} title={"About us"} />
-          <div className="flex flex-col gap-12 lg:gap-28">
+        <div className="section-container pt-12 lg:pt-24">
+          <SectionTitle title={"About us"} />
             <ParagSection
               keyword1={"WTM Algiers "}
               paragraph1={`also known as the "Women Techmakers Algiers" program, was created to increase visibility, community, and resources for women in technology and also spread learning and build role models globally. It's located at`}
@@ -44,7 +43,6 @@ const AboutUs = () => {
               reverse={true}
               redirect={"https://www.gdgalgiers.com"}
             ></ParagSection>
-          </div>
         </div>
       </div>
       {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-b from-qiskit-blue-normal to-qiskit-white"></div> */}

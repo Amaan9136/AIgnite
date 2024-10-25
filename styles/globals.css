@@ -56,6 +56,19 @@
   @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-[2px]
 }
 
+.map-outline {
+  width: fill; 
+  height: fill; 
+  padding-left: 3px;
+  mask-image: url('../images/sectionsAssets/Map.png');  
+  mask-size: cover;  
+  -webkit-mask-image: url('../images/sectionsAssets/Map.png');  
+  -webkit-mask-size: cover;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  
+}
+
 .footer-bg {
   background: radial-gradient(
     133.05% 133.05% at 48.02% 29.5%,

@@ -1,13 +1,10 @@
-import SectionTitle from "../shared/SectionTitle";
 import Image from "next/image";
-import globe from "../../images/shapes/globe.png";
-import atom from "../../images/shapes/atom.png";
-import maqam from "../../images/shapes/GDGAlgiers.png";
-import computer from "../../images/shapes/computer.png";
 import qBraid from "../../images/logos/qBraid.png";
-import World from "../../images/logos/World.png";
-import WIQ from "../../images/logos/WIQ.png";
-import Sonatrach from "../../images/logos/Sonatrach.png";
+import atom from "../../images/shapes/atom.png";
+import computer from "../../images/shapes/computer.png";
+import maqam from "../../images/shapes/GDGAlgiers.png";
+import globe from "../../images/shapes/globe.png";
+import SectionTitle from "../helpers/SectionTitle";
 
 const TheyTrustedUs = () => {
   return (

@@ -1,15 +1,15 @@
-import { useRef } from "react";
-import YellowButton from "../shared/YellowButton";
 import Image from "next/image";
-import RightArrow from "../../images/sectionsAssets/rightArrow.png";
+import { useRef } from "react";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SectionTitle from "../../components/helpers/SectionTitle";
 import LeftArrow from "../../images/sectionsAssets/leftArrow.png";
-import Maqam from "../../images/shapes/GDGAlgiers.png";
-import globe from "../../images/shapes/globe.png";
+import RightArrow from "../../images/sectionsAssets/rightArrow.png";
 import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
-import SectionTitle from "../../components/shared/SectionTitle";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import Maqam from "../../images/shapes/GDGAlgiers.png";
+import globe from "../../images/shapes/globe.png";
+import YellowButton from "../helpers/YellowButton";
 import { speakers } from "./data";
 
 const OurSpeakers = () => {

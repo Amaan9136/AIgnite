@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import WTMAlgiers from "../../images/logos/WTMAlgiers-white.png";
-import Bluebutton from "../shared/Bluebutton";
+import Bluebutton from "../helpers/Bluebutton";
 import NavLinks from "./links";
 const Navbar = () => {
   const [isNavToggled, setIsNavToggled] = useState(false);

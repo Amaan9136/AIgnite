@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Tilt from "react-parallax-tilt";
-import YellowButton from "../shared/YellowButton";
+import YellowButton from "../helpers/YellowButton";
 const ParagSection = ({
   keyword1,
   paragraph1,

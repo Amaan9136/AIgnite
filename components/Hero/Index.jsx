@@ -4,19 +4,21 @@ import Typewriter from "typewriter-effect";
 import AIML_Logo from "../../images/logos/AIML-LOGO-WHITE.png";
 import GDGAlgiers from "../../images/logos/GDGAlgiers-white.png";
 import Arrow from "../../images/shapes/Arrow.png";
-import Maqam from "../../images/shapes/MaqamWhite.png";
 import Atom from "../../images/shapes/atomWhite.png";
 import Computer from "../../images/shapes/computerWhite.png";
 import Globe from "../../images/shapes/globe.png";
-import Purpulebutton from "../shared/Purpulebutton";
+import Maqam from "../../images/shapes/MaqamWhite.png";
+import Animate from "../helpers/animate-motion";
+import Purpulebutton from "../helpers/Purpulebutton";
 import CounterContainer from "./CounterContainer";
 import Navbar from "./Navbar";
+
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen hero-bg">
       <div className="section-container pb-24 md:pb-0">
         <Navbar />
-        <div className="flex flex-col gap-16 lg:gap-0 relative">
+        <Animate className="flex flex-col gap-16 lg:gap-0 relative">
           <div className="w-12 h-12 absolute top-1/4 left-4 lg:top-4 lg:left-4">
             <Image src={Atom} />
           </div>
@@ -28,7 +30,7 @@ const Hero = () => {
           </div>
           <div className="flex flex-col lg:flex-row items-center">
             <div className="flex flex-col gap-7 flex-1 lg:pl-12 text-qiskit-white">
-            <h1 className="flex font-bold text-center lg:text-left text-4xl lg:text-6xl 2xl:text-7xl leading-[4.5rem]">
+            <Animate delay={7} tag="h1" x={60} className="flex font-bold text-center text-sm lg:text-left text-4xl lg:text-6xl 2xl:text-7xl leading-[4.5rem]">
               AIgnite&nbsp;
                 <Typewriter
                   options={{
@@ -37,10 +39,10 @@ const Hero = () => {
                     loop: true,
                   }}
                 />
-              </h1>
-              <p className="font-medium text-center lg:text-left leading-[2rem] lg:text-2xl 2xl:text-4xl 2xl:leading-[2.875rem]">
+              </Animate>
+              <Animate delay={12} x={-60} tag="p" className="font-medium text-center lg:text-left leading-[2rem] lg:text-2xl 2xl:text-4xl 2xl:leading-[2.875rem]">
                 Your chance to discover the Quantum Computing world!
-              </p>
+              </Animate>
               <div className="flex items-end">
                 <div className="relative h-[67px] bounce w-[67px] 2xl:w-[101px] 2xl:h-[114px]">
                   <Image src={Arrow} layout="fill" />
@@ -53,13 +55,14 @@ const Hero = () => {
 
             <div className="flex-1 pt-10 lg:pt-0 order-first lg:order-last">
               <Tilt className="cursor-pointer">
-                <Image src={AIML_Logo} width={"500px"} height={"500px"}/>
+                <Image src={AIML_Logo} width={"450px"} height={"450px"} />
               </Tilt>
             </div>
           </div>
 
           <div className="flex items-center">
             <div className="hidden lg:flex">
+              {/* replace if needed */}
               <Image src={GDGAlgiers} />
             </div>
             <CounterContainer countDownLimit="2024-11-08T00:00:00" />
@@ -74,7 +77,7 @@ const Hero = () => {
           <div className="hidden lg:block w-12 h-12 absolute bottom-1/4 right-2/4">
             <Image src={Computer} />
           </div>
-        </div>
+        </Animate>
       </div>
     </section>
   );
