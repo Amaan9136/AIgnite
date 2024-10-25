@@ -11,8 +11,6 @@
 ## About The Project
 
 
-This is the official repository of Qiskit Fall Fest Algiers
-
 ### Built With
 
 Technologies used to build the website:
