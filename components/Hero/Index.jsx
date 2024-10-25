@@ -32,7 +32,7 @@ const Hero = () => {
               <Tilt className="cursor-pointer"
                 tiltMaxAngleX={15}
                 tiltMaxAngleY={30}>
-                <Animate delay={7} tag="h1" x={60} className="flex font-bold text-center text-sm lg:text-left text-4xl lg:text-6xl 2xl:text-7xl leading-[4.5rem]">
+                <Animate delay={7} tag="h1" x={60} className="flex font-bold text-sm justify-center lg:justify-start lg:text-left text-4xl lg:text-6xl 2xl:text-7xl leading-[4.5rem]">
                   AIgnite&nbsp;
                   <Typewriter
                     options={{

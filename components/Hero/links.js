@@ -16,8 +16,8 @@ const navLinks = [
     redirect: "#speakers",
   },
   {
-    content: "Agenda",
-    redirect: "#agenda",
+    content: "Schedule",
+    redirect: "#schedule",
   },
 ];
 

@@ -88,6 +88,7 @@ const AboutEvent = () => {
                     glareMaxOpacity={2}
                     glareColor="#4999D0"
                     glarePosition="all"
+                    className="cursor-pointer"
                   >
                     <Image
                       src={eventObj.image}

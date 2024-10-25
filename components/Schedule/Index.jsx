@@ -5,12 +5,12 @@ import maqam from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import SectionTitle from "../helpers/SectionTitle";
 import YellowButton from "../helpers/YellowButton";
-import { agenda } from "./agenda";
+import { schedule } from "./schedule";
 
-const Agenda = () => {
+const Schedule = () => {
   return (
-    <section id="agenda" className="relative section-container">
-      <SectionTitle title={"Agenda"}> </SectionTitle>
+    <section id="schedule" className="relative section-container">
+      <SectionTitle title={"Schedule"}> </SectionTitle>
       <div className="md:hidden visible absolute left-0 top-0 z-25 sm:w-[80px] sm:h-[80px] w-[50px] h-[50px]">
         <Image src={atom} alt="maqam chahid" layout="fill" />
       </div>
@@ -33,17 +33,17 @@ const Agenda = () => {
             <div className="">
               <div className=" sm:text-xl font-medium md:font-semibold text-xs md:px[10px] ">
                 <div className="flew flex-row">
-                  {agenda.map((agendaInfo, idx) => {
+                  {schedule.map((scheduleInfo, idx) => {
                     return (
                       <div
-                        key={idx}
+                        key={33+idx}
                         className="flex flex-row justify-stretch mx-auto "
                       >
                         <div className="flex flex-none py-2.5 md:pl-10">
-                          <div className="">{agendaInfo.Time}</div>
+                          <div className="">{scheduleInfo.Time}</div>
                         </div>
                         <div className="flex pl-2 md:pl-10 py-2.5 ">
-                          <div className="">{agendaInfo.event}</div>
+                          <div className="">{scheduleInfo.event}</div>
                         </div>
                       </div>
                     );
@@ -75,4 +75,4 @@ const Agenda = () => {
   );
 };
 
-export default Agenda;
+export default Schedule;

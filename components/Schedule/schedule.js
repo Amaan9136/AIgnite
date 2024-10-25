@@ -1,4 +1,4 @@
-export const agenda = [
+export const schedule = [
   {
     Time: "09:00 - 09:30",
     event: "Opening ceremony",

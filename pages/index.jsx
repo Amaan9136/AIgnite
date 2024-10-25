@@ -1,11 +1,11 @@
 import Head from "next/head";
 import AboutEvent from "../components/AboutEvent/Index";
 import AboutUs from "../components/AboutUs/Index";
-import Agenda from "../components/Agenda/Index";
 import EventLocation from "../components/EventLocation/Index";
 import Footer from "../components/Footer/Index";
 import Hero from "../components/Hero/Index";
 import OurSpeakers from "../components/OurSpeakers/Index";
+import Schedule from "../components/Schedule/Index";
 import TheyTrustedUs from "../components/TheyTrustedUs/Index";
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
         <AboutUs />
         <OurSpeakers/>
         <TheyTrustedUs />
-        <Agenda />
+        <Schedule />
       </main>
       <Footer />
     </>
