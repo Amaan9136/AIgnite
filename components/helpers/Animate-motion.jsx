@@ -1,6 +1,4 @@
-"use client";
-
-import { DOMMotionComponents, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 
 const Animate = ({
@@ -17,8 +15,8 @@ const Animate = ({
     show: { opacity: 1, x: 0, y: 0, transition: { duration, delay: delay * 0.1 } },
   };
 
-  // Use DOMMotionComponents to get the correct motion component based on tag
-  const MotionTag = (motion as DOMMotionComponents)[tag] || motion.div;
+  // Dynamically select the motion component based on the tag
+  const MotionTag = motion[tag] || motion.div;
 
   return (
     <MotionTag initial="hidden" animate="show" variants={variants} {...props}>
@@ -29,14 +27,12 @@ const Animate = ({
 
 export default Animate;
 
-{/* Example usage */ }
-{/* 
-<Animate
-  tag="div"
-  x={-50}
-  delay={4}
-  className="text-sm text-zinc-600 dark:text-zinc-400"
->
-  Some texts
-</Animate>
-*/}
+// Example usage
+// <Animate
+//   tag="div"
+//   x={-50}
+//   delay={4}
+//   className="text-sm text-zinc-600 dark:text-zinc-400"
+// >
+//   Some texts
+// </Animate>

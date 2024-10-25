@@ -22,10 +22,10 @@ const CounterContainer = ({ countDownLimit }) => {
   return (
     <div className="flex justify-center grow mt-12 lg:m-16">
       <div className="flex items-center gap-12 lg:gap-8 lg:flex-row 2xl:gap-24">
-        <CounterAtom time="Days" timeleft={remainingTime.days}/>
-        <CounterAtom time="Hrs" timeleft={remainingTime.hours}/>
-        <CounterAtom time="Mins" timeleft={remainingTime.minutes}/>
-        <CounterAtom time="Secs" isHidden={true} timeleft={remainingTime.seconds}/>
+        <CounterAtom delay={14} time="Days" timeleft={remainingTime.days}/>
+        <CounterAtom delay={15} time="Hrs" timeleft={remainingTime.hours}/>
+        <CounterAtom delay={16} time="Mins" timeleft={remainingTime.minutes}/>
+        <CounterAtom delay={17} time="Secs" isHidden={true} timeleft={remainingTime.seconds}/>
       </div>
     </div>
   );

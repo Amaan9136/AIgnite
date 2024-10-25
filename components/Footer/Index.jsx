@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import Qiskit from "../../images/logos/Qiskit.svg";
-import WTMWHITE from "../../images/logos/WTMAlgiers-white.png";
-import GDGWHITE from "../../images/logos/GDGAlgiers-white.png";
-import GlobeShape from "../../images/shapes/globe.png";
-import AlgeriaSymbol from "../../images/shapes/GDGAlgiers.png";
-import { socialsMedia, links } from "./data";
 import Tilt from "react-parallax-tilt";
+import AIgnite from "../../images/logos/aignite-logo.png";
+import GDGWHITE from "../../images/logos/GDGAlgiers-white.png";
+import Qiskit from "../../images/logos/Qiskit.svg";
+import AlgeriaSymbol from "../../images/shapes/GDGAlgiers.png";
+import GlobeShape from "../../images/shapes/globe.png";
+import { links, socialsMedia } from "./data";
 
 const Footer = () => {
   return (
@@ -25,7 +25,7 @@ const Footer = () => {
             {/* LOGOS */}
             <div className="flex items-center gap-7">
               <div className="cursor-pointer">
-                <Image src={WTMWHITE} />
+                <Image src={AIgnite} width={"180px"} height={"60px"}/>
               </div>
               <div className="cursor-pointer">
                 <Image src={GDGWHITE} />

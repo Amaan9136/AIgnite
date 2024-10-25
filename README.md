@@ -1,9 +1,5 @@
 <a name="readme-top"></a>
 
-<!--
-*** This the README file of our Qiskit-Fall-Fest-Algiers-2022 project.
--->
-
 <!-- PROJECT LOGO -->
 
 <!-- ABOUT THE PROJECT -->

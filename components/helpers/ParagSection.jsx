@@ -13,7 +13,7 @@ const ParagSection = ({
   return (
     <div className="flex flex-col gap-10 items-center lg:flex-row">
       <div className="flex flex-col gap-11 flex-1">
-        <p className="text-qiskit-white text-sm lg:text-xl font-medium leading-6 lg:leading-8 2xl:text-4xl 2xl:leading-[3rem] lg:pl-8">
+        <p className="text-qiskit-white text-sm lg:text-xl font-medium leading-6 lg:leading-8 lg:pl-8">
           <span className="font-bold text-qiskit-yellow">{keyword1}</span>
           {paragraph1}
           <span className="font-bold text-qiskit-yellow">{keyword2}</span>
@@ -26,12 +26,20 @@ const ParagSection = ({
       </div>
 
       <div
-        className={`relative w-[250px] h-[250px] lg:w-[321px] 2xl:w-[480px]  lg:h-[321px]  2xl:h-[480px] ${
-          reverse && "lg:order-first"
-        }`}
+        className={`relative w-[250px] h-[250px] lg:w-[321px] ${reverse && "lg:order-first"
+          }`}
       >
-        <Tilt className="cursor-pointer">
-        <Image src={img} width={"500px"} height={"500px"} alt="" />
+        <Tilt
+          // tiltMaxAngleX={80}
+          // tiltMaxAngleY={40}
+          // scale={1.1}
+          // transitionSpeed={300}
+          // glareEnable={true}
+          // glareMaxOpacity={2}
+          // glareColor="#4999D0"
+          // glarePosition="all"
+          className="cursor-pointer">
+          <Image src={img} width={"500px"} height={"500px"} alt="" />
         </Tilt>
       </div>
     </div>

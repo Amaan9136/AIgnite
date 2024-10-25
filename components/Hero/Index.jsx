@@ -2,13 +2,12 @@ import Image from "next/image";
 import Tilt from "react-parallax-tilt";
 import Typewriter from "typewriter-effect";
 import AIML_Logo from "../../images/logos/AIML-LOGO-WHITE.png";
-import GDGAlgiers from "../../images/logos/GDGAlgiers-white.png";
 import Arrow from "../../images/shapes/Arrow.png";
 import Atom from "../../images/shapes/atomWhite.png";
 import Computer from "../../images/shapes/computerWhite.png";
 import Globe from "../../images/shapes/globe.png";
 import Maqam from "../../images/shapes/MaqamWhite.png";
-import Animate from "../helpers/animate-motion";
+import Animate from "../helpers/Animate-motion";
 import Purpulebutton from "../helpers/Purpulebutton";
 import CounterContainer from "./CounterContainer";
 import Navbar from "./Navbar";
@@ -30,43 +29,54 @@ const Hero = () => {
           </div>
           <div className="flex flex-col lg:flex-row items-center">
             <div className="flex flex-col gap-7 flex-1 lg:pl-12 text-qiskit-white">
-            <Animate delay={7} tag="h1" x={60} className="flex font-bold text-center text-sm lg:text-left text-4xl lg:text-6xl 2xl:text-7xl leading-[4.5rem]">
-              AIgnite&nbsp;
-                <Typewriter
-                  options={{
-                    strings: ["| Destination Demand", "| Shark Tech", "| Blow PC's"],
-                    autoStart: true,
-                    loop: true,
-                  }}
-                />
-              </Animate>
-              <Animate delay={12} x={-60} tag="p" className="font-medium text-center lg:text-left leading-[2rem] lg:text-2xl 2xl:text-4xl 2xl:leading-[2.875rem]">
-                Your chance to discover the Quantum Computing world!
-              </Animate>
-              <div className="flex items-end">
+              <Tilt className="cursor-pointer"
+                tiltMaxAngleX={15}
+                tiltMaxAngleY={30}>
+                <Animate delay={7} tag="h1" x={60} className="flex font-bold text-center text-sm lg:text-left text-4xl lg:text-6xl 2xl:text-7xl leading-[4.5rem]">
+                  AIgnite&nbsp;
+                  <Typewriter
+                    options={{
+                      strings: ["| Code", "| Shark Tech", "| Blow PC's"],
+                      autoStart: true,
+                      loop: true,
+                    }}
+                  />
+                </Animate>
+              </Tilt>
+
+              <Tilt className="cursor-pointer"
+                tiltMaxAngleX={30}
+                tiltMaxAngleY={15}>
+                <Animate delay={12} x={-60} tag="p" className="font-medium text-center lg:text-left leading-[2rem] lg:text-2xl 2xl:text-4xl 2xl:leading-[2.875rem]">
+                  Your chance to discover the Quantum Computing world!
+                </Animate>
+              </Tilt>
+              <Animate delay={13} className="flex items-end cursor-pointer">
                 <div className="relative h-[67px] bounce w-[67px] 2xl:w-[101px] 2xl:h-[114px]">
                   <Image src={Arrow} layout="fill" />
                 </div>
                 <div className="mb-[-50px] 2xl:mb-[-110px] cursor-not-allowed">
                   <Purpulebutton title={"Register Now!"} />
                 </div>
-              </div>
+              </Animate>
             </div>
 
-            <div className="flex-1 pt-10 lg:pt-0 order-first lg:order-last">
-              <Tilt className="cursor-pointer">
-                <Image src={AIML_Logo} width={"450px"} height={"450px"} />
+            <Animate delay={13} x={-60} y={80} duration={1} className="flex-1 pt-10 lg:pt-0 order-first lg:order-last">
+              <Tilt className="cursor-pointer"
+                tiltMaxAngleX={60}
+                tiltMaxAngleY={40}
+                transitionSpeed={500}
+              // glareEnable={true}
+              // glareMaxOpacity={0.5}
+              // glareColor="#fff"
+              // glarePosition="top"
+              >
+                <Image src={AIML_Logo} width={"450px"} height={"450px"} priority={2} />
               </Tilt>
-            </div>
+            </Animate>
           </div>
 
-          <div className="flex items-center">
-            <div className="hidden lg:flex">
-              {/* replace if needed */}
-              <Image src={GDGAlgiers} />
-            </div>
-            <CounterContainer countDownLimit="2024-11-08T00:00:00" />
-          </div>
+          <CounterContainer countDownLimit="2024-11-08T00:00:00" />
 
           <div className="w-12 h-12 absolute bottom-16 left-8">
             <Image src={Atom} />

@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import WTMAlgiers from "../../images/logos/WTMAlgiers-white.png";
+import Tilt from "react-parallax-tilt";
+import AIgnite from "../../images/logos/aignite-logo.png";
+import Animate from "../helpers/Animate-motion.jsx";
 import Purplebutton from "../helpers/Purpulebutton.jsx";
 import NavLinks from "./links";
 const Navbar = () => {
@@ -11,28 +13,48 @@ const Navbar = () => {
       {/* Desktop menu */}
       <div>
         <div className="flex justify-between items-center">
-          <div>
-            <Image src={WTMAlgiers} alt="WTM Algiers" />
-          </div>
+          <Animate delay={1} className="cursor-pointer">
+            <Tilt
+              tiltMaxAngleX={60}
+              tiltMaxAngleY={40}
+              scale={1.5}
+              transitionSpeed={250}
+            // glareEnable={true}
+            // glareMaxOpacity={0.5}
+            // glareColor="#fff"
+            // glarePosition="all"
+            // className="p-4 cursor-pointer"
+            >
+              <Image src={AIgnite} alt="AIgnite-Logo" width={"180px"} height={"60px"} priority={1} />
+            </Tilt>
+          </Animate>
 
-          <ul className="hidden lg:flex items-center text-xl gap-16 font-medium text-qiskit-white 2xl:text-4xl 2xl:gap-24">
+          <Animate delay={2} tag="ul" className="hidden lg:flex items-center text-xl gap-16 font-bold text-qiskit-white">
             {NavLinks.map((navLink, idx) => {
               return (
-                <Link key={idx} href={navLink.redirect}>
-                  <li className="cursor-pointer hover:text-qiskit-yellow transition-all duration-500 relative">
-                    {navLink.content == "Home" && (
-                      <div className="absolute left-0 -bottom-[4px] h-[5px] w-4/6 bg-qiskit-white"></div>
-                    )}
-                    <p>{navLink.content}</p>
-                  </li>
-                </Link>
+                <Tilt
+                  key={11 + idx}
+                  tiltMaxAngleX={60}
+                  tiltMaxAngleY={40}
+                  scale={1.5}
+                  transitionSpeed={250}
+                  className="cursor-pointer">
+                  <Link href={navLink.redirect}>
+                    <Animate tag="li" delay={idx + 2} y={idx + 50} x={idx + 50} className="hover:text-qiskit-yellow transition-all duration-500 relative">
+                      {navLink.content == "Home" && (
+                        <div className="absolute left-0 -bottom-[4px] h-[5px] w-4/6 bg-qiskit-white"></div>
+                      )}
+                      {navLink.content}
+                    </Animate>
+                  </Link>
+                </Tilt>
               );
             })}
-          </ul>
+          </Animate>
 
-          <div className="hidden lg:flex">
+          <Animate delay={10} y={55} x={55} className="hidden lg:flex cursor-pointer">
             <Purplebutton title={"Join us"} />
-          </div>
+          </Animate>
 
           <div
             onClick={() => setIsNavToggled(!isNavToggled)}
@@ -48,22 +70,31 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isNavToggled && (
         <div className="flex flex-col items-center lg:hidden">
-          <ul className="flex flex-col items-center text-xl gap-16 font-medium text-qiskit-white 2xl:text-4xl 2xl:gap-24">
+          <Animate tag="ul" className="flex flex-col items-center text-xl gap-16 font-medium text-qiskit-white 2xl:text-4xl 2xl:gap-24">
             {NavLinks.map((navLink, idx) => {
               return (
-                <Link key={idx} href={navLink.redirect}>
-                  <li
-                    className="cursor-pointer relative transition-all duration-500 hover:text-qiskit-yellow"
-                  >
-                    {navLink.content == "Home" && (
-                      <div className="absolute left-2 -bottom-[4px] h-[5px] w-4/6 bg-qiskit-white"></div>
-                    )}
-                    <p>{navLink.content}</p>
-                  </li>
-                </Link>
+                <Tilt
+                  key={22 + idx}
+                  tiltMaxAngleX={40}
+                  tiltMaxAngleY={40}
+                  scale={1.1}
+                  transitionSpeed={200}
+                  className="cursor-pointer">
+                  <Link href={navLink.redirect}>
+                    <Animate
+                      tag="li" delay={idx + 2} y={idx + 80} x={idx + 80}
+                      className="cursor-pointer relative transition-all duration-500 hover:text-qiskit-yellow"
+                    >
+                      {navLink.content == "Home" && (
+                        <div className="absolute left-2 -bottom-[4px] h-[5px] w-4/6 bg-qiskit-white"></div>
+                      )}
+                      <p>{navLink.content}</p>
+                    </Animate>
+                  </Link>
+                </Tilt>
               );
             })}
-          </ul>
+          </Animate>
         </div>
       )}
     </header>
