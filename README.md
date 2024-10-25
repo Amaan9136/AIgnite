@@ -10,7 +10,6 @@
 
 ## About The Project
 
-
 ### Built With
 
 Technologies used to build the website:
