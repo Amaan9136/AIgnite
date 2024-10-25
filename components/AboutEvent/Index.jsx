@@ -3,8 +3,8 @@ import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
+import Animate from "../helpers/animate-motion";
 import SectionTitle from "../helpers/SectionTitle";
-
 
 const AboutEvent = () => {
   return (
@@ -17,7 +17,7 @@ const AboutEvent = () => {
           />
         </div>
       </div>
-      <SectionTitle title={"About The Event"} />
+      <SectionTitle title={"About The Event"} delay={12}/>
 
       <div className="relative">
         <div className="absolute top-[460px] right-0 sm:top-[-70px] sm:right-0 lg:top-[-32px] lg:right-0  w-[68px] h-[58px] lg:w-[106px] lg:h-[74px] 2xl:w-[70px] 2xl:h-[70px]">
@@ -27,7 +27,6 @@ const AboutEvent = () => {
           />
         </div>
       </div>
-
 
       <div>
         <div className="relative">
@@ -55,8 +54,8 @@ const AboutEvent = () => {
           </div>
         </div>
 
-        <div className="gap-8 row-2 lg:columns-2 mt-[50px] h-[450px]">
-          <div className="flex justify-start md:h-[450px]">
+        <Animate delay={14} x={-50} y={50} className="gap-8 row-2 lg:columns-2 mt-[50px] h-[450px] lg:m-4">
+          <div className="flex justify-start md:h-[450px] p-2">
             <iframe
               className="map-outline"
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62114.43378275056!2d75.7979479!3d13.3408124!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad9f183766385%3A0x79f1ff3909ba5a!2sDepartment%20of%20HRD%2C%20AIT%2C%20Chikkamagaluru!5e0!3m2!1sen!2sin!4v1729851541287!5m2!1sen!2sin"
@@ -80,7 +79,7 @@ const AboutEvent = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Animate>
       </div>
       <div className="relative">
         <div className="absolute invisible sm:visible right-[640px] h-[46px] w-[61px] 2xl:h-[93px] 2xl:w-[93]">

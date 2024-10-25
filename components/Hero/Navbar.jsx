@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import WTMAlgiers from "../../images/logos/WTMAlgiers-white.png";
-import Bluebutton from "../helpers/Bluebutton";
+import Purplebutton from "../helpers/Purpulebutton.jsx";
 import NavLinks from "./links";
 const Navbar = () => {
   const [isNavToggled, setIsNavToggled] = useState(false);
@@ -31,7 +31,7 @@ const Navbar = () => {
           </ul>
 
           <div className="hidden lg:flex">
-            <Bluebutton title={"Join us"} />
+            <Purplebutton title={"Join us"} />
           </div>
 
           <div

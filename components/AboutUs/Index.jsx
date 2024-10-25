@@ -25,6 +25,7 @@ const AboutUs = () => {
         </div>
         <div className="section-container pt-12 lg:pt-24">
           <SectionTitle title={"About us"} />
+          <div className="flex flex-col gap-12 lg:gap-28 lg:m-4">
             <ParagSection
               keyword1={"WTM Algiers "}
               paragraph1={`also known as the "Women Techmakers Algiers" program, was created to increase visibility, community, and resources for women in technology and also spread learning and build role models globally. It's located at`}
@@ -43,6 +44,7 @@ const AboutUs = () => {
               reverse={true}
               redirect={"https://www.gdgalgiers.com"}
             ></ParagSection>
+          </div>
         </div>
       </div>
       {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-b from-qiskit-blue-normal to-qiskit-white"></div> */}
