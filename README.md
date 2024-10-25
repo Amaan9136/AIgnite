@@ -4,31 +4,7 @@
 *** This the README file of our Qiskit-Fall-Fest-Algiers-2022 project.
 -->
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/GDGAlgiers/gdg-algiers-website-2022">
-    <img src="./public/Qiskit.png" alt="Logo" width="70%" height="auto">
-  </a>
-
-  <h3 align="center">Qiskit Fall Fest Algiers website</h3>
-
-  <p align="center">
-    this is the official repository for Qiskit Fall Fest Algiers website
-    <br />
-    <br />
-    <br />
-    <a href="https://wtm-algiers-qiskit-2022-website-4dmt4jjg1-wtm-algiers.vercel.app/">View Demo</a>
-    ·
-    <a href="https://github.com/GDGAlgiers/gdg-algiers-website-2022/issues">Report Bug</a>
-  </p>
-</div>
 
 <!-- ABOUT THE PROJECT -->
 
