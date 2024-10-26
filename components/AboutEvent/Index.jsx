@@ -15,19 +15,23 @@ const AboutEvent = () => {
     {
       name: "Reverse Engineering",
       image: event1,
-      color: "#cb6ce6"
+      color: "#7ce6e2",
+      description: "Dive into the art of deconstructing complex systems, discovering their inner workings, and unlocking new perspectives in technology and innovation."
     },
     {
-      name: "Shark Tank",
+      name: "Shark Tekz",
       image: event2,
-      color: "#4999D0"
+      color: "#4999D0",
+      description: "Experience the thrill of rapid innovation as creative minds pitch groundbreaking tech ideas in a high-stakes environment where innovation meets competition."
     },
     {
       name: "E-Sports",
       image: event3,
-      color: "#fe8400"
+      color: "#fe8400",
+      description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports."
     },
-  ]
+  ];
+  
   return (
     <section id="about-event" className="section-container pt-12 lg:pt-24">
 
@@ -71,11 +75,11 @@ const AboutEvent = () => {
 
           {/* Events */}
           <div className="flex justify-center items-center">
-            <div className="relative w-4/5 my-16 flex gap-8 flex-col lg:flex-row justify-between">
+            <div className="relative w-4/5 my-16 flex gap-16 flex-col lg:flex-row justify-between">
               {eventsData.map((eventObj, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col items-center ${index === 0 || index === 2 ? 'lg:scale-90' : 'lg:scale-[1.1]'} 
+                  className={`flex flex-col items-center ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'} 
         ${index === 1 ? 'order-first' : 'order-last'}
          lg:order-none`}
                 // index === 1 is to make the 2nd image first (Shark Tech) in mobile view
@@ -89,8 +93,9 @@ const AboutEvent = () => {
                     glareMaxOpacity={2}
                     glareColor={eventObj.color}
                     glarePosition="all"
-                    className="cursor-pointer"
+                    className="cursor-pointer relative group"
                   >
+                    {/* Image with hover description */}
                     <Image
                       src={eventObj.image}
                       alt={eventObj.name}
@@ -98,12 +103,22 @@ const AboutEvent = () => {
                       height={500}
                       className="rounded-lg shadow-md"
                     />
+
+                    {/* Description overlay */}
+                    <div
+                      className="absolute top-10 left-0 w-full bg-black bg-opacity-60 text-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ color: "#fddc69" }}
+                    >
+                      <p className="text-xl font-semibold">{eventObj.description}</p>
+                    </div>
+
                   </Tilt>
 
                   {/* Name Button */}
-                  <div className="text-center mt-4 relative w-4/5 mx-auto z-10 -mt-24 ">
-                      <YellowButton title={eventObj.name} />
+                  <div className="text-center mt-4 relative w-4/5 mx-auto z-10 -mt-20">
+                    <YellowButton title={eventObj.name} />
                   </div>
+
                 </div>
               ))}
             </div>
@@ -137,7 +152,6 @@ const AboutEvent = () => {
             alt="computer"
           />
         </div>
-
       </div>
 
     </section>

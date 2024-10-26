@@ -4,6 +4,7 @@ import Tilt from "react-parallax-tilt";
 import Typewriter from "typewriter-effect";
 import AIML_Logo from "../../images/logos/AIML-LOGO-WHITE.png";
 import BackGround from "../../images/sectionsAssets/Hero-background.png";
+// import BackGround from "../../images/sectionsAssets/Hero-background.jpg";
 import Arrow from "../../images/shapes/Arrow.png";
 import Atom from "../../images/shapes/atomWhite.png";
 import Computer from "../../images/shapes/computerWhite.png";
@@ -46,7 +47,7 @@ const Hero = () => {
         />
       </motion.div>
 
-      <div className="section-container pb-24 md:pb-0">
+      <div className="section-container pb-24 md:pb-0 mb-6 lg:mb-0">
         <Navbar />
         <Animate className="flex flex-col gap-16 lg:gap-0 relative">
           <div className="w-12 h-12 absolute top-1/4 left-4 lg:top-4 lg:left-4">

@@ -1,6 +1,5 @@
 import Head from "next/head";
 import AboutEvent from "../components/AboutEvent/Index";
-import AboutUs from "../components/AboutUs/Index";
 import EventLocation from "../components/EventLocation/Index";
 import Footer from "../components/Footer/Index";
 import Hero from "../components/Hero/Index";
@@ -12,7 +11,7 @@ export default function Home() {
     <>
       <Head>
         <title>AIgnite</title>
-        <meta name="description" content="AIgnite Technical Events to remember forever" />
+        <meta name="description" content="AIgnite Technical Event by AIT AIML Chikmagalur" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
@@ -20,10 +19,10 @@ export default function Home() {
       <main className="font-IBM-Plex">
         <AboutEvent />
         <EventLocation />
-        <AboutUs />
-        <OurSpeakers/>
-        <TheyTrustedUs />
+        {/* <AboutUs /> */}
         <Schedule />
+        <TheyTrustedUs />
+        <OurSpeakers/>
       </main>
       <Footer />
     </>
