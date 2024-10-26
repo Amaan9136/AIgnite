@@ -51,10 +51,10 @@
   width: 100%;
 }
 
-.hero-bg::before {
+/* .hero-bg::before {
   background-image: url("../images/sectionsAssets/Hero-background.png");
   @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-[2px]
-}
+} */
 
 .map-outline {
   width: fill; 

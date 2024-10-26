@@ -4,27 +4,28 @@ import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
-import NaceriddineBelaloui from "../../images/speakers/Nacereddine_Belaloui.jpeg";
-import ParagSection from "../helpers/ParagSection";
+import event1 from "../../images/speakers/1.png";
+import event2 from "../../images/speakers/2.png";
+import event3 from "../../images/speakers/3.png";
 import SectionTitle from "../helpers/SectionTitle";
 import YellowButton from "../helpers/YellowButton";
 
 const AboutEvent = () => {
   const eventsData = [
     {
-      name: "Amaan1",
-      description: "Lorem ipsm Lorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsm",
-      image: NaceriddineBelaloui
+      name: "Reverse Engineering",
+      image: event1,
+      color: "#cb6ce6"
     },
     {
-      name: "Amaan2",
-      description: "Lorem ipsm Lorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsm",
-      image: NaceriddineBelaloui
+      name: "Shark Tank",
+      image: event2,
+      color: "#4999D0"
     },
     {
-      name: "Amaan3",
-      description: "Lorem ipsm Lorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsmLorem ipsm",
-      image: NaceriddineBelaloui
+      name: "E-Sports",
+      image: event3,
+      color: "#fe8400"
     },
   ]
   return (
@@ -74,7 +75,7 @@ const AboutEvent = () => {
               {eventsData.map((eventObj, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col items-center ${index === 0 || index === 2 ? 'lg:scale-75' : ''} 
+                  className={`flex flex-col items-center ${index === 0 || index === 2 ? 'lg:scale-90' : 'lg:scale-[1.1]'} 
         ${index === 1 ? 'order-first' : 'order-last'}
          lg:order-none`}
                 // index === 1 is to make the 2nd image first (Shark Tech) in mobile view
@@ -86,7 +87,7 @@ const AboutEvent = () => {
                     transitionSpeed={300}
                     glareEnable={true}
                     glareMaxOpacity={2}
-                    glareColor="#4999D0"
+                    glareColor={eventObj.color}
                     glarePosition="all"
                     className="cursor-pointer"
                   >
@@ -100,11 +101,8 @@ const AboutEvent = () => {
                   </Tilt>
 
                   {/* Name Button */}
-                  <div className="text-center mt-4">
-                    <div className="relative w-4/5 mx-auto z-10 -mt-24 ">
+                  <div className="text-center mt-4 relative w-4/5 mx-auto z-10 -mt-24 ">
                       <YellowButton title={eventObj.name} />
-                    </div>
-                    <p className="text-gray-600">{eventObj.description}</p>
                   </div>
                 </div>
               ))}
@@ -131,26 +129,6 @@ const AboutEvent = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-12 lg:gap-28 lg:m-4">
-          <ParagSection
-            keyword1={"WTM Algiers "}
-            paragraph1={`also known as the "Women Techmakers Algiers" program, was created to increase visibility, community, and resources for women in technology and also spread learning and build role models globally. It's located at`}
-            keyword2={" the National Higher School of Computer science "}
-            paragraph2={`and dedicated to anyone who's passionate and motivated about the tech field.`}
-            img={NaceriddineBelaloui}
-            reverse={false}
-            redirect={"https://www.wtmalgiers.org/"}
-          ></ParagSection>
-          <ParagSection
-            keyword1={"GDG Algiers "}
-            paragraph1={`is a local group of developers and students who are interested in Google’s developer technology products. It is located at`}
-            keyword2={" the National Higher School of Computer science "}
-            paragraph2={`and hosts a variety of events activities for developers through different events that aim to help the developers community get the latest technology updates.`}
-            img={NaceriddineBelaloui}
-            reverse={true}
-            redirect={"https://www.gdgalgiers.com"}
-          ></ParagSection>
-        </div>
       </div>
       <div className="relative">
         <div className="absolute invisible sm:visible right-[640px] h-[46px] w-[61px] 2xl:h-[93px] 2xl:w-[93]">
