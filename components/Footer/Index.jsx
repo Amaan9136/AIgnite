@@ -42,14 +42,14 @@ const Footer = () => {
                 <div className="flex gap-10 justify-center items-center lg:justify-start">
                   {socialsMedia.map((socialMedia, idx) => {
                     return (
-                      <a
+                      <Link
                         href={socialMedia.redirect}
                         target="__blank"
                         key={idx}
                         className="cursor-pointer"
                       >
                         <Image src={socialMedia.logo} />
-                      </a>
+                      </Link>
                     );
                   })}
                 </div>

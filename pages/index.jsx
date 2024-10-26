@@ -13,7 +13,7 @@ export default function Home() {
       <Head>
         <title>AIgnite</title>
         <meta name="description" content="AIgnite Technical Events to remember forever" />
-        <link rel="shortcut icon" href="/qiskit.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
       <Hero />

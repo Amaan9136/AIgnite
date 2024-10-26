@@ -25,7 +25,7 @@ const Navbar = () => {
             // glarePosition="all"
             // className="p-4 cursor-pointer"
             >
-              <Image src={AIgnite} alt="AIgnite-Logo" width={"180px"} height={"60px"} priority={1} />
+              <Image src={AIgnite} alt="AIgnite-Logo" width={180} height={180} priority={1} />
             </Tilt>
           </Animate>
 

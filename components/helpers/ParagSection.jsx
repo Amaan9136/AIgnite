@@ -39,7 +39,7 @@ const ParagSection = ({
           // glareColor="#4999D0"
           // glarePosition="all"
           className="cursor-pointer">
-          <Image src={img} width={"500px"} height={"500px"} alt="" />
+          <Image src={img} width={550} height={550} alt="" />
         </Tilt>
       </div>
     </div>

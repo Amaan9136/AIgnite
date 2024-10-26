@@ -104,7 +104,7 @@ const Hero = () => {
             <Animate delay={13} x={-60} y={80} duration={1} className="flex-1 pt-10 lg:pt-0 order-first lg:order-last">
               <Tilt className="cursor-pointer" tiltMaxAngleX={60} tiltMaxAngleY={40} transitionSpeed={500}>
                 <motion.div style={{opacity: bgOpacity, x: RegBtnX, scale: scaleTitle}}>
-                <Image src={AIML_Logo} width={"450px"} height={"450px"} priority={2} alt="AIML Logo" />
+                <Image src={AIML_Logo} width={450} height={450} priority={2} alt="AIML Logo" className="lg:ml-24"/>
                 </motion.div>
               </Tilt>
             </Animate>
