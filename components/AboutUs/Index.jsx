@@ -1,8 +1,7 @@
 import Image from "next/image";
-import GDG from "../../images/logos/GDGAlgiers.png";
-import WTM from "../../images/logos/WTMAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
+import Nacereddine_Belaloui from "../../images/speakers/Nacereddine_Belaloui.jpeg";
 import ParagSection from "../helpers/ParagSection";
 import SectionTitle from "../helpers/SectionTitle";
 
@@ -31,7 +30,7 @@ const AboutUs = () => {
               paragraph1={`also known as the "Women Techmakers Algiers" program, was created to increase visibility, community, and resources for women in technology and also spread learning and build role models globally. It's located at`}
               keyword2={" the National Higher School of Computer science "}
               paragraph2={`and dedicated to anyone who's passionate and motivated about the tech field.`}
-              img={WTM}
+              img={Nacereddine_Belaloui}
               reverse={false}
               redirect={"https://www.wtmalgiers.org/"}
             ></ParagSection>
@@ -40,7 +39,7 @@ const AboutUs = () => {
               paragraph1={`is a local group of developers and students who are interested in Google’s developer technology products. It is located at`}
               keyword2={" the National Higher School of Computer science "}
               paragraph2={`and hosts a variety of events activities for developers through different events that aim to help the developers community get the latest technology updates.`}
-              img={GDG}
+              img={Nacereddine_Belaloui}
               reverse={true}
               redirect={"https://www.gdgalgiers.com"}
             ></ParagSection>

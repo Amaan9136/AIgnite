@@ -71,7 +71,7 @@ const AboutEvent = () => {
 
           {/* Events */}
           <div className="flex justify-center items-center">
-            <div className="relative w-4/5 my-16 flex flex-col lg:flex-row justify-between">
+            <div className="relative w-4/5 my-16 flex gap-8 flex-col lg:flex-row justify-between">
               {eventsData.map((eventObj, index) => (
                 <div
                   key={index}

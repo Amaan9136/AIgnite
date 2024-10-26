@@ -15,15 +15,18 @@ import CounterContainer from "./CounterContainer";
 import Navbar from "./Navbar";
 
 const Hero = () => {
-  const { scrollY } = useScroll();
+  const { scrollX, scrollY } = useScroll();
 
   const bgOpacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   const scaleTitle = useTransform(scrollY, [0, 300], [1, 1.2]);
-  const titleY = useTransform(scrollY, [0, 300], ["0%", "-50%"]);
-  const subtitleY = useTransform(scrollY, [0, 300], ["0%", "50%"]);
+  const titleY = useTransform(scrollY, [0, 300], ["0%", "450px"]);
+  const titleX = useTransform(scrollX, [0, 300], ["0%", "-450px"]);
 
-  const counterOpacity = useTransform(scrollY, [100, 500], [1, 0]);
+  const RegBtnY = useTransform(scrollY, [0, 300], ["0%", "340px"]);
+  const RegBtnX = useTransform(scrollX, [0, 300], ["0%", "-340px"]);
+
+  const counterOpacity = useTransform(scrollY, [0, 300], [1, 0]);
   const counterX = useTransform(scrollY, [100, 500], ["0%", "-10%"]);
 
 
@@ -61,7 +64,7 @@ const Hero = () => {
             <div className="flex flex-col gap-7 flex-1 lg:pl-12 text-qiskit-white">
               <Tilt className="cursor-pointer" tiltMaxAngleX={15} tiltMaxAngleY={30}>
                 <motion.h1
-                  style={{ scale: scaleTitle, y: titleY }}
+                  style={{ scale: scaleTitle, y: titleY, x: titleX }}
                   className="flex font-bold text-sm justify-center lg:justify-start lg:text-left text-4xl lg:text-6xl 2xl:text-7xl leading-[4.5rem]"
                 >
                   AIgnite&nbsp;
@@ -77,7 +80,7 @@ const Hero = () => {
 
               <Tilt className="cursor-pointer" tiltMaxAngleX={30} tiltMaxAngleY={15}>
                 <motion.p
-                  style={{ scale: scaleTitle, y: subtitleY }}
+                  style={{ scale: scaleTitle, opacity: bgOpacity, y: titleY }}
                   className="font-medium text-center lg:text-left leading-[2rem] lg:text-2xl 2xl:text-4xl 2xl:leading-[2.875rem]"
                 >
                   Your chance to discover the Quantum Computing world!
@@ -85,23 +88,29 @@ const Hero = () => {
               </Tilt>
 
               <Animate delay={13} className="flex items-end cursor-pointer">
-                <div className="relative h-[67px] bounce w-[67px] 2xl:w-[101px] 2xl:h-[114px]">
+                <motion.div 
+                  style={{ opacity: counterOpacity }}
+                className="relative h-[67px] bounce w-[67px] 2xl:w-[101px] 2xl:h-[114px]">
                   <Image src={Arrow} layout="fill" alt="Arrow" />
-                </div>
-                <div className="mb-[-50px] 2xl:mb-[-110px] cursor-not-allowed">
+                </motion.div>
+                <motion.div 
+                  style={{ scale: scaleTitle, y: RegBtnY, x: RegBtnX, opacity: bgOpacity }}
+                className="mb-[-50px] 2xl:mb-[-110px] cursor-not-allowed">
                   <Purpulebutton title={"Register Now!"} />
-                </div>
+                </motion.div>
               </Animate>
             </div>
 
             <Animate delay={13} x={-60} y={80} duration={1} className="flex-1 pt-10 lg:pt-0 order-first lg:order-last">
               <Tilt className="cursor-pointer" tiltMaxAngleX={60} tiltMaxAngleY={40} transitionSpeed={500}>
+                <motion.div style={{opacity: bgOpacity, x: RegBtnX, scale: scaleTitle}}>
                 <Image src={AIML_Logo} width={"450px"} height={"450px"} priority={2} alt="AIML Logo" />
+                </motion.div>
               </Tilt>
             </Animate>
           </div>
 
-          <motion.div style={{ opacity: counterOpacity, x: counterX }}>
+          <motion.div style={{ opacity: counterOpacity, x: counterX, scale: scaleTitle }}>
             <CounterContainer countDownLimit="2024-11-08T00:00:00" />
           </motion.div>
 
