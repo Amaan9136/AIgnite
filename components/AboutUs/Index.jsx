@@ -12,20 +12,19 @@ const AboutUs = () => {
   const titleY = useTransform(scrollY, [0, 300], ["0%", "450px"]);
 
   return (
-    <section id="about-us">
-      <motion.div
+    <section className="relative" id="about-us">
+      <video
+        src="/videos/about-bg-vid.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full absolute object-cover"
+      />
+      {/* <motion.div
         style={{ opacity: bgOpacity, y: -titleY }}
         className="absolute inset-0 -z-10"
-      >
-        <video
-          src="/videos/about-bg-vid.mp4" 
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        />
-      </motion.div>
+      /> */}
 
       {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-t from-[#3177ab] to-qiskit-white"></div> */}
 
