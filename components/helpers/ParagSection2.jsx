@@ -2,17 +2,20 @@ import Tilt from "react-parallax-tilt";
 
 const ParagSection2 = ({ title = "", paragraph = "", highlights = [], hoverColor = "#4999D0" }) => {
   const renderParagraph = () => {
+    const lowerCaseHighlights = highlights.map(highlight => highlight.toLowerCase());
     const highlightRegex = new RegExp(`(${highlights.join('|')})`, 'gi');
+  
     const parts = paragraph.split(highlightRegex);
-    return parts.map((part, index) =>
-      highlights.includes(part) ? (
+    
+    return parts.map((part, index) => {
+      return typeof part === 'string' && lowerCaseHighlights.includes(part.toLowerCase()) ? (
         <span key={index} className="font-bold text-qiskit-yellow">{part}</span>
       ) : (
         part
-      )
-    );
+      );
+    });
   };
-
+  
   return (
     <div className="flex flex-col gap-10 items-center lg:flex-row">
       <Tilt
@@ -24,7 +27,7 @@ const ParagSection2 = ({ title = "", paragraph = "", highlights = [], hoverColor
         glareColor={hoverColor}
         glarePosition="all"
       >
-        <div className="flex flex-col gap-5 flex-1 h-[250px] lg:h-[321px] bg-gray-800 p-4 rounded-lg">
+        <div className="flex flex-col gap-5 flex-1 bg-gray-800 p-4 rounded-lg">
           {title && (
             <h2 className="text-qiskit-white text-3xl lg:text-4xl font-bold leading-tight lg:leading-snug">
               {title}

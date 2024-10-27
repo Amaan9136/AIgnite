@@ -5,6 +5,7 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ait from "../../images/sectionsAssets/ait.png";
+import hrd from "../../images/sectionsAssets/hrd.jpg";
 import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
@@ -15,20 +16,40 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const AboutEvent = () => {
   const { scrollY } = useScroll();
-  const imagesData = [
+  const clgData = [
     {
-      title: "This is AIT Robots",
+      title: "Adichunchanagiri Institute of Technology",
       img: ait,
-      paragraph: "Adjusted the gap between the title and paragraph for better visual separation. ipsm orem ipsm orem ipsm orem ipsm orem ipsm orem ipsm orem ipsm adjusted the gap between the title and paragraph for better visual separation.",
-      highlights: ["orem ", "important text"]
+      paragraph: "The Adichunchanagiri Institute of Technology (AIT) was founded in Chikkamagaluru in 1980 and is managed by the Sri Adichunchanagiri Shikshana Trust. The institute is spiritually guided by Parama Poojya Jagadguru Sri Sri Dr. Nirmalanandanatha Mahaswamiji and blessed by Parama Poojya Jagadguru Padmabhushana Sri Sri Dr. Balagangadharanatha Mahaswamiji. AIT is affiliated with VTU Belagavi and received an 'A' grade from the NAAC in 2023. It offers 10 research programs, 4 postgraduate (PG) degrees, and 8 undergraduate (UG) courses. The institute boasts state-of-the-art facilities, highly skilled instructors, and a strong commitment to student placements.",
+      highlights: [
+        "Founded in Chikkamagaluru in 1980.",
+        "Managed by the Sri Adichunchanagiri Shikshana Trust.",
+        "Spiritually guided by Parama Poojya Jagadguru Sri Sri Dr. Nirmalanandanatha Mahaswamiji.",
+        "Blessed by Parama Poojya Jagadguru Padmabhushana Sri Sri Dr. Balagangadharanatha Mahaswamiji.",
+        "Affiliated with VTU Belagavi.",
+        "Received an 'A' grade from the NAAC in 2023.",
+        "Offers 10 research programs, 4 postgraduate (PG) degrees, and 8 undergraduate (UG) courses.",
+        "Boasts state-of-the-art facilities, highly skilled instructors, and a strong commitment to student placements."
+      ]
     },
     {
-      title: "Another Event Title",
-      img: ait,
-      paragraph: "This is another event paragraph with important highlights.",
-      highlights: ["important highlights"]
-    },
+      title: "Department of Artificial Intelligence & Machine Learning",
+      img: hrd,
+      paragraph: "Established in 2021 with an initial intake of 65 students, the Department of Artificial Intelligence & Machine Learning focuses on research and development through its VTU-recognized research centers. The department is led by the esteemed Head, Dr. Sunitha M.R. Each year, we conduct annual seminars, workshops, and training sessions to enhance the knowledge and skills of both students and staff. The faculty comprises highly qualified and experienced educators and researchers who contribute to the department’s success, as reflected in VTU academic rankings. With strong institutional support, the department prioritizes career guidance and has achieved a remarkable success rate in student placements.",
+      highlights: [
+        "Established in 2021 with an initial intake of 65 students.",
+        "Focuses on research and development through its VTU-recognized research centers.",
+        "Led by the esteemed Head, Dr. Sunitha M.R.",
+        "Conducts annual seminars, workshops, and training sessions to enhance the knowledge and skills of both students and staff.",
+        "Comprises highly qualified and experienced educators and researchers.",
+        "Contributes to the department’s success, as reflected in VTU academic rankings.",
+        "Prioritizes career guidance and has achieved a remarkable success rate in student placements."
+      ]
+    }
   ];
+  
+  
+  
 
   const imgTranslateY = useTransform(scrollY, [2800, 3000, 3200], [0, 100, 200]);
   const imgOpacity = useTransform(scrollY, [2800, 3000, 3200], [1, 0.7, 0.3]);
@@ -98,7 +119,7 @@ const AboutEvent = () => {
                 disableOnInteraction: false,
               }}
             >
-              {imagesData.map((imgdata, index) => (
+              {clgData.map((imgdata, index) => (
                 <SwiperSlide key={index}>
                   <motion.div
                     style={{ opacity: imgOpacity, y: imgTranslateY }}
@@ -128,11 +149,11 @@ const AboutEvent = () => {
                 disableOnInteraction: false,
               }}
             >
-              {imagesData.map((imgdata, index) => (
+              {clgData.map((imgdata, index) => (
                 <SwiperSlide key={index}>
                   <motion.div
                     style={{ opacity: imgOpacity, y: imgTranslateY }}
-                    className="flex p-2 z-10 lg:ml-4 cursor-pointer"
+                    className="flex p-2 z-10 lg:ml-4  cursor-pointer"
                   >
                     <ParagSection2
                       title={imgdata.title}
