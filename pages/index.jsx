@@ -1,5 +1,6 @@
 import Head from "next/head";
 import AboutEvent from "../components/AboutEvent/Index";
+import AboutUs from "../components/AboutUs/Index";
 import EventLocation from "../components/EventLocation/Index";
 import Footer from "../components/Footer/Index";
 import Hero from "../components/Hero/Index";
@@ -19,7 +20,7 @@ export default function Home() {
       <main className="font-IBM-Plex">
         <AboutEvent />
         <EventLocation />
-        {/* <AboutUs /> */}
+        <AboutUs />
         <Schedule />
         <TheyTrustedUs />
         <OurSpeakers/>

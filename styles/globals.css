@@ -15,10 +15,8 @@
 }
 
 .about-bg::before {
-  background-image: url("../images/sectionsAssets/About-bg.png");
-  @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-[0px]
+  @apply absolute content-[''] inset-0 bg-cover bg-center -z-[1] blur-[0px];
 }
-
 
 .burger-line {
   @apply h-1 w-11 bg-qiskit-white rounded;

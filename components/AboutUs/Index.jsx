@@ -1,3 +1,4 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
@@ -6,8 +7,26 @@ import ParagSection from "../helpers/ParagSection";
 import SectionTitle from "../helpers/SectionTitle";
 
 const AboutUs = () => {
+  const { scrollX, scrollY } = useScroll();
+  const bgOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const titleY = useTransform(scrollY, [0, 300], ["0%", "450px"]);
+
   return (
     <section id="about-us">
+      <motion.div
+        style={{ opacity: bgOpacity, y: -titleY }}
+        className="absolute inset-0 -z-10"
+      >
+        <video
+          src="/videos/about-bg-vid.mp4" 
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+
       {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-t from-[#3177ab] to-qiskit-white"></div> */}
 
       <div className="relative about-bg py-16">
