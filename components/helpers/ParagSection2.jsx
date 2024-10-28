@@ -20,7 +20,6 @@ const ParagSection2 = ({ title = "", paragraph = "", highlights = [], hoverColor
     <div className="flex flex-col gap-10 items-center lg:flex-row">
       <Tilt
         className="cursor-pointer rounded-lg"
-        scale={1.1}
         transitionSpeed={300}
         glareEnable={true}
         glareMaxOpacity={0.5}

@@ -11,9 +11,9 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const TheyTrustedUs = () => {
   return (
-    <section id="our-sponsors" className="section-container lg:pt-16">
+    <section id="they-trusted-us" className="section-container pt-6">
       <div className="relative">
-        <div className="mt-24 lg:mt- ">
+        <div className="mt-24">
           <SectionTitle title={"They Trusted us"} />
         </div>
 
@@ -46,7 +46,7 @@ const TheyTrustedUs = () => {
             glareColor={"#097de0"}
             glarePosition="all"
           >
-            <Image src={Selfypage} alt="Selfypage logo" width={280} height={280} />
+            <Image className="rounded-lg shadow-md" src={Selfypage} alt="Selfypage logo" width={280} height={280} />
             {/* <div className="text-center mt-4 relative w-4/5 mx-auto z-10 -mt-24">
               <YellowButton redirect={""} title={"Visit our website"} />
             </div> */}
@@ -55,7 +55,7 @@ const TheyTrustedUs = () => {
         </div>
       </div>
 
-      <div className="relative mt-20">
+      <div className="relative">
         <div className="invisible lg:visible absolute -left-2 -top-36 right-0 lg:w-16 lg:h-16">
           <Image src={atom} alt="" />
         </div>

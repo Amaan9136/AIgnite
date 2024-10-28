@@ -10,7 +10,7 @@ import { links, socialsMedia } from "./data";
 
 const Footer = () => {
   return (
-    <footer className="mt-32 footer-bg text-qiskit-white flex flex-col gap-6 relative">
+    <footer className="mt-32 footer-bg text-qiskit-white flex flex-col gap-6 relative" id="footer">
       <div className="hidden lg:block absolute top-4 left-[33rem]">
         <Image src={GlobeShape} height={42} width={42} />
       </div>

@@ -4,20 +4,20 @@ const navLinks = [
     redirect: "#home",
   },
   {
-    content: "About",
-    redirect: "#about-us",
+    content: "Events",
+    redirect: "#about-event",
   },
   {
-    content: "Partners",
-    redirect: "#our-partners",
-  },
-  {
-    content: "Speakers",
-    redirect: "#speakers",
+    content: "Campus",
+    redirect: "#event-loc",
   },
   {
     content: "Schedule",
     redirect: "#schedule",
+  },
+  {
+    content: "Guests",
+    redirect: "#about-jury",
   },
 ];
 

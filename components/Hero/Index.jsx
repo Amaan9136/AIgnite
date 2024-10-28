@@ -4,7 +4,6 @@ import Tilt from "react-parallax-tilt";
 import Typewriter from "typewriter-effect";
 import AIML_Logo from "../../images/logos/AIML-LOGO-WHITE.png";
 import BackGround from "../../images/sectionsAssets/Hero-background.png";
-// import BackGround from "../../images/sectionsAssets/Hero-background.jpg";
 import Arrow from "../../images/shapes/Arrow.png";
 import Atom from "../../images/shapes/atomWhite.png";
 import Computer from "../../images/shapes/computerWhite.png";
@@ -18,16 +17,16 @@ import Navbar from "./Navbar";
 const Hero = () => {
   const { scrollX, scrollY } = useScroll();
 
-  const bgOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const bgOpacity = useTransform(scrollY, [0, 600], [1, 0]);
 
-  const scaleTitle = useTransform(scrollY, [0, 300], [1, 1.2]);
-  const titleY = useTransform(scrollY, [0, 300], ["0%", "450px"]);
-  const titleX = useTransform(scrollX, [0, 300], ["0%", "-450px"]);
+  const scaleTitle = useTransform(scrollY, [0, 600], [1, 1.2]);
+  const titleY = useTransform(scrollY, [0, 600], ["0%", "450px"]);
+  const titleX = useTransform(scrollX, [0, 600], ["0%", "-450px"]);
 
-  const RegBtnY = useTransform(scrollY, [0, 300], ["0%", "340px"]);
-  const RegBtnX = useTransform(scrollX, [0, 300], ["0%", "-340px"]);
+  const RegBtnY = useTransform(scrollY, [0, 600], ["0%", "340px"]);
+  const RegBtnX = useTransform(scrollX, [0, 600], ["0%", "-340px"]);
 
-  const counterOpacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const counterOpacity = useTransform(scrollY, [0, 600], [1, 0]);
   const counterX = useTransform(scrollY, [100, 500], ["0%", "-10%"]);
 
 

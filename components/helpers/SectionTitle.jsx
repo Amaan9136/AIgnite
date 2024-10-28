@@ -19,7 +19,7 @@ const SectionTitle = ({ title, delay = 2 }) => {
           </div>
         </div>
         <h2
-          className={`text-2xl sm:text-3xl lg:text-5xl text-qiskit-blue-normal font-bold`}
+          className={`text-4xl lg:text-5xl text-qiskit-blue-normal font-bold`}
         >
           {title}
         </h2>

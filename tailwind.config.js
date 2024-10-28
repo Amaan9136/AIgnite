@@ -22,6 +22,9 @@ module.exports = {
       "partner-blue": "rgba(43, 130, 251, 0.12)",
       "partner-green": " rgba(167, 240, 186, 0.29)",
     },
+    backgroundImage: {
+    'gradient-b-p': 'linear-gradient(to right, rgba(10, 42, 140), rgba(5, 20, 80), rgba(25, 0, 60))',
+    },
     fontFamily: {
       "IBM-Plex": ["IBM Plex Sans", "sans-serif"],
     },

@@ -4,12 +4,11 @@ import computer from "../../images/shapes/computer.png";
 import maqam from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import SectionTitle from "../helpers/SectionTitle";
-import YellowButton from "../helpers/YellowButton";
 import { schedule } from "./schedule";
 
 const Schedule = () => {
   return (
-    <section id="schedule" className="relative section-container">
+    <section id="schedule" className="relative section-container pt-6">
       <SectionTitle title={"Schedule"}> </SectionTitle>
       <div className="md:hidden visible absolute left-0 top-0 z-25 sm:w-[80px] sm:h-[80px] w-[50px] h-[50px]">
         <Image src={atom} alt="maqam chahid" layout="fill" />
@@ -27,16 +26,16 @@ const Schedule = () => {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-col justify-center mt-[20px]">
-          <YellowButton title={"Saturday, October 22nd"} />
-          <div className=" bg-qiskit-blue-lighter  bg-opacity-40 justify-center w-full md:pl-[50px] pl-[10px] mb-20 pr-[10px] md:pr-[30px] lg:py-[80px] md:py[70px] py-8 border-4 md:border-8 md:mt-[-30px] mt-[-10px]">
+        <div className="col-span-4 flex flex-col justify-center mt-[5.5rem]">
+          <div className="bg-gradient-b-p bg-opacity-40 justify-center w-full md:pl-[50px] pl-[10px] mb-20 pr-[10px] md:pr-[30px] lg:py-[80px] md:py[70px] py-8 border-4 md:border-8 md:mt-[-30px] mt-[-10px]">
+            <h1 className="relative top-[-12px] text-center text-3xl lg:text-4xl lg:top-[-30px] font-bold text-black">Friday-Saturday, November 8th-9th</h1>
             <div className="">
-              <div className=" sm:text-xl font-medium md:font-semibold text-xs md:px[10px] ">
+              <div className="sm:text-xl font-medium md:font-semibold text-xs md:px[10px] ">
                 <div className="flew flex-row">
                   {schedule.map((scheduleInfo, idx) => {
                     return (
                       <div
-                        key={33+idx}
+                        key={33 + idx}
                         className="flex flex-row justify-stretch mx-auto "
                       >
                         <div className="flex flex-none py-2.5 md:pl-10">

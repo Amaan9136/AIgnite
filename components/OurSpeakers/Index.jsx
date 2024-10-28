@@ -16,7 +16,7 @@ const OurSpeakers = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section id="speakers" className="relative section-container">
+    <section id="speakers" className="relative section-container pt-6">
       <div className="mb-12 lg:mb-0">
         <SectionTitle title={"Special Thanks to"} /> 
       </div>

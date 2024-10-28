@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import { Autoplay } from "swiper";
 import "swiper/css";
@@ -15,7 +16,7 @@ import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 
 const AboutEvent = () => {
-  const { scrollY } = useScroll();
+
   const clgData = [
     {
       title: "Adichunchanagiri Institute of Technology",
@@ -47,15 +48,45 @@ const AboutEvent = () => {
       ]
     }
   ];
-  
-  
-  
 
-  const imgTranslateY = useTransform(scrollY, [2800, 3000, 3200], [0, 100, 200]);
-  const imgOpacity = useTransform(scrollY, [2800, 3000, 3200], [1, 0.7, 0.3]);
+  const largeScreenRanges = {
+    ait: [2000, 2100, 2400],
+    event: [2500, 2600, 2800],
+    map: [2500, 2600, 2800],
+  };
+
+  const smallScreenRanges = {
+    ait: [2800, 3000, 3200],
+    event: [3400, 3500, 3700],
+    map: [3800, 3900, 4100],
+  };
+
+  const { scrollY } = useScroll();
+  const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
+
+  // Set the scroll ranges based on screen size
+  useEffect(() => {
+    const updateRanges = () => {
+      if (window.innerWidth <= 768) {
+        setScrollRanges(smallScreenRanges); // Mobile
+      } else {
+        setScrollRanges(largeScreenRanges); // Desktop
+      }
+    };
+
+    updateRanges();
+
+    window.addEventListener('resize', updateRanges);
+    return () => window.removeEventListener('resize', updateRanges);
+  }, []);
+
+  // Set opacity transformations based on current ranges
+  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.7, 0.3]);
+  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
+  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
 
   return (
-    <section id="about-event" className="section-container pt-12 lg:pt-24">
+    <section id="event-loc" className="section-container pt-6">
       <div className="relative">
         <div className="absolute right-0 top-0 sm:right-[596px] sm:top-0 w-[28px] h-[30px] lg:w-[47px] lg:h-[50px] w-[70px] h-[70px]">
           <Image
@@ -122,14 +153,14 @@ const AboutEvent = () => {
               {clgData.map((imgdata, index) => (
                 <SwiperSlide key={index}>
                   <motion.div
-                    style={{ opacity: imgOpacity, y: imgTranslateY }}
+                    style={{ opacity: aitOpacity }}
                     className="flex p-2 z-10 lg:ml-4 cursor-pointer"
                   >
                     <Image
                       className="rounded-lg"
                       src={imgdata.img} // Corrected to use imgdata.img
                       alt={`scroll event image ${index}`}
-                      // Add any other Image props here
+                    // Add any other Image props here
                     />
                   </motion.div>
                 </SwiperSlide>
@@ -137,60 +168,100 @@ const AboutEvent = () => {
             </Swiper>
           </Tilt>
 
-          <div className="gap-8 rows-2 p-4 sm:p-4">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              pagination={{ clickable: true }}
-              navigation
-              modules={[Autoplay]}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-            >
-              {clgData.map((imgdata, index) => (
-                <SwiperSlide key={index}>
-                  <motion.div
-                    style={{ opacity: imgOpacity, y: imgTranslateY }}
-                    className="flex p-2 z-10 lg:ml-4  cursor-pointer"
-                  >
-                    <ParagSection2
-                      title={imgdata.title}
-                      paragraph={imgdata.paragraph} 
-                      highlights={imgdata.highlights}
-                    />
-                  </motion.div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+          >
+            {clgData.map((imgdata, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  style={{ opacity: aitOpacity }}
+                  className="cursor-pointer"
+                >
+                  <ParagSection2
+                    title={imgdata.title}
+                    paragraph={imgdata.paragraph}
+                    highlights={imgdata.highlights}
+                  />
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </Animate>
 
         {/* Google Map Iframe */}
-        <Animate delay={14} x={-50} y={50} className=" lg:columns-2 mt-[50px] h-[450px] lg:m-4 lg:mt-12 ">
-          <motion.div
-            style={{ opacity: imgOpacity }}
-            className="flex justify-start md:h-[450px] p-2 z-10"
+        <Animate delay={14} x={-50} y={50} className="lg:columns-2 mt-[50px] lg:m-4 lg:mt-12 ">
+          {/* SIDE 1: Event Information */}
+          <Tilt className="m-2 cursor-pointer"
+            transitionSpeed={300}
           >
-            <iframe
-              className="map-outline"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.135193095531!2d75.79563977467208!3d13.341865287008616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad77aa342ed7f%3A0xaec39f2826004a0!2sAdichunchanagiri%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1729871591468!5m2!1sen!2sin"
-              style={{ borderRadius: '20px', border: '1px solid #ccc', marginRight: '20px' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </motion.div>
+            <motion.div
+              style={{ opacity: eventOpacity }}
+              className="cursor-pointer"
+            >
+              <Image
+                className="rounded-lg"
+                src={ait} // Corrected to use imgdata.img
+                alt={`scroll event AIgnite`}
+              // Add any other Image props here
+              />
+            </motion.div>
+            <motion.div
+              style={{ opacity: eventOpacity }}
+              className="cursor-pointer"
+            >
+              <ParagSection2
+                title="AIgnite Robots Event"
+                paragraph="AIgnite Robots presents an immersive experience exploring advancements in AI and robotics. Join us for interactive workshops, live demonstrations, and insightful talks from industry experts."
+                highlights={[
+                  "Explore AI and Robotics.",
+                  "Interactive workshops and demonstrations.",
+                  "Insights from industry experts.",
+                ]}
+              />
+            </motion.div>
+          </Tilt>
 
-          <div className="gap-8 rows-2 p-4 sm:p-4">
-            <ParagSection2
-              title="This is AIgnite Robots"
-              paragraph="Adjusted the gap between the title and paragraph for better visual separation. ipsm orem ipsm orem ipsm orem ipsm orem ipsm orem ipsm orem ipsm djusted the gap between the title and paragraph for better visual separation."
-              highlights={["orem ", "important text"]}
-            />
+          {/* SIDE 2: Map Date and Time Details */}
+          <div className="">
+            <motion.div
+              style={{ opacity: mapOpacity }}
+              className="flex justify-center items-center cursor-pointer m-2 h-[22rem]"
+            >
+              <iframe
+                className="map-outline"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.135193095531!2d75.79563977467208!3d13.341865287008616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad77aa342ed7f%3A0xaec39f2826004a0!2sAdichunchanagiri%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1729871591468!5m2!1sen!2sin"
+                style={{ borderRadius: '20px', border: '1px solid #ccc', marginRight: '20px' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </motion.div>
+
+            <motion.div
+              style={{ opacity: mapOpacity }}
+              className="cursor-pointer"
+            >
+              <ParagSection2
+                title="Event Date and Time"
+                paragraph="Join us on December 12, 2024, from 9:00 AM to 5:00 PM. The event will take place at the Adichunchanagiri Institute of Technology, offering participants a full day of innovation and discovery."
+                highlights={[
+                  "December 12, 2024",
+                  "9:00 AM - 5:00 PM",
+                  "Adichunchanagiri Institute of Technology",
+                ]}
+              />
+            </motion.div>
           </div>
         </Animate>
+
       </div>
 
       <div className="relative">

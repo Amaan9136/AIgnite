@@ -1,4 +1,6 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
@@ -14,37 +16,61 @@ const AboutEvent = () => {
   const eventsData = [
     {
       name: "Reverse Engineering",
+      form_path: "https://www.amaan.com",
       image: event1,
       color: "#7ce6e2",
       description: "Dive into the art of deconstructing complex systems, discovering their inner workings, and unlocking new perspectives in technology and innovation."
     },
     {
       name: "Shark Tekz",
+      form_path: "",
       image: event2,
       color: "#4999D0",
       description: "Experience the thrill of rapid innovation as creative minds pitch groundbreaking tech ideas in a high-stakes environment where innovation meets competition."
     },
     {
       name: "E-Sports",
+      form_path: "",
       image: event3,
       color: "#fe8400",
       description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports."
     },
   ];
-  
-  return (
-    <section id="about-event" className="section-container pt-12 lg:pt-24">
 
-      <div className="relative">
-        <div className="absolute right-0 top-0 sm:right-[596px] sm:top-0 w-[28px] h-[30px]  lg:w-[47px] lg:h-[50px]">
-          <Image
-            src={atom}
-            alt="atom"
-          />
-        </div>
+  const largeScreenRanges = [1000, 1380]
+  const smallScreenRanges = [1800, 2650]
+
+  const { scrollY } = useScroll();
+  const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
+
+  useEffect(() => {
+    const updateRanges = () => {
+      if (window.innerWidth <= 768) {
+        setScrollRanges(smallScreenRanges); // Mobile
+      } else {
+        setScrollRanges(largeScreenRanges); // Desktop
+      }
+    };
+
+    updateRanges();
+
+    window.addEventListener('resize', updateRanges);
+    return () => window.removeEventListener('resize', updateRanges);
+  }, []);
+
+  const eventOpacity = useTransform(scrollY, scrollRange, [1, 0]);
+
+  return (
+    <section id="about-event" className="section-container pt-6 mb-20">
+
+      <div className="absolute right-0 top-0 sm:right-[596px] sm:top-0 w-[28px] h-[30px]  lg:w-[47px] lg:h-[50px]">
+        <Image
+          src={atom}
+          alt="atom"
+        />
       </div>
 
-      <SectionTitle title={"About The Events"} delay={12} />
+      <SectionTitle title={"AIgnite Events"} delay={12} />
 
       <div className="relative">
         <div className="absolute top-[460px] right-0 sm:top-[-70px] sm:right-0 lg:top-[-32px] lg:right-0  w-[68px] h-[58px] lg:w-[106px] lg:h-[74px]">
@@ -74,11 +100,13 @@ const AboutEvent = () => {
           </div>
 
           {/* Events */}
-          <div className="flex justify-center items-center">
+          <motion.div className="flex justify-center items-center"
+          style={{ opacity: eventOpacity }}>
             <div className="relative w-4/5 my-16 flex gap-16 flex-col lg:flex-row justify-between">
               {eventsData.map((eventObj, index) => (
                 <div
                   key={index}
+                  onClick={()=>window.location.href = eventObj.form_path}
                   className={`flex flex-col items-center ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'} 
         ${index === 1 ? 'order-first' : 'order-last'}
          lg:order-none`}
@@ -107,7 +135,6 @@ const AboutEvent = () => {
                     {/* Description overlay */}
                     <div
                       className="absolute top-10 left-0 w-full bg-black bg-opacity-60 text-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ color: "#fddc69" }}
                     >
                       <p className="text-xl font-semibold">{eventObj.description}</p>
                     </div>
@@ -116,13 +143,14 @@ const AboutEvent = () => {
 
                   {/* Name Button */}
                   <div className="text-center mt-4 relative w-4/5 mx-auto z-10 -mt-20">
-                    <YellowButton title={eventObj.name} />
+                    {/* <YellowButton title={eventObj.name} /> */}
+                    <YellowButton title={eventObj.name} redirect={eventObj.form_path} />
                   </div>
 
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
 
         </div>
