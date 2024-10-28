@@ -1,23 +1,23 @@
 import Image from "next/image";
+import Tilt from "react-parallax-tilt";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
 import Nacereddine_Belaloui from "../../images/speakers/Nacereddine_Belaloui.jpeg";
-import ParagSection from "../helpers/ParagSection";
+import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 
 const AboutMentors = () => {
+
   return (
-    <section className="relative mb-14" id="about-mentors">
-      <video
-        src="/videos/about-bg-vid.mp4"
+    <section className="relative mb-28" id="about-mentors">
+      {/* <video
+        src="/videos/mentors.mp4"
         autoPlay
         loop
         muted
         playsInline
-        className="w-full h-full absolute object-cover top-20 blur-[5px]"
-      />
-
-      {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-t from-[#3177ab] to-qiskit-white"></div> */}
+        className="w-full h-full absolute object-cover top-20"
+      /> */}
 
       <div className="relative">
         <div className="absolute top-1/4 right-4 lg:w-[55px] h-[32px] w-[32px] lg:h-[55px] 2xl:w-[82px] 2xl:h-[82px]">
@@ -32,30 +32,50 @@ const AboutMentors = () => {
           <Image src={maqam} layout="fill" />
         </div>
         <div className="section-container pt-6">
-          <SectionTitle title={"About Mentor's"} />
-          <div className="flex flex-col gap-12 lg:gap-28 lg:m-4">
-            <ParagSection
-              keyword1={"WTM Algiers "}
-              paragraph1={`also known as the "Women Techmakers Algiers" program, was created to increase visibility, community, and resources for women in technology and also spread learning and build role models globally. It's located at`}
-              keyword2={" the National Higher School of Computer science "}
-              paragraph2={`and dedicated to anyone who's passionate and motivated about the tech field.`}
-              img={Nacereddine_Belaloui}
-              reverse={false}
-              redirect={"https://www.wtmalgiers.org/"}
-            ></ParagSection>
-            <ParagSection
-              keyword1={"GDG Algiers "}
-              paragraph1={`is a local group of developers and students who are interested in Google’s developer technology products. It is located at`}
-              keyword2={" the National Higher School of Computer science "}
-              paragraph2={`and hosts a variety of events activities for developers through different events that aim to help the developers community get the latest technology updates.`}
-              img={Nacereddine_Belaloui}
-              reverse={true}
-              redirect={"https://www.gdgalgiers.com"}
-            ></ParagSection>
+          <SectionTitle title={"About Mentors's"} />
+
+{/* mentors 1 */}
+          <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+            <div className="flex flex-col gap-11 flex-1">
+              <ParagSection2
+                title="Event Highlights"
+                paragraph="Welcome to Sharkathon\n24-hour hackathon event\nJoin us for innovation and competition"
+                highlights={["Sharkathon", "hackathon", "innovation", "competition"]}
+              />
+            </div>
+
+            <div
+              className={`relative w-[250px] h-[250px] lg:w-[321px]`}
+            >
+              <Tilt
+                className="cursor-pointer">
+                <Image src={Nacereddine_Belaloui} width={550} height={550} alt="" className="rounded-lg shadow-md" />
+              </Tilt>
+            </div>
+          </div>
+
+{/* mentors 2 */}
+          <div className="flex flex-col gap-10 items-center lg:flex-row mt-[50px] lg:m-12">
+            <div className="flex flex-col gap-11 flex-1">
+              <ParagSection2
+                title="Event Highlights"
+                paragraph="Welcome to Sharkathon\n24-hour hackathon event\nJoin us for innovation and competition"
+                highlights={["Sharkathon", "hackathon", "innovation", "competition"]}
+              />
+            </div>
+
+            <div
+              className={`relative w-[250px] h-[250px] lg:w-[321px] lg:order-first`}
+            >
+              <Tilt
+                className="cursor-pointer">
+                <Image src={Nacereddine_Belaloui} width={550} height={550} alt="" className="rounded-lg shadow-md" />
+              </Tilt>
+            </div>
+
           </div>
         </div>
       </div>
-      {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-b from-qiskit-blue-normal to-qiskit-white"></div> */}
     </section>
   );
 };

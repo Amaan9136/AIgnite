@@ -1,90 +1,83 @@
 import Image from "next/image";
 import Tilt from "react-parallax-tilt";
-// import qBraid from "../../images/logos/qBraid.png";
+import capulus from "../../images/logos/capulus.png";
 import Selfypage from "../../images/logos/Selfypage.png";
-import atom from "../../images/shapes/atom.png";
-import computer from "../../images/shapes/computer.png";
-import maqam from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
+import maqam from "../../images/shapes/MaqamWhite.png";
+import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
-// import YellowButton from "../helpers/YellowButton";
 
 const TheyTrustedUs = () => {
+
   return (
-    <section id="they-trusted-us" className="section-container pt-6">
+    <section className="relative mb-28" id="they-trusted-us">
+      {/* <video
+        src="/videos/company.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full absolute object-cover top-20"
+      /> */}
+
+      {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-t from-[#3177ab] to-qiskit-white"></div> */}
+
       <div className="relative">
-        <div className="mt-24">
-          <SectionTitle title={"They Trusted us"} />
+        <div className="absolute top-1/4 right-4 lg:w-[55px] h-[32px] w-[32px] lg:h-[55px] 2xl:w-[82px] 2xl:h-[82px]">
+          <Image src={globe} layout="fill" />
         </div>
 
-        <div className="relative mt-14 lg:mt-16 ">
-          <div className="w-10 h-10 absolute -left-2 -top-10 right-0 lg:w-14 lg:h-14">
-            <Image src={globe} alt="" />
+        <div className="absolute bottom-8 left-4 w-[32px] h-[32px] md:w-[40px] md:h-[40px] lg:w-[55px] lg:h-[55px] 2xl:w-[82px] 2xl:h-[82px]">
+          <Image src={globe} layout="fill" />
+        </div>
+
+        <div className="absolute bottom-1/2 left-8 w-[75px] h-[53px] md:w-[40px] md:h-[40px] lg:w-[106px] lg:h-[76px] 2xl:w-[160px] 2xl:h-[112px]">
+          <Image src={maqam} layout="fill" />
+        </div>
+        <div className="section-container pt-6">
+          <SectionTitle title={"They Trusted Us"} />
+
+{/* company 1 */}
+          <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+          <div
+              className={`relative w-[250px] h-[250px] lg:w-[321px]`}
+            >
+              <Tilt
+                className="cursor-pointer">
+                <Image src={capulus} width={550} height={550} alt="" className="rounded-2xl shadow-md" />
+              </Tilt>
+            </div>
+            <div className="flex flex-col gap-11 flex-1">
+              <ParagSection2
+                title="Event Highlights"
+                paragraph="Welcome to Sharkathon\n24-hour hackathon event\nJoin us for innovation and competition "
+                highlights={["Sharkathon", "hackathon", "innovation", "competition"]}
+              />
+            </div>
+          </div>
+
+{/* company 2 */}
+          <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+          <div
+              className={`relative w-[250px] h-[250px] lg:w-[321px] lg:order-last`}
+            >
+              <Tilt
+                className="cursor-pointer">
+                <Image src={Selfypage} width={550} height={550} alt="" className="rounded-2xl shadow-md" />
+              </Tilt>
+            </div>
+            <div className="flex flex-col gap-11 flex-1">
+              <ParagSection2
+                title="Event Highlights"
+                paragraph="Welcome to Sharkathon\n24-hour hackathon event\nJoin us for innovation and competition"
+                highlights={["Sharkathon", "hackathon", "innovation", "competition"]}
+              />
+            </div>
+
           </div>
         </div>
-
-        <div className="invisible lg:visible h-7 w-7 absolute left-2/3 top-5 right-0 lg:w-12 lg:h-12 lg:-ml-10">
-          <Image src={atom} alt="" />
-        </div>
-
-        <div className="absolute left-70 -top-24 right-28 h-12 w-14 -mr-20 -mt-0 lg:mt-8 lg:w-28 lg:h-20">
-          <Image src={maqam} alt="" />
-        </div>
-
-        <div className="flex flex-col justify-center items-center gap-9 lg:ml-40 lg:flex-row lg:mt-20 lg:gap-28 w-3/4 mx-auto ">
-
-          {/* <div className="lg:mt-10">
-              <Image src={qBraid} alt="qBraid logo" />
-          </div> */}
-          <Tilt
-            className="cursor-pointer rounded-lg"
-            tiltMaxAngleX={30}
-            tiltMaxAngleY={20}
-            transitionSpeed={300}
-            glareEnable={true}
-            glareMaxOpacity={0.5}
-            glareColor={"#097de0"}
-            glarePosition="all"
-          >
-            <Image className="rounded-lg shadow-md" src={Selfypage} alt="Selfypage logo" width={280} height={280} />
-            {/* <div className="text-center mt-4 relative w-4/5 mx-auto z-10 -mt-24">
-              <YellowButton redirect={""} title={"Visit our website"} />
-            </div> */}
-          </Tilt>
-
-        </div>
       </div>
-
-      <div className="relative">
-        <div className="invisible lg:visible absolute -left-2 -top-36 right-0 lg:w-16 lg:h-16">
-          <Image src={atom} alt="" />
-        </div>
-
-        <div className="invisible lg:visible absolute left-1/2 lg:-top-1 lg:-ml-4 right-0 lg:w-16 lg:w-12">
-          <Image src={computer} alt="" />
-        </div>
-
-        <div className="invisible lg:visible absolute lg:left-1/2 right-0 lg:w-8 lg:h-9">
-          <Image src={atom} alt="" />
-        </div>
-
-        <div className="invisible lg:visible absolute left-90 -top-10 right-0 lg:w-14 lg:h-14">
-          <Image src={globe} alt="" />
-        </div>
-      </div>
-
-      <div className="visible lg:invisible w-10 h-10 -mt-80 ml-14">
-        <Image src={atom} alt="" />
-      </div>
-      <div className="visible lg:invisible w-10 h-10 mt-64 ml-72">
-        <Image src={globe} alt="" />
-      </div>
-      <div className="visible lg:invisible w-7 h-8 mt-62 ml-28">
-        <Image src={atom} alt="" />
-      </div>
-      <div className="visible lg:invisible w-14 h-10 -mt-9 ml-24">
-        <Image src={computer} alt="" />
-      </div>
+      {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-b from-qiskit-blue-normal to-qiskit-white"></div> */}
     </section>
   );
 };

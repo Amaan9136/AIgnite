@@ -70,7 +70,24 @@ const Hero = () => {
                   AIgnite&nbsp;
                   <Typewriter
                     options={{
-                      strings: ["| Code", "| Shark Tech", "| Blow PC's"],
+                      strings: [
+                        "| Code",
+                        "| Build",
+                        "| Innovate",
+                        "| Inspire",
+                        "| Empower",
+                        "| Transform",
+                        "| Develop",
+                        "| Create",
+                        "| Explore",
+                        "| Solve",
+                        "| Collaborate",
+                        "| Engage",
+                        "| Lead",
+                        "| Master",
+                        "| Advance",
+                        "| Drive",
+                      ],
                       autoStart: true,
                       loop: true,
                     }}
@@ -83,7 +100,7 @@ const Hero = () => {
                   style={{ scale: scaleTitle, opacity: bgOpacity, y: titleY }}
                   className="font-medium text-center lg:text-left leading-[2rem] lg:text-2xl 2xl:text-4xl 2xl:leading-[2.875rem]"
                 >
-                  Your chance to discover the Quantum Computing world!
+                  Empowering Intelligence, Enhancing Humanity.
                 </motion.p>
               </Tilt>
 

@@ -137,7 +137,7 @@ const AboutEvent = () => {
 
                     {/* Name Button */}
                   <Tilt
-                    scale={index == 1 ? 1.5 : 0.9}
+                    scale={index == 1 ? 1.5 : 1.15}
                     className={`flex transition-transform duration-300
         ${index === 1 ? "z-10" : "z-0"} 
         group-hover:z-20 group-hover:scale-105`}

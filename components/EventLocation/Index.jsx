@@ -5,6 +5,7 @@ import Tilt from "react-parallax-tilt";
 import { Autoplay } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import AIgnite from "../../images/sectionsAssets/AIgnite.png";
 import ait from "../../images/sectionsAssets/ait.png";
 import hrd from "../../images/sectionsAssets/hrd.jpg";
 import atom from "../../images/shapes/atom.png";
@@ -31,7 +32,8 @@ const AboutEvent = () => {
         "Received an 'A' grade from the NAAC in 2023.",
         "Offers 10 research programs, 4 postgraduate (PG) degrees, and 8 undergraduate (UG) courses.",
         "Boasts state-of-the-art facilities, highly skilled instructors, and a strong commitment to student placements."
-      ]
+      ],
+      color: "rgb(174, 60, 89)"
     },
     {
       title: "Department of Artificial Intelligence & Machine Learning",
@@ -45,14 +47,15 @@ const AboutEvent = () => {
         "Comprises highly qualified and experienced educators and researchers.",
         "Contributes to the department’s success, as reflected in VTU academic rankings.",
         "Prioritizes career guidance and has achieved a remarkable success rate in student placements."
-      ]
+      ],
+      color: "rgb(10, 109, 140)"
     }
   ];
 
   const largeScreenRanges = {
-    ait: [2000, 2100, 2400],
-    event: [2500, 2600, 2800],
-    map: [2500, 2600, 2800],
+    ait: [2300, 2400, 2600],
+    event: [2800, 3300, 3500],
+    map: [2800, 3300, 3500],
   };
 
   const smallScreenRanges = {
@@ -189,6 +192,7 @@ const AboutEvent = () => {
                     title={imgdata.title}
                     paragraph={imgdata.paragraph}
                     highlights={imgdata.highlights}
+                    hoverColor={imgdata.color}
                   />
                 </motion.div>
               </SwiperSlide>
@@ -208,35 +212,39 @@ const AboutEvent = () => {
             >
               <Image
                 className="rounded-lg"
-                src={ait} // Corrected to use imgdata.img
+                src={AIgnite}
                 alt={`scroll event AIgnite`}
               // Add any other Image props here
               />
             </motion.div>
+          </Tilt>
+
             <motion.div
               style={{ opacity: eventOpacity }}
               className="cursor-pointer"
             >
               <ParagSection2
-                title="AIgnite Robots Event"
-                paragraph="AIgnite Robots presents an immersive experience exploring advancements in AI and robotics. Join us for interactive workshops, live demonstrations, and insightful talks from industry experts."
+                title="AIgnite Event"
+                paragraph="The AIML Department's first-ever technical fest aspires to offer attendees a truly hands-on and immersive experience. This event initiates the department's dedication to building a vibrant technical community, bringing together students from various colleges to engage with AIML’s innovative tech culture. We are on a mission to make everyone a part of AIGNITE and to provide something unique for all fellow attendees and savour the experience as a lifelong memory."
                 highlights={[
-                  "Explore AI and Robotics.",
-                  "Interactive workshops and demonstrations.",
-                  "Insights from industry experts.",
+                  "Hands-on and immersive experience",
+                  "Dedication to building a vibrant technical community",
+                  "Engage with AIML’s innovative tech culture",
+                  "Mission to make everyone a part of AIGNITE",
+                  "Unique experience for all attendees",
+                  "Lifelong memory"
                 ]}
+                hoverColor="rgb(174, 60, 89)"
               />
             </motion.div>
-          </Tilt>
 
           {/* SIDE 2: Map Date and Time Details */}
-          <div className="">
             <motion.div
               style={{ opacity: mapOpacity }}
-              className="flex justify-center items-center cursor-pointer m-2 h-[22rem]"
+              className="flex justify-center items-center cursor-pointer mt-6 h-[22rem]"
             >
               <iframe
-                className="map-outline"
+                className="map-outline mb-2"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.135193095531!2d75.79563977467208!3d13.341865287008616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad77aa342ed7f%3A0xaec39f2826004a0!2sAdichunchanagiri%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1729871591468!5m2!1sen!2sin"
                 style={{ borderRadius: '20px', border: '1px solid #ccc', marginRight: '20px' }}
                 allowFullScreen=""
@@ -251,15 +259,24 @@ const AboutEvent = () => {
             >
               <ParagSection2
                 title="Event Date and Time"
-                paragraph="Join us on December 12, 2024, from 9:00 AM to 5:00 PM. The event will take place at the Adichunchanagiri Institute of Technology, offering participants a full day of innovation and discovery."
+                paragraph={`Sharkathon (Nov 8-9)
+Dive into a 24-hour hackathon starting on Nov 8 at 9 AM, where teams innovate and solve real-world challenges in a transparent, point-based competition. Mentors and judges will guide and score each phase, pushing creativity to new heights.
+Reverse Hacking & Esports (Nov 9)
+Join the excitement of Reverse Hacking and Esports on Nov 9 from 9 AM to 11 AM. Compete in fast-paced tech and gaming challenges that test skill, strategy, and expertise.
+Get ready for two days of innovation, competition, and memorable experiences!`}
                 highlights={[
-                  "December 12, 2024",
-                  "9:00 AM - 5:00 PM",
-                  "Adichunchanagiri Institute of Technology",
+                  "Sharkathon (Nov 8-9)",
+                  "24-hour hackathon",
+                  "Real-world challenges",
+                  "Transparent, point-based competition",
+                  "Reverse Hacking & Esports (Nov 9)",
+                  "Fast-paced tech and gaming challenges",
+                  "Two days of innovation",
+                  "Memorable experiences"
                 ]}
+                hoverColor="rgb(10, 109, 140)"
               />
             </motion.div>
-          </div>
         </Animate>
 
       </div>
