@@ -9,8 +9,8 @@ import globe from "../../images/shapes/globe.png";
 import event1 from "../../images/speakers/1.png";
 import event2 from "../../images/speakers/2.png";
 import event3 from "../../images/speakers/3.png";
+import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
-import YellowButton from "../helpers/YellowButton";
 
 const AboutEvent = () => {
   const eventsData = [
@@ -101,51 +101,51 @@ const AboutEvent = () => {
 
           {/* Events */}
           <motion.div className="flex justify-center items-center"
-          style={{ opacity: eventOpacity }}>
+            style={{ opacity: eventOpacity }}>
             <div className="relative w-4/5 my-16 flex gap-16 flex-col lg:flex-row justify-between">
               {eventsData.map((eventObj, index) => (
                 <div
                   key={index}
-                  onClick={()=>window.location.href = eventObj.form_path}
-                  className={`flex flex-col items-center ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'} 
+                  onClick={() => window.location.href = eventObj.form_path}
+                  className={`flex flex-col items-center group ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'} 
         ${index === 1 ? 'order-first' : 'order-last'}
          lg:order-none`}
                 // index === 1 is to make the 2nd image first (Shark Tech) in mobile view
                 >
                   <Tilt
-                    tiltMaxAngleX={40}
-                    tiltMaxAngleY={30}
-                    scale={1.1}
-                    transitionSpeed={300}
-                    glareEnable={true}
-                    glareMaxOpacity={2}
+                    scale={1.2}
+                    glareEnable
+                    glareMaxOpacity={0.5}
                     glareColor={eventObj.color}
                     glarePosition="all"
-                    className="cursor-pointer relative group"
+                    className={`relative flex justify-center items-center cursor-pointer transition-transform duration-300
+        ${index === 1 ? "z-100" : "z-0"} 
+        group-hover:z-20 group-hover:scale-105`}
                   >
-                    {/* Image with hover description */}
                     <Image
                       src={eventObj.image}
                       alt={eventObj.name}
-                      width={500}
-                      height={500}
-                      className="rounded-lg shadow-md"
+                      width={600}
+                      height={600}
+                      className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 ${index === 1 ? "lg:scale-[1.15] rounded-xl" : "lg:scale-[0.9]"
+                        }`}
                     />
-
-                    {/* Description overlay */}
-                    <div
-                      className="absolute top-10 left-0 w-full bg-black bg-opacity-60 text-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    >
-                      <p className="text-xl font-semibold">{eventObj.description}</p>
+                    <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="font-semibold text-white text-center lg:mx-6">{eventObj.description}</p>
                     </div>
-
                   </Tilt>
 
-                  {/* Name Button */}
-                  <div className="text-center mt-4 relative w-4/5 mx-auto z-10 -mt-20">
-                    {/* <YellowButton title={eventObj.name} /> */}
-                    <YellowButton title={eventObj.name} redirect={eventObj.form_path} />
-                  </div>
+                    {/* Name Button */}
+                  <Tilt
+                    scale={index == 1 ? 1.5 : 0.9}
+                    className={`flex transition-transform duration-300
+        ${index === 1 ? "z-10" : "z-0"} 
+        group-hover:z-20 group-hover:scale-105`}
+                  >
+                    <div className={`text-center z-10 ${index == 0 && "w-4/5 mx-auto lg:w-auto"} ${index == 1 ? "lg:-mt-8" : "lg:-mt-16"}`}>
+                      <GradientButton title={"Register to " + eventObj.name} redirect={eventObj.form_path} color={eventObj.color} />
+                    </div>
+                  </Tilt>
 
                 </div>
               ))}
