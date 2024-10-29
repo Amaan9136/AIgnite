@@ -10,6 +10,8 @@ import place3 from "../../images/places/3.jpg";
 import place4 from "../../images/places/4.jpg";
 import place5 from "../../images/places/5.jpg";
 import place6 from "../../images/places/6.jpg";
+import place7 from "../../images/places/7.jpg";
+import place8 from "../../images/places/8.jpg";
 import SectionTitle from "../helpers/SectionTitle";
 
 const Places = () => {
@@ -18,51 +20,71 @@ const Places = () => {
 
   const placesData = [
     {
-      name: "Ethina bhuja",
+      name: "Ethina Bhuja",
       image: place1,
-      color: "#7ce6e2",
-      description: `Ethina Bhuja in Mudigere, Karnataka, is a popular trekking spot in the Charmadi range of the Western Ghats. Known as "Ox's Shoulder," it offers a moderately challenging trek with stunning views of green valleys and dense forests. The peak is famous for its unique rock formation resembling an Ox's shoulder.`,
+      color: "#9BD4D4",
+      description: `Ethina Bhuja in Mudigere, Karnataka, is a popular trekking spot in the Charmadi range of the Western Ghats. Known as "Ox's Shoulder," the peak is famous for its unique rock formation resembling an Ox's shoulder.`,
+      map_link: "https://maps.app.goo.gl/LEnfHLgFWzN9ZQzV8", 
     },
     {
       name: "Hirekolale Lake",
       image: place2,
-      color: "#4999D0",
-      description: `Hirekolale Lake, located near Chikmagalur in Karnataka, is a picturesque man-made lake surrounded by lush greenery and hills. It offers serene views, especially during sunset, making it a popular spot for nature lovers and photographers. The lake also serves as a water source for the region and provides a peaceful retreat for visitors looking to enjoy the natural beauty of the Western Ghats.`,
+      color: "#4A90E2",
+      description: `Hirekolale Lake, located near Chikmagalur in Karnataka, is a picturesque man-made lake surrounded by lush greenery and hills. It offers serene views, especially during sunset, making it a popular spot for nature lovers and photographers.`,
+      map_link: "https://maps.app.goo.gl/LEnfHLgFWzN9ZQzV8", 
     },
     {
       name: "Deviramma Betta",
       image: place3,
-      color: "#fe8400",
-      description: `Deviramma Betta is a prominent hill located near Chikmagalur in Karnataka, India. Known for its challenging yet rewarding trek, it offers panoramic views of the Western Ghats. The hill is named after the Deviramma Temple situated at the summit, which is a significant pilgrimage site, especially during the annual Deviramma Jatre festival. Trekkers and devotees alike visit Deviramma Betta for its natural beauty, spiritual significance, and the breathtaking scenery that surrounds it.`,
+      color: "#F29B4E",
+      description: `Deviramma Betta is a prominent hill located near Chikmagalur in Karnataka, India. Known for its challenging yet rewarding trek, it offers panoramic views of the Western Ghats.`,
+      map_link: "https://maps.app.goo.gl/LEnfHLgFWzN9ZQzV8", 
     },
     {
       name: "Ayyankere",
       image: place4,
-      color: "#7ce6e2",
-      description: `Ayyankere, located near Chikmagalur in Karnataka, is one of the oldest and largest lakes in the region. Surrounded by the Western Ghats, it offers stunning views of lush landscapes and the nearby Shakunagiri Hill. The lake is an important source of irrigation for local agriculture and is a popular spot for fishing and picnics. Visitors come to Ayyankere to enjoy its serene environment and the beautiful sunset views over the water.`,
+      color: "#8CC8A5",
+      description: `Ayyankere, located near Chikmagalur in Karnataka, is one of the oldest and largest lakes in the region. Surrounded by the Western Ghats, it offers stunning views of lush landscapes and the nearby Shakunagiri Hill.`,
+      map_link: "https://maps.app.goo.gl/LEnfHLgFWzN9ZQzV8", 
     },
     {
       name: "Hebbe Falls",
       image: place5,
-      color: "#4999D0",
-      description: `Hebbe Falls in Chikmagalur, Karnataka, is a picturesque waterfall in the Bhadra Wildlife Sanctuary, cascading 168 meters in two stages: Dodda Hebbe and Chikka Hebbe. Surrounded by lush greenery, it's a popular spot for nature lovers and trekkers, accessible via a forest trek or jeep ride.`,
+      color: "#5DADE2",
+      description: `Hebbe Falls in Chikmagalur, Karnataka, is a picturesque waterfall in the Bhadra Wildlife Sanctuary, cascading 168 meters in two stages: Dodda Hebbe and Chikka Hebbe.`,
+      map_link: "https://maps.app.goo.gl/LEnfHLgFWzN9ZQzV8", 
     },
     {
       name: "Mullayanagiri",
       image: place6,
-      color: "#fe8400",
-      description: `Mullayanagiri, the highest peak in Karnataka at 1,930 meters, is located in the Chikkamagalur district. Part of the Baba Budangiri range, it's known for stunning views, lush greenery, and trekking trails. The peak features a small Shiva temple, making it a popular destination for nature lovers and adventure enthusiasts.`,
+      color: "#F57C00",
+      description: `Mullayanagiri, the highest peak in Karnataka at 1,930 meters, is located in the Chikkamagalur district. Part of the Baba Budangiri range, it's known for stunning views, lush greenery, and trekking trails.`,
+      map_link: "https://maps.app.goo.gl/LEnfHLgFWzN9ZQzV8", 
+    },
+    {
+      name: "Honnammana Halla",
+      image: place7,
+      color: "#F4A261",
+      description: `Honnammana Halla, located near Chikkamagaluru in Karnataka, is a charming waterfall set amid the Western Ghats. Known for its scenic views, the waterfall flows through a rocky terrain.`,
+      map_link: "https://maps.app.goo.gl/LEnfHLgFWzN9ZQzV8", 
+    },
+    {
+      name: "Belavadi Veera Narayana Temple",
+      image: place8,
+      color: "#E76F51",
+      description: `Belavadi Veera Narayana Temple, is a magnificent Hoysala-era temple renowned for its intricate architecture and sculptures. Built in the 13th century.`,
+      map_link: "https://maps.app.goo.gl/LEnfHLgFWzN9ZQzV8", 
     },
   ];
 
   const { scrollY } = useScroll();
   const largeScreenRanges = [1700, 2100];
-  const smallScreenRanges = [2500, 2950];
+  const smallScreenRanges = [4000, 4600];
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {
     const updateRanges = () => {
-      setScrollRanges(window.innerWidth <= 768 ? smallScreenRanges : largeScreenRanges);
+      setScrollRanges(window.innerWidth <= 1028 ? smallScreenRanges : largeScreenRanges);
     };
     updateRanges();
     window.addEventListener("resize", updateRanges);
@@ -101,30 +123,32 @@ const Places = () => {
             },
           }}
         >
-          {placesData.map((event, index) => (
-            <SwiperSlide key={index} className="group my-20">
+          {placesData.map((place, index) => (
+            <SwiperSlide 
+            key={index} 
+            onClick={() => window.open(place.map_link, "_blank")}
+            className="group lg:my-20 my-12 ">
               <Tilt
-                scale={index === activeIndex ? 1.4 : 1}
+                scale={index === activeIndex ? 1.2 : 1}
                 glareEnable
-                glareMaxOpacity={0.5}
-                glareColor={event.color}
+                glareMaxOpacity={0.4}
+                glareColor={place.color}
                 glarePosition="all"
-                className={`relative flex justify-center items-center cursor-pointer transition-transform duration-300
-                  ${index === activeIndex ? "z-100" : "z-0"} 
-                  group-hover:z-20 group-hover:scale-105`}
+                className={`relative flex justify-center items-center cursor-pointer transition-transform duration-300`}
               >
                 <Image
-                  src={event.image}
-                  alt={event.name}
+                  src={place.image}
+                  alt={place.name}
                   width={600}
                   height={600}
                   className={`rounded-xl transition-transform duration-400 group-hover:opacity-25 ${
-                    index === activeIndex ? "scale-[1.2] opacity-[0.9]" : "scale-[0.85] opacity-[0.65]"
+                    index === activeIndex ? "lg:scale-[1.2] opacity-[0.9]" : "lg:scale-[0.85] opacity-[0.65]"
                   }`}
                 />
-                <div className="absolute bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h1 className="text-2xl font-semibold text-white text-center px-12">{event.name}</h1>
-                  <p className="text-lg font-semibold text-white text-center px-12">{event.description}</p>
+                <div 
+                className="absolute bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h1 className="text-xl font-semibold text-white text-center px-12">{place.name}</h1>
+                  <p className="font-semibold text-white text-center px-12">{place.description}</p>
                 </div>
               </Tilt>
             </SwiperSlide>

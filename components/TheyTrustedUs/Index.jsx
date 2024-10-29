@@ -1,13 +1,51 @@
+import { useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import capulus from "../../images/logos/capulus.png";
-import Selfypage from "../../images/logos/Selfypage.png";
+import iip from "../../images/logos/iip.jpg";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
 import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 
 const TheyTrustedUs = () => {
+
+  const largeScreenRanges = {
+    ait: [2300, 2400, 2600],
+    event: [2800, 3300, 3500],
+    map: [2800, 3300, 3500],
+  };
+
+  const smallScreenRanges = {
+    ait: [2800, 3000, 3200],
+    event: [3400, 3500, 3700],
+    map: [3800, 3900, 4100],
+  };
+
+  const { scrollY } = useScroll();
+  const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
+
+  // Set the scroll ranges based on screen size
+  useEffect(() => {
+    const updateRanges = () => {
+      if (window.innerWidth <= 768) {
+        setScrollRanges(smallScreenRanges); // Mobile
+      } else {
+        setScrollRanges(largeScreenRanges); // Desktop
+      }
+    };
+
+    updateRanges();
+
+    window.addEventListener('resize', updateRanges);
+    return () => window.removeEventListener('resize', updateRanges);
+  }, []);
+
+  // Set opacity transformations based on current ranges
+  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.7, 0.3]);
+  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
+  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
 
   return (
     <section className="relative mb-28" id="they-trusted-us">
@@ -37,9 +75,9 @@ const TheyTrustedUs = () => {
         <div className="section-container pt-6">
           <SectionTitle title={"They Trusted Us"} />
 
-{/* company 1 */}
+          {/* company 1 */}
           <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
-          <div
+            <div
               className={`relative w-[250px] h-[250px] lg:w-[321px]`}
             >
               <Tilt
@@ -49,28 +87,56 @@ const TheyTrustedUs = () => {
             </div>
             <div className="flex flex-col gap-11 flex-1">
               <ParagSection2
-                title="Event Highlights"
-                paragraph="Welcome to Sharkathon\n24-hour hackathon event\nJoin us for innovation and competition "
-                highlights={["Sharkathon", "hackathon", "innovation", "competition"]}
+                title="Capulus Technologies Pvt Ltd"
+                paragraph="Capulus Technologies Pvt Ltd is a forward-thinking tech company specializing in AI-driven solutions for smart cities, public safety, and law enforcement. They provide cutting-edge platforms for smart policing, urban mobility, e-governance, and security surveillance, aiming to enhance public services and streamline operations. Capulus is ISO-certified for quality and information security and holds Startup India recognition, reflecting its commitment to reliability and innovation. Working closely with government and private sector clients, Capulus focuses on impactful technology to improve community safety and infrastructure."
+                highlights={[
+                  "AI-driven solutions",
+                  "smart cities",
+                  "public safety",
+                  "law enforcement",
+                  "smart policing",
+                  "urban mobility",
+                  "e-governance",
+                  "security surveillance",
+                  "ISO-certified",
+                  "Startup India recognition",
+                  "government",
+                  "private sector clients",
+                  "community safety",
+                  "infrastructure",
+                  "innovation",
+                ]}
               />
             </div>
           </div>
 
-{/* company 2 */}
+          {/* company 2 */}
           <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
-          <div
+            <div
               className={`relative w-[250px] h-[250px] lg:w-[321px] lg:order-last`}
             >
               <Tilt
                 className="cursor-pointer">
-                <Image src={Selfypage} width={550} height={550} alt="" className="rounded-2xl shadow-md" />
+                <Image src={iip} width={550} height={550} alt="" className="rounded-2xl shadow-md" />
               </Tilt>
             </div>
             <div className="flex flex-col gap-11 flex-1">
               <ParagSection2
-                title="Event Highlights"
-                paragraph="Welcome to Sharkathon\n24-hour hackathon event\nJoin us for innovation and competition"
-                highlights={["Sharkathon", "hackathon", "innovation", "competition"]}
+                title="Iterative International Publishers"
+                paragraph="Selfypage Developers Private Limited (Iterative International Publishers) is a company, registered in Bangalore, Karnataka. Established with an authorized capital of INR 2.5 lakhs, the company maintains a 100% paid-up capital structure, indicating strong financial commitment from its stakeholders within the Community, Personal, and Social Services sector, focusing on delivering impactful and community-oriented solutions. The company remains active in its business operations, striving to make a positive contribution to the communities it serves."
+                highlights={[
+                  "Iterative International Publishers",
+                  "registered in Bangalore",
+                  "authorized capital of INR 2.5 lakhs",
+                  "100% paid-up capital",
+                  "financial commitment",
+                  "Community services",
+                  "Personal services",
+                  "Social services",
+                  "impactful",
+                  "community-oriented",
+                  "positive contribution",
+                ]}
               />
             </div>
 

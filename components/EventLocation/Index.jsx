@@ -157,7 +157,7 @@ const AboutEvent = () => {
                 <SwiperSlide key={index}>
                   <motion.div
                     style={{ opacity: aitOpacity }}
-                    className="flex p-2 z-10 lg:ml-4 cursor-pointer"
+                    className="flex p-2 z-10 lg:ml-4 cursor-pointer justify-center"
                   >
                     <Image
                       className="rounded-lg"
@@ -224,9 +224,10 @@ const AboutEvent = () => {
               className="cursor-pointer"
             >
               <ParagSection2
-                title="AIgnite Event"
-                paragraph="The AIML Department's first-ever technical fest aspires to offer attendees a truly hands-on and immersive experience. This event initiates the department's dedication to building a vibrant technical community, bringing together students from various colleges to engage with AIML’s innovative tech culture. We are on a mission to make everyone a part of AIGNITE and to provide something unique for all fellow attendees and savour the experience as a lifelong memory."
+                title="National Level AIgnite Event"
+                paragraph="The AIML Department's first-ever national technical fest aspires to offer attendees a truly hands-on and immersive experience. This event initiates the department's dedication to building a vibrant technical community, bringing together students from various colleges to engage with AIML’s innovative tech culture. We are on a mission to make everyone a part of AIGNITE and to provide something unique for all fellow attendees and savour the experience as a lifelong memory."
                 highlights={[
+                  "national technical fest",
                   "Hands-on and immersive experience",
                   "Dedication to building a vibrant technical community",
                   "Engage with AIML’s innovative tech culture",

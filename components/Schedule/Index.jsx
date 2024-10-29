@@ -1,4 +1,6 @@
+import { useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
 import maqam from "../../images/shapes/GDGAlgiers.png";
@@ -7,6 +9,42 @@ import SectionTitle from "../helpers/SectionTitle";
 import { schedule } from "./schedule";
 
 const Schedule = () => {
+  const largeScreenRanges = {
+    ait: [2300, 2400, 2600],
+    event: [2800, 3300, 3500],
+    map: [2800, 3300, 3500],
+  };
+
+  const smallScreenRanges = {
+    ait: [2800, 3000, 3200],
+    event: [3400, 3500, 3700],
+    map: [3800, 3900, 4100],
+  };
+
+  const { scrollY } = useScroll();
+  const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
+
+  // Set the scroll ranges based on screen size
+  useEffect(() => {
+    const updateRanges = () => {
+      if (window.innerWidth <= 768) {
+        setScrollRanges(smallScreenRanges); // Mobile
+      } else {
+        setScrollRanges(largeScreenRanges); // Desktop
+      }
+    };
+
+    updateRanges();
+
+    window.addEventListener('resize', updateRanges);
+    return () => window.removeEventListener('resize', updateRanges);
+  }, []);
+
+  // Set opacity transformations based on current ranges
+  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.7, 0.3]);
+  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
+  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
+
   return (
     <section id="schedule" className="relative section-container pt-6">
       <SectionTitle title={"Schedule"}> </SectionTitle>
@@ -26,29 +64,28 @@ const Schedule = () => {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-col justify-center mt-[5.5rem]">
-          <div className="bg-gradient-b-p bg-opacity-40 justify-center w-full md:pl-[50px] pl-[10px] mb-20 pr-[10px] md:pr-[30px] lg:py-[80px] md:py[70px] py-8 border-4 md:border-8 md:mt-[-30px] mt-[-10px]">
+        <div className="col-span-4 flex flex-col  mt-[5.5rem]">
+          <div className="bg-gradient-b-p bg-opacity-40  w-full md:pl-[50px] pl-[10px] mb-20 pr-[10px] md:pr-[30px] lg:py-[80px] md:py[70px] py-8 border-4 md:border-8 md:mt-[-30px] mt-[-10px]">
             <h1 className="relative top-[-12px] text-center text-3xl lg:text-4xl lg:top-[-30px] font-bold text-black">Friday-Saturday, November 8th-9th</h1>
-            <div className="">
-              <div className="sm:text-xl font-medium md:font-semibold text-xs md:px[10px] ">
-                <div className="flew flex-row">
-                  {schedule.map((scheduleInfo, idx) => {
-                    return (
-                      <div
-                        key={33 + idx}
-                        className="flex flex-row justify-stretch mx-auto "
-                      >
-                        <div className="flex flex-none py-2.5 md:pl-10">
-                          <div className="">{scheduleInfo.Time}</div>
-                        </div>
-                        <div className="flex pl-2 md:pl-10 py-2.5 ">
-                          <div className="">{scheduleInfo.event}</div>
-                        </div>
+            <div className="sm:text-xl font-medium md:font-semibold text-xs md:px[10px] ">
+              {schedule.map((scheduleInfo, idx) => {
+                return (
+                  <div
+                    key={33 + idx}
+                    className={`flex flex-row ${scheduleInfo.center ? "justify-center lg:text-2xl" : "justify-stretch"} mx-auto`}
+                  >
+                    <div className="flex flex-none py-2.5 md:pl-10">
+                      <div className="">{scheduleInfo.Time}</div>
+                    </div>
+                    <div className="flex pl-2 md:pl-10 py-2.5 ">
+                      <div>
+                        <span className="text-qiskit-yellow">{scheduleInfo.event && scheduleInfo.event}</span>
+                        <span style={{color: "rgb(6 182 212)"}}> {scheduleInfo.location && scheduleInfo.location}</span>
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
