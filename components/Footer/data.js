@@ -9,6 +9,6 @@ export const socialsMedia = [
   {
     social: "Linkedin",
     logo: Linkedin,
-    redirect: "https://www.linkedin.com/in/aimlaitckm/",
+    redirect: "https://www.linkedin.com/company/aignite-aiml-aitckm/",
   },
 ];
