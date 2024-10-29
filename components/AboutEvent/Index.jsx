@@ -15,22 +15,22 @@ import SectionTitle from "../helpers/SectionTitle";
 const AboutEvent = () => {
   const eventsData = [
     {
-      name: "Reverse Engineering",
-      form_path: "https://www.amaan.com",
+      name: "Reverse Hacking",
+      form_path: "https://tally.so/r/nGBrxO",
       image: event1,
       color: "#7ce6e2",
       description: "Dive into the art of deconstructing complex systems, discovering their inner workings, and unlocking new perspectives in technology and innovation."
     },
     {
-      name: "Shark Tekz",
-      form_path: "",
+      name: "Sharkathon",
+      form_path: "https://tally.so/r/wb4lq7",
       image: event2,
       color: "#4999D0",
       description: "Experience the thrill of rapid innovation as creative minds pitch groundbreaking tech ideas in a high-stakes environment where innovation meets competition."
     },
     {
       name: "E-Sports",
-      form_path: "",
+      form_path: "https://tally.so/r/nrrK4o",
       image: event3,
       color: "#fe8400",
       description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports."
