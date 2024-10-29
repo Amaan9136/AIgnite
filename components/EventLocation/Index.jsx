@@ -7,6 +7,7 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import AIgnite from "../../images/sectionsAssets/AIgnite.jpg";
 import ait from "../../images/sectionsAssets/ait.png";
+import eve from "../../images/sectionsAssets/eve.jpg";
 import hrd from "../../images/sectionsAssets/hrd.jpg";
 import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
@@ -53,15 +54,15 @@ const AboutEvent = () => {
   ];
 
   const largeScreenRanges = {
-    ait: [2300, 2400, 2600],
-    event: [2800, 3300, 3500],
-    map: [2800, 3300, 3500],
+    ait: [2400, 2600],
+    event: [3300, 3500],
+    map: [3300, 3500],
   };
-
+ 
   const smallScreenRanges = {
-    ait: [2800, 3000, 3200],
-    event: [3400, 3500, 3700],
-    map: [3800, 3900, 4100],
+    ait: [3550, 3700],
+    event: [3900, 4000],
+    map: [5000, 5100],
   };
 
   const { scrollY } = useScroll();
@@ -70,7 +71,7 @@ const AboutEvent = () => {
   // Set the scroll ranges based on screen size
   useEffect(() => {
     const updateRanges = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
       } else {
         setScrollRanges(largeScreenRanges); // Desktop
@@ -84,9 +85,9 @@ const AboutEvent = () => {
   }, []);
 
   // Set opacity transformations based on current ranges
-  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.7, 0.3]);
-  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
-  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
+  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.3]);
+  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.3]);
+  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.3]);
 
   return (
     <section id="event-loc" className="section-container pt-6">
@@ -222,7 +223,7 @@ const AboutEvent = () => {
 
               <SwiperSlide>
                 <motion.div
-                  style={{ opacity: mapOpacity }}
+                  style={{ opacity: eventOpacity }}
                   className="flex p-2 z-10 lg:ml-4 cursor-pointer justify-center"
                 >
                   <Image
@@ -234,12 +235,12 @@ const AboutEvent = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <motion.div
-                  style={{ opacity: aitOpacity }}
+                  style={{ opacity: eventOpacity }}
                   className="flex p-2 z-10 lg:ml-4 cursor-pointer justify-center"
                 >
                   <Image
                     className="rounded-lg"
-                    src={AIgnite}
+                    src={eve}
                     alt={`scroll event image 2`}
                   />
                 </motion.div>
@@ -266,7 +267,7 @@ const AboutEvent = () => {
 
               <SwiperSlide>
                 <motion.div
-                  style={{ opacity: mapOpacity }}
+                  style={{ opacity: eventOpacity }}
                   className="cursor-pointer"
                 >
                   <ParagSection2
@@ -288,23 +289,25 @@ const AboutEvent = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <motion.div
-                  style={{ opacity: mapOpacity }}
+                  style={{ opacity: eventOpacity }}
                   className="cursor-pointer"
                 >
-                  <ParagSection2
-                    title="National Level AIgnite Event"
-                    paragraph="The AIML Department's first-ever national technical fest aspires to offer attendees a truly hands-on and immersive experience. This event initiates the department's dedication to building a vibrant technical community, bringing together students from various colleges to engage with AIML’s innovative tech culture. We are on a mission to make everyone a part of AIGNITE and to provide something unique for all fellow attendees and savour the experience as a lifelong memory."
-                    highlights={[
-                      "national technical fest",
-                      "Hands-on and immersive experience",
-                      "Dedication to building a vibrant technical community",
-                      "Engage with AIML’s innovative tech culture",
-                      "Mission to make everyone a part of AIGNITE",
-                      "Unique experience for all attendees",
-                      "Lifelong memory"
-                    ]}
-                    hoverColor="rgb(174, 60, 89)"
-                  />
+<ParagSection2
+  title="AIgnite Team"
+  paragraph="The AIgnite Team consists of passionate volunteers from the AIML Department, all committed to making this national technical fest a resounding success on November 8th and 9th. Working tirelessly behind the scenes, they are driven by a shared vision to offer attendees an immersive, hands-on experience that celebrates the innovative tech culture of AIML. Their mission is to ensure every participant feels part of the AIgnite journey, creating a unique and memorable experience that will resonate for years to come."
+  highlights={[
+    "passionate volunteers",
+    "national technical fest",
+    "immersive, hands-on experience",
+    "innovative tech culture",
+    "dedication to a vibrant technical community",
+    "unique experience for all attendees",
+    "memorable experience",
+    "November 8th and 9th"
+  ]}
+  hoverColor="rgb(174, 60, 89)"
+/>
+
                 </motion.div>
 
               </SwiperSlide>

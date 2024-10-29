@@ -1,4 +1,4 @@
-import { useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
@@ -10,22 +10,6 @@ import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 
 const juryData = [
-  {
-    title: "Nithin Kamath",
-    paragraph: "Nithin Kamath is a prominent figure in the technology sector, currently serving as the Executive Director and founder of Capulus Technologies Private Limited based in Karnataka, India. With over a decade of hands-on experience in the tech industry, Nithin has demonstrated a strong commitment to leadership and innovation. His journey at CapulusTech has been fueled by a passion for developing technology-driven solutions that redefine user experiences and address the evolving demands of the market. As a leader, Nithin emphasizes the importance of crafting technology solutions that have a tangible impact on daily life. Under his guidance, the team at Capulus prioritizes expertise in software development, ensuring that the products they deliver not only meet market needs but also contribute meaningfully to technological advancement. This dedication to innovation reflects Nithin's belief in leveraging technology to improve lives and create value.",
-    highlights: [
-      "Executive Director",
-      "Founder of Capulus Technologies Private Limited",
-      "Over a decade of hands-on experience",
-      "Demonstrated a strong commitment to leadership and innovation",
-      "Technology-driven solutions",
-      "Tangible impact on daily life",
-      "Expertise in software development",
-      "Passion for developing technology-driven solutions"
-    ],
-    image: NithinKamath,
-    orderLast: true,
-  },
   {
     title: "Nanjesh Bennur",
     paragraph: "Nanjesh Bennur is a distinguished professional based in Karnataka, India, known for his multifaceted roles as an author, entrepreneur, and chairman of the Youth Red Cross. He has made significant contributions as a committee member of the Karnataka State Committee for IE India and has served as a former assistant professor at AIT in Chikmagalur. Currently, he is affiliated with Selfpage Developers Pvt Ltd, where he continues to foster innovation and development in the tech industry. With a solid educational foundation, Nanjesh holds a Master of Technology (MTech) degree, specializing in Computer Science. His academic and professional journey has been marked by a demonstrated history of working in the computer software industry, where he has honed his skills in various programming languages and technologies.",
@@ -40,22 +24,29 @@ const juryData = [
       "Demonstrated history of working in the computer software industry"
     ],
     image: Nanjeshbennur,
+    orderLast: true,
+  },
+  {
+    title: "Nithin Kamath",
+    paragraph: "Nithin Kamath is a prominent figure in the technology sector, currently serving as the Executive Director and founder of Capulus Technologies Private Limited based in Karnataka, India. With over a decade of hands-on experience in the tech industry, Nithin has demonstrated a strong commitment to leadership and innovation. His journey at CapulusTech has been fueled by a passion for developing technology-driven solutions that redefine user experiences and address the evolving demands of the market. As a leader, Nithin emphasizes the importance of crafting technology solutions that have a tangible impact on daily life. Under his guidance, the team at Capulus prioritizes expertise in software development, ensuring that the products they deliver not only meet market needs but also contribute meaningfully to technological advancement. This dedication to innovation reflects Nithin's belief in leveraging technology to improve lives and create value.",
+    highlights: [
+      "Executive Director",
+      "Founder of Capulus Technologies Private Limited",
+      "Over a decade of hands-on experience",
+      "Demonstrated a strong commitment to leadership and innovation",
+      "Technology-driven solutions",
+      "Tangible impact on daily life",
+      "Expertise in software development",
+      "Passion for developing technology-driven solutions"
+    ],
+    image: NithinKamath,
     orderLast: false,
   }
 ];
 
 const AboutJury = () => {
-  const largeScreenRanges = {
-    ait: [2300, 2400, 2600],
-    event: [2800, 3300, 3500],
-    map: [2800, 3300, 3500],
-  };
-
-  const smallScreenRanges = {
-    ait: [2800, 3000, 3200],
-    event: [3400, 3500, 3700],
-    map: [3800, 3900, 4100],
-  };
+  const largeScreenRanges = [5500, 5700]
+  const smallScreenRanges = [7900, 8000]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -63,7 +54,7 @@ const AboutJury = () => {
   // Set the scroll ranges based on screen size
   useEffect(() => {
     const updateRanges = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
       } else {
         setScrollRanges(largeScreenRanges); // Desktop
@@ -76,10 +67,8 @@ const AboutJury = () => {
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
 
-  // Set opacity transformations based on current ranges
-  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.7, 0.3]);
-  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
-  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
+  const sectionOpacity = useTransform(scrollY, scrollRanges, [1, 0.3]);
+
   return (
     <section className="relative lg:mb-28" id="about-jury">
       <div className="relative">
@@ -93,7 +82,10 @@ const AboutJury = () => {
           <Image src={maqam} layout="fill" />
         </div>
 
-        <div className="section-container pt-6">
+        <motion.div
+          style={{ opacity: sectionOpacity }}
+          className="section-container pt-6 cursor-pointer"
+        >
           <SectionTitle title={"About Jury's"} />
 
           {juryData.map((jury, index) => (
@@ -112,7 +104,7 @@ const AboutJury = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

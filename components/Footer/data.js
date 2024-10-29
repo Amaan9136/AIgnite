@@ -4,11 +4,11 @@ export const socialsMedia = [
   {
     social: "Instagram",
     logo: Instagram,
-    redirect: "https://www.instagram.com/amaan.m.k/",
+    redirect: "https://www.instagram.com/aiml_ait_official/",
   },
   {
     social: "Linkedin",
     logo: Linkedin,
-    redirect: "https://www.linkedin.com/in/amaanmk/",
+    redirect: "https://www.linkedin.com/in/aimlaitckm/",
   },
 ];

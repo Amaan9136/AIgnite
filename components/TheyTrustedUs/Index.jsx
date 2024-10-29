@@ -1,4 +1,4 @@
-import { useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
@@ -11,17 +11,8 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const TheyTrustedUs = () => {
 
-  const largeScreenRanges = {
-    ait: [2300, 2400, 2600],
-    event: [2800, 3300, 3500],
-    map: [2800, 3300, 3500],
-  };
-
-  const smallScreenRanges = {
-    ait: [2800, 3000, 3200],
-    event: [3400, 3500, 3700],
-    map: [3800, 3900, 4100],
-  };
+  const largeScreenRanges = [7800, 7900]
+  const smallScreenRanges = [12850, 12950]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -29,7 +20,7 @@ const TheyTrustedUs = () => {
   // Set the scroll ranges based on screen size
   useEffect(() => {
     const updateRanges = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
       } else {
         setScrollRanges(largeScreenRanges); // Desktop
@@ -42,10 +33,7 @@ const TheyTrustedUs = () => {
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
 
-  // Set opacity transformations based on current ranges
-  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.7, 0.3]);
-  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
-  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
+  const sectionOpacity = useTransform(scrollY, scrollRanges, [1, 0.3]);
 
   return (
     <section className="relative mb-28" id="they-trusted-us">
@@ -72,13 +60,16 @@ const TheyTrustedUs = () => {
         <div className="absolute bottom-1/2 left-8 w-[75px] h-[53px] md:w-[40px] md:h-[40px] lg:w-[106px] lg:h-[76px] 2xl:w-[160px] 2xl:h-[112px]">
           <Image src={maqam} layout="fill" />
         </div>
-        <div className="section-container pt-6">
+        <motion.div
+          style={{ opacity: sectionOpacity }}
+          className="section-container pt-6 cursor-pointer"
+        >
           <SectionTitle title={"They Trusted Us"} />
 
           {/* company 1 */}
           <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
             <div
-              className={`relative w-[250px] h-[250px] lg:w-[321px]`}
+              className={`relative w-[250px] h-[250px] lg:w-[321px] lg:order-last`}
             >
               <Tilt
                 className="cursor-pointer">
@@ -113,7 +104,7 @@ const TheyTrustedUs = () => {
           {/* company 2 */}
           <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
             <div
-              className={`relative w-[250px] h-[250px] lg:w-[321px] lg:order-last`}
+              className={`relative w-[250px] h-[250px] lg:w-[321px]`}
             >
               <Tilt
                 className="cursor-pointer">
@@ -141,7 +132,7 @@ const TheyTrustedUs = () => {
             </div>
 
           </div>
-        </div>
+        </motion.div>
       </div>
       {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-b from-qiskit-blue-normal to-qiskit-white"></div> */}
     </section>

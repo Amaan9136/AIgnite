@@ -38,14 +38,14 @@ const AboutEvent = () => {
   ];
 
   const largeScreenRanges = [1000, 1380]
-  const smallScreenRanges = [1800, 2650]
+  const smallScreenRanges = [2050, 2200]
 
   const { scrollY } = useScroll();
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {
     const updateRanges = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
       } else {
         setScrollRanges(largeScreenRanges); // Desktop
@@ -58,7 +58,7 @@ const AboutEvent = () => {
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
 
-  const eventOpacity = useTransform(scrollY, scrollRange, [1, 0]);
+  const eventOpacity = useTransform(scrollY, scrollRange, [1, 0.3]);
 
   return (
     <section id="about-event" className="section-container pt-6 mb-20">
@@ -106,7 +106,7 @@ const AboutEvent = () => {
               {eventsData.map((eventObj, index) => (
                 <div
                   key={index}
-                  onClick={() => window.location.href = eventObj.form_path}
+                  onClick={() => window.open(eventObj.form_path, "_blank")}
                   className={`flex flex-col items-center group ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'} 
         ${index === 1 ? 'order-first' : 'order-last'}
          lg:order-none`}
@@ -135,7 +135,7 @@ const AboutEvent = () => {
                     </div>
                   </Tilt>
 
-                    {/* Name Button */}
+                  {/* Name Button */}
                   <Tilt
                     scale={index == 1 ? 1.5 : 1.15}
                     className={`flex transition-transform duration-300

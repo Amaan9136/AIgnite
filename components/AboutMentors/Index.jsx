@@ -1,4 +1,4 @@
-import { useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
@@ -12,17 +12,8 @@ import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 
 const AboutMentors = () => {
-  const largeScreenRanges = {
-    ait: [2300, 2400, 2600],
-    event: [2800, 3300, 3500],
-    map: [2800, 3300, 3500],
-  };
-
-  const smallScreenRanges = {
-    ait: [2800, 3000, 3200],
-    event: [3400, 3500, 3700],
-    map: [3800, 3900, 4100],
-  };
+  const largeScreenRanges = [7000, 7400]
+  const smallScreenRanges = [11000, 11100]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -30,7 +21,7 @@ const AboutMentors = () => {
   // Set the scroll ranges based on screen size
   useEffect(() => {
     const updateRanges = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
       } else {
         setScrollRanges(largeScreenRanges); // Desktop
@@ -43,10 +34,7 @@ const AboutMentors = () => {
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
 
-  // Set opacity transformations based on current ranges
-  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.7, 0.3]);
-  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
-  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
+  const sectionOpacity = useTransform(scrollY, scrollRanges, [1, 0.3]);
   const mentorsData = [
     {
       title: "Arjun JS",
@@ -91,7 +79,10 @@ const AboutMentors = () => {
           <Image src={maqam} layout="fill" />
         </div>
 
-        <div className="section-container pt-6">
+        <motion.div
+          style={{ opacity: sectionOpacity }}
+          className="section-container pt-6 cursor-pointer"
+        >
           <SectionTitle title={"About Mentor's"} />
 
           {mentorsData.map((mentor, index) => (
@@ -114,7 +105,7 @@ const AboutMentors = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

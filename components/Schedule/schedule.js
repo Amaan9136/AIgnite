@@ -9,8 +9,8 @@ export const schedule = [
     location: "AIML Department",
   },
   {
-    Time: "09:30 AM - 09:00 AM",
-    event: "National Level Sharkathon (24 hrs)",
+    Time: "09:30 AM - 09:30 AM",
+    event: "(24 hrs) National Level Sharkathon",
     location: "AIML Lab",
   },
   {

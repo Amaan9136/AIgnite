@@ -65,7 +65,7 @@ const Hero = () => {
               <Tilt className="cursor-pointer" tiltMaxAngleX={15} tiltMaxAngleY={30}>
                 <motion.h1
                   style={{ scale: scaleTitle, y: titleY, x: titleX }}
-                  className="flex font-bold text-sm justify-center lg:justify-start lg:text-left text-4xl lg:text-6xl 2xl:text-7xl leading-[4.5rem]"
+                  className="flex mb-6 lg:m-0 font-bold text-sm justify-center lg:justify-start lg:text-left text-4xl lg:text-6xl leading-[4.5rem]"
                 >
                   AIgnite&nbsp;
                   <Typewriter

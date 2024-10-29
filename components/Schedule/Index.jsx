@@ -1,4 +1,4 @@
-import { useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import atom from "../../images/shapes/atom.png";
@@ -9,17 +9,8 @@ import SectionTitle from "../helpers/SectionTitle";
 import { schedule } from "./schedule";
 
 const Schedule = () => {
-  const largeScreenRanges = {
-    ait: [2300, 2400, 2600],
-    event: [2800, 3300, 3500],
-    map: [2800, 3300, 3500],
-  };
-
-  const smallScreenRanges = {
-    ait: [2800, 3000, 3200],
-    event: [3400, 3500, 3700],
-    map: [3800, 3900, 4100],
-  };
+  const largeScreenRanges = [3600, 5300]
+  const smallScreenRanges = [6000, 6100]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -27,7 +18,7 @@ const Schedule = () => {
   // Set the scroll ranges based on screen size
   useEffect(() => {
     const updateRanges = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
       } else {
         setScrollRanges(largeScreenRanges); // Desktop
@@ -40,10 +31,7 @@ const Schedule = () => {
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
 
-  // Set opacity transformations based on current ranges
-  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.7, 0.3]);
-  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
-  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
+  const tableOpacity = useTransform(scrollY, scrollRanges, [1, 0.3]);
 
   return (
     <section id="schedule" className="relative section-container pt-6">
@@ -64,7 +52,10 @@ const Schedule = () => {
           </div>
         </div>
 
-        <div className="col-span-4 flex flex-col  mt-[5.5rem]">
+        <motion.div
+          style={{ opacity: tableOpacity }}
+          className="cursor-pointer col-span-4 flex flex-col mt-[5.5rem]"
+        >
           <div className="bg-gradient-b-p bg-opacity-40  w-full md:pl-[50px] pl-[10px] mb-20 pr-[10px] md:pr-[30px] lg:py-[80px] md:py[70px] py-8 border-4 md:border-8 md:mt-[-30px] mt-[-10px]">
             <h1 className="relative top-[-12px] text-center text-3xl lg:text-4xl lg:top-[-30px] font-bold text-black">Friday-Saturday, November 8th-9th</h1>
             <div className="sm:text-xl font-medium md:font-semibold text-xs md:px[10px] ">
@@ -80,7 +71,7 @@ const Schedule = () => {
                     <div className="flex pl-2 md:pl-10 py-2.5 ">
                       <div>
                         <span className="text-qiskit-yellow">{scheduleInfo.event && scheduleInfo.event}</span>
-                        <span style={{color: "rgb(6 182 212)"}}> {scheduleInfo.location && scheduleInfo.location}</span>
+                        <span style={{ color: "rgb(6 182 212)" }}> {scheduleInfo.location && scheduleInfo.location}</span>
                       </div>
                     </div>
                   </div>
@@ -88,7 +79,7 @@ const Schedule = () => {
               })}
             </div>
           </div>
-        </div>
+        </motion.div>
         <div className=" md:flex flex-col hidden md:visible">
           <div className=" absolute w-[80px] h-[80px] lg:h-[100px] lg:w-[100px] -top-2 right-0 lg:right-10">
             <Image src={maqam} alt="maqam chahid" layout="fill" />

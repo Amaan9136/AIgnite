@@ -79,13 +79,13 @@ const Places = () => {
 
   const { scrollY } = useScroll();
   const largeScreenRanges = [1700, 2100];
-  const smallScreenRanges = [4000, 4600];
+  const smallScreenRanges = [2800, 2900]
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {
     const updateRanges = () => {
       setScrollRanges(
-        window.innerWidth <= 1028 ? smallScreenRanges : largeScreenRanges
+        window.innerWidth <= 1200 ? smallScreenRanges : largeScreenRanges
       );
     };
     updateRanges();
@@ -94,7 +94,7 @@ const Places = () => {
     return () => window.removeEventListener("resize", updateRanges);
   }, []);
 
-  const eventOpacity = useTransform(scrollY, scrollRange, [1, 0]);
+  const eventOpacity = useTransform(scrollY, scrollRange, [1, 0.3]);
 
   if (!isMounted) {
     return null;
