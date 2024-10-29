@@ -5,7 +5,8 @@ import Tilt from "react-parallax-tilt";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
 import Amith from "../../images/speakers/Amith.jpg";
-import Arjunjs from "../../images/speakers/Arjunjs.jpg";
+import Arjunjs from "../../images/speakers/Arjunjs.png";
+import Deekshith from "../../images/speakers/Deekshith.jpg";
 import SushilYadav from "../../images/speakers/SushilYadav.jpg";
 import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
@@ -62,11 +63,18 @@ const AboutMentors = () => {
       orderLast: false,
     },
     {
+      title: "Deekshith K N",
+      paragraph: "Deekshith K N is a skilled Software Engineer at Capulus Technologies Private Limited, specializing in advanced areas such as computer vision, data science, and machine learning. With a solid background in predictive analytics and the Internet of Things (IoT), Deekshith brings a robust set of technical skills to the information technology sector. His expertise supports innovative solutions and applications that enhance data-driven decision-making and intelligent automation.",
+      highlights: ["Software Engineer", "Capulus Technologies Private Limited", "computer vision", "data science", "machine learning", "predictive analytics", "Internet of Things (IoT)", "technical skills", "innovative solutions", "data-driven decision-making", "intelligent automation"],
+      image: Deekshith,
+      orderLast: true,
+    },
+    {
       title: "Amith J",
       paragraph: "Amith J is a dedicated Software Engineer with a Bachelor’s degree in Computer Science from AIT College (Alumini). His career at Lowe's India began as an Associate Software Engineer, and he has since progressed to his current role as a Software Engineer. With over five years of experience, he specializes in utilizing advanced skills in React.js, Redux.js, and Spring Boot to develop RESTful Web Services that power innovative retail technology solutions.",
       highlights: ["dedicated Software Engineer", "Alumini", "Bachelor’s degree in Computer Science", "five years of experience", "advanced skills in React.js", "Redux.js", "Spring Boot", "RESTful Web Services", "innovative retail technology solutions"],
       image: Amith,
-      orderLast: true,
+      orderLast: false,
     },
   ];
 

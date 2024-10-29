@@ -5,7 +5,7 @@ import Tilt from "react-parallax-tilt";
 import { Autoplay } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import AIgnite from "../../images/sectionsAssets/AIgnite.png";
+import AIgnite from "../../images/sectionsAssets/AIgnite.jpg";
 import ait from "../../images/sectionsAssets/ait.png";
 import hrd from "../../images/sectionsAssets/hrd.jpg";
 import atom from "../../images/shapes/atom.png";
@@ -200,84 +200,158 @@ const AboutEvent = () => {
           </Swiper>
         </Animate>
 
-        {/* Google Map Iframe */}
+        {/* Events */}
         <Animate delay={14} x={-50} y={50} className="lg:columns-2 mt-[50px] lg:m-4 lg:mt-12 ">
           {/* SIDE 1: Event Information */}
-          <Tilt className="m-2 cursor-pointer"
+          <Tilt
+            className="cursor-pointer"
+            scale={1.1}
             transitionSpeed={300}
           >
-            <motion.div
-              style={{ opacity: eventOpacity }}
-              className="cursor-pointer"
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              pagination={{ clickable: true }}
+              navigation
+              modules={[Autoplay]}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
             >
-              <Image
-                className="rounded-lg"
-                src={AIgnite}
-                alt={`scroll event AIgnite`}
-              // Add any other Image props here
-              />
-            </motion.div>
+
+              <SwiperSlide>
+                <motion.div
+                  style={{ opacity: mapOpacity }}
+                  className="flex p-2 z-10 lg:ml-4 cursor-pointer justify-center"
+                >
+                  <Image
+                    className="rounded-lg"
+                    src={AIgnite}
+                    alt={`scroll event image 1`}
+                  />
+                </motion.div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <motion.div
+                  style={{ opacity: aitOpacity }}
+                  className="flex p-2 z-10 lg:ml-4 cursor-pointer justify-center"
+                >
+                  <Image
+                    className="rounded-lg"
+                    src={AIgnite}
+                    alt={`scroll event image 2`}
+                  />
+                </motion.div>
+              </SwiperSlide>
+
+            </Swiper>
+          </Tilt>
+          <Tilt
+            className="cursor-pointer"
+            scale={1.1}
+            transitionSpeed={300}
+          >
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
+              pagination={{ clickable: true }}
+              navigation
+              modules={[Autoplay]}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+            >
+
+              <SwiperSlide>
+                <motion.div
+                  style={{ opacity: mapOpacity }}
+                  className="cursor-pointer"
+                >
+                  <ParagSection2
+                    title="National Level AIgnite Event"
+                    paragraph="The AIML Department's first-ever national technical fest aspires to offer attendees a truly hands-on and immersive experience. This event initiates the department's dedication to building a vibrant technical community, bringing together students from various colleges to engage with AIML’s innovative tech culture. We are on a mission to make everyone a part of AIGNITE and to provide something unique for all fellow attendees and savour the experience as a lifelong memory."
+                    highlights={[
+                      "national technical fest",
+                      "Hands-on and immersive experience",
+                      "Dedication to building a vibrant technical community",
+                      "Engage with AIML’s innovative tech culture",
+                      "Mission to make everyone a part of AIGNITE",
+                      "Unique experience for all attendees",
+                      "Lifelong memory"
+                    ]}
+                    hoverColor="rgb(174, 60, 89)"
+                  />
+                </motion.div>
+
+              </SwiperSlide>
+              <SwiperSlide>
+                <motion.div
+                  style={{ opacity: mapOpacity }}
+                  className="cursor-pointer"
+                >
+                  <ParagSection2
+                    title="National Level AIgnite Event"
+                    paragraph="The AIML Department's first-ever national technical fest aspires to offer attendees a truly hands-on and immersive experience. This event initiates the department's dedication to building a vibrant technical community, bringing together students from various colleges to engage with AIML’s innovative tech culture. We are on a mission to make everyone a part of AIGNITE and to provide something unique for all fellow attendees and savour the experience as a lifelong memory."
+                    highlights={[
+                      "national technical fest",
+                      "Hands-on and immersive experience",
+                      "Dedication to building a vibrant technical community",
+                      "Engage with AIML’s innovative tech culture",
+                      "Mission to make everyone a part of AIGNITE",
+                      "Unique experience for all attendees",
+                      "Lifelong memory"
+                    ]}
+                    hoverColor="rgb(174, 60, 89)"
+                  />
+                </motion.div>
+
+              </SwiperSlide>
+
+            </Swiper>
           </Tilt>
 
-            <motion.div
-              style={{ opacity: eventOpacity }}
-              className="cursor-pointer"
-            >
-              <ParagSection2
-                title="National Level AIgnite Event"
-                paragraph="The AIML Department's first-ever national technical fest aspires to offer attendees a truly hands-on and immersive experience. This event initiates the department's dedication to building a vibrant technical community, bringing together students from various colleges to engage with AIML’s innovative tech culture. We are on a mission to make everyone a part of AIGNITE and to provide something unique for all fellow attendees and savour the experience as a lifelong memory."
-                highlights={[
-                  "national technical fest",
-                  "Hands-on and immersive experience",
-                  "Dedication to building a vibrant technical community",
-                  "Engage with AIML’s innovative tech culture",
-                  "Mission to make everyone a part of AIGNITE",
-                  "Unique experience for all attendees",
-                  "Lifelong memory"
-                ]}
-                hoverColor="rgb(174, 60, 89)"
-              />
-            </motion.div>
 
           {/* SIDE 2: Map Date and Time Details */}
-            <motion.div
-              style={{ opacity: mapOpacity }}
-              className="flex justify-center items-center cursor-pointer mt-6 h-[22rem]"
-            >
-              <iframe
-                className="map-outline mb-2"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.135193095531!2d75.79563977467208!3d13.341865287008616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad77aa342ed7f%3A0xaec39f2826004a0!2sAdichunchanagiri%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1729871591468!5m2!1sen!2sin"
-                style={{ borderRadius: '20px', border: '1px solid #ccc', marginRight: '20px' }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </motion.div>
+          <motion.div
+            style={{ opacity: mapOpacity }}
+            className="flex justify-center items-center cursor-pointer mt-6 h-[22rem]"
+          >
+            <iframe
+              className="map-outline mb-2"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.135193095531!2d75.79563977467208!3d13.341865287008616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbad77aa342ed7f%3A0xaec39f2826004a0!2sAdichunchanagiri%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1729871591468!5m2!1sen!2sin"
+              style={{ borderRadius: '20px', border: '1px solid #ccc', marginRight: '20px' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </motion.div>
 
-            <motion.div
-              style={{ opacity: mapOpacity }}
-              className="cursor-pointer"
-            >
-              <ParagSection2
-                title="Event Date and Time"
-                paragraph={`Sharkathon (Nov 8-9)
+          <motion.div
+            style={{ opacity: mapOpacity }}
+            className="cursor-pointer"
+          >
+            <ParagSection2
+              title="Event Date and Time"
+              paragraph={`Sharkathon (Nov 8-9)
 Dive into a 24-hour hackathon starting on Nov 8 at 9 AM, where teams innovate and solve real-world challenges in a transparent, point-based competition. Mentors and judges will guide and score each phase, pushing creativity to new heights.
 Reverse Hacking & Esports (Nov 9)
 Join the excitement of Reverse Hacking and Esports on Nov 9 from 9 AM to 11 AM. Compete in fast-paced tech and gaming challenges that test skill, strategy, and expertise.
 Get ready for two days of innovation, competition, and memorable experiences!`}
-                highlights={[
-                  "Sharkathon (Nov 8-9)",
-                  "24-hour hackathon",
-                  "Real-world challenges",
-                  "Transparent, point-based competition",
-                  "Reverse Hacking & Esports (Nov 9)",
-                  "Fast-paced tech and gaming challenges",
-                  "Two days of innovation",
-                  "Memorable experiences"
-                ]}
-                hoverColor="rgb(10, 109, 140)"
-              />
-            </motion.div>
+              highlights={[
+                "Sharkathon (Nov 8-9)",
+                "24-hour hackathon",
+                "Real-world challenges",
+                "Transparent, point-based competition",
+                "Reverse Hacking & Esports (Nov 9)",
+                "Fast-paced tech and gaming challenges",
+                "Two days of innovation",
+                "Memorable experiences"
+              ]}
+              hoverColor="rgb(10, 109, 140)"
+            />
+          </motion.div>
         </Animate>
 
       </div>

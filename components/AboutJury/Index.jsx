@@ -81,7 +81,7 @@ const AboutJury = () => {
   const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.7, 0.3]);
   const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.7, 0.3]);
   return (
-    <section className="relative mb-28" id="about-jury">
+    <section className="relative lg:mb-28" id="about-jury">
       <div className="relative">
         <div className="absolute top-1/4 right-4 lg:w-[55px] h-[32px] w-[32px] lg:h-[55px] 2xl:w-[82px] 2xl:h-[82px]">
           <Image src={globe} layout="fill" />
