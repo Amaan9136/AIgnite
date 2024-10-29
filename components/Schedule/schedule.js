@@ -44,7 +44,7 @@ export const schedule = [
   },
   {
     Time: "09:30 AM - 11:00 AM",
-    event: "E Sports",
+    event: "E-Sports",
     location: "Amphi-theatre",
   },
   {
