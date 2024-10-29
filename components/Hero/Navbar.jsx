@@ -53,7 +53,7 @@ const Navbar = () => {
           </Animate>
 
           <Animate delay={10} y={55} x={55} className="hidden lg:flex cursor-pointer">
-            <Purplebutton title={"Join us"} />
+            <Purplebutton title={"Join us"} redirect={"#footer"} />
           </Animate>
 
           <div

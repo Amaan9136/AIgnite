@@ -1,6 +1,6 @@
 import Tilt from "react-parallax-tilt";
 
-const Button = ({ title }) => {
+const Button = ({ title, redirect, disabled = false }) => {
   return (
     <Tilt
       tiltMaxAngleX={60}
@@ -8,8 +8,9 @@ const Button = ({ title }) => {
       scale={1.1}
       transitionSpeed={250}>
       <button
-        disabled={true}
-        className="z-2 cursor-pointer"
+        disabled={disabled}
+        className={`z-2 ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+        onClick={() => !disabled && (window.location.href = redirect)}
       >
         <div className="bg-[url('/buttons-svg/purpule_button.svg')] bg-no-repeat bg-center bg-contain z-10">
           <div className="place-content-center flex justify-center">

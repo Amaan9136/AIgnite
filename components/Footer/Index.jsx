@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Tilt from "react-parallax-tilt";
 import AIgnite from "../../images/logos/aignite-logo.png";
+import Arrow from "../../images/shapes/Arrow.png";
 import AlgeriaSymbol from "../../images/shapes/GDGAlgiers.png";
 import GlobeShape from "../../images/shapes/globe.png";
 import { socialsMedia } from "./data";
@@ -22,13 +23,17 @@ const Footer = () => {
 
         <Tilt className="cursor-pointer" tiltMaxAngleX={30} tiltMaxAngleY={15}>
           <p
-            className="font-medium text-center leading-[2rem] lg:text-2xl 2xl:text-4xl 2xl:leading-[2.875rem]"
+            className="font-medium text-center leading-[2rem] lg:text-2xl"
           >
             Empowering Intelligence, Enhancing Humanity.
           </p>
         </Tilt>
 
         <Tilt className="flex gap-10 justify-center items-center"> {/* Centering applied here */}
+          <div
+            className="mb-10 h-[67px] bounce w-[67px]">
+            <Image src={Arrow} layout="fill" alt="Arrow"/>
+          </div>
           {socialsMedia.map((socialMedia, idx) => {
             return (
               <Link

@@ -113,7 +113,7 @@ const Hero = () => {
                 <motion.div 
                   style={{ scale: scaleTitle, y: RegBtnY, x: RegBtnX, opacity: bgOpacity }}
                 className="mb-[-50px] 2xl:mb-[-110px] cursor-not-allowed">
-                  <Purpulebutton title={"Register Now!"} />
+                  <Purpulebutton title={"Register Now!"} redirect={"#about-event"}/>
                 </motion.div>
               </Animate>
             </div>
