@@ -12,8 +12,8 @@ import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 
 const AboutMentors = () => {
-  const largeScreenRanges = [7000, 7400]
-  const smallScreenRanges = [11000, 11100]
+  const largeScreenRanges = [7500, 7600]
+  const smallScreenRanges = [11100, 11200]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);

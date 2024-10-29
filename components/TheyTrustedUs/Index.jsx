@@ -11,7 +11,7 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const TheyTrustedUs = () => {
 
-  const largeScreenRanges = [8000, 8100]
+  const largeScreenRanges = [8100, 8200]
   const smallScreenRanges = [12850, 12950]
 
   const { scrollY } = useScroll();
