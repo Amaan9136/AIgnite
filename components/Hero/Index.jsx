@@ -61,11 +61,11 @@ const Hero = () => {
 
           <div className="flex flex-col lg:flex-row items-center">
             {/* Animated title and subtitle */}
-            <div className="flex flex-col gap-7 flex-1 lg:pl-12 text-qiskit-white">
+            <div className="flex flex-col lg:gap-7 flex-1 lg:pl-12 text-qiskit-white">
               <Tilt className="cursor-pointer" tiltMaxAngleX={15} tiltMaxAngleY={30}>
                 <motion.h1
                   style={{ scale: scaleTitle, y: titleY, x: titleX }}
-                  className="flex mb-6 lg:m-0 font-bold text-sm justify-center lg:justify-start lg:text-left text-4xl lg:text-6xl leading-[4.5rem]"
+                  className="flex lg:mb-6 lg:m-0 font-bold text-sm justify-center lg:justify-start lg:text-left text-4xl lg:text-6xl leading-[4.5rem]"
                 >
                   AIgnite&nbsp;
                   <Typewriter
@@ -81,7 +81,7 @@ const Hero = () => {
                         "| Create",
                         "| Explore",
                         "| Solve",
-                        "| Collaborate",
+                        "| Hack",
                         "| Engage",
                         "| Lead",
                         "| Master",
@@ -121,7 +121,7 @@ const Hero = () => {
             <Animate delay={13} x={-60} y={80} duration={1} className="flex-1 pt-10 lg:pt-0 order-first lg:order-last">
               <Tilt className="cursor-pointer" tiltMaxAngleX={60} tiltMaxAngleY={40} transitionSpeed={500}>
                 <motion.div style={{opacity: bgOpacity, x: RegBtnX, scale: scaleTitle}}>
-                <Image src={AIML_Logo} width={450} height={450} priority={2} alt="AIML Logo" className="lg:ml-24"/>
+                <Image src={AIML_Logo} width={420} height={420} priority={2} alt="AIML Logo" className="lg:ml-24 w-[14rem] md:w-[430px] lg:w-[420px]"/>
                 </motion.div>
               </Tilt>
             </Animate>
