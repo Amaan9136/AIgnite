@@ -15,20 +15,19 @@ import CounterContainer from "./CounterContainer";
 import Navbar from "./Navbar";
 
 const Hero = () => {
-  const { scrollX, scrollY } = useScroll();
+  const { scrollY } = useScroll();
 
-  const bgOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+  // useMotionValueEvent(scrollY, "change", (latestScrollY) => {
+  //   console.log(latestScrollY);
+  // });
 
-  const scaleTitle = useTransform(scrollY, [0, 600], [1, 1.2]);
-  const titleY = useTransform(scrollY, [0, 600], ["0%", "450px"]);
-  const titleX = useTransform(scrollX, [0, 600], ["0%", "-450px"]);
-
+  const bgOpacity = useTransform(scrollY, [0, 450], [1, 0]);
+  const scaleTitle = useTransform(scrollY, [0, 400], [1, 1.2]);
+  const titleY = useTransform(scrollY, [0, 470, 800], ["0%", "360px", "320px"]);
   const RegBtnY = useTransform(scrollY, [0, 600], ["0%", "340px"]);
-  const RegBtnX = useTransform(scrollX, [0, 600], ["0%", "-340px"]);
-
-  const counterOpacity = useTransform(scrollY, [0, 600], [1, 0]);
+  const RegBtnOpa = useTransform(scrollY, [0, 600], [1, 0]);
+  const counterOpacity = useTransform(scrollY, [0, 450], [1, 0]);
   const counterX = useTransform(scrollY, [100, 500], ["0%", "-10%"]);
-
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
@@ -48,7 +47,7 @@ const Hero = () => {
 
       <div className="section-container pb-24 md:pb-0 mb-6 lg:mb-0">
         <Navbar />
-        <Animate className="flex flex-col gap-16 lg:gap-0 relative">
+        <Animate className="flex flex-col lg:gap-0 relative">
           <div className="w-12 h-12 absolute top-1/4 left-4 lg:top-4 lg:left-4">
             <Image src={Atom} alt="Atom" />
           </div>
@@ -61,11 +60,11 @@ const Hero = () => {
 
           <div className="flex flex-col lg:flex-row items-center">
             {/* Animated title and subtitle */}
-            <div className="flex flex-col lg:gap-7 flex-1 lg:pl-12 text-qiskit-white">
+            <Animate delay={8} className="flex flex-col lg:gap-7 flex-1 lg:pl-12 text-qiskit-white">
               <Tilt className="cursor-pointer" tiltMaxAngleX={15} tiltMaxAngleY={30}>
                 <motion.h1
-                  style={{ scale: scaleTitle, y: titleY, x: titleX }}
-                  className="flex lg:mb-6 lg:m-0 font-bold text-sm justify-center lg:justify-start lg:text-left text-4xl lg:text-6xl leading-[4.5rem]"
+                  style={{ scale: scaleTitle, y: titleY }}
+                  className="flex lg:mb-6 lg:m-0 font-bold justify-center lg:justify-start lg:text-left text-4xl lg:text-6xl leading-[4.5rem]"
                 >
                   AIgnite&nbsp;
                   <Typewriter
@@ -93,35 +92,32 @@ const Hero = () => {
                     }}
                   />
                 </motion.h1>
-              </Tilt>
-
-              <Tilt className="cursor-pointer" tiltMaxAngleX={30} tiltMaxAngleY={15}>
                 <motion.p
                   style={{ scale: scaleTitle, opacity: bgOpacity, y: titleY }}
-                  className="font-medium text-center lg:text-left leading-[2rem] lg:text-2xl 2xl:text-4xl 2xl:leading-[2.875rem]"
+                  className="font-medium text-center lg:text-left leading-[2rem] lg:text-2xl"
                 >
                   Empowering Intelligence, Enhancing Humanity.
                 </motion.p>
-              </Tilt>
 
-              <Animate delay={13} className="flex items-end cursor-pointer">
+              </Tilt>
+                <Animate delay={11} className="flex items-end justify-center lg:justify-start cursor-pointer">
                 <motion.div 
                   style={{ opacity: counterOpacity }}
-                className="relative h-[67px] bounce w-[67px] 2xl:w-[101px] 2xl:h-[114px]">
+                className="relative lg:h-[67px] bounce h-[50px] w-[50px] lg:w-[67px]">
                   <Image src={Arrow} layout="fill" alt="Arrow" />
                 </motion.div>
                 <motion.div 
-                  style={{ scale: scaleTitle, y: RegBtnY, x: RegBtnX, opacity: bgOpacity }}
-                className="mb-[-50px] 2xl:mb-[-110px] cursor-not-allowed">
+                  style={{ scale: scaleTitle, x: RegBtnY, opacity: RegBtnOpa }}
+                className="mb-[-50px] cursor-not-allowed">
                   <Purpulebutton title={"Register Now!"} redirect={"#about-event"}/>
                 </motion.div>
               </Animate>
-            </div>
+            </Animate>
 
-            <Animate delay={13} x={-60} y={80} duration={1} className="flex-1 pt-10 lg:pt-0 order-first lg:order-last">
+            <Animate delay={5} x={-60} y={80} duration={1} className="flex-1 pt-10 md:pt-4 lg:pt-0 order-first lg:order-last">
               <Tilt className="cursor-pointer" tiltMaxAngleX={60} tiltMaxAngleY={40} transitionSpeed={500}>
-                <motion.div style={{opacity: bgOpacity, x: RegBtnX, scale: scaleTitle}}>
-                <Image src={AIML_Logo} width={420} height={420} priority={2} alt="AIML Logo" className="lg:ml-24 w-[14rem] md:w-[430px] lg:w-[420px]"/>
+                <motion.div style={{opacity: bgOpacity, scale: scaleTitle}}>
+                <Image src={AIML_Logo} width={420} height={420} priority={2} alt="AIML Logo" className="lg:ml-24 w-[12rem] md:w-[350px] lg:w-[380px]"/>
                 </motion.div>
               </Tilt>
             </Animate>

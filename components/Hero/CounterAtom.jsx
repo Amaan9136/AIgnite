@@ -7,8 +7,8 @@ const CounterAtom = ({ delay, time, timeleft, isHidden = false }) => {
   return (
     <Animate delay={delay} className={`${isHidden && 'hidden md:flex'} relative -mt-12`}>
       <Tilt
-        tiltMaxAngleX={100}
-        tiltMaxAngleY={80}
+        tiltMaxAngleX={50}
+        tiltMaxAngleY={25}
         scale={1.1}
         transitionSpeed={250}
         className="cursor-pointer">
