@@ -45,8 +45,8 @@ const juryData = [
 ];
 
 const AboutJury = () => {
-  const largeScreenRanges = [5500, 5700]
-  const smallScreenRanges = [7900, 8000]
+  const largeScreenRanges = [5700, 5900]
+  const smallScreenRanges = [8100, 8200]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -90,7 +90,7 @@ const AboutJury = () => {
 
           {juryData.map((jury, index) => (
             <div key={index} className={`flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12 ${jury.orderLast ? "lg:flex-row-reverse" : ""}`}>
-              <div className={`relative w-[250px] h-[250px] lg:w-[321px]`}>
+              <div className={`relative w-[250px] lg:w-[321px]`}>
                 <Tilt className="cursor-pointer">
                   <Image src={jury.image} width={550} height={550} alt="" className="rounded-lg shadow-md" />
                 </Tilt>

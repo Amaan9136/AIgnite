@@ -78,8 +78,8 @@ const Places = () => {
   ];
 
   const { scrollY } = useScroll();
-  const largeScreenRanges = [1700, 2100];
-  const smallScreenRanges = [2800, 2900]
+  const largeScreenRanges = [1800, 2200];
+  const smallScreenRanges = [2900, 3000]
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {

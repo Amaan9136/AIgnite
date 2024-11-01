@@ -11,8 +11,8 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const TheyTrustedUs = () => {
 
-  const largeScreenRanges = [8100, 8200]
-  const smallScreenRanges = [12850, 12950]
+  const largeScreenRanges = [8200, 8300]
+  const smallScreenRanges = [13500, 13600]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -69,7 +69,7 @@ const TheyTrustedUs = () => {
           {/* company 1 */}
           <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
             <div
-              className={`relative w-[250px] h-[250px] lg:w-[321px] lg:order-last`}
+              className={`relative w-[250px] lg:w-[321px] lg:order-last`}
             >
               <Tilt
                 className="cursor-pointer">
@@ -104,7 +104,7 @@ const TheyTrustedUs = () => {
           {/* company 2 */}
           <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
             <div
-              className={`relative w-[250px] h-[250px] lg:w-[321px]`}
+              className={`relative w-[250px] lg:w-[321px]`}
             >
               <Tilt
                 className="cursor-pointer">

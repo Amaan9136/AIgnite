@@ -9,8 +9,8 @@ import SectionTitle from "../helpers/SectionTitle";
 import { schedule } from "./schedule";
 
 const Schedule = () => {
-  const largeScreenRanges = [3600, 5300]
-  const smallScreenRanges = [6000, 6100]
+  const largeScreenRanges = [3700, 5400]
+  const smallScreenRanges = [6300, 6400]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -57,7 +57,7 @@ const Schedule = () => {
           className="cursor-pointer col-span-4 flex flex-col mt-[5.5rem]"
         >
           <div className="bg-gradient-b-p bg-opacity-40  w-full md:pl-[50px] pl-[10px] mb-20 pr-[10px] md:pr-[30px] lg:py-[80px] md:py[70px] py-8 border-4 md:border-8 md:mt-[-30px] mt-[-10px]">
-            <h1 className="relative top-[-12px] text-center text-3xl lg:text-4xl lg:top-[-30px] font-bold text-black">Friday-Saturday, November 8th-9th</h1>
+            <h1 className="relative top-[-12px] text-center text-3xl lg:text-4xl lg:top-[-30px] font-bold">Friday-Saturday, November 8th-9th</h1>
             <div className="sm:text-xl font-medium md:font-semibold text-xs md:px[10px] ">
               {schedule.map((scheduleInfo, idx) => {
                 return (

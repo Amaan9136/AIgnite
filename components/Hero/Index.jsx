@@ -23,7 +23,7 @@ const Hero = () => {
 
   const bgOpacity = useTransform(scrollY, [0, 450], [1, 0]);
   const scaleTitle = useTransform(scrollY, [0, 400], [1, 1.2]);
-  const titleY = useTransform(scrollY, [0, 470, 800], ["0%", "360px", "320px"]);
+  const titleY = useTransform(scrollY, [0, 470, 800], ["0%", "360px", "340px"]);
   const RegBtnY = useTransform(scrollY, [0, 600], ["0%", "340px"]);
   const RegBtnOpa = useTransform(scrollY, [0, 600], [1, 0]);
   const counterOpacity = useTransform(scrollY, [0, 450], [1, 0]);

@@ -12,8 +12,8 @@ import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 
 const AboutMentors = () => {
-  const largeScreenRanges = [7500, 7600]
-  const smallScreenRanges = [11100, 11200]
+  const largeScreenRanges = [7600, 7700]
+  const smallScreenRanges = [11600, 11700]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -90,13 +90,13 @@ const AboutMentors = () => {
               key={index}
               className={`flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12 ${mentor.orderLast ? "lg:flex-row-reverse" : ""}`}
             >
-              <div className="relative w-[250px] h-[250px] lg:w-[321px]">
+              <div className="relative lg:w-[321px]">
                 <Tilt className="cursor-pointer">
                   <Image src={mentor.image} width={550} height={550} alt="" className="rounded-lg shadow-md" />
                 </Tilt>
               </div>
 
-              <div className="flex flex-col gap-11 flex-1">
+              <div className="flex flex-col gap-11 flex-1 ">
                 <ParagSection2
                   title={mentor.title}
                   paragraph={mentor.paragraph}
