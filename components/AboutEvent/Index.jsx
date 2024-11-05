@@ -19,21 +19,27 @@ const AboutEvent = () => {
       form_path: "https://tally.so/r/nGBrxO",
       image: event1,
       color: "#7ce6e2",
-      description: "Dive into the art of deconstructing complex systems, discovering their inner workings, and unlocking new perspectives in technology and innovation."
+      description: "Dive into the art of deconstructing complex systems, discovering their inner workings, and unlocking new perspectives in technology and innovation.",
+      closed: false
+
     },
     {
       name: "Sharkathon",
       form_path: "https://tally.so/r/wb4lq7",
       image: event2,
       color: "#4999D0",
-      description: "Experience the thrill of rapid innovation as creative minds pitch groundbreaking tech ideas in a high-stakes environment where innovation meets competition."
+      description: "Experience the thrill of rapid innovation as creative minds pitch groundbreaking tech ideas in a high-stakes environment where innovation meets competition.",
+      closed: true
+
     },
     {
       name: "E-Sports",
       form_path: "https://tally.so/r/nrrK4o",
       image: event3,
       color: "#fe8400",
-      description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports."
+      description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports.",
+      closed: false
+
     },
   ];
 
@@ -100,57 +106,47 @@ const AboutEvent = () => {
           </div>
 
           {/* Events */}
-          <motion.div className="flex justify-center items-center"
-            style={{ opacity: eventOpacity }}>
-            <div className="relative w-4/5 my-16 flex gap-16 flex-col lg:flex-row justify-between">
-              {eventsData.map((eventObj, index) => (
-                <div
-                  key={index}
-                  onClick={() => window.open(eventObj.form_path, "_blank")}
-                  className={`flex flex-col items-center group ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'} 
-        ${index === 1 ? 'order-first' : 'order-last'}
-         lg:order-none`}
-                // index === 1 is to make the 2nd image first (Shark Tech) in mobile view
-                >
-                  <Tilt
-                    scale={1.2}
-                    glareEnable
-                    glareMaxOpacity={0.5}
-                    glareColor={eventObj.color}
-                    glarePosition="all"
-                    className={`relative flex justify-center items-center cursor-pointer transition-transform duration-300
-        ${index === 1 ? "z-100" : "z-0"} 
-        group-hover:z-20 group-hover:scale-105`}
-                  >
-                    <Image
-                      src={eventObj.image}
-                      alt={eventObj.name}
-                      width={600}
-                      height={600}
-                      className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 ${index === 1 ? "lg:scale-[1.15] rounded-xl" : "lg:scale-[0.9]"
-                        }`}
-                    />
-                    <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <p className="font-semibold text-white text-center lg:mx-6">{eventObj.description}</p>
-                    </div>
-                  </Tilt>
-
-                  {/* Name Button */}
-                  <Tilt
-                    scale={index == 1 ? 1.5 : 1.15}
-                    className={`flex transition-transform duration-300
-        ${index === 1 ? "z-10" : "z-0"} 
-        group-hover:z-20 group-hover:scale-105`}
-                  >
-                    <div className={`text-center z-10 ${index == 0 && "w-4/5 mx-auto lg:w-auto"} ${index == 1 ? "lg:-mt-8" : "lg:-mt-16"}`}>
-                      <GradientButton title={"Register to " + eventObj.name} redirect={eventObj.form_path} color={eventObj.color} />
-                    </div>
-                  </Tilt>
-
+          <motion.div className="flex justify-center items-center" style={{ opacity: eventOpacity }}>
+        <div className="relative w-4/5 my-16 flex gap-16 flex-col lg:flex-row justify-between">
+          {eventsData.map((eventObj, index) => (
+            <div
+              key={index}
+              onClick={() => !eventObj.closed && window.open(eventObj.form_path, "_blank")}
+              className={`flex flex-col items-center group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'}
+                ${index === 1 ? 'order-first' : 'order-last'} lg:order-none`}
+            >
+              <Tilt
+                scale={1.2}
+                glareEnable
+                glareMaxOpacity={0.5}
+                glareColor={eventObj.color}
+                glarePosition="all"
+                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 ${index === 1 ? "z-100" : "z-0"} group-hover:z-20 group-hover:scale-105`}
+              >
+                <Image
+                  src={eventObj.image}
+                  alt={eventObj.name}
+                  width={600}
+                  height={600}
+                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 ${index === 1 ? "lg:scale-[1.15] rounded-xl" : "lg:scale-[0.9]"}`}
+                />
+                <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="font-semibold text-white text-center lg:mx-6">{eventObj.description}</p>
                 </div>
-              ))}
+              </Tilt>
+
+              <Tilt
+                scale={1.5}
+                className={`flex transition-transform duration-300 ${index === 1 ? "z-10" : "z-0"} group-hover:z-20 group-hover:scale-105`}
+              >
+                <div className={`text-center z-10 ${index == 0 && "w-4/5 mx-auto lg:w-auto"} ${index == 1 ? "lg:-mt-8" : "lg:-mt-16"}`}>
+                  <GradientButton title={eventObj.closed ? `Registration for ${eventObj.name} Closed!` : `Register to ${eventObj.name}`} redirect={eventObj.form_path} color={eventObj.color} closed={eventObj.closed} />
+                </div>
+              </Tilt>
             </div>
-          </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
 
         </div>
