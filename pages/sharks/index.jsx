@@ -64,7 +64,7 @@ const SharkathonRegistration = () => {
                     className="mt-2 p-3 border border-gray-300 rounded-md w-full bg-white text-black focus:outline-none focus:ring focus:ring-blue-300"
                 >
                     <option value="">Select Criteria</option>
-                    <option value="Team Name ">Team Name</option>
+                    <option value="Team Name">Team Name</option>
                     <option value="Team Lead Name">Team Lead Name</option>
                 </select>
             </div>
