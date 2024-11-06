@@ -119,7 +119,15 @@ const SharkathonRegistration = () => {
                         {Object.entries(entry).map(([key, value]) => (
                             <div key={key} className="detail-item mt-2 flex justify-between">
                                 <span className="label font-medium text-black">{key}:</span>
-                                <span className={`ml-2 text-black`}>{value}</span>
+                                <span className={`ml-2 text-black`}>
+                                    {typeof value === 'string' && value.startsWith('http') ? (
+                                        <a href={value} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                                            {value}
+                                        </a>
+                                    ) : (
+                                        value
+                                    )}
+                                </span>
 
                                 {key === "Attended" && (
                                     <button
