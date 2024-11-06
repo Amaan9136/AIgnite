@@ -20,7 +20,7 @@ const AboutEvent = () => {
       image: event1,
       color: "#7ce6e2",
       description: "Dive into the art of deconstructing complex systems, discovering their inner workings, and unlocking new perspectives in technology and innovation.",
-      closed: false
+      closed: true
 
     },
     {
