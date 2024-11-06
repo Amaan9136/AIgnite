@@ -38,7 +38,7 @@ const AboutEvent = () => {
       image: event3,
       color: "#fe8400",
       description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports.",
-      closed: false
+      closed: true
 
     },
   ];
