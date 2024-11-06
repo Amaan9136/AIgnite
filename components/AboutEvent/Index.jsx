@@ -140,7 +140,7 @@ const AboutEvent = () => {
                 className={`flex transition-transform duration-300 ${index === 1 ? "z-10" : "z-0"} group-hover:z-20 group-hover:scale-105`}
               >
                 <div className={`text-center z-10 ${index == 0 && "w-4/5 mx-auto lg:w-auto"} ${index == 1 ? "lg:-mt-8" : "lg:-mt-16"}`}>
-                  <GradientButton title={eventObj.closed ? `Registration for ${eventObj.name} Closed!` : `Register to ${eventObj.name}`} redirect={eventObj.form_path} color={eventObj.color} closed={eventObj.closed} />
+                  <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`} redirect={eventObj.form_path} color={eventObj.color} closed={eventObj.closed} />
                 </div>
               </Tilt>
             </div>
