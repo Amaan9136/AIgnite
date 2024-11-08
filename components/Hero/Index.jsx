@@ -124,7 +124,7 @@ const Hero = () => {
           </div>
 
           <motion.div style={{ opacity: counterOpacity, x: counterX, scale: scaleTitle }}>
-            <CounterContainer countDownLimit="2024-11-08T00:00:00" />
+            <CounterContainer countDownLimit="2024-11-09T09:00:00" />
           </motion.div>
 
           <div className="w-12 h-12 absolute bottom-16 left-8">
