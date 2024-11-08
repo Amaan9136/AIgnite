@@ -4,13 +4,11 @@ import Tilt from "react-parallax-tilt";
 import Typewriter from "typewriter-effect";
 import AIML_Logo from "../../images/logos/AIML-LOGO-WHITE.png";
 import BackGround from "../../images/sectionsAssets/Hero-background.png";
-import Arrow from "../../images/shapes/Arrow.png";
 import Atom from "../../images/shapes/atomWhite.png";
 import Computer from "../../images/shapes/computerWhite.png";
 import Globe from "../../images/shapes/globe.png";
 import Maqam from "../../images/shapes/MaqamWhite.png";
 import Animate from "../helpers/Animate-motion";
-import Purpulebutton from "../helpers/Purpulebutton";
 import CounterContainer from "./CounterContainer";
 import Navbar from "./Navbar";
 
@@ -48,7 +46,7 @@ const Hero = () => {
       <div className="section-container pb-24 md:pb-0 mb-6 lg:mb-0">
         <Navbar />
         <Animate className="flex flex-col lg:gap-0 relative">
-          <div className="w-12 h-12 absolute top-1/4 left-4 lg:top-4 lg:left-4">
+          <div className="w-12 h-12 absolute top-1/2 left-4 lg:top-4 lg:left-4">
             <Image src={Atom} alt="Atom" />
           </div>
           <div className="w-12 h-12 absolute top-12 left-[90%] lg:top-4 lg:left-1/4">
@@ -100,7 +98,7 @@ const Hero = () => {
                 </motion.p>
 
               </Tilt>
-                <Animate delay={11} className="flex items-end justify-center lg:justify-start cursor-pointer">
+                {/* <Animate delay={11} className="flex items-end justify-center lg:justify-start cursor-pointer">
                 <motion.div 
                   style={{ opacity: counterOpacity }}
                 className="relative lg:h-[67px] bounce h-[50px] w-[50px] lg:w-[67px]">
@@ -111,7 +109,7 @@ const Hero = () => {
                 className="mb-[-50px] cursor-not-allowed">
                   <Purpulebutton title={"Register Now!"} redirect={"#about-event"}/>
                 </motion.div>
-              </Animate>
+              </Animate> */}
             </Animate>
 
             <Animate delay={5} x={-60} y={80} duration={1} className="flex-1 pt-10 md:pt-4 lg:pt-0 order-first lg:order-last">
