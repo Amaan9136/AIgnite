@@ -5,9 +5,9 @@ import { database } from '../../server/firebase';
 export default function NeonGlowEffect() {
   const [randomColor, setRandomColor] = useState('');
   const [userId, setUserId] = useState(null);
-  const [usersData, setUsersData] = useState({}); 
+  const [usersData, setUsersData] = useState({});
+  const [isSupportedDevice, setIsSupportedDevice] = useState(false);
 
- 
   const generateRandomColor = () => {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -18,20 +18,33 @@ export default function NeonGlowEffect() {
   };
 
   useEffect(() => {
-    let uniqueUserId = localStorage.getItem('userId'); 
+    const checkDevice = () => {
+      const width = window.innerWidth;
+      const isLaptopOrTablet = width >= 600; 
+      setIsSupportedDevice(isLaptopOrTablet);
+    };
+    checkDevice(); 
+    window.addEventListener('resize', checkDevice); 
 
-   
+    return () => {
+      window.removeEventListener('resize', checkDevice);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isSupportedDevice) return;
+
+    let uniqueUserId = localStorage.getItem('userId');
     if (!uniqueUserId) {
       uniqueUserId = Date.now().toString();
-      localStorage.setItem('userId', uniqueUserId); 
+      localStorage.setItem('userId', uniqueUserId);
     }
 
-    setUserId(uniqueUserId); 
+    setUserId(uniqueUserId);
 
     const newColor = generateRandomColor();
     setRandomColor(newColor);
 
-   
     const neonElement = document.createElement('div');
     neonElement.classList.add('neon-effect');
     neonElement.id = uniqueUserId;
@@ -40,7 +53,6 @@ export default function NeonGlowEffect() {
     neonElement.style.backgroundColor = newColor;
     neonElement.style.boxShadow = `0 0 20px 10px ${newColor}`;
 
-   
     const updatePosition = (e) => {
       neonElement.style.left = `${e.pageX}px`;
       neonElement.style.top = `${e.pageY}px`;
@@ -54,7 +66,6 @@ export default function NeonGlowEffect() {
       }
     };
 
-   
     window.addEventListener('mousemove', updatePosition);
 
     return () => {
@@ -64,40 +75,37 @@ export default function NeonGlowEffect() {
       }
       neonElement.remove();
     };
-  }, []);
+  }, [isSupportedDevice]);
 
- 
   useEffect(() => {
+    if (!isSupportedDevice) return;
+
     const usersRef = ref(database, 'users_cursor');
 
-   
     const onChildAddedListener = onValue(usersRef, (snapshot) => {
       let users = {};
       snapshot.forEach((childSnapshot) => {
         const user = childSnapshot.val();
         const userId = childSnapshot.key;
 
-       
         users[userId] = user;
       });
 
-     
       setUsersData(users);
     });
 
-   
     return () => {
       off(usersRef, 'value', onChildAddedListener);
     };
-  }, []);
+  }, [isSupportedDevice]);
 
- 
   useEffect(() => {
+    if (!isSupportedDevice) return;
+
     Object.keys(usersData).forEach((userId) => {
       const user = usersData[userId];
       let userNeonElement = document.getElementById(userId);
 
-     
       if (!userNeonElement) {
         userNeonElement = document.createElement('div');
         userNeonElement.id = userId;
@@ -105,16 +113,16 @@ export default function NeonGlowEffect() {
         document.body.appendChild(userNeonElement);
       }
 
-     
       userNeonElement.style.backgroundColor = user.color;
       userNeonElement.style.boxShadow = `0 0 20px 10px ${user.color}`;
       userNeonElement.style.left = `${user.x}px`;
       userNeonElement.style.top = `${user.y}px`;
     });
-  }, [usersData]);
+  }, [usersData, isSupportedDevice]);
 
- 
   useEffect(() => {
+    if (!isSupportedDevice) return;
+
     const handleVisibilityChange = () => {
       if (document.hidden && userId) {
         remove(ref(database, `users_cursor/${userId}`));
@@ -126,7 +134,11 @@ export default function NeonGlowEffect() {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [userId]);
+  }, [userId, isSupportedDevice]);
+
+  if (!isSupportedDevice) {
+    return null; 
+  }
 
   return <></>;
 }
