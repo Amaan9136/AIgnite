@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import getRemainingTime from '../../utils/countDownTimer';
+import getRemainingTime from './countDownTimer.js';
 import CounterAtom from "./CounterAtom";
 const CounterContainer = ({ countDownLimit }) => {
     const defaultRemainingTime = {

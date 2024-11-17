@@ -9,9 +9,11 @@ import Hero from "../components/Hero/Index";
 import Places from "../components/Places/Index";
 import Schedule from "../components/Schedule/Index";
 import TheyTrustedUs from "../components/TheyTrustedUs/Index";
+import NeonGlowEffect from "../components/helpers/NeonGlowEffect";
 export default function Home() {
   return (
     <>
+  <NeonGlowEffect color="#FF5733" /> 
       <Head>
         <title>AIgnite</title>
         <meta name="description" content="AIgnite Technical Event by AIT AIML Chikmagalur" />
