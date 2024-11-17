@@ -1,7 +1,7 @@
 # Aignite Repository
 
 <!-- PROJECT LOGO -->
-Welcome to the official repository for **Aignite**, the AIML department's dynamic webpage for hosting and managing events, news updates, and certificates. Explore its powerful features designed to streamline departmental activities and engagement.
+Welcome to the official repository for **Aignite**, the AIML department's dynamic webpage for hosting and managing events, news updates, and certificates 
 
 ---
 
