@@ -11,8 +11,9 @@ import Globe from "../../images/shapes/globe.png";
 import Maqam from "../../images/shapes/MaqamWhite.png";
 import Animate from "../helpers/Animate-motion";
 import Purpulebutton from "../helpers/Purpulebutton";
-import CounterContainer from "./CounterContainer";
+// import CounterContainer from "./CounterContainer";
 import Navbar from "./Navbar";
+import ThanksForParticipating from "./ThanksForParticipating";
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -24,8 +25,8 @@ const Hero = () => {
   const bgOpacity = useTransform(scrollY, [0, 450], [1, 0]);
   const scaleTitle = useTransform(scrollY, [0, 400], [1, 1.2]);
   const titleY = useTransform(scrollY, [0, 470, 800], ["0%", "360px", "340px"]);
-  const RegBtnY = useTransform(scrollY, [0, 600], ["0%", "340px"]);
-  const RegBtnOpa = useTransform(scrollY, [0, 600], [1, 0]);
+  const RegBtnY = useTransform(scrollY, [0, 800], ["0%", "340px"]);
+  const RegBtnOpa = useTransform(scrollY, [0, 800], [1, 0]);
   const counterOpacity = useTransform(scrollY, [0, 450], [1, 0]);
   const counterX = useTransform(scrollY, [100, 500], ["0%", "-10%"]);
 
@@ -100,31 +101,36 @@ const Hero = () => {
                 </motion.p>
 
               </Tilt>
-                <Animate delay={11} className="flex items-end justify-center lg:justify-start cursor-pointer">
-                <motion.div 
+              <Animate delay={11} className="flex items-end justify-center lg:justify-start cursor-pointer">
+                <motion.div
                   style={{ opacity: counterOpacity }}
-                className="relative lg:h-[67px] bounce h-[50px] w-[50px] lg:w-[67px]">
+                  className="relative lg:h-[67px] bounce h-[50px] w-[50px] lg:w-[67px]">
                   <Image src={Arrow} layout="fill" alt="Arrow" />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   style={{ scale: scaleTitle, x: RegBtnY, opacity: RegBtnOpa }}
-                className="mb-[-50px] cursor-not-allowed">
-                  <Purpulebutton title={"Register Now!"} redirect={"#about-event"}/>
+                  className="mb-[-50px] cursor-not-allowed ">
+                  <Purpulebutton
+                    title={"Download Participation Certificate!"}
+                    redirect={"https://aignite24.vercel.app"}
+                    needImage={false}
+                  />
                 </motion.div>
               </Animate>
             </Animate>
 
             <Animate delay={5} x={-60} y={80} duration={1} className="flex-1 pt-10 md:pt-4 lg:pt-0 order-first lg:order-last">
               <Tilt className="cursor-pointer" tiltMaxAngleX={60} tiltMaxAngleY={40} transitionSpeed={500}>
-                <motion.div style={{opacity: bgOpacity, scale: scaleTitle}}>
-                <Image src={AIML_Logo} width={420} height={420} priority={2} alt="AIML Logo" className="lg:ml-24 w-[12rem] md:w-[350px] lg:w-[380px]"/>
+                <motion.div style={{ opacity: bgOpacity, scale: scaleTitle }}>
+                  <Image src={AIML_Logo} width={420} height={420} priority={2} alt="AIML Logo" className="lg:ml-24 w-[12rem] md:w-[350px] lg:w-[380px]" />
                 </motion.div>
               </Tilt>
             </Animate>
           </div>
 
           <motion.div style={{ opacity: counterOpacity, x: counterX, scale: scaleTitle }}>
-            <CounterContainer countDownLimit="2024-11-09T09:00:00" />
+            {/* <CounterContainer countDownLimit="2024-11-09T09:00:00" /> */}
+            <ThanksForParticipating />
           </motion.div>
 
           <div className="w-12 h-12 absolute bottom-16 left-8">
