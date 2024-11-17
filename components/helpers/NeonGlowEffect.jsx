@@ -5,8 +5,9 @@ import { database } from '../../server/firebase';
 export default function NeonGlowEffect() {
   const [randomColor, setRandomColor] = useState('');
   const [userId, setUserId] = useState(null);
+  const [usersData, setUsersData] = useState({}); 
 
-
+ 
   const generateRandomColor = () => {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -17,109 +18,106 @@ export default function NeonGlowEffect() {
   };
 
   useEffect(() => {
+    let uniqueUserId = localStorage.getItem('userId'); 
+
+   
+    if (!uniqueUserId) {
+      uniqueUserId = Date.now().toString();
+      localStorage.setItem('userId', uniqueUserId); 
+    }
+
+    setUserId(uniqueUserId); 
 
     const newColor = generateRandomColor();
     setRandomColor(newColor);
 
-
-    const uniqueUserId = Date.now().toString();
-    setUserId(uniqueUserId);
-
-
+   
     const neonElement = document.createElement('div');
     neonElement.classList.add('neon-effect');
+    neonElement.id = uniqueUserId;
     document.body.appendChild(neonElement);
-
 
     neonElement.style.backgroundColor = newColor;
     neonElement.style.boxShadow = `0 0 20px 10px ${newColor}`;
 
-
+   
     const updatePosition = (e) => {
       neonElement.style.left = `${e.pageX}px`;
       neonElement.style.top = `${e.pageY}px`;
 
-      console.log("Updating Firebase with userId:", userId, "x:", e.pageX, "y:", e.pageY, "color:", newColor);
-
-
-      if (userId) {
-
-        setTimeout(() => {
-          set(ref(database, `users/${userId}`), {
-            x: e.pageX,
-            y: e.pageY,
-            color: newColor,
-          });
-        }, 1000);
+      if (uniqueUserId) {
+        set(ref(database, `users_cursor/${uniqueUserId}`), {
+          x: e.pageX,
+          y: e.pageY,
+          color: newColor,
+        });
       }
     };
 
-
+   
     window.addEventListener('mousemove', updatePosition);
-
 
     return () => {
       window.removeEventListener('mousemove', updatePosition);
-      if (userId) {
-        remove(ref(database, `users/${userId}`));
+      if (uniqueUserId) {
+        remove(ref(database, `users_cursor/${uniqueUserId}`));
       }
       neonElement.remove();
     };
-  }, [userId]);
+  }, []);
 
-
+ 
   useEffect(() => {
-    const usersRef = ref(database, 'users');
+    const usersRef = ref(database, 'users_cursor');
 
-
+   
     const onChildAddedListener = onValue(usersRef, (snapshot) => {
+      let users = {};
       snapshot.forEach((childSnapshot) => {
         const user = childSnapshot.val();
         const userId = childSnapshot.key;
 
-
-        let userNeonElement = document.getElementById(userId);
-        if (!userNeonElement) {
-          userNeonElement = document.createElement('div');
-          userNeonElement.id = userId;
-          userNeonElement.classList.add('neon-effect');
-          document.body.appendChild(userNeonElement);
-        }
-
-        userNeonElement.style.backgroundColor = user.color;
-        userNeonElement.style.boxShadow = `0 0 20px 10px ${user.color}`;
-        userNeonElement.style.left = `${user.x}px`;
-        userNeonElement.style.top = `${user.y}px`;
-
-
-        const userRef = ref(database, `users/${userId}`);
-        const onValueListener = onValue(userRef, (snapshot) => {
-          if (!snapshot.exists()) {
-            userNeonElement.remove();
-          }
-        });
-
-
-        return () => {
-          userNeonElement.remove();
-          off(userRef, 'value', onValueListener);
-        };
+       
+        users[userId] = user;
       });
+
+     
+      setUsersData(users);
     });
 
-
+   
     return () => {
       off(usersRef, 'value', onChildAddedListener);
     };
   }, []);
 
+ 
+  useEffect(() => {
+    Object.keys(usersData).forEach((userId) => {
+      const user = usersData[userId];
+      let userNeonElement = document.getElementById(userId);
 
+     
+      if (!userNeonElement) {
+        userNeonElement = document.createElement('div');
+        userNeonElement.id = userId;
+        userNeonElement.classList.add('neon-effect');
+        document.body.appendChild(userNeonElement);
+      }
+
+     
+      userNeonElement.style.backgroundColor = user.color;
+      userNeonElement.style.boxShadow = `0 0 20px 10px ${user.color}`;
+      userNeonElement.style.left = `${user.x}px`;
+      userNeonElement.style.top = `${user.y}px`;
+    });
+  }, [usersData]);
+
+ 
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.hidden) {
-        if (userId) {
-          remove(ref(database, `users/${userId}`));
-        }
+      if (document.hidden && userId) {
+        remove(ref(database, `users_cursor/${userId}`));
       }
     };
 
