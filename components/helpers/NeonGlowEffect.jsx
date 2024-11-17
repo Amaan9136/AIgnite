@@ -6,19 +6,15 @@ export default function NeonGlowEffect() {
   const [randomColor, setRandomColor] = useState('');
   const [userId, setUserId] = useState(null);
 
+
   const generateRandomColor = () => {
     const letters = '0123456789ABCDEF';
     let color = '#';
-
-
-    for (let i = 0; i < 3; i++) {
-      const randomValue = Math.floor(Math.random() * 128) + 128;
-      color += randomValue.toString(16).padStart(2, '0');
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
     }
-
     return color;
   };
-
 
   useEffect(() => {
 
@@ -49,21 +45,23 @@ export default function NeonGlowEffect() {
       if (userId) {
 
         setTimeout(() => {
-          set(ref(database, `users_positions/${userId}`), {
+          set(ref(database, `users/${userId}`), {
             x: e.pageX,
             y: e.pageY,
             color: newColor,
           });
-        }, 500);
+        }, 1000);
       }
     };
 
+
     window.addEventListener('mousemove', updatePosition);
+
 
     return () => {
       window.removeEventListener('mousemove', updatePosition);
       if (userId) {
-        remove(ref(database, `users_positions/${userId}`));
+        remove(ref(database, `users/${userId}`));
       }
       neonElement.remove();
     };
@@ -73,10 +71,12 @@ export default function NeonGlowEffect() {
   useEffect(() => {
     const usersRef = ref(database, 'users');
 
+
     const onChildAddedListener = onValue(usersRef, (snapshot) => {
       snapshot.forEach((childSnapshot) => {
         const user = childSnapshot.val();
         const userId = childSnapshot.key;
+
 
         let userNeonElement = document.getElementById(userId);
         if (!userNeonElement) {
@@ -92,7 +92,7 @@ export default function NeonGlowEffect() {
         userNeonElement.style.top = `${user.y}px`;
 
 
-        const userRef = ref(database, `users_positions/${userId}`);
+        const userRef = ref(database, `users/${userId}`);
         const onValueListener = onValue(userRef, (snapshot) => {
           if (!snapshot.exists()) {
             userNeonElement.remove();
@@ -107,6 +107,7 @@ export default function NeonGlowEffect() {
       });
     });
 
+
     return () => {
       off(usersRef, 'value', onChildAddedListener);
     };
@@ -117,7 +118,7 @@ export default function NeonGlowEffect() {
     const handleVisibilityChange = () => {
       if (document.hidden) {
         if (userId) {
-          remove(ref(database, `users_positions/${userId}`));
+          remove(ref(database, `users/${userId}`));
         }
       }
     };

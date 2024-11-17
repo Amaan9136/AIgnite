@@ -1,0 +1,71 @@
+To create a loader that moves horizontally in the shape of a circle, we can use CSS animations along with `@keyframes` to create a smooth, looping animation. Here's a simple example of a horizontal circle loader:
+
+### Steps:
+1. Create a circle using `border-radius` and `width`/`height`.
+2. Animate the circle's position horizontally using `@keyframes`.
+3. Style the loader with CSS to give it a glowing or rotating effect if desired.
+
+### Example Code:
+
+#### HTML (React JSX)
+
+```jsx
+import React from 'react';
+import './Loader.css'; // Assuming CSS is in a separate file
+
+export default function Loader() {
+  return (
+    <div className="loader-container">
+      <div className="circle"></div>
+    </div>
+  );
+}
+```
+
+#### CSS (`Loader.css`)
+
+```css
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Optional, to contrast the loader */
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;  /* Makes it a circle */
+  background-color: #3498db; /* Circle color */
+  animation: move 2s linear infinite; /* Animation to move the circle */
+}
+
+/* Keyframes to move the circle horizontally */
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100px); /* Move to the right */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+```
+
+### Explanation:
+- **`loader-container`**: Centers the loader on the screen.
+- **`circle`**: A simple circle with a size of `50px` and a blue background (`#3498db`). It uses `border-radius: 50%` to make it a perfect circle.
+- **`@keyframes move`**: This defines the horizontal movement animation:
+  - At `0%`, the circle is at the starting position (`translateX(0)`).
+  - At `50%`, the circle moves `100px` to the right.
+  - At `100%`, the circle returns to its original position.
+
+### Adjustments:
+- **Speed**: You can control the speed of the animation by changing the `2s` in the `animation` property to a higher or lower value.
+- **Distance**: Adjust the `100px` in the `translateX(100px)` for how far the circle moves horizontally.
+- **Color**: Change the background color of the circle in the `.circle` class.
+
+This creates a simple, horizontal circle loader with a smooth animation that moves back and forth.
