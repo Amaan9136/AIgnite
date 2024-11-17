@@ -13,7 +13,7 @@ import NeonGlowEffect from "../components/helpers/NeonGlowEffect";
 export default function Home() {
   return (
     <>
-  <NeonGlowEffect color="#FF5733" /> 
+  <NeonGlowEffect /> 
       <Head>
         <title>AIgnite</title>
         <meta name="description" content="AIgnite Technical Event by AIT AIML Chikmagalur" />
