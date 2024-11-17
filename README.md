@@ -44,8 +44,8 @@ Visit [Aignite.live](https://aignite.live) for a live demonstration of the platf
 
 Aignite is powered by modern web technologies to ensure a seamless and responsive experience:
 
-- [![Next][next.js]][next-url]
-- [![React][react.js]][react-url]
-- [![TailwindCSS][tailwindcss.com]][tailwindcss-url]
+- [!Next][next.js][next-url]
+- [!React][react.js][react-url]
+- [!TailwindCSS][tailwindcss.com][tailwindcss-url]
 
 ---
