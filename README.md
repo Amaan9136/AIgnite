@@ -14,16 +14,6 @@ Technologies used to build the website:
 - [![React][react.js]][react-url]
 - [![tailwindcss][tailwindcss.com]][tailwindcss-url]
 
-<!-- LICENSE -->
-
-## License
-
-Distributed under the No License. See `LICENSE` for more information.
-
-<!-- CONTACT -->
-
-## Contact
-
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
