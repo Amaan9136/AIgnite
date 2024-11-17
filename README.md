@@ -11,11 +11,6 @@ Welcome to the official repository for **Aignite**, the AIML department's dynami
 
 **Aignite** serves as the central platform for the AIML department's events and updates. Built to enhance accessibility and ease of use, the webpage provides tools for:
 
-- Conducting and managing department-related events.
-- Sharing the latest news and announcements.
-- Streamlining event registrations for students and staff.
-- Facilitating certificate distribution to event participants.
-
 Visit [Aignite.live](https://aignite.live) for a live demonstration of the platform and its features.
 
 ---
