@@ -2,7 +2,6 @@
 
 <!-- PROJECT LOGO -->
 Welcome to the official repository for **Aignite**, the AIML department's dynamic webpage for hosting and managing events, news updates, and certificates 
-
 ---
 
 ## About The Project
