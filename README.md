@@ -1,9 +1,8 @@
-# Aignite Repository
-
-<!-- PROJECT LOGO -->
 <p align="center">
-  <img src="images/logos/aignite-logo.png" alt="Aignite Logo" width="600">
+  <img src="images/logos/aignite-logo.png" alt="Aignite Logo" width="500">
 </p>
+
+# Aignite Repository
 
 Welcome to the official repository for **Aignite**, the AIML department's dynamic webpage for hosting and managing events, news updates, and certificates 
 --- 
