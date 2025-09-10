@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
+import React, {  useState } from 'react';
 import Image from "next/image";
 import Tilt from "react-parallax-tilt";
 import Typewriter from "typewriter-effect";
@@ -17,10 +18,20 @@ import { BallCanvas } from './canvas';
 // import CounterContainer from "./CounterContainer";
 import Navbar from "./Navbar";
 import ThanksForParticipating from "./ThanksForParticipating";
+import { useEffect } from "react";
 
 const Hero = () => {
   const { scrollY } = useScroll();
-
+  const [IsSupportedDevice,setIsSupportedDevice]=useState(false);
+ const checkDevice = () => {
+      const width = window.innerWidth;
+      const isLaptopOrTablet = width >= 600; 
+      setIsSupportedDevice(isLaptopOrTablet);
+    };
+    useEffect(() => {
+    checkDevice(); 
+    window.addEventListener('resize', checkDevice);
+    }, []);
   // useMotionValueEvent(scrollY, "change", (latestScrollY) => {
   //   console.log(latestScrollY);
   // });
@@ -71,7 +82,7 @@ const Hero = () => {
               <Tilt className="cursor-pointer" tiltMaxAngleX={15} tiltMaxAngleY={30}>
                 <motion.h1
                   style={{ scale: scaleTitle, y: titleY }}
-                  className="flex lg:mb-6 lg:m-0 font-bold justify-center lg:justify-start lg:text-left text-4xl lg:text-5xl leading-[4.5rem]"
+                  className="flex lg:mb-6 lg:m-0 font-bold justify-center lg:justify-start lg:text-left text-xl lg:text-5xl leading-[4.5rem]"
                 >
                   TECHXHIBIT&nbsp;
                   <Typewriter
@@ -124,11 +135,11 @@ const Hero = () => {
                 </motion.div>
               </Animate>
             </Animate>
-  <div id="ball-box" className="ball-box w-48 h-48 lg:w-96 lg:h-96 ">
+  <div id="ball-box" className="ball-box m-auto w-48 h-48 lg:w-96 lg:h-96 ">
          
            
               <div
-                className="balls w-36 h-36 lg:w-72 lg:h-72"
+                className="balls w-40 h-40 lg:w-[350px] lg:h-[350px]"
               >
                 <BallCanvas icon={AIML_Logo} />
               

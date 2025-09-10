@@ -8,6 +8,7 @@ import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import event1 from "../../images/speakers/1.png";
 import event2 from "../../images/speakers/2.png";
+import techxhibit from "../../images/speakers/techxhibit1.png";
 import event3 from "../../images/speakers/3.png";
 import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
@@ -24,11 +25,11 @@ const AboutEvent = () => {
 
     },
     {
-      name: "Project Exhibition",
+      name: "TECHXHIBIT",
       form_path: "https://tally.so/r/wb4lq7",
-      image: event2,
+      image: techxhibit,
       color: "#4999D0",
-      description: "Experience the thrill of rapid innovation as creative minds pitch groundbreaking tech ideas in a high-stakes environment where innovation meets competition.",
+      description: "Showcase your technical brilliance at the Project Exhibition, where innovative prototypes and real-world solutions take center stage. From cutting-edge software to hardware marvels, this platform is designed for creators to demonstrate their projects, share knowledge, and inspire collaboration among peers and industry experts",
       closed: false
 
     },
@@ -131,7 +132,7 @@ const AboutEvent = () => {
                   className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 ${index === 1 ? "lg:scale-[1.15] rounded-xl" : "lg:scale-[0.9]"}`}
                 />
                 <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="font-semibold text-white text-center lg:mx-6">{eventObj.description}</p>
+                  <p className="font-semibold text-white text-center text-sm lg:text-sm lg:mx-6">{eventObj.description}</p>
                 </div>
               </Tilt>
 

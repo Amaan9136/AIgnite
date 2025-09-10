@@ -294,7 +294,7 @@ const AboutEvent = () => {
                 >
 <ParagSection2
   title="AIgnite Team"
-  paragraph="The AIgnite Team consists of passionate volunteers from the AIML Department, all committed to making this national technical fest a resounding success on November 8th and 9th. Working tirelessly behind the scenes, they are driven by a shared vision to offer attendees an immersive, hands-on experience that celebrates the innovative tech culture of AIML. Their mission is to ensure every participant feels part of the AIgnite journey, creating a unique and memorable experience that will resonate for years to come."
+  paragraph="The AIgnite Team consists of passionate volunteers from the AIML Department, all committed to making this national technical fest a resounding success on October 16th and 17th. Working tirelessly behind the scenes, they are driven by a shared vision to offer attendees an immersive, hands-on experience that celebrates the innovative tech culture of AIML. Their mission is to ensure every participant feels part of the AIgnite journey, creating a unique and memorable experience that will resonate for years to come."
   highlights={[
     "passionate volunteers",
     "national technical fest",
@@ -303,7 +303,7 @@ const AboutEvent = () => {
     "dedication to a vibrant technical community",
     "unique experience for all attendees",
     "memorable experience",
-    "November 8th and 9th"
+    "October 16th and 17th"
   ]}
   hoverColor="rgb(174, 60, 89)"
 />

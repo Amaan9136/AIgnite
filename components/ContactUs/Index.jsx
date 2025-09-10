@@ -13,8 +13,8 @@ const ContactUs = () => {
   const contactData = [
     { name: "Amaan M.K", contact: "8867305645", color: "#00FFFF" },
     { name: "Soorya U", contact: "6362737221", color: "#39FF14" },
-    { name: "Ankith K R", contact: "7848895202", color: "#FFD700" },
-    { name: "Saanvi M.J", contact: "7019960800", color: "#FF073A" },
+    { name: "Sagar H D", contact: "9148342588", color: "#FF073A" },
+    { name: "Saanvi M.J", contact: "7019960800", color: "#FFD700" },
     { name: "Anushree C B", contact: "9448658295", color: "#FF6EC7" },
   ];
 
