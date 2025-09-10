@@ -10,6 +10,7 @@ import Places from "../components/Places/Index";
 import Schedule from "../components/Schedule/Index";
 import TheyTrustedUs from "../components/TheyTrustedUs/Index";
 import NeonGlowEffect from "../components/helpers/NeonGlowEffect";
+import { StarCanvas } from "../components/Hero/canvas";
 export default function Home() {
   return (
     <>
@@ -21,7 +22,9 @@ export default function Home() {
       </Head>
 
       <Hero />
+    
       <main className="font-IBM-Plex">
+ {/* <StarCanvas/> */}
         <ContactUs />
         <AboutEvent />
         <Places />

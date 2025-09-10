@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Tilt from "react-parallax-tilt";
-import AIgnite from "../../images/logos/aignite-logo.png";
+import AIgnite from "../../images/logos/Aignite2.0.png";
 import Animate from "../helpers/Animate-motion.jsx";
 import Purplebutton from "../helpers/Purpulebutton.jsx";
 import NavLinks from "./links";
@@ -25,7 +25,7 @@ const Navbar = () => {
             // glarePosition="all"
             // className="p-4 cursor-pointer"
             >
-              <Image src={AIgnite} alt="AIgnite-Logo" width={180} height={180} priority={1} />
+              <Image src={AIgnite} alt="AIgnite-Logo" width={250} height={250} priority={1} />
             </Tilt>
           </Animate>
 
