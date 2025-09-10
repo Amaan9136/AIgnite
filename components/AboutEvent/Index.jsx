@@ -24,12 +24,12 @@ const AboutEvent = () => {
 
     },
     {
-      name: "Sharkathon",
+      name: "Project Exhibition",
       form_path: "https://tally.so/r/wb4lq7",
       image: event2,
       color: "#4999D0",
       description: "Experience the thrill of rapid innovation as creative minds pitch groundbreaking tech ideas in a high-stakes environment where innovation meets competition.",
-      closed: true
+      closed: false
 
     },
     {
