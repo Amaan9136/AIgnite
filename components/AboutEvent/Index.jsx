@@ -8,7 +8,8 @@ import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import event1 from "../../images/speakers/1.png";
 import event2 from "../../images/speakers/2.png";
-import techxhibit from "../../images/speakers/techxhibit1.png";
+import techxhibit from "../../images/speakers/techxhibit.png";
+import techEscapeRoom from "../../images/speakers/techEscapeRoom.png";
 import event3 from "../../images/speakers/3.png";
 import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
@@ -16,12 +17,12 @@ import SectionTitle from "../helpers/SectionTitle";
 const AboutEvent = () => {
   const eventsData = [
     {
-      name: "Reverse Hacking",
+      name: "Tech Escape Room",
       form_path: "https://tally.so/r/nGBrxO",
-      image: event1,
+      image: techEscapeRoom,
       color: "#7ce6e2",
-      description: "Dive into the art of deconstructing complex systems, discovering their inner workings, and unlocking new perspectives in technology and innovation.",
-      closed: true
+      description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
+       closed: false
 
     },
     {
@@ -42,6 +43,7 @@ const AboutEvent = () => {
       closed: true
 
     },
+      
   ];
 
   const largeScreenRanges = [1100, 1480]

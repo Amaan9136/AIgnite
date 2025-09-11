@@ -337,20 +337,23 @@ const AboutEvent = () => {
           >
             <ParagSection2
               title="Event Date and Time"
-              paragraph={`Sharkathon (Nov 8-9)
-Dive into a 24-hour hackathon starting on Nov 8 at 9 AM, where teams innovate and solve real-world challenges in a transparent, point-based competition. Mentors and judges will guide and score each phase, pushing creativity to new heights.
-Reverse Hacking & Esports (Nov 9)
-Join the excitement of Reverse Hacking and Esports on Nov 9 from 9 AM to 11 AM. Compete in fast-paced tech and gaming challenges that test skill, strategy, and expertise.
-Get ready for two days of innovation, competition, and memorable experiences!`}
+              paragraph={`Techxhibit (Oct 16-17) Step into a two-day tech exhibition where students, innovators, and creators showcase groundbreaking projects across AI, robotics, IoT, and sustainable tech. Explore interactive demos, live presentations, and future-driven solutions shaping industries. Engage with experts, discover fresh ideas, and celebrate the spirit of innovation. This isn’t just an exhibition—it’s a launchpad for tomorrow’s visionaries.`}
               highlights={[
-                "Sharkathon (Nov 8-9)",
-                "24-hour hackathon",
-                "Real-world challenges",
-                "Transparent, point-based competition",
-                "Reverse Hacking & Esports (Nov 9)",
-                "Fast-paced tech and gaming challenges",
-                "Two days of innovation",
-                "Memorable experiences"
+                "Techxhibit (Oct 16-17)",
+
+"Two-day tech exhibition",
+
+"AI, robotics, IoT, and sustainable tech",
+
+"Interactive demos & live presentations",
+
+"Future-driven solutions",
+
+"Engage with experts & innovators",
+
+"Celebrate creativity & innovation",
+
+"Launchpad for tomorrow’s visionaries"
               ]}
               hoverColor="rgb(10, 109, 140)"
             />

@@ -10,6 +10,7 @@ import Places from "../components/Places/Index";
 import Schedule from "../components/Schedule/Index";
 import TheyTrustedUs from "../components/TheyTrustedUs/Index";
 import NeonGlowEffect from "../components/helpers/NeonGlowEffect";
+
 export default function Home() {
   return (
     <>
@@ -23,6 +24,7 @@ export default function Home() {
       <Hero />
     
       <main className="font-IBM-Plex">
+
         <ContactUs />
         <AboutEvent />
         <Places />
