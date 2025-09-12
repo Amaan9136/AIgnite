@@ -4,7 +4,9 @@ import { Decal, Float, OrbitControls, Preload, useTexture } from '@react-three/d
 import CanvasLoader from '../Loader';
 
 const Ball = (props) => {
-  const [decal] = useTexture([props.icon]);
+  // const [decal] = useTexture([props.icon]);
+  const [decalA, decalB] = useTexture([props.iconA, props.iconB]);
+
   const ballRef = useRef();
 
   // Track startup spin
@@ -22,10 +24,10 @@ const Ball = (props) => {
 
         if (t < duration) {
           // Smooth intro spin (2 full rotations to the left)
-          ballRef.current.rotation.y = -(t / duration) * Math.PI * 1;
+          ballRef.current.rotation.y = -(t / duration) * Math.PI * 2;
         } else {
           // Lock at final angle after spin
-          const finalAngle = -Math.PI * 1;
+          const finalAngle = -Math.PI * 2;
             //  const finalAngle = 0;
           ballRef.current.rotation.y = finalAngle;
           setSpinEndAngle(finalAngle);
@@ -59,24 +61,36 @@ const Ball = (props) => {
           flatShading
         />
         {/* Decals on all 6 sides */}
-        <Decal position={[0, 0, 1]} rotation={[0, 0, 0]} flatShading map={decal} />
+        {/* <Decal position={[0, 0, 1]} rotation={[0, 0, 0]} flatShading map={decal} />
         <Decal position={[0, 0, -1]} rotation={[Math.PI, 0, Math.PI]} flatShading map={decal} />
         <Decal position={[-1, 0, 0]} rotation={[0, Math.PI / 2, 0]} flatShading map={decal} />
         <Decal position={[1, 0, 0]} rotation={[0, -Math.PI / 2, 0]} flatShading map={decal} />
         <Decal position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} flatShading map={decal} />
-        <Decal position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]} flatShading map={decal} />
+        <Decal position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]} flatShading map={decal} /> */}
+
+        {/* Decals for 3 faces with image A */}
+<Decal position={[0, 0, 1]} rotation={[0, 0, 0]} flatShading map={decalA} />
+<Decal position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} flatShading map={decalA} />
+<Decal position={[-1, 0, 0]} rotation={[0, Math.PI / 2, 0]} flatShading map={decalA} />
+
+{/* Decals for opposite 3 faces with image B */}
+<Decal position={[0, 0, -1]} rotation={[Math.PI, 0, Math.PI]} flatShading map={decalB} />
+<Decal position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]} flatShading map={decalB} />
+<Decal position={[1, 0, 0]} rotation={[0, -Math.PI / 2, 0]} flatShading map={decalB} />
+
       </mesh>
     </Float>
   );
 };
 
-const BallCanvas = ({ icon }) => {
-  const iconUrl = typeof icon === 'string' ? icon : icon.src;
+const BallCanvas = ({ iconA, iconB  }) => {
+  const iconUrlA = typeof iconA === 'string' ? iconA : iconA.src;
+  const iconUrlB = typeof iconB === 'string' ? iconB : iconB.src;
   return (
     <Canvas gl={{ preserveDrawingBuffer: true }} frameloop="always">
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false} />
-        <Ball icon={iconUrl} />
+        <Ball  iconA={iconUrlA} iconB={iconUrlB} />
       </Suspense>
       <Preload all />
     </Canvas>

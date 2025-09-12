@@ -31,7 +31,7 @@ const Schedule = () => {
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
 
-  const tableOpacity = useTransform(scrollY, scrollRanges, [1, 0.3]);
+  const tableOpacity = useTransform(scrollY, scrollRanges, [1, 0.8]);
 
   return (
     <section id="schedule" className="relative section-container pt-6">

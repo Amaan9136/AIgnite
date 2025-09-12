@@ -4,6 +4,7 @@ import Image from "next/image";
 import Tilt from "react-parallax-tilt";
 import Typewriter from "typewriter-effect";
 import AIML_Logo from "../../images/logos/AIML-LOGO-WHITE.png";
+import AIT_Logo from "../../images/logos/AIT-LOGO.png";
 import AIgnite from "../../images/logos/Aignite2.0.png";
 import BackGround from "../../images/sectionsAssets/Hero-background.png";
 import Arrow from "../../images/shapes/Arrow.png";
@@ -141,7 +142,7 @@ const Hero = () => {
               <div
                 className="balls w-40 h-40 lg:w-[350px] lg:h-[350px]"
               >
-                <BallCanvas icon={AIML_Logo} />
+                <BallCanvas iconA={AIML_Logo} iconB={AIT_Logo} />
               
               </div>
 

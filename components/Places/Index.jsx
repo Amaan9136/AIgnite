@@ -94,7 +94,7 @@ const Places = () => {
     return () => window.removeEventListener("resize", updateRanges);
   }, []);
 
-  const eventOpacity = useTransform(scrollY, scrollRange, [1, 0.3]);
+  const eventOpacity = useTransform(scrollY, scrollRange, [1, 1]);
 
   if (!isMounted) {
     return null;

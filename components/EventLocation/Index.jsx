@@ -85,9 +85,9 @@ const AboutEvent = () => {
   }, []);
 
   // Set opacity transformations based on current ranges
-  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.3]);
-  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.3]);
-  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.3]);
+  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 1]);
+  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 1]);
+  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 1]);
 
   return (
     <section id="event-loc" className="section-container pt-6">

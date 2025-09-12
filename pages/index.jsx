@@ -10,7 +10,7 @@ import Places from "../components/Places/Index";
 import Schedule from "../components/Schedule/Index";
 import TheyTrustedUs from "../components/TheyTrustedUs/Index";
 import NeonGlowEffect from "../components/helpers/NeonGlowEffect";
-
+import Memories from "../components/Memories";
 export default function Home() {
   return (
     <>
@@ -24,15 +24,16 @@ export default function Home() {
       <Hero />
     
       <main className="font-IBM-Plex">
-
+      
         <ContactUs />
-        <AboutEvent />
+  <AboutEvent />
+        <Memories />
         <Places />
         <EventLocation />
         <Schedule />
         <AboutJury />
         <AboutMentors />
-        <TheyTrustedUs />
+        {/* <TheyTrustedUs /> */}
       </main>
       <Footer />
       {/* <h1 className="text-center text-4xl">Temporarily Disabled</h1>
