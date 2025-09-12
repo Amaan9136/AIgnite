@@ -11,11 +11,17 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const ContactUs = () => {
   const contactData = [
-    { name: "Amaan M.K", contact: "8867305645", color: "#00FFFF" },
-    { name: "Soorya U", contact: "6362737221", color: "#39FF14" },
-    { name: "Ankith K R", contact: "7848895202", color: "#FFD700" },
-    { name: "Saanvi M.J", contact: "7019960800", color: "#FF073A" },
-    { name: "Anushree C B", contact: "9448658295", color: "#FF6EC7" },
+    { name: "Abhishek", contact: "8310518596", color: "#00FFFF",des:"Boys Accomodation" },
+    { name: "Karan ", contact: "7975591793", color: "#39FF14" ,des:"Boys Accomodation"},
+    { name: "Sagar H D", contact: "9148342588", color: "#FF073A" ,des:"Technical "},
+    { name: "Madan K ", contact: "7975680455", color: "#FFD700",des:"Registration" },
+    { name: "Faculty", contact: "9448658295", color: "#FF6EC7" ,des:""},
+   { name: "Rakshitha", contact: "7411254225", color: "#00FFFF" ,des:"Girls Accomodation"},
+    { name: "Manvitha", contact: "9448658295", color: "#39FF14" ,des:"Girls Accomodation"},
+    { name: "Sanvi A S  ", contact: "8105113926 ", color: "#FF073A" ,des:"Technical"},
+    { name: "Prateeksha", contact: "7338682609", color: "#FFD700",des:"Registration" },
+    { name: "Faculty", contact: "7411254225", color: "#FF6EC7",des:"" },
+  
   ];
 
   const largeScreenRanges = [800, 900]
@@ -75,8 +81,12 @@ const ContactUs = () => {
                 <h2 className="text-2xl lg:text-3xl font-bold leading-tight lg:leading-snug">
                   {cont.name}
                 </h2>
+
                 <p style={{color: cont.color}} className="text-sm lg:text-xl font-medium leading-6 lg:leading-8 group-hover:hidden">
                   {cont.contact}
+                </p>
+                <p style={{color:"whitesmoke"}} className="text-sm lg:text-xl font-medium leading-6 lg:leading-8 group-hover:hidden">
+                  {cont.des}
                 </p>
                   <span 
                   className="group-hover:opacity-100 opacity-0 text-sm lg:text-xl font-semibold text-center"

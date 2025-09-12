@@ -1,55 +1,60 @@
 export const schedule = [
   {
-    Time: "-------------------- Day 1 (08/11/2024) -------------------",
+    Time: "-------------------- Day 1 (16/10/2025) -------------------",
     center: true
   },
   {
-    Time: "08:30 AM - 09:30 AM",
-    event: "Registration (Sharkathon)",
+    Time: "09:00 AM - 11:00 AM",
+    event: "Cultural Events",
     location: "HRD Block",
   },
-  {
-    Time: "09:30 AM - 09:30 AM",
-    event: "(24 hrs) National Level Sharkathon",
-    location: "AIML/DS Lab",
-  },
-  {
+    {
     Time: "11:00 AM - 11:30 AM",
     event: "Tea/Coffee Break",
-    location: "AIML/DS Lab",
+    location: "HRD Block",
+  },
+   {
+    Time: "11:30 AM - 1:00 PM",
+    event: "Tech Escape Room",
+    location: "AIML Lab",
   },
   {
+    Time: "11:30 AM - 1:00 PM",
+    event: "E-Sports",
+    location: "Amphi-theatre",
+  },
+{
     Time: "01:30 PM - 02:30 PM",
     event: "Lunch Break",
     location: "Amphi-theatre",
   },
+  // {
+  //   Time: "07:30 PM - 08:30 PM",
+  //   event: "Dinner/Supper Break",
+  //   location: "Civil Department",
+  // },
   {
-    Time: "07:30 PM - 08:30 PM",
-    event: "Dinner/Supper Break",
-    location: "Civil Department",
-  },
-  {
-    Time: "------------------- Day 2 (09/11/2024) -------------------",
+    Time: "------------------- Day 2 (17/10/2025) -------------------",
     center: true
   },
   {
-    Time: "08:30 AM - 09:30 AM",
+    Time: "08:00 AM - 09:30 AM",
     event: "Registration (Minor Tech Events)",
     location: "HRD Block",
   },
-  {
-    Time: "09:30 AM - 11:00 AM",
-    event: "Reverse Hacking",
-    location: "AIML Classroom",
+   {
+    Time: "9:00 AM - 10:00 AM",
+    event: "Inaugration Function ",
+    location: "HRD Block",
   },
   {
-    Time: "09:30 AM - 11:00 AM",
-    event: "E-Sports",
+    Time: "10:00 AM - 05:00 pM",
+    event: "TECHXHIBIT (Project exhibition) ",
     location: "Amphi-theatre",
   },
   {
-    Time: "11:00 PM - 12:30 PM",
+    Time: "5:00 PM - 6:00 PM",
     event: "Prize Distribution & Valedictory",
-    location: "Civil Seminar Hall",
+    location: "HRD-Block",
   },
 ];

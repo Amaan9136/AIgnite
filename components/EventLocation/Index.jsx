@@ -85,9 +85,9 @@ const AboutEvent = () => {
   }, []);
 
   // Set opacity transformations based on current ranges
-  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 0.3]);
-  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 0.3]);
-  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 0.3]);
+  const aitOpacity = useTransform(scrollY, scrollRanges.ait, [1, 1]);
+  const eventOpacity = useTransform(scrollY, scrollRanges.event, [1, 1]);
+  const mapOpacity = useTransform(scrollY, scrollRanges.map, [1, 1]);
 
   return (
     <section id="event-loc" className="section-container pt-6">
@@ -294,7 +294,7 @@ const AboutEvent = () => {
                 >
 <ParagSection2
   title="AIgnite Team"
-  paragraph="The AIgnite Team consists of passionate volunteers from the AIML Department, all committed to making this national technical fest a resounding success on November 8th and 9th. Working tirelessly behind the scenes, they are driven by a shared vision to offer attendees an immersive, hands-on experience that celebrates the innovative tech culture of AIML. Their mission is to ensure every participant feels part of the AIgnite journey, creating a unique and memorable experience that will resonate for years to come."
+  paragraph="The AIgnite Team consists of passionate volunteers from the AIML Department, all committed to making this national technical fest a resounding success on October 16th and 17th. Working tirelessly behind the scenes, they are driven by a shared vision to offer attendees an immersive, hands-on experience that celebrates the innovative tech culture of AIML. Their mission is to ensure every participant feels part of the AIgnite journey, creating a unique and memorable experience that will resonate for years to come."
   highlights={[
     "passionate volunteers",
     "national technical fest",
@@ -303,7 +303,7 @@ const AboutEvent = () => {
     "dedication to a vibrant technical community",
     "unique experience for all attendees",
     "memorable experience",
-    "November 8th and 9th"
+    "October 16th and 17th"
   ]}
   hoverColor="rgb(174, 60, 89)"
 />
@@ -337,20 +337,23 @@ const AboutEvent = () => {
           >
             <ParagSection2
               title="Event Date and Time"
-              paragraph={`Sharkathon (Nov 8-9)
-Dive into a 24-hour hackathon starting on Nov 8 at 9 AM, where teams innovate and solve real-world challenges in a transparent, point-based competition. Mentors and judges will guide and score each phase, pushing creativity to new heights.
-Reverse Hacking & Esports (Nov 9)
-Join the excitement of Reverse Hacking and Esports on Nov 9 from 9 AM to 11 AM. Compete in fast-paced tech and gaming challenges that test skill, strategy, and expertise.
-Get ready for two days of innovation, competition, and memorable experiences!`}
+              paragraph={`Techxhibit (Oct 16-17) Step into a two-day tech exhibition where students, innovators, and creators showcase groundbreaking projects across AI, robotics, IoT, and sustainable tech. Explore interactive demos, live presentations, and future-driven solutions shaping industries. Engage with experts, discover fresh ideas, and celebrate the spirit of innovation. This isn’t just an exhibition—it’s a launchpad for tomorrow’s visionaries.`}
               highlights={[
-                "Sharkathon (Nov 8-9)",
-                "24-hour hackathon",
-                "Real-world challenges",
-                "Transparent, point-based competition",
-                "Reverse Hacking & Esports (Nov 9)",
-                "Fast-paced tech and gaming challenges",
-                "Two days of innovation",
-                "Memorable experiences"
+                "Techxhibit (Oct 16-17)",
+
+"Two-day tech exhibition",
+
+"AI, robotics, IoT, and sustainable tech",
+
+"Interactive demos & live presentations",
+
+"Future-driven solutions",
+
+"Engage with experts & innovators",
+
+"Celebrate creativity & innovation",
+
+"Launchpad for tomorrow’s visionaries"
               ]}
               hoverColor="rgb(10, 109, 140)"
             />

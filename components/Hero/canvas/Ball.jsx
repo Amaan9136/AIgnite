@@ -4,105 +4,93 @@ import { Decal, Float, OrbitControls, Preload, useTexture } from '@react-three/d
 import CanvasLoader from '../Loader';
 
 const Ball = (props) => {
-  const [decal] = useTexture([props.icon]); // Use the same texture for all faces
+  // const [decal] = useTexture([props.icon]);
+  const [decalA, decalB] = useTexture([props.iconA, props.iconB]);
+
   const ballRef = useRef();
 
-  const [time, setTime] = useState(0); // For creating oscillation over time
+  // Track startup spin
+  const [startup, setStartup] = useState(true);
+  const [startTime] = useState(() => Date.now());
+  const [spinEndAngle, setSpinEndAngle] = useState(0);
 
-  // Controlled rotation with oscillation on Y, X, and Z axes
   useFrame(({ clock }) => {
     if (ballRef.current) {
-      // Use elapsed time (clock.getElapsedTime()) to make rotation consistent across devices
       const elapsedTime = clock.getElapsedTime();
-      
-      // Apply larger oscillation for left-right movement on the Y-axis (slower)
-      ballRef.current.rotation.y = Math.sin(elapsedTime) * 0.5; // Increase factor for wider left-right movement
+      const t = (Date.now() - startTime) / 1000;
 
-      // Apply small oscillation on the X-axis for slight back-and-forth movement (slow)
-      ballRef.current.rotation.x = Math.sin(elapsedTime) * 0.2; // Small oscillation on the X-axis
+      if (startup) {
+        const duration = 4; // slower: 4 seconds for 2 rotations
 
-      // Apply oscillation to the Z-axis for back and forth movement
-      ballRef.current.rotation.z = Math.sin(elapsedTime) * 0.2; // Small oscillation on the Z-axis
+        if (t < duration) {
+          // Smooth intro spin (2 full rotations to the left)
+          ballRef.current.rotation.y = -(t / duration) * Math.PI * 2;
+        } else {
+          // Lock at final angle after spin
+          const finalAngle = -Math.PI * 2;
+            //  const finalAngle = 0;
+          ballRef.current.rotation.y = finalAngle;
+          setSpinEndAngle(finalAngle);
+          setStartup(false);
+        }
+    } else {
+  ballRef.current.rotation.y = spinEndAngle + Math.sin(elapsedTime * 0.2) * 0.5;
+  ballRef.current.rotation.x = 0;
+  ballRef.current.rotation.z = 0;
+  ballRef.current.position.y = Math.sin(elapsedTime * 0.1) * 0.2;
+}
 
-      // Apply oscillation to the Y-position for vertical movement (up and down)
-      ballRef.current.position.y = Math.sin(elapsedTime * 0.5) * 0.2; // Small oscillation on the Y-position (up and down)
+
     }
   });
 
   return (
-    <Float
-      speed={0.5} // Slower floating speed to keep the ball in view
-      rotationIntensity={0} // Disable floating rotation intensity to keep the texture steady
-      floatIntensity={0.2} // Slight floating intensity
-      floatingAxes="xy" // Restrict floating to X and Y axes
-    >
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
+    <Float speed={0.5} rotationIntensity={0} floatIntensity={0.2} floatingAxes="xy">
+      {/* Lighting */}
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1.2} color="white" castShadow />
+      <pointLight position={[-3, -2, -3]} intensity={0.4} color="white" />
+
+      {/* Ball mesh */}
       <mesh ref={ballRef} castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
-          color="#000000" 
+          color="#000000"
           polygonOffset
           polygonOffsetFactor={-5}
           flatShading
         />
-        {/* Front decal with the same texture */}
-        <Decal
-          position={[0, 0, 1]} // Place on the front
-          rotation={[0, 0, 0]} // No tilting, keeps the logo flat and visible
-          flatShading
-          map={decal}
-        />
-        {/* Back decal with the same texture */}
-        <Decal
-          position={[0, 0, -1]} // Place on the opposite side (back)
-          rotation={[Math.PI, 0, Math.PI]} // Rotate 180 degrees along Y-axis and 180 degrees along Z-axis
-          flatShading
-          map={decal}
-        />
-        {/* Left decal with the same texture */}
-        <Decal
-          position={[-1, 0, 0]} // Place on the left side
-          rotation={[0, Math.PI / 2, 0]} // Rotate 90 degrees on the Y-axis
-          flatShading
-          map={decal}
-        />
-        {/* Right decal with the same texture */}
-        <Decal
-          position={[1, 0, 0]} // Place on the right side
-          rotation={[0, -Math.PI / 2, 0]} // Rotate -90 degrees on the Y-axis for the opposite side
-          flatShading
-          map={decal}
-        />
-        {/* Top decal with the same texture */}
-        <Decal
-          position={[0, 1, 0]} // Place on the top
-          rotation={[Math.PI / 2, 0, 0]} // Rotate 90 degrees on the X-axis
-          flatShading
-          map={decal}
-        />
-        {/* Bottom decal with the same texture */}
-        <Decal
-          position={[0, -1, 0]} // Place on the bottom
-          rotation={[-Math.PI / 2, 0, 0]} // Rotate -90 degrees on the X-axis
-          flatShading
-          map={decal}
-        />
+        {/* Decals on all 6 sides */}
+        {/* <Decal position={[0, 0, 1]} rotation={[0, 0, 0]} flatShading map={decal} />
+        <Decal position={[0, 0, -1]} rotation={[Math.PI, 0, Math.PI]} flatShading map={decal} />
+        <Decal position={[-1, 0, 0]} rotation={[0, Math.PI / 2, 0]} flatShading map={decal} />
+        <Decal position={[1, 0, 0]} rotation={[0, -Math.PI / 2, 0]} flatShading map={decal} />
+        <Decal position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} flatShading map={decal} />
+        <Decal position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]} flatShading map={decal} /> */}
+
+        {/* Decals for 3 faces with image A */}
+<Decal position={[0, 0, 1]} rotation={[0, 0, 0]} flatShading map={decalA} />
+<Decal position={[0, 1, 0]} rotation={[Math.PI / 2, 0, 0]} flatShading map={decalA} />
+<Decal position={[-1, 0, 0]} rotation={[0, Math.PI / 2, 0]} flatShading map={decalA} />
+
+{/* Decals for opposite 3 faces with image B */}
+<Decal position={[0, 0, -1]} rotation={[Math.PI, 0, Math.PI]} flatShading map={decalB} />
+<Decal position={[0, -1, 0]} rotation={[-Math.PI / 2, 0, 0]} flatShading map={decalB} />
+<Decal position={[1, 0, 0]} rotation={[0, -Math.PI / 2, 0]} flatShading map={decalB} />
+
       </mesh>
     </Float>
   );
 };
 
-const BallCanvas = ({ icon }) => {
-    const iconUrl = typeof icon === "string" ? icon : icon.src;
+const BallCanvas = ({ iconA, iconB  }) => {
+  const iconUrlA = typeof iconA === 'string' ? iconA : iconA.src;
+  const iconUrlB = typeof iconB === 'string' ? iconB : iconB.src;
   return (
-    <Canvas
-      gl={{ preserveDrawingBuffer: true }}
-      frameloop="always" // Ensures continuous animation
-    >
+    <Canvas gl={{ preserveDrawingBuffer: true }} frameloop="always">
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false} />
-        <Ball icon={iconUrl} /> {/* Pass the icon as prop for all six faces */}
+        <Ball  iconA={iconUrlA} iconB={iconUrlB} />
       </Suspense>
       <Preload all />
     </Canvas>

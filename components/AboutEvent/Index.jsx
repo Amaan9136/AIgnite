@@ -8,6 +8,8 @@ import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import event1 from "../../images/speakers/1.png";
 import event2 from "../../images/speakers/2.png";
+import techxhibit from "../../images/speakers/techxhibit.png";
+import techEscapeRoom from "../../images/speakers/techEscapeRoom.png";
 import event3 from "../../images/speakers/3.png";
 import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
@@ -15,20 +17,20 @@ import SectionTitle from "../helpers/SectionTitle";
 const AboutEvent = () => {
   const eventsData = [
     {
-      name: "Reverse Hacking",
+      name: "Tech Escape Room",
       form_path: "https://tally.so/r/nGBrxO",
-      image: event1,
+      image: techEscapeRoom,
       color: "#7ce6e2",
-      description: "Dive into the art of deconstructing complex systems, discovering their inner workings, and unlocking new perspectives in technology and innovation.",
-      closed: true
+      description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
+       closed: false
 
     },
     {
-      name: "Project Exhibition",
+      name: "TECHXHIBIT",
       form_path: "https://tally.so/r/wb4lq7",
-      image: event2,
+      image: techxhibit,
       color: "#4999D0",
-      description: "Experience the thrill of rapid innovation as creative minds pitch groundbreaking tech ideas in a high-stakes environment where innovation meets competition.",
+      description: "Showcase your technical brilliance at the Project Exhibition, where innovative prototypes and real-world solutions take center stage. From cutting-edge software to hardware marvels, this platform is designed for creators to demonstrate their projects, share knowledge, and inspire collaboration among peers and industry experts",
       closed: false
 
     },
@@ -38,9 +40,10 @@ const AboutEvent = () => {
       image: event3,
       color: "#fe8400",
       description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports.",
-      closed: true
+      closed: false
 
     },
+      
   ];
 
   const largeScreenRanges = [1100, 1480]
@@ -131,7 +134,7 @@ const AboutEvent = () => {
                   className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 ${index === 1 ? "lg:scale-[1.15] rounded-xl" : "lg:scale-[0.9]"}`}
                 />
                 <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="font-semibold text-white text-center lg:mx-6">{eventObj.description}</p>
+                  <p className="font-semibold text-white text-center text-sm lg:text-sm lg:mx-6">{eventObj.description}</p>
                 </div>
               </Tilt>
 
