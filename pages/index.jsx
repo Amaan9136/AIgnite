@@ -11,6 +11,7 @@ import Schedule from "../components/Schedule/Index";
 import TheyTrustedUs from "../components/TheyTrustedUs/Index";
 import NeonGlowEffect from "../components/helpers/NeonGlowEffect";
 import Memories from "../components/Memories";
+
 export default function Home() {
   return (
     <>
@@ -22,11 +23,12 @@ export default function Home() {
       </Head>
 
       <Hero />
-    
+
       <main className="font-IBM-Plex">
       
         <ContactUs />
   <AboutEvent />
+ 
         <Memories />
         <Places />
         <EventLocation />
@@ -35,6 +37,7 @@ export default function Home() {
         <AboutMentors />
         {/* <TheyTrustedUs /> */}
       </main>
+      
       <Footer />
       {/* <h1 className="text-center text-4xl">Temporarily Disabled</h1>
       <p className="text-center text-lg">469 | May take time to resolve.</p> */}
