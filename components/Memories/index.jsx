@@ -180,7 +180,7 @@ const Memories = () => {
           {placesData.map((place, index) => (
             <SwiperSlide
               key={index}
-              onClick={() => window.open(place.map_link, "_blank")}
+              
               className="group lg:my-20 my-12 "
             >
               <Tilt
