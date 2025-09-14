@@ -117,6 +117,7 @@ const Hero = () => {
                 >
                   Empowering Intelligence, Enhancing Humanity.
                 </motion.p>
+         
 
               </Tilt>
               <Animate delay={11} className="flex items-end justify-center lg:justify-start cursor-pointer">
@@ -171,12 +172,11 @@ const Hero = () => {
           <div className="hidden lg:block w-12 h-12 absolute bottom-1/4 right-2/4">
             <Image src={Computer} alt="Computer" />
           </div>
-        </Animate>
-      
         
-
-      </div>
+        </Animate>
      
+      </div>
+    
     </section>
     </>
   );

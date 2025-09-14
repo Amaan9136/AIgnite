@@ -13,12 +13,13 @@ import techEscapeRoom from "../../images/speakers/techEscapeRoom.png";
 import event3 from "../../images/speakers/3.png";
 import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
-
+import { useRouter } from "next/router";
 const AboutEvent = () => {
+    const router = useRouter();
   const eventsData = [
     {
       name: "Tech Escape Room",
-      form_path: "https://tally.so/r/nGBrxO",
+    
       image: techEscapeRoom,
       color: "#7ce6e2",
       description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
@@ -27,7 +28,7 @@ const AboutEvent = () => {
     },
     {
       name: "TECHXHIBIT",
-      form_path: "https://tally.so/r/wb4lq7",
+    
       image: techxhibit,
       color: "#4999D0",
       description: "Showcase your technical brilliance at the Project Exhibition, where innovative prototypes and real-world solutions take center stage. From cutting-edge software to hardware marvels, this platform is designed for creators to demonstrate their projects, share knowledge, and inspire collaboration among peers and industry experts",
@@ -36,7 +37,7 @@ const AboutEvent = () => {
     },
     {
       name: "E-Sports",
-      form_path: "https://tally.so/r/nrrK4o",
+     
       image: event3,
       color: "#fe8400",
       description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports.",
@@ -114,7 +115,7 @@ const AboutEvent = () => {
           {eventsData.map((eventObj, index) => (
             <div
               key={index}
-              onClick={() => !eventObj.closed && window.open(eventObj.form_path, "_blank")}
+              onClick={() => !eventObj.closed && router.push(`/registration/${eventObj.name.toLowerCase().replace(/\s+/g, '-')}`)}
               className={`flex flex-col items-center group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'}
                 ${index === 1 ? 'order-first' : 'order-last'} lg:order-none`}
             >
@@ -143,7 +144,7 @@ const AboutEvent = () => {
                 className={`flex transition-transform duration-300 ${index === 1 ? "z-10" : "z-0"} group-hover:z-20 group-hover:scale-105`}
               >
                 <div className={`text-center z-10 ${index == 0 && "w-4/5 mx-auto lg:w-auto"} ${index == 1 ? "lg:-mt-8" : "lg:-mt-16"}`}>
-                  <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`} redirect={eventObj.form_path} color={eventObj.color} closed={eventObj.closed} />
+                  <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`}  color={eventObj.color} closed={eventObj.closed} />
                 </div>
               </Tilt>
             </div>
