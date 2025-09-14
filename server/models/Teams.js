@@ -31,15 +31,15 @@ const TeamsSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  teamMembers: {
-    type: String,
-    trim: true,
-  },
   additionalMember1: {
     type: String,
     trim: true,
   },
   additionalMember2: {
+    type: String,
+    trim: true,
+  },
+  additionalMember3: {
     type: String,
     trim: true,
   },
@@ -59,6 +59,17 @@ const TeamsSchema = new mongoose.Schema({
   }],
   transactionId: {
     type: String,
+    trim: true,
+  },
+  teamId: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  secureKey: {
+    type: String,
+    required: true,
     trim: true,
   },
 }, { timestamps: true });

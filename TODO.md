@@ -1,6 +1,10 @@
-# TODO: Rename /teams to /admin with Login
+# TODO: Implement Team ID, Secure Key, and Email Notification in Registration
 
-- [x] Rename pages/teams/ folder to pages/admin/
-- [x] Update pages/admin/index.jsx to include login form and conditional rendering of Teams component
-- [x] Create pages/api/admin/login.js for POST request to verify admin credentials
-- [x] Test the login and teams display functionality (manual by user)
+## Tasks
+- [x] Update server/models/Teams.js to add teamId and secureKey fields
+- [x] Create server/mail.js utility for sending emails using nodemailer
+- [x] Modify pages/api/register.js to generate teamId and secureKey, save to DB, and send email
+- [x] Install nodemailer dependency
+- [ ] Configure email service credentials in environment variables
+- [ ] Test email sending functionality
+- [ ] Verify teamId generation and uniqueness
