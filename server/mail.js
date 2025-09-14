@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
 
 export const sendRegistrationEmail = async (to, teamId, secureKey) => {
   const domain = process.env.DOMAIN || 'https://yourdomain.com';
-  const url = `${domain}/dashboard/${teamId}?key=${secureKey}`;
+  const url = `${domain}dashboard/${teamId}?key=${secureKey}`;
 
   const mailOptions = {
     from: `"AIgnite 2.0" <${process.env.EMAIL_USER}>`,
