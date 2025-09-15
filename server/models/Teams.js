@@ -20,6 +20,11 @@ const TeamsSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  eventName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   collegeName: {
     type: String,
     trim: true,
@@ -40,6 +45,10 @@ const TeamsSchema = new mongoose.Schema({
     trim: true,
   },
   additionalMember3: {
+    type: String,
+    trim: true,
+  },
+  esportEvent: {
     type: String,
     trim: true,
   },

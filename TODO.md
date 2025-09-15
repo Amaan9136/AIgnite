@@ -1,10 +1,8 @@
-# TODO: Implement Team ID, Secure Key, and Email Notification in Registration
+# Update Registration for Event-Based Fields
 
 ## Tasks
-- [x] Update server/models/Teams.js to add teamId and secureKey fields
-- [x] Create server/mail.js utility for sending emails using nodemailer
-- [x] Modify pages/api/register.js to generate teamId and secureKey, save to DB, and send email
-- [x] Install nodemailer dependency
-- [ ] Configure email service credentials in environment variables
-- [ ] Test email sending functionality
-- [ ] Verify teamId generation and uniqueness
+- [x] Update server/models/Teams.js to add esportEvent field
+- [x] Update pages/api/register.js to add switch cases for 'Select The Game' and 'Esport Event'
+- [x] Update pages/api/register.js to add conditional logic to clear additionalMember2 and additionalMember3 for non-TECHXHIBIT events
+- [ ] Test registration for TECHXHIBIT REGISTRATION (all fields, team members 1/2/3)
+- [ ] Test registration for other events (only additionalMember1, no 2/3; TECH ESCAPE ROOM: selectTheGame; Esports: esportEvent)
