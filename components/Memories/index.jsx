@@ -130,8 +130,8 @@ const Memories = () => {
   ];
 
   const { scrollY } = useScroll();
-  const largeScreenRanges = [1800, 2200];
-  const smallScreenRanges = [2900, 3000]
+  const largeScreenRanges = [2000, 2600];
+  const smallScreenRanges = [9100, 9500]
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {

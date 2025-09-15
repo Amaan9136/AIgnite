@@ -48,7 +48,7 @@ const Hero = () => {
   return (
     <>
   
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section id="home" className="relative lg:min-h-screen overflow-hidden">
       
       {/* Animated background image with opacity transition */}
       <motion.div

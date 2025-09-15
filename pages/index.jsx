@@ -26,9 +26,9 @@ export default function Home() {
 
       <main className="font-IBM-Plex">
       
-        <ContactUs />
+       
   <AboutEvent />
- 
+  <ContactUs />
         <Memories />
         <Places />
         <EventLocation />

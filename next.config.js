@@ -4,6 +4,9 @@ const nextConfig = {
   // images: {
   //   unoptimized: true,
   // },
+ images: {
+    domains: ['storage.tally.so'],
+  },
   reactStrictMode: true,
   swcMinify: true,
 };
