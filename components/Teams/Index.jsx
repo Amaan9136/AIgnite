@@ -5,6 +5,7 @@ const Teams = ({ onLogout }) => {
   const [selectedTeam, setSelectedTeam] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [updatingPayment, setUpdatingPayment] = useState(false);
 
   useEffect(() => {
     const fetchTeams = async () => {
@@ -73,6 +74,48 @@ const Teams = ({ onLogout }) => {
                 {selectedTeam.paymentScreenshot && selectedTeam.paymentScreenshot.map((screenshot, index) => (
                   <img key={index} src={screenshot.url} alt={`Payment Screenshot ${index + 1}`} className="w-full h-auto mb-2 rounded" />
                 ))}
+                <div className="mt-4">
+                  <p className="text-white font-semibold">
+                    Payment Verified: {selectedTeam.paymentVerified ? 'Yes' : 'No'}
+                  </p>
+                  <button
+                    onClick={async () => {
+                      const newValue = !selectedTeam.paymentVerified;
+                      setUpdatingPayment(true);
+                      try {
+                        const res = await fetch('/api/admin/team/payment-verified', {
+                          method: 'PUT',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                            teamId: selectedTeam.teamId,
+                            paymentVerified: newValue,
+                          }),
+                        });
+                        if (res.ok) {
+                          const data = await res.json();
+                          setSelectedTeam(data.team);
+                          setTeams((prevTeams) =>
+                            prevTeams.map((team) =>
+                              team._id === data.team._id ? data.team : team
+                            )
+                          );
+                        } else {
+                          console.error('Failed to update payment verification');
+                        }
+                      } catch (error) {
+                        console.error('Error updating payment verification:', error);
+                      } finally {
+                        setUpdatingPayment(false);
+                      }
+                    }}
+                    disabled={updatingPayment}
+                    className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
+                  >
+                    {updatingPayment ? 'Updating...' : selectedTeam.paymentVerified ? 'Unverify Payment' : 'Verify Payment'}
+                  </button>
+                </div>
               </div>
             </div>
             <button

@@ -70,6 +70,10 @@ const TeamsSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  paymentVerified: {
+    type: Boolean,
+    default: false,
+  },
   teamId: {
     type: String,
     required: true,

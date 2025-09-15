@@ -1,8 +1,13 @@
-# Update Registration for Event-Based Fields
+# Dashboard UI/UX Improvement Plan
 
-## Tasks
-- [x] Update server/models/Teams.js to add esportEvent field
-- [x] Update pages/api/register.js to add switch cases for 'Select The Game' and 'Esport Event'
-- [x] Update pages/api/register.js to add conditional logic to clear additionalMember2 and additionalMember3 for non-TECHXHIBIT events
-- [ ] Test registration for TECHXHIBIT REGISTRATION (all fields, team members 1/2/3)
-- [ ] Test registration for other events (only additionalMember1, no 2/3; TECH ESCAPE ROOM: selectTheGame; Esports: esportEvent)
+- [x] Enhance components/Dashboard/Index.jsx with tech event aesthetic:
+  - Add vibrant gradients and neon/glow effects
+  - Improve typography and spacing
+  - Add hover animations on cards and buttons
+  - Use icons for roles and statuses
+  - Refine layout for polished look
+- [x] Optionally integrate NeonGlowEffect or similar dynamic effects
+- [x] Ensure responsiveness and accessibility
+- [x] Test the updated dashboard UI
+- [x] Remove neon effects on text, keep background same as main page, align team members data organized
+- [x] Add navbar similar to main page for navigation between profile, payment details, team members; show all details in profile; keep UI theme nice

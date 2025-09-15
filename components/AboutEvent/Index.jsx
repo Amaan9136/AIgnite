@@ -57,7 +57,7 @@ const AboutEvent = () => {
       
   ];
 
-  const largeScreenRanges = [1100, 2480]
+  const largeScreenRanges = [1100, 1200]
   const smallScreenRanges = [2150, 5500]
 
   const { scrollY } = useScroll();

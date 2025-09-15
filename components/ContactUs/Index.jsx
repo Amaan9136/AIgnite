@@ -11,21 +11,21 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const ContactUs = () => {
   const contactData = [
-    { name: "Abhishek", contact: "8310518596", color: "#00FFFF",des:"Boys Accomodation" },
+    { name: "Abhishek", contact: "8310518596", color: "#FFD700",des:"Boys Accomodation" },
     { name: "Karan ", contact: "7975591793", color: "#39FF14" ,des:"Boys Accomodation"},
-    { name: "Sagar H D", contact: "9148342588", color: "#FF073A" ,des:"Technical "},
-    { name: "Madan K ", contact: "7975680455", color: "#FFD700",des:"Registration" },
-    { name: "Faculty", contact: "9448658295", color: "#FF6EC7" ,des:""},
-   { name: "Rakshitha", contact: "7411254225", color: "#00FFFF" ,des:"Girls Accomodation"},
-    { name: "Manvitha", contact: "9448658295", color: "#39FF14" ,des:"Girls Accomodation"},
+    { name: "Sagar H D", contact: "9148342588", color: "#FF073A" ,des:"Technical , Registration"},
+    { name: "Madan K ", contact: "7975680455", color: "#00FFFF",des:"Registration" },
+    { name: "Mohammad Afnan", contact: "6361116966", color: "#FF6EC7" ,des:"Media"},
+   { name: "Rakshitha", contact: "7411254225", color: "#FFD700" ,des:"Girls Accomodation"},
+    { name: "Manvitha", contact: "9136686666", color: "#39FF14" ,des:"Girls Accomodation"},
     { name: "Sanvi A S  ", contact: "8105113926 ", color: "#FF073A" ,des:"Technical"},
-    { name: "Prateeksha", contact: "7338682609", color: "#FFD700",des:"Registration" },
-    { name: "Faculty", contact: "7411254225", color: "#FF6EC7",des:"" },
+    { name: "Prateeksha", contact: "7338682609", color: "#00FFFF",des:"Registration" },
+    { name: "Syed Najam", contact: "6360974247", color: "#FF6EC7",des:"Tech Events" },
   
   ];
 
-  const largeScreenRanges = [800, 900]
-  const smallScreenRanges = [900, 1000]
+  const largeScreenRanges = [1500, 2000]
+  const smallScreenRanges = [8000, 9000]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
