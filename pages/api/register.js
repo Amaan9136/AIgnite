@@ -8,12 +8,14 @@ export default async function handler(req, res) {
 
   if (req.method === 'POST') {
     const fields = req.body.data?.fields || [];
+    const formName = req.body.data?.formName || '';
 
     console.log("data received");
-    console.log("fields:", JSON.stringify(fields, null, 2));
+    console.log("fields:", JSON.stringify(req.body.data, null, 2));
 
     // Map fields to team data
     const teamData = {};
+    teamData.eventName = formName;
 
     fields.forEach(field => {
       console.log(`${field.label}: ${field.value}`);
@@ -39,14 +41,17 @@ export default async function handler(req, res) {
         case 'City':
           teamData.city = field.value;
           break;
-        case 'Team Member 1':
+        case 'Team Member 1 Name':
           teamData.additionalMember1 = field.value;
           break;
-        case 'Team Member 2':
+        case 'Team Member 2 Name':
           teamData.additionalMember2 = field.value;
           break;
-        case 'Team Member 3':
+        case 'Team Member 3 Name':
           teamData.additionalMember3 = field.value;
+          break;
+        case 'Team Member Name':
+          teamData.additionalMember1 = field.value;
           break;
         case 'Project Title':
           teamData.projectTitle = field.value;
@@ -66,10 +71,20 @@ export default async function handler(req, res) {
         case 'Transaction ID / UTR':
           teamData.transactionId = field.value;
           break;
+        case 'Select The Game':
+          teamData.esportEvent = field.value;
+          break;
         default:
           break;
       }
     });
+
+    // Conditional logic for event-specific fields
+    if (formName !== 'TECHXHIBIT REGISTRATION') {
+      // For non-TECHXHIBIT events, clear additionalMember2 and additionalMember3
+      teamData.additionalMember2 = undefined;
+      teamData.additionalMember3 = undefined;
+    }
 
     // Generate teamId and secureKey
     const random4digit = Math.floor(Math.random() * 10000).toString().padStart(4, '0');

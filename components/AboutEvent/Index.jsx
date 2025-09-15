@@ -27,28 +27,38 @@ const AboutEvent = () => {
 
     },
     {
-      name: "TECHXHIBIT",
+      name: "Techxhibit",
     
       image: techxhibit,
       color: "#4999D0",
-      description: "Showcase your technical brilliance at the Project Exhibition, where innovative prototypes and real-world solutions take center stage. From cutting-edge software to hardware marvels, this platform is designed for creators to demonstrate their projects, share knowledge, and inspire collaboration among peers and industry experts",
+      description: "Project Exhibition: A platform to showcase innovative tech projects, from software to hardware, highlighting creativity, problem-solving, and real-world applications.",
       closed: false
+
+    },
+      {
+      name: "E Sports",
+    
+      image: techEscapeRoom,
+      color: "#7ce6e2",
+      description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
+       closed: false
 
     },
     {
-      name: "E-Sports",
-     
-      image: event3,
-      color: "#fe8400",
-      description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports.",
+      name: "Think N Blink",
+    
+      image: techxhibit,
+      color: "#4999D0",
+      description: "Project Exhibition: A platform to showcase innovative tech projects, from software to hardware, highlighting creativity, problem-solving, and real-world applications",
       closed: false
 
     },
+    
       
   ];
 
-  const largeScreenRanges = [1100, 1480]
-  const smallScreenRanges = [2150, 2300]
+  const largeScreenRanges = [1100, 2480]
+  const smallScreenRanges = [2150, 5500]
 
   const { scrollY } = useScroll();
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
@@ -67,6 +77,13 @@ const AboutEvent = () => {
     window.addEventListener('resize', updateRanges);
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
+
+  useEffect(() => {
+    const unsubscribe = scrollY.onChange((value) => {
+      console.log('Scroll Y:', value);
+    });
+    return unsubscribe;
+  }, [scrollY]);
 
   const eventOpacity = useTransform(scrollY, scrollRange, [1, 0.3]);
 
@@ -111,13 +128,13 @@ const AboutEvent = () => {
 
           {/* Events */}
           <motion.div className="flex justify-center items-center" style={{ opacity: eventOpacity }}>
-        <div className="relative w-4/5 my-16 flex gap-16 flex-col lg:flex-row justify-between">
+        <div className="relative w-full max-w-7xl mx-auto my-16 flex gap-12 flex-col sm:flex-col md:flex-row lg:flex-row justify-between px-4 sm:px-6 lg:px-8">
           {eventsData.map((eventObj, index) => (
             <div
               key={index}
               onClick={() => !eventObj.closed && router.push(`/registration/${eventObj.name.toLowerCase().replace(/\s+/g, '-')}`)}
-              className={`flex flex-col items-center group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'}
-                ${index === 1 ? 'order-first' : 'order-last'} lg:order-none`}
+className={`flex flex-col items-center mt-10  gap-4 h-[400px] sm:h-[500px] lg:h-[400px] lg:mr-12 group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} lg:scale-[1.2]
+                order-first lg:order-none w-full sm:w-1/2 lg:w-1/3`}
             >
               <Tilt
                 scale={1.2}
@@ -125,14 +142,14 @@ const AboutEvent = () => {
                 glareMaxOpacity={0.5}
                 glareColor={eventObj.color}
                 glarePosition="all"
-                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 ${index === 1 ? "z-100" : "z-0"} group-hover:z-20 group-hover:scale-105`}
+                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 z-100 group-hover:z-20 group-hover:scale-105`}
               >
                 <Image
                   src={eventObj.image}
                   alt={eventObj.name}
                   width={600}
                   height={600}
-                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 ${index === 1 ? "lg:scale-[1.15] rounded-xl" : "lg:scale-[0.9]"}`}
+                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 lg:scale-[1.15] rounded-xl`}
                 />
                 <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="font-semibold text-white text-center text-sm lg:text-sm lg:mx-6">{eventObj.description}</p>
@@ -141,9 +158,9 @@ const AboutEvent = () => {
 
               <Tilt
                 scale={1.5}
-                className={`flex transition-transform duration-300 ${index === 1 ? "z-10" : "z-0"} group-hover:z-20 group-hover:scale-105`}
+                className={`flex transition-transform duration-300 z-10 group-hover:z-20 group-hover:scale-105`}
               >
-                <div className={`text-center z-10 ${index == 0 && "w-4/5 mx-auto lg:w-auto"} ${index == 1 ? "lg:-mt-8" : "lg:-mt-16"}`}>
+                <div className={`text-center z-10 sm:mt-2 md:mt-4 lg:mt-0`}>
                   <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`}  color={eventObj.color} closed={eventObj.closed} />
                 </div>
               </Tilt>
