@@ -31,8 +31,8 @@ const TeamNav = ({setActiveTab,team}) => {
 
           <Animate delay={2} tag="ul" className="hidden lg:flex items-center text-xl gap-16 font-bold text-qiskit-white">
             {NavLinks.map((navLink, idx) => {
-              if(navLink.content === "Project PPT Submission" && team.eventName !== "TECHXHIBIT REGISTRATION") {
-                console.log(team.eventName);
+              if(navLink.content === "Project PPT Submission" && team.eventName != "TECHXHIBIT REGISTRATION") {
+                
                 return null;
               }
               return (

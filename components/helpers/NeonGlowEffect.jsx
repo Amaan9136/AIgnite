@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from "next/router";
 
 export default function NeonGlowEffect() {
   const [randomColor, setRandomColor] = useState('');
   const [isSupportedDevice, setIsSupportedDevice] = useState(false);
+  const router = useRouter();
 
   const generateRandomColor = () => {
     const letters = '0123456789ABCDEF';
@@ -16,11 +18,11 @@ export default function NeonGlowEffect() {
   useEffect(() => {
     const checkDevice = () => {
       const width = window.innerWidth;
-      const isLaptopOrTablet = width >= 600; 
+      const isLaptopOrTablet = width >= 600;
       setIsSupportedDevice(isLaptopOrTablet);
     };
-    checkDevice(); 
-    window.addEventListener('resize', checkDevice); 
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
 
     return () => {
       window.removeEventListener('resize', checkDevice);
@@ -29,6 +31,14 @@ export default function NeonGlowEffect() {
 
   useEffect(() => {
     if (!isSupportedDevice) return;
+   if (!router.isReady) return;
+    // Check if we're on a registration route
+    const isRegistrationRoute = router.asPath.startsWith("/registration/");
+    
+    if (isRegistrationRoute) {
+     
+      return; // Don't apply neon effect on registration pages
+    }
 
     const newColor = generateRandomColor();
     setRandomColor(newColor);
@@ -51,16 +61,10 @@ export default function NeonGlowEffect() {
       window.removeEventListener('mousemove', updatePosition);
       neonElement.remove();
     };
-  }, [isSupportedDevice]);
-
-
-
-
-
-
+  }, [isSupportedDevice,router.isReady, router.asPath]);
 
   if (!isSupportedDevice) {
-    return null; 
+    return null;
   }
 
   return <></>;

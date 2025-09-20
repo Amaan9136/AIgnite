@@ -110,7 +110,11 @@ const Dashboard = ({ team }) => {
 const renderPPTdetails = () => (
     <div className="bg-gray-900/80 p-6 rounded-lg shadow-md border border-gray-700 max-w-2xl mx-auto mb-10">
       <div className="text-left text-gray-300">
-        <p className="text-lg mb-4"><strong>Project PPT shortlisted:</strong> {team.paymentVerified ? 'Accepted' : 'Better luck next time!'}</p>
+        <p className="text-lg mb-4"><strong>Project PPT shortlisted:</strong> {team.pptSelected === "pending"
+    ? "Pending"
+    : team.pptSelected === "selected"
+    ? "Selected"
+    : "Better Luck next time"}</p>
     
       </div>
     </div>

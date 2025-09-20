@@ -70,6 +70,10 @@ const TeamsSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+    pptSelected: {
+    type: String,
+    default: "pending",
+  },
   teamId: {
     type: String,
     required: true,
