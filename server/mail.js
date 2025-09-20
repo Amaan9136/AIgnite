@@ -22,8 +22,8 @@ export const sendRegistrationEmail = async (to, teamId, secureKey, eventName) =>
   let eventMessage = '';
   switch (cleanName) {
     case 'techxhibit':
-      eventMessage = `Thank you for registering your team for <strong>TechXhibit</strong>. We are excited to see your innovative projects!`;
-      break;
+     eventMessage = `Thank you for registering your team for <strong>TechXhibit</strong>! We’re excited to see your innovative projects. Please stay tuned—we’ll update you about the project selection based on your PPT submission.`;
+break;
     case 'tech escape room':
       eventMessage = `Welcome to the thrilling <strong>Tech Escape Room</strong> challenge! Gear up for some exciting puzzles.`;
       break;

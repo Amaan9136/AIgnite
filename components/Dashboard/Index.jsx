@@ -107,10 +107,19 @@ const Dashboard = ({ team }) => {
       </div>
     </div>
   );
+const renderPPTdetails = () => (
+    <div className="bg-gray-900/80 p-6 rounded-lg shadow-md border border-gray-700 max-w-2xl mx-auto mb-10">
+      <div className="text-left text-gray-300">
+        <p className="text-lg mb-4"><strong>Project PPT shortlisted:</strong> {team.paymentVerified ? 'Accepted' : 'Better luck next time!'}</p>
+    
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-[url('/images/sectionsAssets/About-bg.png')] bg-cover bg-center text-white relative overflow-hidden">
-      <TeamNav setActiveTab={setActiveTab}/>
+   
+      <TeamNav setActiveTab={setActiveTab} team={team}/>
       <div className="container mx-auto px-4 py-10 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -125,6 +134,7 @@ const Dashboard = ({ team }) => {
         {activeTab === 'profile' && renderProfile()}
         {activeTab === 'teammembers' && renderTeamMembers()}
         {activeTab === 'paymentdetails' && renderPaymentDetails()}
+        {activeTab === 'projectppt submission' && renderPPTdetails()}
       </div>
     </div>
   );

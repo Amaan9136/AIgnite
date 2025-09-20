@@ -6,7 +6,7 @@ import AIgnite from "../../images/logos/Aignite2.0.png";
 import Animate from "../helpers/Animate-motion.jsx";
 import Purplebutton from "../helpers/Purpulebutton.jsx";
 import NavLinks from "./links";
-const TeamNav = ({setActiveTab}) => {
+const TeamNav = ({setActiveTab,team}) => {
   const [isNavToggled, setIsNavToggled] = useState(false);
   return (
     <header className="pt-8 lg:pt-1 flex flex-col gap-8">
@@ -31,6 +31,10 @@ const TeamNav = ({setActiveTab}) => {
 
           <Animate delay={2} tag="ul" className="hidden lg:flex items-center text-xl gap-16 font-bold text-qiskit-white">
             {NavLinks.map((navLink, idx) => {
+              if(navLink.content === "Project PPT Submission" && team.eventName !== "TECHXHIBIT REGISTRATION") {
+                console.log(team.eventName);
+                return null;
+              }
               return (
                 <Tilt
                   key={11 + idx}

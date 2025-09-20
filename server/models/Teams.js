@@ -59,10 +59,6 @@ const TeamsSchema = new mongoose.Schema({
   projectCategory: [{
     type: String,
   }],
-  projectDescription: {
-    type: String,
-    trim: true,
-  },
   paymentScreenshot: [{
     type: mongoose.Schema.Types.Mixed,
   }],
