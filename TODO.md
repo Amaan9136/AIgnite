@@ -1,13 +1,21 @@
-# Dashboard UI/UX Improvement Plan
+# TODO - Remove Neon Cursor from Registration Routes
 
-- [x] Enhance components/Dashboard/Index.jsx with tech event aesthetic:
-  - Add vibrant gradients and neon/glow effects
-  - Improve typography and spacing
-  - Add hover animations on cards and buttons
-  - Use icons for roles and statuses
-  - Refine layout for polished look
-- [x] Optionally integrate NeonGlowEffect or similar dynamic effects
-- [x] Ensure responsiveness and accessibility
-- [x] Test the updated dashboard UI
-- [x] Remove neon effects on text, keep background same as main page, align team members data organized
-- [x] Add navbar similar to main page for navigation between profile, payment details, team members; show all details in profile; keep UI theme nice
+## Completed Tasks ✅
+- [x] **Analyze the codebase structure** - Found that NeonGlowEffect component is applied globally in _app.jsx
+- [x] **Identify registration routes** - Located at `/registration/[event_name]/`
+- [x] **Modify NeonGlowEffect component** - Added route detection to disable neon cursor on registration pages
+- [x] **Test the implementation** - Ready for testing
+
+## Changes Made
+- **File**: `components/helpers/NeonGlowEffect.jsx`
+- **Change**: Added route detection logic to check if `window.location.pathname.startsWith('/registration/')`
+- **Result**: Neon cursor effect is now disabled on all registration pages while remaining active on other pages
+
+## Testing Checklist
+- [ ] Test registration pages (techxhibit, tech-escape-room, e-sports, think-n-blink) - verify no neon cursor
+- [ ] Test other pages (home, about, contact, etc.) - verify neon cursor still works
+- [ ] Test mobile responsiveness - ensure effect still works correctly on supported devices
+
+## Additional Task - Vendor App Setup ✅
+- [x] **Add vendor app script** - Added "dev:vendor" script to root package.json
+- [x] **Enable easy vendor app startup** - Users can now run `npm run dev:vendor` from root directory
