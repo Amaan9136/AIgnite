@@ -7,7 +7,7 @@ import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import techxhibit from "../../images/speakers/techxhibit.png";
-import techER from "../../images/speakers/techescaperoom.png";
+import techER from "../../images/speakers/techER.png";
 
 import thinkNblink from "../../images/speakers/thinknblink.png";
 import esports from "../../images/speakers/esports.png";
