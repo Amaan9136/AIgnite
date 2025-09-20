@@ -1,21 +1,61 @@
-# TODO - Remove Neon Cursor from Registration Routes
+# Admin Dashboard Enhancement - PPT Selection for TechExhibit
 
-## Completed Tasks ✅
-- [x] **Analyze the codebase structure** - Found that NeonGlowEffect component is applied globally in _app.jsx
-- [x] **Identify registration routes** - Located at `/registration/[event_name]/`
-- [x] **Modify NeonGlowEffect component** - Added route detection to disable neon cursor on registration pages
-- [x] **Test the implementation** - Ready for testing
+## ✅ Completed Implementation
 
-## Changes Made
-- **File**: `components/helpers/NeonGlowEffect.jsx`
-- **Change**: Added route detection logic to check if `window.location.pathname.startsWith('/registration/')`
-- **Result**: Neon cursor effect is now disabled on all registration pages while remaining active on other pages
+### 1. **New API Endpoint Created**
+- `pages/api/admin/team/ppt-selection.js` - Handles PPT selection/rejection for techexhibit events
+- Updates `pptSelected` field to "selected" or "rejected"
 
-## Testing Checklist
-- [ ] Test registration pages (techxhibit, tech-escape-room, e-sports, think-n-blink) - verify no neon cursor
-- [ ] Test other pages (home, about, contact, etc.) - verify neon cursor still works
-- [ ] Test mobile responsiveness - ensure effect still works correctly on supported devices
+### 2. **Admin Dashboard Enhanced** (`components/Teams/Index.jsx`)
+- ✅ Added event name display in team cards
+- ✅ Added event name display in modal details
+- ✅ Added conditional logic for techexhibit vs other events
+- ✅ Added PPT selection functionality with confirmation dialogs
+- ✅ Added PPT status display with color-coded badges
 
-## Additional Task - Vendor App Setup ✅
-- [x] **Add vendor app script** - Added "dev:vendor" script to root package.json
-- [x] **Enable easy vendor app startup** - Users can now run `npm run dev:vendor` from root directory
+### 3. **Features Implemented**
+- **For techexhibit events:**
+  - Shows PPT status (pending/selected/rejected) with color coding
+  - "Select PPT" button (green) - shows confirmation dialog
+  - "Reject" button (red) - shows confirmation dialog
+  - Buttons disabled once action is taken
+- **For other events:**
+  - Maintains existing payment verification functionality
+  - No changes to existing workflow
+
+### 4. **User Experience Enhancements**
+- Confirmation dialogs before PPT selection/rejection
+- Loading states during API calls
+- Color-coded status indicators
+- Disabled buttons prevent duplicate actions
+
+## 🧪 Testing Checklist
+
+### Critical Path Testing
+- [ ] Test admin dashboard loads correctly
+- [ ] Verify event names display in team cards
+- [ ] Test modal opens and shows event name
+- [ ] Test techexhibit event shows PPT selection buttons
+- [ ] Test other events show payment verification buttons
+- [ ] Test confirmation dialogs appear for PPT actions
+- [ ] Test PPT selection updates status correctly
+- [ ] Test PPT rejection updates status correctly
+
+### API Testing
+- [ ] Test `/api/admin/team/ppt-selection` endpoint with valid data
+- [ ] Test endpoint with invalid data (error handling)
+- [ ] Verify database updates correctly
+
+### Edge Cases
+- [ ] Test with teams that have no pptSelected value
+- [ ] Test with teams that already have pptSelected status
+- [ ] Test error handling for API failures
+- [ ] Test loading states during API calls
+
+## 🚀 Ready for Testing
+
+The implementation is complete and ready for testing. The admin dashboard now:
+1. Shows event names prominently
+2. Provides different workflows for techexhibit vs other events
+3. Includes confirmation dialogs for PPT actions
+4. Maintains existing functionality for non-techexhibit events

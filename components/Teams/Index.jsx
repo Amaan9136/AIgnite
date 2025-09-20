@@ -6,6 +6,10 @@ const Teams = ({ onLogout }) => {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatingPayment, setUpdatingPayment] = useState(false);
+  const [updatingPPT, setUpdatingPPT] = useState(false);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const [confirmAction, setConfirmAction] = useState(null);
+  const [confirmMessage, setConfirmMessage] = useState('');
 
   useEffect(() => {
     const fetchTeams = async () => {
@@ -21,6 +25,82 @@ const Teams = ({ onLogout }) => {
     };
     fetchTeams();
   }, []);
+
+  // Refresh teams data when modal opens to ensure consistency
+  useEffect(() => {
+    if (isModalOpen && selectedTeam) {
+      const refreshTeams = async () => {
+        try {
+          const res = await fetch('/api/teams');
+          const data = await res.json();
+          setTeams(data);
+
+          // Update selected team with fresh data
+          const updatedTeam = data.find(team => team._id === selectedTeam._id);
+          if (updatedTeam) {
+            setSelectedTeam(updatedTeam);
+          }
+        } catch (error) {
+          console.error('Error refreshing teams:', error);
+        }
+      };
+      refreshTeams();
+    }
+  }, [isModalOpen, selectedTeam]);
+
+  const handlePPTAction = async (action) => {
+    setUpdatingPPT(true);
+    try {
+      const res = await fetch('/api/admin/team/ppt-selection', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          teamId: selectedTeam.teamId,
+          pptSelected: action,
+        }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        console.log('API Response:', data);
+
+        // Update selected team state
+        setSelectedTeam(prevTeam => ({
+          ...prevTeam,
+          pptSelected: action
+        }));
+
+        // Update teams array state
+        setTeams((prevTeams) =>
+          prevTeams.map((team) =>
+            team._id === selectedTeam._id
+              ? { ...team, pptSelected: action }
+              : team
+          )
+        );
+
+        console.log('State updated successfully');
+      } else {
+        console.error('Failed to update PPT selection');
+        const errorData = await res.json();
+        console.error('Error response:', errorData);
+      }
+    } catch (error) {
+      console.error('Error updating PPT selection:', error);
+    } finally {
+      setUpdatingPPT(false);
+      setShowConfirmDialog(false);
+      setConfirmAction(null);
+      setConfirmMessage('');
+    }
+  };
+
+  const showConfirmation = (action, message) => {
+    setConfirmAction(action);
+    setConfirmMessage(message);
+    setShowConfirmDialog(true);
+  };
 
   if (loading) return <div className="text-center py-10">Loading teams...</div>;
 
@@ -48,6 +128,7 @@ const Teams = ({ onLogout }) => {
             <h2 className="text-xl font-semibold text-white">{team.teamName}</h2>
             <p className="text-gray-300">Lead: {team.teamLeadName}</p>
             <p className="text-gray-300">College: {team.collegeName}</p>
+            <p className="text-blue-400 font-medium">Event: {team.eventName}</p>
           </div>
         ))}
       </div>
@@ -61,6 +142,7 @@ const Teams = ({ onLogout }) => {
                 <p><strong className="text-white">Email:</strong> {selectedTeam.teamLeadEmail}</p>
                 <p><strong className="text-white">Phone:</strong> {selectedTeam.teamLeadPhoneNumber}</p>
                 <p><strong className="text-white">College:</strong> {selectedTeam.collegeName}</p>
+                <p><strong className="text-white">Event:</strong> {selectedTeam.eventName}</p>
                 <p><strong className="text-white">Semester:</strong> {selectedTeam.semester}</p>
                 <p><strong className="text-white">City:</strong> {selectedTeam.city}</p>
                 <p><strong className="text-white">Members:</strong> {selectedTeam.teamMembers}, {selectedTeam.additionalMember1}, {selectedTeam.additionalMember2}</p>
@@ -74,48 +156,79 @@ const Teams = ({ onLogout }) => {
                 {selectedTeam.paymentScreenshot && selectedTeam.paymentScreenshot.map((screenshot, index) => (
                   <img key={index} src={screenshot.url} alt={`Payment Screenshot ${index + 1}`} className="w-full h-auto mb-2 rounded" />
                 ))}
-                <div className="mt-4">
-                  <p className="text-white font-semibold">
-                    Payment Verified: {selectedTeam.paymentVerified ? 'Yes' : 'No'}
-                  </p>
-                  <button
-                    onClick={async () => {
-                      const newValue = !selectedTeam.paymentVerified;
-                      setUpdatingPayment(true);
-                      try {
-                        const res = await fetch('/api/admin/team/payment-verified', {
-                          method: 'PUT',
-                          headers: {
-                            'Content-Type': 'application/json',
-                          },
-                          body: JSON.stringify({
-                            teamId: selectedTeam.teamId,
-                            paymentVerified: newValue,
-                          }),
-                        });
-                        if (res.ok) {
-                          const data = await res.json();
-                          setSelectedTeam(data.team);
-                          setTeams((prevTeams) =>
-                            prevTeams.map((team) =>
-                              team._id === data.team._id ? data.team : team
-                            )
-                          );
-                        } else {
-                          console.error('Failed to update payment verification');
+                {/* Conditional rendering based on event type */}
+                {selectedTeam.eventName === 'TECHXHIBIT REGISTRATION' ? (
+                  <div className="mt-4">
+                    <p className="text-white font-semibold mb-2">
+                      PPT Status: <span className={`px-2 py-1 rounded text-sm ${
+                        selectedTeam.pptSelected === 'selected' ? 'bg-green-600' :
+                        selectedTeam.pptSelected === 'rejected' ? 'bg-red-600' :
+                        'bg-yellow-600'
+                      }`}>
+                        {selectedTeam.pptSelected || 'pending'}
+                      </span>
+                    </p>
+                    <div className="flex space-x-2">
+                      <button
+                        onClick={() => showConfirmation('selected', 'Are you sure you want to select this team\'s PPT?')}
+                        disabled={updatingPPT || selectedTeam.pptSelected === 'selected'}
+                        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition disabled:opacity-50"
+                      >
+                        {updatingPPT ? 'Updating...' : 'Select PPT'}
+                      </button>
+                      <button
+                        onClick={() => showConfirmation('rejected', 'Are you sure you want to reject this team\'s PPT?')}
+                        disabled={updatingPPT || selectedTeam.pptSelected === 'rejected'}
+                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition disabled:opacity-50"
+                      >
+                        {updatingPPT ? 'Updating...' : 'Reject'}
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="mt-4">
+                    <p className="text-white font-semibold">
+                      Payment Verified: {selectedTeam.paymentVerified ? 'Yes' : 'No'}
+                    </p>
+                    <button
+                      onClick={async () => {
+                        const newValue = !selectedTeam.paymentVerified;
+                        setUpdatingPayment(true);
+                        try {
+                          const res = await fetch('/api/admin/team/payment-verified', {
+                            method: 'PUT',
+                            headers: {
+                              'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                              teamId: selectedTeam.teamId,
+                              paymentVerified: newValue,
+                            }),
+                          });
+                          if (res.ok) {
+                            const data = await res.json();
+                            setSelectedTeam(data.team);
+                            setTeams((prevTeams) =>
+                              prevTeams.map((team) =>
+                                team._id === data.team._id ? data.team : team
+                              )
+                            );
+                          } else {
+                            console.error('Failed to update payment verification');
+                          }
+                        } catch (error) {
+                          console.error('Error updating payment verification:', error);
+                        } finally {
+                          setUpdatingPayment(false);
                         }
-                      } catch (error) {
-                        console.error('Error updating payment verification:', error);
-                      } finally {
-                        setUpdatingPayment(false);
-                      }
-                    }}
-                    disabled={updatingPayment}
-                    className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
-                  >
-                    {updatingPayment ? 'Updating...' : selectedTeam.paymentVerified ? 'Unverify Payment' : 'Verify Payment'}
-                  </button>
-                </div>
+                      }}
+                      disabled={updatingPayment}
+                      className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
+                    >
+                      {updatingPayment ? 'Updating...' : selectedTeam.paymentVerified ? 'Unverify Payment' : 'Verify Payment'}
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
             <button
@@ -127,6 +240,36 @@ const Teams = ({ onLogout }) => {
             >
               Close
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Confirmation Dialog */}
+      {showConfirmDialog && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-gray-800 p-6 rounded-lg max-w-md w-full mx-4">
+            <h3 className="text-xl font-bold text-white mb-4">Confirm Action</h3>
+            <p className="text-gray-300 mb-6">{confirmMessage}</p>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => {
+                  handlePPTAction(confirmAction);
+                }}
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+              >
+                Confirm
+              </button>
+              <button
+                onClick={() => {
+                  setShowConfirmDialog(false);
+                  setConfirmAction(null);
+                  setConfirmMessage('');
+                }}
+                className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}
