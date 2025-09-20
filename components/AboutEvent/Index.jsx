@@ -7,7 +7,7 @@ import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import techxhibit from "../../images/speakers/techxhibit.png";
-import techEscapeRoom from "../../images/speakers/techescaperoom.png";
+// import techEscapeRoom from "../../images/speakers/techescaperoom.png";
 import thinkNblink from "../../images/speakers/thinknblink.png";
 import esports from "../../images/speakers/esports.png";
 import GradientButton from "../helpers/GradientButton";
@@ -19,7 +19,7 @@ const AboutEvent = () => {
     {
       name: "Tech Escape Room",
     
-      image: techEscapeRoom,
+      image: techxhibit,
       color: "#7ce6e2",
       description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
        closed: false
@@ -63,6 +63,7 @@ const AboutEvent = () => {
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {
+ 
     const updateRanges = () => {
       if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
@@ -79,7 +80,7 @@ const AboutEvent = () => {
 
   useEffect(() => {
     const unsubscribe = scrollY.onChange((value) => {
-      console.log('Scroll Y:', value);
+      // console.log('Scroll Y:', value);
     });
     return unsubscribe;
   }, [scrollY]);
