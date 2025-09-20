@@ -40,8 +40,8 @@ const AboutEvent = () => {
     
       image: esports,
       color: "#7ce6e2",
-      description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
-       closed: false
+      description:"Jump into the thrill of E Sports! Compete in exciting BGMI and FreeFire matches and prove your skills on the battleground.",
+ closed: false
 
     },
     {
