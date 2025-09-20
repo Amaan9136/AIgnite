@@ -7,7 +7,7 @@ import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
 import techxhibit from "../../images/speakers/techxhibit.png";
-import techEscapeRoom from "../../images/speakers/techescaperoom.png";
+// import techEscapeRoom from "../../images/speakers/techescaperoom.png";
 import thinkNblink from "../../images/speakers/thinknblink.png";
 import esports from "../../images/speakers/esports.png";
 import GradientButton from "../helpers/GradientButton";
@@ -19,7 +19,7 @@ const AboutEvent = () => {
     {
       name: "Tech Escape Room",
     
-      image: techEscapeRoom,
+      image: techxhibit,
       color: "#7ce6e2",
       description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
        closed: false
@@ -89,7 +89,7 @@ const AboutEvent = () => {
 
   return (
     <section id="about-event" className="section-container pt-6 mb-20">
-{   console.log(techEscapeRoom)}
+
       <div className="absolute right-0 top-0 sm:right-[596px] sm:top-0 w-[28px] h-[30px]  lg:w-[47px] lg:h-[50px]">
         <Image
           src={atom}
