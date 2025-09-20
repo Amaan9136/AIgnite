@@ -36,12 +36,31 @@ export default async function handler(req, res) {
     return res.status(400).json({ message: 'Unknown event type' });
   }
 
-  // Generate teamId and secureKey
+
+
+  try {
+      const existing = await Teams.findOne({
+      teamLeadEmail: teamData.teamLeadEmail,
+      teamLeadName: teamData.teamLeadName,
+      eventName: teamData.eventName,
+    });
+        if (existing) {
+      console.log('⚠️ Duplicate webhook ignored:', teamData.teamLeadEmail, teamData.teamLeadName);
+      return res.status(200).json({
+        message: 'Duplicate ignored',
+        teamId: existing.teamId,
+      });
+    }
+      // Generate teamId and secureKey
   const random4digit = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
   teamData.teamId = `${teamData.teamName}-${random4digit}`;
   teamData.secureKey = crypto.randomBytes(32).toString('hex');
-
-  try {
+  // Respond immediately to avoid timeouts for tally
+    res.status(200).json({
+      message: 'Team registered successfully',
+      teamId: teamData.teamId,
+    });
+  // Save to database
     const newTeam = new Teams(teamData);
     await newTeam.save();
     console.log('✅ Team saved:', teamData.teamId);
@@ -49,10 +68,7 @@ export default async function handler(req, res) {
    await sendRegistrationEmail(teamData.teamLeadEmail, teamData.teamId, teamData.secureKey, teamData.eventName);
 
 
-    res.status(200).json({
-      message: 'Team registered successfully',
-      teamId: teamData.teamId,
-    });
+  
   } catch (error) {
     console.error('❌ Error saving team:', error);
     res.status(500).json({ message: 'Error saving team' });
@@ -101,21 +117,11 @@ function processTechxhibitFields(fields, teamData) {
       case 'Project Title':
         teamData.projectTitle = value;
         break;
-      case 'Project Description':
-      case 'Project Description\n':
-        teamData.projectDescription = value;
-        break;
       case 'Project Category':
         teamData.projectCategory = value.map(id => {
           const option = field.options?.find(opt => opt.id === id);
           return option ? option.text : id;
         });
-        break;
-      case 'Payment Screenshot':
-        teamData.paymentScreenshot = Array.isArray(value) ? value : [value];
-        break;
-      case 'Transaction ID / UTR':
-        teamData.transactionId = value;
         break;
       default:
         break;

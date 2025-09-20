@@ -6,11 +6,10 @@ import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
-import event1 from "../../images/speakers/1.png";
-import event2 from "../../images/speakers/2.png";
 import techxhibit from "../../images/speakers/techxhibit.png";
-import techEscapeRoom from "../../images/speakers/techEscapeRoom.png";
-import event3 from "../../images/speakers/3.png";
+import techEscapeRoom from "../../images/speakers/techescaperoom.png";
+import thinkNblink from "../../images/speakers/thinknblink.png";
+import esports from "../../images/speakers/esports.png";
 import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
 import { useRouter } from "next/router";
@@ -38,7 +37,7 @@ const AboutEvent = () => {
       {
       name: "E Sports",
     
-      image: techEscapeRoom,
+      image: esports,
       color: "#7ce6e2",
       description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
        closed: false
@@ -47,7 +46,7 @@ const AboutEvent = () => {
     {
       name: "Think N Blink",
     
-      image: techxhibit,
+      image: thinkNblink,
       color: "#4999D0",
       description: "Project Exhibition: A platform to showcase innovative tech projects, from software to hardware, highlighting creativity, problem-solving, and real-world applications",
       closed: false
