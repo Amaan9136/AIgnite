@@ -137,7 +137,7 @@ const Hero = () => {
                 </motion.div>
               </Animate>
             </Animate>
-  <div id="ball-box" className="ball-box m-auto w-48 h-48 lg:w-96 lg:h-96 ">
+  <div id="ball-box" className="ball-box m-auto w-[9rem] h-48 lg:w-96 lg:h-96 ">
          
            
               <div

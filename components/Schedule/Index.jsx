@@ -57,7 +57,7 @@ const Schedule = () => {
           className="cursor-pointer col-span-4 flex flex-col mt-[5.5rem]"
         >
           <div className="bg-gradient-b-p bg-opacity-40  w-full md:pl-[50px] pl-[10px] mb-20 pr-[10px] md:pr-[30px] lg:py-[80px] md:py[70px] py-8 border-4 md:border-8 md:mt-[-30px] mt-[-10px]">
-            <h1 className="relative top-[-12px] text-center text-3xl lg:text-4xl lg:top-[-30px] font-bold">Thursday-Friday, October 16th-17th</h1>
+            <h1 className="relative top-[-12px] text-center text-3xl lg:text-4xl lg:top-[-30px] font-bold">Monday-Tuesday, October 13th-14th</h1>
             <div className="sm:text-xl font-medium md:font-semibold text-xs md:px[10px] ">
               {schedule.map((scheduleInfo, idx) => {
                 return (
