@@ -63,6 +63,7 @@ const AboutEvent = () => {
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {
+ 
     const updateRanges = () => {
       if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
@@ -79,7 +80,7 @@ const AboutEvent = () => {
 
   useEffect(() => {
     const unsubscribe = scrollY.onChange((value) => {
-      console.log('Scroll Y:', value);
+      // console.log('Scroll Y:', value);
     });
     return unsubscribe;
   }, [scrollY]);
@@ -88,7 +89,7 @@ const AboutEvent = () => {
 
   return (
     <section id="about-event" className="section-container pt-6 mb-20">
-
+{   console.log(techEscapeRoom)}
       <div className="absolute right-0 top-0 sm:right-[596px] sm:top-0 w-[28px] h-[30px]  lg:w-[47px] lg:h-[50px]">
         <Image
           src={atom}
