@@ -19,7 +19,7 @@ const ContactUs = () => {
    { name: "Rakshitha", contact: "7411254225", color: "#FFD700" ,des:"Girls Accomodation"},
     { name: "Manvitha", contact: "9136686666", color: "#39FF14" ,des:"Girls Accomodation"},
     { name: "Sanvi A S  ", contact: "8105113926 ", color: "#FF073A" ,des:"Technical"},
-    { name: "Prateeksha", contact: "7338682609", color: "#00FFFF",des:"Registration" },
+    { name: "Prathiksha", contact: "7338682609", color: "#00FFFF",des:"Registration" },
     { name: "Syed Najam", contact: "6360974247", color: "#FF6EC7",des:"Tech Events" },
   
   ];
