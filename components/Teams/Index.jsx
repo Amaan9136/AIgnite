@@ -26,28 +26,6 @@ const Teams = ({ onLogout }) => {
     fetchTeams();
   }, []);
 
-  // Refresh teams data when modal opens to ensure consistency
-  useEffect(() => {
-    if (isModalOpen && selectedTeam) {
-      const refreshTeams = async () => {
-        try {
-          const res = await fetch('/api/teams');
-          const data = await res.json();
-          setTeams(data);
-
-          // Update selected team with fresh data
-          const updatedTeam = data.find(team => team._id === selectedTeam._id);
-          if (updatedTeam) {
-            setSelectedTeam(updatedTeam);
-          }
-        } catch (error) {
-          console.error('Error refreshing teams:', error);
-        }
-      };
-      refreshTeams();
-    }
-  }, [isModalOpen, selectedTeam]);
-
   const handlePPTAction = async (action) => {
     setUpdatingPPT(true);
     try {
