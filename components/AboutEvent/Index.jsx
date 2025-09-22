@@ -6,11 +6,11 @@ import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
-import techxhibit from "../../images/speakers/techxhibit.png";
-import techER from "../../images/speakers/techER.png";
+import techxhibit from "../../images/speakers/techxhibit.jpeg";
+import techER from "../../images/speakers/techER.jpeg";
 
-import thinkNblink from "../../images/speakers/thinknblink.png";
-import esports from "../../images/speakers/esports.png";
+import thinkNblink from "../../images/speakers/thinknblink.jpeg";
+import esports from "../../images/speakers/esports.jpeg";
 import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
 import { useRouter } from "next/router";
@@ -56,7 +56,7 @@ const eventsData14 = [
     
       image: thinkNblink,
       color: "#4999D0",
-      description: "Project Exhibition: A platform to showcase innovative tech projects, from software to hardware, highlighting creativity, problem-solving, and real-world applications",
+      description: "Think N Blink is a competitive team-based game event with the tagline \"Play -  Solve -  Win\" designed for pairs of participants. The event emphasizes quick thinking and fast reactions.",
       closed: false
 
     },
@@ -66,7 +66,7 @@ const eventsData14 = [
 
 
 
-  const largeScreenRanges = [1100, 4200]
+  const largeScreenRanges = [1000, 4200]
   const smallScreenRanges = [2150, 5500]
 
   const { scrollY } = useScroll();
@@ -107,7 +107,7 @@ const eventsData14 = [
         />
       </div>
 
-      <SectionTitle title={"AIgnite Events on 13"} delay={12} />
+      <SectionTitle title={"AIgnite Events on 13th Oct"} delay={12} />
 
       <div className="relative">
         <div className="absolute top-[460px] right-0 sm:top-[-70px] sm:right-0 lg:top-[-32px] lg:right-0  w-[68px] h-[58px] lg:w-[106px] lg:h-[74px]">
@@ -177,7 +177,7 @@ className={`flex flex-col items-center mt-10  gap-4  h-[400px] sm:h-[500px] lg:h
           ))}
         </div>
       </motion.div>
-         <SectionTitle title={"AIgnite Events on 14"} delay={12} />
+         <SectionTitle title={"AIgnite Events on 14th Oct"} delay={12} />
           {/* Events 14 */}
           <motion.div className="flex justify-center items-center " style={{ opacity: eventOpacity }}>
         <div className="relative w-full max-w-7xl mx-auto my-16 flex gap-12 flex-col sm:flex-col md:flex-row lg:flex-row justify-between px-4 sm:px-6 lg:px-8">

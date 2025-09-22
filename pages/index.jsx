@@ -11,7 +11,7 @@ import Schedule from "../components/Schedule/Index";
 import TheyTrustedUs from "../components/TheyTrustedUs/Index";
 import NeonGlowEffect from "../components/helpers/NeonGlowEffect";
 import Memories from "../components/Memories";
-
+import CountdownTimer from "../components/CountdownTimer/Index";
 export default function Home() {
   return (
     <>
@@ -28,13 +28,14 @@ export default function Home() {
       
        
   <AboutEvent />
+  <CountdownTimer />
   <ContactUs />
         <Memories />
         <Places />
         <EventLocation />
         <Schedule />
         <AboutJury />
-        <AboutMentors />
+        {/* <AboutMentors /> */}
         <TheyTrustedUs />
       </main>
       

@@ -5,7 +5,7 @@ import Tilt from "react-parallax-tilt";
 import { Autoplay } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import AIgnite from "../../images/sectionsAssets/AIgnite.jpg";
+import AIgnite from "../../images/sectionsAssets/AIgnite.png";
 import ait from "../../images/sectionsAssets/ait.png";
 import eve from "../../images/sectionsAssets/eve.jpg";
 import hrd from "../../images/sectionsAssets/hrd.jpg";
