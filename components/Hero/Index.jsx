@@ -7,6 +7,7 @@ import AIML_Logo from "../../images/logos/AIML-LOGO-WHITE.png";
 import AIT_Logo from "../../images/logos/AIT-LOGO.png";
 import AIgnite from "../../images/logos/Aignite2.0.png";
 import BackGround from "../../images/sectionsAssets/Hero-background.png";
+import BackGroundMobile from "../../images/sectionsAssets/Hero-background-Mobile.png";
 import Arrow from "../../images/shapes/Arrow.png";
 import Atom from "../../images/shapes/atomWhite.png";
 import Computer from "../../images/shapes/computerWhite.png";
@@ -55,13 +56,20 @@ const Hero = () => {
         style={{ opacity: bgOpacity, y: -titleY }}
         className="absolute inset-0 -z-10"
       >
-        <Image
+        {IsSupportedDevice?<Image
           src={BackGround}
           alt="Background Image"
           layout="fill"
           objectFit="cover"
           className="w-full h-full blur-sm"
-        />
+        />:<Image
+          src={BackGroundMobile}
+          alt="Background Image"
+          layout="fill"
+          objectFit="cover"
+          className="w-full h-full blur-sm"
+        />}
+        
       </motion.div>
 
       <div className="section-container pb-24 md:pb-0 mb-6 lg:mb-0">

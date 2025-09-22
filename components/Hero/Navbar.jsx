@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import Tilt from "react-parallax-tilt";
 import AIgnite from "../../images/logos/Aignite2.0.png";
 import Animate from "../helpers/Animate-motion.jsx";
@@ -8,11 +8,21 @@ import Purplebutton from "../helpers/Purpulebutton.jsx";
 import NavLinks from "./links";
 const Navbar = () => {
   const [isNavToggled, setIsNavToggled] = useState(false);
+ const [IsSupportedDevice,setIsSupportedDevice]=useState(false);
+   const checkDevice = () => {
+        const width = window.innerWidth;
+        const isLaptopOrTablet = width >= 600; 
+        setIsSupportedDevice(isLaptopOrTablet);
+      };
+      useEffect(() => {
+      checkDevice(); 
+     
+      }, []);
   return (
     <header className="pt-8 lg:pt-1 flex flex-col gap-8">
       {/* Desktop menu */}
       <div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center  lg:items-center ">
           <Animate delay={1} className="cursor-pointer">
             <Tilt
               tiltMaxAngleX={60}
@@ -25,7 +35,8 @@ const Navbar = () => {
             // glarePosition="all"
             // className="p-4 cursor-pointer"
             >
-              <Image src={AIgnite} alt="AIgnite-Logo" width={250} height={250} priority={1} />
+              {IsSupportedDevice?<Image src={AIgnite} alt="AIgnite-Logo" width={250} height={250} priority={1} />:<Image src={AIgnite} alt="AIgnite-Logo" width={200} height={150} priority={1} />}
+              
             </Tilt>
           </Animate>
 

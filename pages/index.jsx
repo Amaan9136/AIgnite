@@ -35,7 +35,7 @@ export default function Home() {
         <Schedule />
         <AboutJury />
         <AboutMentors />
-        {/* <TheyTrustedUs /> */}
+        <TheyTrustedUs />
       </main>
       
       <Footer />
