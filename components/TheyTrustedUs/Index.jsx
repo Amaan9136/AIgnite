@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import capulus from "../../images/logos/capulus.png";
+import huco from "../../images/logos/huco.jpg";
 import iip from "../../images/logos/iip.jpg";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
@@ -33,8 +34,8 @@ const TheyTrustedUs = () => {
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
 
-  const sectionOpacity = useTransform(scrollY, scrollRanges, [1, 0.3]);
-
+  // const sectionOpacity = useTransform(scrollY, scrollRanges, [1, 0.3]);
+const sectionOpacity = 1;
   return (
     <section className="relative mb-28" id="they-trusted-us">
       {/* <video
@@ -102,7 +103,7 @@ const TheyTrustedUs = () => {
           </div>
 
           {/* company 2 */}
-          <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+          {/* <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
             <div
               className={`relative w-[250px] lg:w-[321px]`}
             >
@@ -131,7 +132,37 @@ const TheyTrustedUs = () => {
               />
             </div>
 
-          </div>
+          </div> */}
+
+
+          {/* company 3 */}
+<div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+  <div
+    className={`relative w-[250px] lg:w-[321px]`}
+  >
+    <Tilt className="cursor-pointer">
+      <Image src={huco} width={550} height={550} alt="Huco Chocolates" className="rounded-2xl shadow-md" />
+    </Tilt>
+  </div>
+  <div className="flex flex-col gap-11 flex-1">
+    <ParagSection2
+      title="Huco Chocolates"
+      paragraph="Huco Chocolates is a handcrafted chocolate brand known for its premium dark chocolate blends. Their 60% cocoa natural dark chocolate reflects a commitment to authenticity, taste, and quality. Each bar is carefully crafted to deliver a rich and indulgent experience, bringing together tradition and modern chocolate-making artistry. With a focus on natural ingredients and artisanal methods, Huco stands as a brand dedicated to delivering wholesome indulgence with every bite."
+      highlights={[
+        "Huco Chocolates",
+        "Handcrafted chocolates",
+        "60% cocoa natural dark chocolate",
+        "Premium quality",
+        "Authentic taste",
+        "Artisanal methods",
+        "Focus on natural ingredients",
+        "Tradition meets modern chocolate-making",
+        "Wholesome indulgence",
+      ]}
+    />
+  </div>
+</div>
+
         </motion.div>
       </div>
       {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-b from-qiskit-blue-normal to-qiskit-white"></div> */}

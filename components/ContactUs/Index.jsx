@@ -24,7 +24,7 @@ const ContactUs = () => {
   
   ];
 
-  const largeScreenRanges = [1500, 2000]
+  const largeScreenRanges = [4500, 6000]
   const smallScreenRanges = [8000, 9000]
 
   const { scrollY } = useScroll();
