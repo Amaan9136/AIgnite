@@ -23,6 +23,7 @@ const Dashboard = ({ team }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-300">
         <div>
           <p><strong>Team Name:</strong> {team.teamName}</p>
+          <p><strong>Event Name:</strong> {team.eventName}</p>
           <p><strong>College Name:</strong> {team.collegeName}</p>
           <p><strong>City:</strong> {team.city}</p>
           <p><strong>Semester:</strong> {team.semester}</p>

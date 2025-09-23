@@ -19,6 +19,10 @@ const navLinks = [
     content: "Guests",
     redirect: "#about-jury",
   },
+  {
+    content: "Get Dashboard",
+    redirect: "/getdashboard",
+  },
 ];
 
 export default navLinks;
