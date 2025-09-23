@@ -98,6 +98,10 @@ const TeamNav = ({setActiveTab,team}) => {
                 
                 </Tilt>
             {NavLinks.map((navLink, idx) => {
+               if(navLink.content === "Project PPT Submission" && team.eventName != "TECHXHIBIT REGISTRATION") {
+                
+                return null;
+              }
               return (
                 <Tilt
                   key={22 + idx}

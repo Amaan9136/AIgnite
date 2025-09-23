@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import capulus from "../../images/logos/capulus.png";
 import huco from "../../images/logos/huco.jpg";
+import ktech from "../../images/logos/ktech.jpg";
+import kmf from "../../images/logos/kmf.jpg";
+import watermark from "../../images/logos/watermark.jpeg";
 import iip from "../../images/logos/iip.jpg";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
@@ -65,7 +68,7 @@ const sectionOpacity = 1;
           style={{ opacity: sectionOpacity }}
           className="section-container pt-6 cursor-pointer"
         >
-          <SectionTitle title={"They Trusted Us"} />
+          <SectionTitle title={"Our Sponsers"} />
 
           {/* company 1 */}
           <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
@@ -135,6 +138,65 @@ const sectionOpacity = 1;
           </div> */}
 
 
+
+{/* company 4 */}
+<div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+  <div
+    className={`relative w-[250px] lg:w-[321px]`}
+  >
+    <Tilt className="cursor-pointer">
+      <Image src={ktech} width={550} height={550} alt="Karunadu Technologies Logo" className="rounded-2xl shadow-md" />
+    </Tilt>
+  </div>
+  <div className="flex flex-col gap-11 flex-1">
+    <ParagSection2
+      title="Karunadu Technologies Pvt. Ltd."
+      paragraph="Karunadu Technologies Pvt. Ltd., founded in 2018 and headquartered in Bangalore, Karnataka, is a private IT and Embedded solutions company. With an authorized capital of INR 10 lakhs and a paid-up capital of INR 1 lakh, the company is actively engaged in delivering high-quality technology services including software development, web applications, IoT and embedded systems, as well as IT staffing and training. Their mission emphasizes innovation, customer value, and skill development, empowering communities through knowledge while maintaining strong standards and 24×7 support."
+      highlights={[
+        "Karunadu Technologies Pvt. Ltd.",
+        "founded in 2018",
+        "headquartered in Bangalore",
+        "authorized capital of INR 10 lakhs",
+        "paid-up capital of INR 1 lakh",
+        "software & embedded solutions",
+        "web design & application development",
+        "IoT boards & hardware",
+        "IT staffing & training",
+        "innovation & customer value",
+        "skill development",
+        "nation building contribution",
+      ]}
+    />
+  </div>
+</div>
+{/* company: HAMUL / Nandini Hassan */}
+<div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+  <div className={`relative w-[250px] lg:w-[321px]`}>
+    <Tilt className="cursor-pointer">
+      <Image src={kmf} width={550} height={550} alt="HAMUL / Nandini Hassan Logo" className="rounded-2xl shadow-md" />
+    </Tilt>
+  </div>
+  <div className="flex flex-col gap-11 flex-1">
+    <ParagSection2
+      title="HAMUL – Hassan Co-operative Milk Producers’ Societies Union Ltd."
+      paragraph="HAMUL, part of the Nandini-KMF family, has been nourishing communities in Hassan, Chikkamagaluru, and Kodagu since the 1970s. With strong cooperative roots, ISO-certified quality, and an ever-expanding lineup of dairy offerings—from pure milk and curds to traditional sweets and ghee—they bridge rural farmers and urban tables. Their mission? Fair pay for producers, safe and wholesome dairy for consumers, and sustainable growth across the region."
+      highlights={[
+        "HAMUL (Hassan Union)",
+        "established 1977 under KMF",
+        "operates in Hassan, Chikkamagaluru & Kodagu",
+        "ISO-22000 food safety certified",
+        "milk procurement & processing",
+        "chilling centres: Holenarsipur, Kudige, Birur etc",
+        "dairy products: milk, curds, butter, ghee, sweets",
+        "traditional & modern dairy tech",
+        "fair price to farmers",
+        "ensuring quality & hygiene",
+        "community upliftment",
+        "sustainable rural income",
+      ]}
+    />
+  </div>
+</div>
           {/* company 3 */}
 <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
   <div
@@ -162,6 +224,38 @@ const sectionOpacity = 1;
     />
   </div>
 </div>
+
+ {/* company 4 */}
+<div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+  <div className={`relative w-[250px] lg:w-[321px]`}>
+    <Tilt className="cursor-pointer">
+      <Image src={watermark} width={550} height={550} alt="WETEAMRK7" className="rounded-2xl shadow-md" />
+    </Tilt>
+  </div>
+  <div className="flex flex-col gap-11 flex-1">
+    <ParagSection2
+      title="WETEAMRK7"
+      paragraph="Rohith Krishna G R is a final-year ECE student at Shri Siddhartha Institute of Technology, Tumkur. Driven by his passion for entrepreneurship, he founded a community-based startup, WETEAMRK7, which is incubated at Shri Siddhartha Academy of Higher Education. Through this venture, he is serving multiple clients both in India and abroad.
+
+He has already partnered with Adichunchanagiri Institute of Technology, Chikkamagaluru, as the Internship & Learning Partner for Smart Hack - 2K25 (Smart India Internal Hackathon 2025), where he provided internship opportunities and free Udemy access to the top five teams from a pool of 49 teams. Alongside his entrepreneurial journey, he is also contributing to global research initiatives as a NASA Citizen Scientist, reflecting his commitment to both innovation and knowledge-sharing."
+      highlights={[
+        "WETEAMRK7 startup",
+        "founded by Rohith Krishna G R",
+        "incubated at Shri Siddhartha Academy of Higher Education",
+        "community-based venture",
+        "clients in India and abroad",
+        "partnered with AIT Chikkamagaluru",
+        "Internship & Learning Partner – Smart Hack 2K25",
+        "internship opportunities for students",
+        "Udemy access for top teams",
+        "NASA Citizen Scientist",
+        "focus on innovation",
+        "commitment to knowledge-sharing",
+      ]}
+    />
+  </div>
+</div>
+
 
         </motion.div>
       </div>
