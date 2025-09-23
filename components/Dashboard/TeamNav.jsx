@@ -97,6 +97,7 @@ const TeamNav = ({setActiveTab,team}) => {
                     </Animate>
                 
                 </Tilt>
+                {/* test */}
             {NavLinks.map((navLink, idx) => {
                if(navLink.content === "Project PPT Submission" && team.eventName != "TECHXHIBIT REGISTRATION") {
                 
