@@ -4,7 +4,7 @@ export const socialsMedia = [
   {
     social: "Instagram",
     logo: Instagram,
-    redirect: "https://www.instagram.com/aiml_ait_official/",
+    redirect: "https://www.instagram.com/aignite_2.0?igsh=MWw5dHJyZm5xM2czOQ%3D%3D&utm_source=qr",
   },
   {
     social: "Linkedin",

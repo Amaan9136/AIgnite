@@ -1,7 +1,29 @@
 import { useState } from 'react';
 import Teams from '../../components/Teams/Index';
 
-const AdminPage = () => {
+export async function getServerSideProps(context) {
+  // Fetch teams data on the server
+  try {
+    console.log('Admin dashboard: Fetching teams from API...');
+    const res = await fetch(`${process.env.NEXTAUTH_URL || 'https://www.aignite.live'}/api/teams`);
+    const teams = await res.json();
+    console.log('Admin dashboard: Received teams:', teams.length);
+    return {
+      props: {
+        initialTeams: teams,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching teams:', error);
+    return {
+      props: {
+        initialTeams: [],
+      },
+    };
+  }
+}
+
+const AdminPage = ({ initialTeams }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -36,7 +58,7 @@ const AdminPage = () => {
   };
 
   if (loggedIn) {
-    return <Teams onLogout={() => setLoggedIn(false)} />;
+    return <Teams onLogout={() => setLoggedIn(false)} initialTeams={initialTeams} />;
   }
 
   return (

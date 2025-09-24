@@ -8,6 +8,7 @@ import ktech from "../../images/logos/ktech.jpg";
 import kmf from "../../images/logos/kmf.jpg";
 import watermark from "../../images/logos/watermark.jpeg";
 import iip from "../../images/logos/iip.jpg";
+import automatech from "../../images/logos/automatech.jpeg";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
 import ParagSection2 from "../helpers/ParagSection2";
@@ -255,7 +256,38 @@ He has already partnered with Adichunchanagiri Institute of Technology, Chikkama
     />
   </div>
 </div>
+ {/* company 4 */}
+<div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+  <div className={`relative w-[250px] lg:w-[321px]`}>
+    <Tilt className="cursor-pointer">
+      <Image src={automatech} width={550} height={550} alt="AUTOMATECH" className="rounded-2xl shadow-md" />
+    </Tilt>
+  </div>
+  <div className="flex flex-col gap-11 flex-1">
+    <ParagSection2
+      title="AUTOMATECH"
+      paragraph="Automatech, founded by Amaan Mohammad Khalander, creates tools and platforms to simplify software and machine learning development. A key project is MULTIDE, an integrated development environment within the Mul-Model platform (https://mul-model.vercel.app/
+), which started as a final-year project. Mul-Model is like GitHub for machine learning, offering pretrained models for tasks like command processing, image recognition, and data analysis. Users can customize or create models, while Mul-Command provides interactive commands for easy training, testing, and deployment for beginners and experts.
 
+Automatech also builds ML pipelines to automate backend workflows, improving project efficiency. Officially registered as a Micro enterprise (Udyam KR-09-0034931) and recognized by the Education Excellence Foundation, Automatech delivers practical, user-friendly solutions for students and developers to turn ideas into actionable ML projects."
+  
+highlights={[
+  "Technology company simplifying software and ML development",
+  "founded by Amaan Mohammad Khalander",
+  "creator of MULTIDE IDE",
+  "part of the Mul-Model platform (https://mul-model.vercel.app/)",
+  "access to pretrained models for command processing, image recognition, and data analysis",
+  "customizable models and creation of new models",
+  "Mul-Command for interactive training, testing, and deployment",
+  "builds ML pipelines to automate backend workflows",
+  "officially registered Micro enterprise (Udyam KR-09-0034931)",
+  "recognized by Education Excellence Foundation",
+  "focus on practical, user-friendly ML solutions",
+  "supports students and developers in turning ideas into projects",
+]}
+    />
+  </div>
+</div>
 
         </motion.div>
       </div>

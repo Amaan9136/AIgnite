@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-const Teams = ({ onLogout }) => {
-  const [teams, setTeams] = useState([]);
+const Teams = ({ onLogout, initialTeams = [] }) => {
+  const [teams, setTeams] = useState(initialTeams);
   const [selectedTeam, setSelectedTeam] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatingPayment, setUpdatingPayment] = useState(false);
   const [updatingPPT, setUpdatingPPT] = useState(false);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [confirmAction, setConfirmAction] = useState(null);
   const [confirmMessage, setConfirmMessage] = useState('');
-
-  useEffect(() => {
-    const fetchTeams = async () => {
-      try {
-        const res = await fetch('/api/teams');
-        const data = await res.json();
-        setTeams(data);
-      } catch (error) {
-        console.error('Error fetching teams:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchTeams();
-  }, []);
 
   const handlePPTAction = async (action) => {
     setUpdatingPPT(true);
@@ -94,21 +79,28 @@ const Teams = ({ onLogout }) => {
         </button>
       </div>
       <div className="flex flex-col space-y-6">
-        {teams.map((team) => (
-          <div
-            key={team._id}
-            className="bg-gray-800 p-6 rounded-lg m-auto w-[80%] cursor-pointer hover:bg-gray-700 transition"
-            onClick={() => {
-              setSelectedTeam(team);
-              setIsModalOpen(true);
-            }}
-          >
-            <h2 className="text-xl font-semibold text-white">{team.teamName}</h2>
-            <p className="text-gray-300">Lead: {team.teamLeadName}</p>
-            <p className="text-gray-300">College: {team.collegeName}</p>
-            <p className="text-blue-400 font-medium">Event: {team.eventName}</p>
+        {teams.length === 0 ? (
+          <div className="text-center py-10">
+            <p className="text-gray-400 text-lg">No teams registered yet.</p>
+            <p className="text-gray-500 mt-2">Teams will appear here once they register for events.</p>
           </div>
-        ))}
+        ) : (
+          teams.map((team) => (
+            <div
+              key={team._id}
+              className="bg-gray-800 p-6 rounded-lg m-auto w-[80%] cursor-pointer hover:bg-gray-700 transition"
+              onClick={() => {
+                setSelectedTeam(team);
+                setIsModalOpen(true);
+              }}
+            >
+              <h2 className="text-xl font-semibold text-white">{team.teamName}</h2>
+              <p className="text-gray-300">Lead: {team.teamLeadName}</p>
+              <p className="text-gray-300">College: {team.collegeName}</p>
+              <p className="text-blue-400 font-medium">Event: {team.eventName}</p>
+            </div>
+          ))
+        )}
       </div>
       {isModalOpen && selectedTeam && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -123,10 +115,9 @@ const Teams = ({ onLogout }) => {
                 <p><strong className="text-white">Event:</strong> {selectedTeam.eventName}</p>
                 <p><strong className="text-white">Semester:</strong> {selectedTeam.semester}</p>
                 <p><strong className="text-white">City:</strong> {selectedTeam.city}</p>
-                <p><strong className="text-white">Members:</strong> {selectedTeam.teamMembers}, {selectedTeam.additionalMember1}, {selectedTeam.additionalMember2}</p>
+                <p><strong className="text-white">Members:</strong> {selectedTeam.additionalMember1}, {selectedTeam.additionalMember2}, {selectedTeam.additionalMember3}</p>
                 <p><strong className="text-white">Project Title:</strong> {selectedTeam.projectTitle}</p>
-                <p><strong className="text-white">Category:</strong> {selectedTeam.projectCategory.join(', ')}</p>
-                <p><strong className="text-white">Description:</strong> {selectedTeam.projectDescription}</p>
+                <p><strong className="text-white">Category:</strong> {selectedTeam.projectCategory ? selectedTeam.projectCategory.join(', ') : 'N/A'}</p>
                 <p><strong className="text-white">Transaction ID:</strong> {selectedTeam.transactionId}</p>
               </div>
               <div>
