@@ -11,7 +11,7 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const ContactUs = () => {
   const contactData = [
-    { name: "Abhishek", contact: "8310518596", color: "#FFD700",des:"Boys Accomodation" },
+    { name: "Abhishek", contact: "8310518595", color: "#FFD700",des:"Boys Accomodation" },
     { name: "Karan ", contact: "7975591793", color: "#39FF14" ,des:"Boys Accomodation"},
     { name: "Sagar H D", contact: "9148342588", color: "#FF073A" ,des:"Technical , Registration"},
     { name: "Madan K ", contact: "7975680455", color: "#00FFFF",des:"Registration" },
