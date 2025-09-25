@@ -69,7 +69,7 @@ const sectionOpacity = 1;
           style={{ opacity: sectionOpacity }}
           className="section-container pt-6 cursor-pointer"
         >
-          <SectionTitle title={"Our Sponsers"} />
+          <SectionTitle title={"They Trusted Us"} />
 
           {/* company 1 */}
           <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">

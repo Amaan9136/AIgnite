@@ -31,7 +31,7 @@ export const schedule = [
   {
     Time: "01:30 PM - 05:00 PM",
     event: "Project Expo Session 2 (judging + Exhibition)",
-    location: "Aiml Labs + Amphi-theatre",
+    location: "Aiml Labs + Ds Labs + Civil Labs ",
   },
    {
     Time: "03:30 PM - 03:45 PM",
@@ -68,7 +68,7 @@ export const schedule = [
     location: "HRD-Block",
   },
     {
-    Time: "09:30 AM - 12:30 PM",
+    Time: "09:30 AM - 01:00 PM",
     event: "Esports (BGMI & FREE FIRE)",
     location: "Amphi-theatre",
   },

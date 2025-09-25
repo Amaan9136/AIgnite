@@ -43,6 +43,7 @@ const Footer = () => {
                 className="cursor-pointer"
               >
                 <Image src={socialMedia.logo} />
+                <p className="text-center text-sm mt-1">{socialMedia.text}</p>
               </Link>
             );
           })}
