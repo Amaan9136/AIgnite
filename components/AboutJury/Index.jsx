@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
 import globe from "../../images/shapes/globe.png";
 import maqam from "../../images/shapes/MaqamWhite.png";
+import rohith from "../../images/speakers/rohith.jpeg";
 // import Nanjeshbennur from "../../images/speakers/Nanjeshbennur.jpg";
 import aman from "../../images/speakers/aman.jpg";
 import NithinKamath from "../../images/speakers/NithinKamath.jpg";
@@ -32,15 +33,31 @@ const juryData = [
     title: "Amaan Mohammad Khalander",
     paragraph: "Amaan Mohammad Khalander is an alumnus of the AI & ML branch at AIT, Karnataka. With a strong foundation in full-stack development and expertise in artificial intelligence and machine learning, he has consistently demonstrated a passion for building innovative solutions. Recently, he founded Royal Software Pvt Ltd, a company dedicated to delivering advanced technology services, skill training programs, and custom solutions for startups, businesses, and institutions. Through his entrepreneurial journey, Amaan continues to bridge education and industry, empowering the next generation of tech professionals.",
      highlights: [
-  "Alumnus of AI & ML branch, AIT",
+  "full-stack development",
   "Founder of Royal Software Pvt Ltd",
   "Strong knowledge in Full Stack Development & AI/ML",
   "Focus on technology services & skill training programs",
   "Entrepreneur driving innovation in the tech industry",
-  "Passion for empowering students and professionals with hands-on learning"
+  "artificial intelligence and machine learning",
+  "he founded Royal Software Pvt Ltd",
+  "a company dedicated to delivering advanced technology services, skill training programs, and custom solutions for startups, businesses, and institutions"
 ],
     image: aman,
     orderLast: true,
+  },
+  {
+    title: "Rohith Krishna G R",
+    paragraph: "Rohith Krishna G R is a final-year ECE student at Shri Siddhartha Institute of Technology, Tumkur. Driven by his passion for entrepreneurship, he founded a community-based startup, WETEAMRK7, which is incubated at Shri Siddhartha Academy of Higher Education. Through this venture, he is serving multiple clients both in India and abroad.He has already partnered with Adichunchanagiri Institute of Technology, Chikkamagaluru, as the Internship & Learning Partner for Smart Hack - 2K25 (Smart India Internal Hackathon 2025), where he provided internship opportunities and free Udemy access to the top five teams from a pool of 49 teams. Alongside his entrepreneurial journey, he is also contributing to global research initiatives as a NASA Citizen Scientist, reflecting his commitment to both innovation and knowledge-sharing.",
+    highlights: [
+  "Final-year ECE student at SSIT, Tumkur",
+  "Founder of WETEAMRK7 (incubated at SSAHE)",
+  "Serving multiple clients in India & abroad",
+  "Internship & Learning Partner at Smart Hack - 2K25, AIT Chikkamagaluru",
+  "Provided internships & Udemy access to top hackathon teams",
+  "NASA Citizen Scientist contributing to global research"
+],  
+    image: rohith,
+    orderLast: false,
   }
 
 ];
