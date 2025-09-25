@@ -29,7 +29,7 @@ const Footer = () => {
           </p>
         </Tilt>
 
-        <Tilt className="flex gap-10 justify-center items-center"> {/* Centering applied here */}
+        <Tilt className="flex  gap-5 lg:gap-10 justify-center items-center"> {/* Centering applied here */}
           <div
             className="mb-10 h-[67px] bounce w-[67px]">
             <Image src={Arrow} layout="fill" alt="Arrow"/>
