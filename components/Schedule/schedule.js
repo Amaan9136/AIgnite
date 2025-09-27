@@ -60,12 +60,12 @@ export const schedule = [
   {
     Time: "09:30 AM - 11:00 AM",
     event: "Think N Blink (Non-Technical event)", 
-    location: "AIML Labs",
+    location: "HRD-Block",
   },
   {
     Time: "11:00 AM - 12:30 PM",
     event: "Tech Escape Room (Technical event)",
-    location: "HRD-Block",
+    location: "AIML Labs",
   },
     {
     Time: "09:30 AM - 01:00 PM",
