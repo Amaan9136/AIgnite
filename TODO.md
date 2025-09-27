@@ -74,3 +74,27 @@ curl http://localhost:3000/api/teams
 ```
 
 The admin dashboard should now properly display teams or show an appropriate message when no teams are registered.
+
+---
+
+# EventUpdates Component - Added
+
+## Component Overview
+- **Purpose**: Display event updates like notifications with links for redirection.
+- **Features**: Mobile-responsive, matches theme (dark bg, yellow/blue/purple accents), includes animations using framer-motion.
+- **Data Structure**: Array of objects with 'text' (update message) and 'link' (URL for redirection).
+
+## Implementation Details
+- **File**: `components/EventUpdates/Index.jsx`
+- **Styling**: Uses Tailwind CSS with custom theme colors, neon-text for glow effects.
+- **Animations**: Fade-in with stagger, hover scale and glow.
+- **Responsiveness**: Grid layout (1 col mobile, 2 md, 3 lg).
+- **Dependencies**: Framer-motion (already installed).
+
+## Usage
+- Import and use `<EventUpdates />` in any page or component.
+- Pass custom data array as prop if needed, or use default sample data.
+
+## Next Steps
+- Integrate into relevant pages (e.g., dashboard or home page) if required.
+- Test responsiveness and animations in browser.

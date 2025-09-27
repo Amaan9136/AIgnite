@@ -4,6 +4,7 @@ import AboutJury from "../components/AboutJury/Index";
 import AboutMentors from "../components/AboutMentors/Index";
 import ContactUs from "../components/ContactUs/Index";
 import EventLocation from "../components/EventLocation/Index";
+import EventUpdates from "../components/EventUpdates/Index";
 import Footer from "../components/Footer/Index";
 import Hero from "../components/Hero/Index";
 import Places from "../components/Places/Index";
@@ -25,9 +26,10 @@ export default function Home() {
       <Hero />
 
       <main className="font-IBM-Plex">
-      
-       
+
+
   <AboutEvent />
+  <EventUpdates />
   <CountdownTimer />
   <ContactUs />
         <Memories />
