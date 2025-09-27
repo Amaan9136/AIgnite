@@ -7,7 +7,7 @@ import maqam from "../../images/shapes/MaqamWhite.png";
 import rohith from "../../images/speakers/rohith.jpeg";
 // import Nanjeshbennur from "../../images/speakers/Nanjeshbennur.jpg";
 import aman from "../../images/speakers/aman.jpg";
-import NithinKamath from "../../images/speakers/NithinKamath.jpg";
+import NithinKamath from "../../images/speakers/NK.png";
 import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 import { div } from "framer-motion/client";

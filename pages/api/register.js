@@ -204,6 +204,7 @@ function processEsportsFields(fields, teamData) {
 //
 // 🔧 Helper: THINK 'N' BLINK & ESCAPE ROOM
 //
+
 function processOtherFields(fields, teamData) {
   fields.forEach(field => {
     const label = field.label.trim();
@@ -222,7 +223,7 @@ function processOtherFields(fields, teamData) {
       case 'Team Name':
         teamData.teamName = value;
         break;
-      case 'College Name':
+      case 'College name':
         teamData.collegeName = value;
         break;
       case 'Semester':
