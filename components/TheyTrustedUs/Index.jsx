@@ -171,7 +171,7 @@ const sectionOpacity = 1;
 </div>
 {/* company: HAMUL / Nandini Hassan */}
 <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
-  <div className={`relative w-[250px] lg:w-[321px]`}>
+    <div className={`relative w-[250px] lg:w-[321px]`}>
     <Tilt className="cursor-pointer">
       <Image src={kmf} width={550} height={550} alt="HAMUL / Nandini Hassan Logo" className="rounded-2xl shadow-md" />
     </Tilt>
@@ -196,7 +196,46 @@ const sectionOpacity = 1;
       ]}
     />
   </div>
+
 </div>
+
+{/* company 4 */}
+<div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
+  <div className={`relative w-[250px] lg:w-[321px]`}>
+    <Tilt className="cursor-pointer">
+      <Image src={automatech} width={550} height={550} alt="AUTOMATECH" className="rounded-2xl shadow-md" />
+    </Tilt>
+  </div>
+  <div className="flex flex-col gap-11 flex-1">
+    <ParagSection2
+      title="AUTOMATECH"
+      paragraph="Automatech, founded by Amaan Mohammad Khalander, creates tools and platforms to simplify software and machine learning development. A key project is MULTIDE, an integrated development environment within the Mul-Model platform (https://mul-model.vercel.app/
+), which started as a final-year project. Mul-Model is like GitHub for machine learning, offering pretrained models for tasks like command processing, image recognition, and data analysis. Users can customize or create models, while Mul-Command provides interactive commands for easy training, testing, and deployment for beginners and experts.
+
+Automatech also builds ML pipelines to automate backend workflows, improving project efficiency. Officially registered as a Micro enterprise (Udyam KR-09-0034931) and recognized by the Education Excellence Foundation, Automatech delivers practical, user-friendly solutions for students and developers to turn ideas into actionable ML projects."
+  
+highlights={[
+  "Technology company simplifying software and ML development",
+  "founded by Amaan Mohammad Khalander",
+  "creator of MULTIDE IDE",
+  "part of the Mul-Model platform (https://mul-model.vercel.app/)",
+  "access to pretrained models for command processing, image recognition, and data analysis",
+  "customizable models and creation of new models",
+  "Mul-Command for interactive training, testing, and deployment",
+  "builds ML pipelines to automate backend workflows",
+  "officially registered Micro enterprise (Udyam KR-09-0034931)",
+  "recognized by Education Excellence Foundation",
+  "focus on practical, user-friendly ML solutions",
+  "supports students and developers in turning ideas into projects",
+]}
+    />
+  </div>
+</div>
+
+
+
+
+
           {/* company 3 */}
 <div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
   <div
@@ -235,9 +274,7 @@ const sectionOpacity = 1;
   <div className="flex flex-col gap-11 flex-1">
     <ParagSection2
       title="WETEAMRK7"
-      paragraph="Rohith Krishna G R is a final-year ECE student at Shri Siddhartha Institute of Technology, Tumkur. Driven by his passion for entrepreneurship, he founded a community-based startup, WETEAMRK7, which is incubated at Shri Siddhartha Academy of Higher Education. Through this venture, he is serving multiple clients both in India and abroad.
-
-He has already partnered with Adichunchanagiri Institute of Technology, Chikkamagaluru, as the Internship & Learning Partner for Smart Hack - 2K25 (Smart India Internal Hackathon 2025), where he provided internship opportunities and free Udemy access to the top five teams from a pool of 49 teams. Alongside his entrepreneurial journey, he is also contributing to global research initiatives as a NASA Citizen Scientist, reflecting his commitment to both innovation and knowledge-sharing."
+      paragraph="WETEAMRK7 is a community-based startup managed by students and incubated at Shri Siddhartha Academy of Higher Education. They are into many domains mainly freelancing, software management, software development, product development, and research as well. The startup serves many clients in India and abroad, as well."
       highlights={[
         "WETEAMRK7 startup",
         "founded by Rohith Krishna G R",
@@ -255,39 +292,7 @@ He has already partnered with Adichunchanagiri Institute of Technology, Chikkama
     />
   </div>
 </div>
- {/* company 4 */}
-<div className="flex flex-col gap-10 items-center lg:flex-row mt-[3rem] lg:m-12">
-  <div className={`relative w-[250px] lg:w-[321px]`}>
-    <Tilt className="cursor-pointer">
-      <Image src={automatech} width={550} height={550} alt="AUTOMATECH" className="rounded-2xl shadow-md" />
-    </Tilt>
-  </div>
-  <div className="flex flex-col gap-11 flex-1">
-    <ParagSection2
-      title="AUTOMATECH"
-      paragraph="Automatech, founded by Amaan Mohammad Khalander, creates tools and platforms to simplify software and machine learning development. A key project is MULTIDE, an integrated development environment within the Mul-Model platform (https://mul-model.vercel.app/
-), which started as a final-year project. Mul-Model is like GitHub for machine learning, offering pretrained models for tasks like command processing, image recognition, and data analysis. Users can customize or create models, while Mul-Command provides interactive commands for easy training, testing, and deployment for beginners and experts.
-
-Automatech also builds ML pipelines to automate backend workflows, improving project efficiency. Officially registered as a Micro enterprise (Udyam KR-09-0034931) and recognized by the Education Excellence Foundation, Automatech delivers practical, user-friendly solutions for students and developers to turn ideas into actionable ML projects."
-  
-highlights={[
-  "Technology company simplifying software and ML development",
-  "founded by Amaan Mohammad Khalander",
-  "creator of MULTIDE IDE",
-  "part of the Mul-Model platform (https://mul-model.vercel.app/)",
-  "access to pretrained models for command processing, image recognition, and data analysis",
-  "customizable models and creation of new models",
-  "Mul-Command for interactive training, testing, and deployment",
-  "builds ML pipelines to automate backend workflows",
-  "officially registered Micro enterprise (Udyam KR-09-0034931)",
-  "recognized by Education Excellence Foundation",
-  "focus on practical, user-friendly ML solutions",
-  "supports students and developers in turning ideas into projects",
-]}
-    />
-  </div>
-</div>
-
+ 
         </motion.div>
       </div>
       {/* <div className=" z-0 h-[100px] max-w-[100%] bg-gradient-to-b from-qiskit-blue-normal to-qiskit-white"></div> */}
