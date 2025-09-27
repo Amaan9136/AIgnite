@@ -44,3 +44,8 @@ Aignite is powered by modern web technologies to ensure a seamless and responsiv
 - [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
 ---
+
+### GENERATE STATIC PAGE
+```bash
+next build && next export
+```

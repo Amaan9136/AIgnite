@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from "next/router";
+import { off, onValue, ref, remove, set } from 'firebase/database';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { database } from '../../server/firebase';
 
 export default function NeonGlowEffect() {
   const [randomColor, setRandomColor] = useState('');
+  const [userId, setUserId] = useState(null);
+  const [usersData, setUsersData] = useState({});
   const [isSupportedDevice, setIsSupportedDevice] = useState(false);
   const router = useRouter();
 
@@ -18,33 +22,43 @@ export default function NeonGlowEffect() {
   useEffect(() => {
     const checkDevice = () => {
       const width = window.innerWidth;
-      const isLaptopOrTablet = width >= 600;
+      const isLaptopOrTablet = width >= 600; 
       setIsSupportedDevice(isLaptopOrTablet);
     };
-    checkDevice();
-    window.addEventListener('resize', checkDevice);
-
+    checkDevice(); 
+    window.addEventListener('resize', checkDevice); 
     return () => {
       window.removeEventListener('resize', checkDevice);
     };
   }, []);
 
+  // Skip on registration pages
+  useEffect(() => {
+    if (!router.isReady) return;
+    if (router.asPath.startsWith('/registration/')) {
+      setIsSupportedDevice(false);
+    } else {
+      setIsSupportedDevice(window.innerWidth >= 600);
+    }
+  }, [router.isReady, router.asPath]);
+
   useEffect(() => {
     if (!isSupportedDevice) return;
-   if (!router.isReady) return;
-    // Check if we're on a registration route
-    const isRegistrationRoute = router.asPath.startsWith("/registration/");
-    
-    if (isRegistrationRoute) {
-     
-      return; // Don't apply neon effect on registration pages
+
+    let uniqueUserId = localStorage.getItem('userId');
+    if (!uniqueUserId) {
+      uniqueUserId = Date.now().toString();
+      localStorage.setItem('userId', uniqueUserId);
     }
+
+    setUserId(uniqueUserId);
 
     const newColor = generateRandomColor();
     setRandomColor(newColor);
 
     const neonElement = document.createElement('div');
     neonElement.classList.add('neon-effect');
+    neonElement.id = uniqueUserId;
     document.body.appendChild(neonElement);
 
     neonElement.style.backgroundColor = newColor;
@@ -53,18 +67,88 @@ export default function NeonGlowEffect() {
     const updatePosition = (e) => {
       neonElement.style.left = `${e.pageX}px`;
       neonElement.style.top = `${e.pageY}px`;
+
+      if (uniqueUserId) {
+        set(ref(database, `users_cursor/${uniqueUserId}`), {
+          x: e.pageX,
+          y: e.pageY,
+          color: newColor,
+        });
+      }
     };
 
     window.addEventListener('mousemove', updatePosition);
 
     return () => {
       window.removeEventListener('mousemove', updatePosition);
+      if (uniqueUserId) {
+        remove(ref(database, `users_cursor/${uniqueUserId}`));
+      }
       neonElement.remove();
     };
-  }, [isSupportedDevice,router.isReady, router.asPath]);
+  }, [isSupportedDevice]);
+
+  useEffect(() => {
+    if (!isSupportedDevice) return;
+
+    const usersRef = ref(database, 'users_cursor');
+
+    const onChildAddedListener = onValue(usersRef, (snapshot) => {
+      let users = {};
+      snapshot.forEach((childSnapshot) => {
+        const user = childSnapshot.val();
+        const userId = childSnapshot.key;
+
+        users[userId] = user;
+      });
+
+      setUsersData(users);
+    });
+
+    return () => {
+      off(usersRef, 'value', onChildAddedListener);
+    };
+  }, [isSupportedDevice]);
+
+  useEffect(() => {
+    if (!isSupportedDevice) return;
+
+    Object.keys(usersData).forEach((userId) => {
+      const user = usersData[userId];
+      let userNeonElement = document.getElementById(userId);
+
+      if (!userNeonElement) {
+        userNeonElement = document.createElement('div');
+        userNeonElement.id = userId;
+        userNeonElement.classList.add('neon-effect');
+        document.body.appendChild(userNeonElement);
+      }
+
+      userNeonElement.style.backgroundColor = user.color;
+      userNeonElement.style.boxShadow = `0 0 20px 10px ${user.color}`;
+      userNeonElement.style.left = `${user.x}px`;
+      userNeonElement.style.top = `${user.y}px`;
+    });
+  }, [usersData, isSupportedDevice]);
+
+  useEffect(() => {
+    if (!isSupportedDevice) return;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden && userId) {
+        remove(ref(database, `users_cursor/${userId}`));
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [userId, isSupportedDevice]);
 
   if (!isSupportedDevice) {
-    return null;
+    return null; 
   }
 
   return <></>;

@@ -37,18 +37,18 @@ const Schedule = () => {
     <section id="schedule" className="relative section-container pt-6">
       <SectionTitle title={"Schedule"}> </SectionTitle>
       <div className="md:hidden visible absolute left-0 top-0 z-25 sm:w-[80px] sm:h-[80px] w-[50px] h-[50px]">
-        <Image src={atom} alt="maqam chahid" layout="fill" />
+        <Image src={atom} alt="maqam chahid" fill />
       </div>
       <div className="md:hidden visible absolute right-0 top-0 z-25 sm:w-[80px] sm:h-[80px] w-[50px] h-[50px]">
-        <Image src={maqam} alt="maqam chahid" layout="fill" />
+        <Image src={maqam} alt="maqam chahid" fill />
       </div>
       <div className="md:grid grid-cols-6 flex flex-col justify-center relative">
         <div className=" md:flex flex-col hidden md:visible">
           <div className=" absolute top-20 left-10 w-[82px] h-[82px]">
-            <Image src={globe} alt="globe" layout="fill" />
+            <Image src={globe} alt="globe" fill />
           </div>
           <div className=" absolute top-80 left-[-20px] w-[100px] h-[100px]">
-            <Image src={atom} alt="atom" layout="fixed" />
+            <Image src={atom} alt="atom" fixed="true" />
           </div>
         </div>
 
@@ -82,20 +82,20 @@ const Schedule = () => {
         </motion.div>
         <div className=" md:flex flex-col hidden md:visible">
           <div className=" absolute w-[80px] h-[80px] lg:h-[100px] lg:w-[100px] -top-2 right-0 lg:right-10">
-            <Image src={maqam} alt="maqam chahid" layout="fill" />
+            <Image src={maqam} alt="maqam chahid" fill />
           </div>
           <div className=" absolute w-[60px] h-[60px] lg:w-[80px] lg:h-[80px] top-60 right-0 lg:right-[-20px]">
-            <Image src={globe} alt="globe" layout="fill" />
+            <Image src={globe} alt="globe" fill />
           </div>
           <div className=" absolute w-[70px] h-[70px] top-[350px] right-[50px] lg:right-[80px] xl:right-[120px]">
-            <Image src={computer} alt="computer" layout="fill" />
+            <Image src={computer} alt="computer" fill />
           </div>
         </div>
         <div className="visible md:hidden absolute w-[60px] h-[60px] -bottom-20 right-0">
-          <Image src={globe} alt="globe" layout="fill" />
+          <Image src={globe} alt="globe" fill />
         </div>
         <div className="visible md:hidden absolute w-[60px] h-[60px] bottom-0 left-0">
-          <Image src={atom} alt="atom" layout="fill" />
+          <Image src={atom} alt="atom" fill />
         </div>
       </div>
     </section>

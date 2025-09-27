@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
@@ -10,7 +10,6 @@ import aman from "../../images/speakers/aman.jpg";
 import NithinKamath from "../../images/speakers/NK.png";
 import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
-import { div } from "framer-motion/client";
 
 const juryData = [
     {
@@ -91,13 +90,13 @@ const sectionOpacity = 1;
     <section className="relative lg:mb-28" id="about-jury">
       <div className="relative">
         <div className="absolute top-1/4 right-4 lg:w-[55px] h-[32px] w-[32px] lg:h-[55px] 2xl:w-[82px] 2xl:h-[82px]">
-          <Image src={globe} layout="fill" />
+          <Image src={globe} fill />
         </div>
         <div className="absolute bottom-8 left-4 w-[32px] h-[32px] md:w-[40px] md:h-[40px] lg:w-[55px] lg:h-[55px] 2xl:w-[82px] 2xl:h-[82px]">
-          <Image src={globe} layout="fill" />
+          <Image src={globe} fill />
         </div>
         <div className="absolute bottom-1/2 left-8 w-[75px] h-[53px] md:w-[40px] md:h-[40px] lg:w-[106px] lg:h-[76px] 2xl:w-[160px] 2xl:h-[112px]">
-          <Image src={maqam} layout="fill" />
+          <Image src={maqam} fill />
         </div>
 
         <motion.div
