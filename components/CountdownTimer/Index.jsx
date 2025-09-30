@@ -48,9 +48,10 @@ const CountdownTimer = () => {
   ];
 
   return (
-    <section className="relative w-screen min-h-screen overflow-hidden ">
+    <section className="relative w-screen min-h-[25vh] md:min-h-screen overflow-hidden ">
       {/* Simple background elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 sm:max-h-[30vh]
+">
         <div className="absolute top-10 left-10 w-16 h-16 opacity-20">
           <Image src={Atom} alt="Atom" width={64} height={64} />
         </div>
@@ -69,26 +70,26 @@ const CountdownTimer = () => {
       <div className="relative z-10 flex items-center justify-center w-full h-full px-4">
         <div className="text-center">
           {/* Title */}
-          <div className="mb-16">
-            <h1 className="text-xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
+          <div className="mb-2 md:mb-8 lg:mb-16">
+            <h1 className="text-base md:text-5xl lg:text-6xl font-bold text-white mb-1 md:mb-4">
               Countdown TO AIgnite 2025
             </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-yellow-400 font-semibold">
+            <p className="text-sm md:text-lg lg:text-xl text-yellow-400 font-semibold">
               OCTOBER 13TH 2025
             </p>
           </div>
 
           {/* Timer display */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-12 mt-16">
+          <div className="flex flex-nowrap justify-center gap-1 md:gap-4 lg:gap-8 mt-2 md:mt-8 lg:mt-16">
             {timeUnits.map((unit, index) => (
               <div key={unit.label} className="flex flex-col items-center">
-                <div className="relative bg-gray-800 rounded-2xl p-6 md:p-8 lg:p-10 border border-gray-600 shadow-lg">
+                <div className="relative bg-gray-800 rounded-2xl p-2 md:p-4 lg:p-8 border border-gray-600 shadow-lg w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32">
                   {/* Timer value */}
                   <div className="text-center">
-                    <div className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-2 font-mono tracking-wider">
+                    <div className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-1 md:mb-2 font-mono tracking-wider">
                       {unit.value}
                     </div>
-                    <div className="text-sm md:text-base lg:text-lg text-yellow-400 font-semibold uppercase tracking-widest">
+                    <div className="text-xs md:text-sm text-yellow-400 font-semibold uppercase tracking-widest">
                       {unit.label}
                     </div>
                   </div>
@@ -98,8 +99,8 @@ const CountdownTimer = () => {
           </div>
 
           {/* Subtitle */}
-          <div className="mt-16">
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+          <div className="mt-2 md:mt-8 lg:mt-16">
+            <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
               Get ready for an amazing experience. The countdown has begun!
             </p>
           </div>
