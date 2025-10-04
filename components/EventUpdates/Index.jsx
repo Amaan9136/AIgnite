@@ -17,6 +17,10 @@ const EventUpdates = () => {
       text: "Jury panel revealed! Meet our expert judges.",
       link: "/#about-jury"
     },
+    {
+      text: "Now you can access your dashboard using your team name!",
+      link: "/getdashboard"
+    },
     // {
     //   text: "Workshop on AI/ML fundamentals scheduled for next week. Stay tuned!",
     //   link: "/schedule"
