@@ -44,7 +44,7 @@ const TeamNav = ({setActiveTab,team}) => {
                   transitionSpeed={250}
                   className="cursor-pointer">
             
-                    <Animate    onClick={() =>{ setActiveTab(navLink.content.toLowerCase().replace(" ", ""))}} tag="li" delay={idx + 2} y={idx + 50} x={idx + 50} className="hover:text-qiskit-yellow transition-all duration-500 relative">
+                    <Animate    onClick={() =>{ setActiveTab(navLink.content.toLowerCase().replace(/\s/g, ""))}} tag="li" delay={idx + 2} y={idx + 50} x={idx + 50} className="hover:text-qiskit-yellow transition-all duration-500 relative">
                       {navLink.content == "Home" && (
                         <div className="absolute left-0 -bottom-[4px] h-[5px] w-4/6 bg-qiskit-white"></div>
                       )}
@@ -112,7 +112,7 @@ const TeamNav = ({setActiveTab,team}) => {
                   transitionSpeed={200}
                   className="cursor-pointer">
                   
-                    <Animate  onClick={() =>{ setActiveTab(navLink.content.toLowerCase().replace(" ", ""))}} 
+                    <Animate  onClick={() =>{ setActiveTab(navLink.content.toLowerCase().replace(/\s/g, ""))}}
                       tag="li" delay={idx+ 1 + 2} y={idx+1 + 80} x={idx+1 + 80}
                       className="cursor-pointer relative transition-all duration-500 hover:text-qiskit-yellow"
                     >
