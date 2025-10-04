@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 const GetDashboard = () => {
-  const [utr, setUtr] = useState('');
+  const [teamName, setTeamName] = useState('');
   const [link, setLink] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!utr.trim()) {
-      setError('Please enter a UTR number');
+    if (!teamName.trim()) {
+      setError('Please enter a team name');
       return;
     }
     setLoading(true);
@@ -17,7 +17,7 @@ const GetDashboard = () => {
     setLink('');
 
     try {
-      const res = await fetch(`/api/team/by-utr?utr=${encodeURIComponent(utr)}`);
+      const res = await fetch(`/api/team/by-name?name=${encodeURIComponent(teamName)}`);
       if (res.ok) {
         const data = await res.json();
         const dashboardLink = `${window.location.origin}/dashboard/${data.teamId}?key=${data.secureKey}`;
@@ -38,19 +38,19 @@ const GetDashboard = () => {
       <div className="container mx-auto px-4 py-10 relative z-10">
         <div className="max-w-md mx-auto bg-gray-900/80 p-6 rounded-lg shadow-md border border-gray-700">
           <h2 className="text-3xl font-semibold mb-6 text-yellow-400 text-center">Get Dashboard Link</h2>
-          <p className="text-center text-gray-300 mb-4">A email is sent to team lead email address with dashboard link, if you didn't get mail enter the UTR ID of the payment during registration to get dashboard link</p>
+          <p className="text-center text-gray-300 mb-4">A email is sent to team lead email address with dashboard link, if you didn't get mail enter the team name during registration to get dashboard link</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="utr" className="block text-sm font-medium text-gray-300 mb-2">
-                Enter UTR Number
+              <label htmlFor="teamName" className="block text-sm font-medium text-gray-300 mb-2">
+                Enter Team Name
               </label>
               <input
                 type="text"
-                id="utr"
-                value={utr}
-                onChange={(e) => setUtr(e.target.value)}
+                id="teamName"
+                value={teamName}
+                onChange={(e) => setTeamName(e.target.value)}
                 className="w-full px-3 py-2 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                placeholder="Enter your UTR number"
+                placeholder="Enter your team name"
               />
             </div>
             <button

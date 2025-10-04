@@ -61,25 +61,6 @@ const sponsorsData = [
           "nation building contribution",
         ],
       },
-      {
-        name: "HAMUL – Hassan Co-operative Milk Producers’ Societies Union Ltd.",
-        logo: kmf,
-        paragraph: "HAMUL, part of the Nandini-KMF family, has been nourishing communities in Hassan, Chikkamagaluru, and Kodagu since the 1970s. With strong cooperative roots, ISO-certified quality, and an ever-expanding lineup of dairy offerings—from pure milk and curds to traditional sweets and ghee—they bridge rural farmers and urban tables. Their mission? Fair pay for producers, safe and wholesome dairy for consumers, and sustainable growth across the region.",
-        highlights: [
-          "HAMUL (Hassan Union)",
-          "established 1977 under KMF",
-          "operates in Hassan, Chikkamagaluru & Kodagu",
-          "ISO-22000 food safety certified",
-          "milk procurement & processing",
-          "chilling centres: Holenarsipur, Kudige, Birur etc",
-          "dairy products: milk, curds, butter, ghee, sweets",
-          "traditional & modern dairy tech",
-          "fair price to farmers",
-          "ensuring quality & hygiene",
-          "community upliftment",
-          "sustainable rural income",
-        ],
-      },
        {
   name: "Lucent The Luxury Hotel",
   logo: lucent,
@@ -175,6 +156,25 @@ const sponsorsData = [
   {
     category: "Goodies Providers",
     sponsors: [
+       {
+        name: "HAMUL – Hassan Co-operative Milk Producers’ Societies Union Ltd.",
+        logo: kmf,
+        paragraph: "HAMUL, part of the Nandini-KMF family, has been nourishing communities in Hassan, Chikkamagaluru, and Kodagu since the 1970s. With strong cooperative roots, ISO-certified quality, and an ever-expanding lineup of dairy offerings—from pure milk and curds to traditional sweets and ghee—they bridge rural farmers and urban tables. Their mission? Fair pay for producers, safe and wholesome dairy for consumers, and sustainable growth across the region.",
+        highlights: [
+          "HAMUL (Hassan Union)",
+          "established 1977 under KMF",
+          "operates in Hassan, Chikkamagaluru & Kodagu",
+          "ISO-22000 food safety certified",
+          "milk procurement & processing",
+          "chilling centres: Holenarsipur, Kudige, Birur etc",
+          "dairy products: milk, curds, butter, ghee, sweets",
+          "traditional & modern dairy tech",
+          "fair price to farmers",
+          "ensuring quality & hygiene",
+          "community upliftment",
+          "sustainable rural income",
+        ],
+      },
       {
         name: "Huco Chocolates",
         logo: huco,
