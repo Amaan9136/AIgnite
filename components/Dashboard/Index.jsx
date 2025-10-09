@@ -129,7 +129,14 @@ const Dashboard = ({ team }) => {
     : team.pptSelected === "selected"
     ? "Selected"
     : "Better Luck next time"}</p>
-
+        {team.pptSelected === "selected" && (
+          <div className="mt-4">
+            <p className="text-lg mb-4 text-yellow-400 font-semibold">Congratulations! Your PPT has been selected.</p>
+            <a href="https://tally.so/r/woXQzP" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-700 to-purple-700 text-white py-2 px-4 rounded-lg hover:from-blue-800 hover:to-purple-800 transition-all inline-block">
+              Fill Payment and Accommodation Form
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

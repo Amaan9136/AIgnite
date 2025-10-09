@@ -9,7 +9,10 @@ const EventUpdates = () => {
 
   // Default sample data if no updates provided
   const data = [
-    {
+     {
+  text: "🎯 Exciting news! Instafix is teaming up with our Project Exhibition to discover the most innovative solutions to their problem statement. 🚀 The team with the best project will earn an exclusive internship opportunity with Instafix! 👩‍💻👨‍💻 Bring your creativity, showcase your talent, and you might just kickstart your career! 💼🌟",
+  link: "https://docs.google.com/forms/d/e/1FAIpQLSf41CjPBZ-kVkZkmLb39_FmdUX2fi2ojog69xFkiF2qi6DfLQ/viewform?usp=header&urp=gmail_link"
+},{
       text: "PPT submission deadline extended to 8th October. Submit now!",
       link: "/registration/techxhibit"
     },
@@ -21,6 +24,7 @@ const EventUpdates = () => {
       text: "Now you can access your dashboard using your team name!",
       link: "/getdashboard"
     },
+   
     // {
     //   text: "Workshop on AI/ML fundamentals scheduled for next week. Stay tuned!",
     //   link: "/schedule"
