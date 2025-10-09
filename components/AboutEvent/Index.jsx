@@ -194,50 +194,7 @@ className={`flex flex-col items-center mt-10  gap-4  h-[400px] sm:h-[500px] lg:h
           ))}
         </div>
       </motion.div>
-         <SectionTitle title={"AIgnite Events on 14th Oct"} delay={12} />
-          {/* Events 14 */}
-          <motion.div className="flex justify-center items-center " style={{ opacity: eventOpacity }}>
-        <div className="relative w-full max-w-7xl mx-auto my-16 flex gap-12 flex-col sm:flex-col md:flex-row lg:flex-row justify-between px-4 sm:px-6 lg:px-8">
-          {eventsData14.map((eventObj, index) => (
-            <div
-              key={index}
-              onClick={() => !eventObj.closed && router.push(`/registration/${eventObj.name.toLowerCase().replace(/\s+/g, '-')}`)}
-className={`flex flex-col items-center mt-10  gap-4 h-[400px] sm:h-[500px] lg:h-[400px] lg:mr-12 group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} lg:scale-[1.2]
-                order-first lg:order-none w-full sm:w-1/2 lg:w-1/3`}
-            >
-              <Tilt
-                scale={1.2}
-                glareEnable
-                glareMaxOpacity={0.5}
-                glareColor={eventObj.color}
-                glarePosition="all"
-                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 z-100 group-hover:z-20 group-hover:scale-105`}
-              >
-                <Image
-                  src={eventObj.image}
-                  alt={eventObj.name}
-                  width={300}
-                  height={300}
-                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 lg:scale-[1.15] rounded-xl`}
-                />
-                <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="font-semibold text-white text-center text-sm lg:text-sm lg:mx-6">{eventObj.description}</p>
-                </div>
-              </Tilt>
-
-              <Tilt
-                scale={1.5}
-                className={`flex transition-transform duration-300 z-10 group-hover:z-20 group-hover:scale-105`}
-              >
-                <div className={`text-center z-10 sm:mt-2 md:mt-4 lg:mt-0`}>
-                  <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`}  color={eventObj.color} closed={eventObj.closed} />
-                </div>
-              </Tilt>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-    {/* SPECIAL EVENT  */}
+       {/* SPECIAL EVENT  */}
        <SectionTitle title={"Special Event: Mini Hackathon"} delay={12} />
       <motion.div className="flex justify-center items-center lg:mb-32" style={{ opacity: eventOpacity }}>
         <div className="relative w-full max-w-7xl mx-auto my-16 flex gap-12 lg:mb-11 flex-col sm:flex-col md:flex-row lg:flex-row justify-between lg:justify-center px-4 sm:px-6 lg:px-8">
@@ -281,6 +238,50 @@ className={`flex flex-col items-center mt-10  gap-4 h-[400px] sm:h-[500px] lg:h-
         </div>
       </motion.div>
 
+         <SectionTitle title={"AIgnite Events on 14th Oct"} delay={12} />
+          {/* Events 14 */}
+          <motion.div className="flex justify-center items-center " style={{ opacity: eventOpacity }}>
+        <div className="relative w-full max-w-7xl mx-auto my-16 flex gap-12 flex-col sm:flex-col md:flex-row lg:flex-row justify-between px-4 sm:px-6 lg:px-8">
+          {eventsData14.map((eventObj, index) => (
+            <div
+              key={index}
+              onClick={() => !eventObj.closed && router.push(`/registration/${eventObj.name.toLowerCase().replace(/\s+/g, '-')}`)}
+className={`flex flex-col items-center mt-10  gap-4 h-[400px] sm:h-[500px] lg:h-[400px] lg:mr-12 group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} lg:scale-[1.2]
+                order-first lg:order-none w-full sm:w-1/2 lg:w-1/3`}
+            >
+              <Tilt
+                scale={1.2}
+                glareEnable
+                glareMaxOpacity={0.5}
+                glareColor={eventObj.color}
+                glarePosition="all"
+                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 z-100 group-hover:z-20 group-hover:scale-105`}
+              >
+                <Image
+                  src={eventObj.image}
+                  alt={eventObj.name}
+                  width={300}
+                  height={300}
+                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 lg:scale-[1.15] rounded-xl`}
+                />
+                <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="font-semibold text-white text-center text-sm lg:text-sm lg:mx-6">{eventObj.description}</p>
+                </div>
+              </Tilt>
+
+              <Tilt
+                scale={1.5}
+                className={`flex transition-transform duration-300 z-10 group-hover:z-20 group-hover:scale-105`}
+              >
+                <div className={`text-center z-10 sm:mt-2 md:mt-4 lg:mt-0`}>
+                  <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`}  color={eventObj.color} closed={eventObj.closed} />
+                </div>
+              </Tilt>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+   
 
         </div>
 
