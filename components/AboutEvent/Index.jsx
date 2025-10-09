@@ -24,7 +24,7 @@ const AboutEvent = () => {
       image: techxhibit,
       color: "#4999D0",
       description: "Project Exhibition: A platform to showcase innovative tech projects, from software to hardware, highlighting creativity, problem-solving, and real-world applications.",
-      closed: false
+      closed: true
 
     }
  
