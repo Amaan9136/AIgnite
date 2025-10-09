@@ -11,21 +11,21 @@ import SectionTitle from "../helpers/SectionTitle";
 
 const ContactUs = () => {
   const contactData = [
-    { name: "Abhishek", contact: "8310518596", color: "#00FFFF",des:"Boys Accomodation" },
+    { name: "Abhishek", contact: "8310518595", color: "#FFD700",des:"Boys Accomodation" },
     { name: "Karan ", contact: "7975591793", color: "#39FF14" ,des:"Boys Accomodation"},
-    { name: "Sagar H D", contact: "9148342588", color: "#FF073A" ,des:"Technical "},
-    { name: "Madan K ", contact: "7975680455", color: "#FFD700",des:"Registration" },
-    { name: "Faculty", contact: "9448658295", color: "#FF6EC7" ,des:""},
-   { name: "Rakshitha", contact: "7411254225", color: "#00FFFF" ,des:"Girls Accomodation"},
-    { name: "Manvitha", contact: "9448658295", color: "#39FF14" ,des:"Girls Accomodation"},
+    { name: "Sagar H D", contact: "9148342588", color: "#FF073A" ,des:"Technical , Registration"},
+    { name: "Madan K ", contact: "7975680455", color: "#00FFFF",des:"Registration" },
+    { name: "Afnan G N", contact: "6361116966", color: "#FF6EC7" ,des:"Media"},
+   { name: "Rakshitha", contact: "7411254225", color: "#FFD700" ,des:"Girls Accomodation"},
+    { name: "Manvitha", contact: "9136686666", color: "#39FF14" ,des:"Girls Accomodation"},
     { name: "Sanvi A S  ", contact: "8105113926 ", color: "#FF073A" ,des:"Technical"},
-    { name: "Prateeksha", contact: "7338682609", color: "#FFD700",des:"Registration" },
-    { name: "Faculty", contact: "7411254225", color: "#FF6EC7",des:"" },
+    { name: "Prathiksha", contact: "7338682609", color: "#00FFFF",des:"Registration" },
+    { name: "Syed Najam", contact: "6360974247", color: "#FF6EC7",des:"Tech Events" },
   
   ];
 
-  const largeScreenRanges = [800, 900]
-  const smallScreenRanges = [900, 1000]
+  const largeScreenRanges = [4500, 6000]
+  const smallScreenRanges = [8000, 9000]
 
   const { scrollY } = useScroll();
   const [scrollRanges, setScrollRanges] = useState(largeScreenRanges);
@@ -62,14 +62,14 @@ const ContactUs = () => {
       </div>
 
       <Animate tag="h6" className="m-[26px] text-center lg:text-lg text-gray-400 font-bold">Click the Contacts below to <span className="text-emerald-300">Chat in WhatsApp</span></Animate>
-      <Animate delay={12} x={50} y={-50} className="flex flex-wrap justify-center space-between">
+      <Animate delay={12} x={50} y={-50} className="flex sm:scale-0 flex-wrap justify-center space-between">
           {contactData.map((cont, index) => (
             <motion.div
               key={index}
               style={{ opacity: contactOpacity }}
               >
               <Tilt
-                className="cursor-pointer rounded-lg p-4 lg:p-8 group"
+                className="cursor-pointer rounded-lg  lg:p-8 group p-2"
                 tiltMaxAngleY={40}
                 transitionSpeed={350}
                 glareEnable={true}

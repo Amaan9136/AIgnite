@@ -29,10 +29,10 @@ const Footer = () => {
           </p>
         </Tilt>
 
-        <Tilt className="flex gap-10 justify-center items-center"> {/* Centering applied here */}
+        <Tilt className="flex  gap-5 lg:gap-10 justify-center items-center"> {/* Centering applied here */}
           <div
             className="mb-10 h-[67px] bounce w-[67px]">
-            <Image src={Arrow} layout="fill" alt="Arrow"/>
+            <Image src={Arrow} fill alt="Arrow"/>
           </div>
           {socialsMedia.map((socialMedia, idx) => {
             return (
@@ -43,6 +43,7 @@ const Footer = () => {
                 className="cursor-pointer"
               >
                 <Image src={socialMedia.logo} />
+                <p className="text-center text-sm mt-1">{socialMedia.text}</p>
               </Link>
             );
           })}
@@ -51,7 +52,7 @@ const Footer = () => {
       {/* Copyrights */}
       <div className="flex justify-center px-4">
         <p className="text-[0.9375rem] pb-2 text-center">
-          Copyright © 2024 WeXCode - AIgnite. All Rights Reserved.
+          Copyright © 2025   AIgnite 2.0. All Rights Reserved.
         </p>
       </div>
 

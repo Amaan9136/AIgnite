@@ -6,54 +6,74 @@ import atom from "../../images/shapes/atom.png";
 import computer from "../../images/shapes/computer.png";
 import GDGAlgiers from "../../images/shapes/GDGAlgiers.png";
 import globe from "../../images/shapes/globe.png";
-import event1 from "../../images/speakers/1.png";
-import event2 from "../../images/speakers/2.png";
-import techxhibit from "../../images/speakers/techxhibit.png";
-import techEscapeRoom from "../../images/speakers/techEscapeRoom.png";
-import event3 from "../../images/speakers/3.png";
+import techxhibit from "../../images/speakers/techxhibit.jpeg";
+import techER from "../../images/speakers/techER.jpeg";
+
+import thinkNblink from "../../images/speakers/thinknblink.jpeg";
+import esports from "../../images/speakers/esports.jpeg";
 import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
 import { useRouter } from "next/router";
 const AboutEvent = () => {
     const router = useRouter();
-  const eventsData = [
+  const eventsData13 = [
+  
+    {
+      name: "Techxhibit",
+    
+      image: techxhibit,
+      color: "#4999D0",
+      description: "Project Exhibition: A platform to showcase innovative tech projects, from software to hardware, highlighting creativity, problem-solving, and real-world applications.",
+      closed: true
+
+    }
+ 
+    
+      
+  ];
+const eventsData14 = [
     {
       name: "Tech Escape Room",
     
-      image: techEscapeRoom,
+      image: techER,
       color: "#7ce6e2",
       description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
        closed: false
 
     },
-    {
-      name: "TECHXHIBIT",
+ 
+      {
+      name: "E Sports",
     
-      image: techxhibit,
-      color: "#4999D0",
-      description: "Showcase your technical brilliance at the Project Exhibition, where innovative prototypes and real-world solutions take center stage. From cutting-edge software to hardware marvels, this platform is designed for creators to demonstrate their projects, share knowledge, and inspire collaboration among peers and industry experts",
-      closed: false
+      image: esports,
+      color: "#7ce6e2",
+      description:"Jump into the thrill of E Sports! Compete in exciting BGMI and FreeFire matches and prove your skills on the battleground.",
+ closed: false
 
     },
     {
-      name: "E-Sports",
-     
-      image: event3,
-      color: "#fe8400",
-      description: "Join the excitement of competitive gaming with thrilling matches, elite players, and a vibrant community celebrating the world of esports.",
+      name: "Think N Blink",
+    
+      image: thinkNblink,
+      color: "#4999D0",
+      description: "Think N Blink is a competitive team-based game event with the tagline \"Play -  Solve -  Win\" designed for pairs of participants. The event emphasizes quick thinking and fast reactions.",
       closed: false
 
     },
+    
       
   ];
 
-  const largeScreenRanges = [1100, 1480]
-  const smallScreenRanges = [2150, 2300]
+
+
+  const largeScreenRanges = [1000, 4200]
+  const smallScreenRanges = [2150, 5500]
 
   const { scrollY } = useScroll();
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {
+ 
     const updateRanges = () => {
       if (window.innerWidth <= 1200) {
         setScrollRanges(smallScreenRanges); // Mobile
@@ -68,6 +88,13 @@ const AboutEvent = () => {
     return () => window.removeEventListener('resize', updateRanges);
   }, []);
 
+  useEffect(() => {
+    const unsubscribe = scrollY.onChange((value) => {
+      // console.log('Scroll Y:', value);
+    });
+    return unsubscribe;
+  }, [scrollY]);
+
   const eventOpacity = useTransform(scrollY, scrollRange, [1, 0.3]);
 
   return (
@@ -80,7 +107,7 @@ const AboutEvent = () => {
         />
       </div>
 
-      <SectionTitle title={"AIgnite Events"} delay={12} />
+      <SectionTitle title={"AIgnite Events on 13th Oct"} delay={12} />
 
       <div className="relative">
         <div className="absolute top-[460px] right-0 sm:top-[-70px] sm:right-0 lg:top-[-32px] lg:right-0  w-[68px] h-[58px] lg:w-[106px] lg:h-[74px]">
@@ -108,16 +135,15 @@ const AboutEvent = () => {
               alt="computer"
             />
           </div>
-
-          {/* Events */}
-          <motion.div className="flex justify-center items-center" style={{ opacity: eventOpacity }}>
-        <div className="relative w-4/5 my-16 flex gap-16 flex-col lg:flex-row justify-between">
-          {eventsData.map((eventObj, index) => (
+ {/* Events 13*/}
+          <motion.div className="flex justify-center items-center lg:mb-32" style={{ opacity: eventOpacity }}>
+        <div className="relative w-full max-w-7xl mx-auto my-16 flex gap-12 lg:mb-11 flex-col sm:flex-col md:flex-row lg:flex-row justify-between lg:justify-center px-4 sm:px-6 lg:px-8">
+          {eventsData13.map((eventObj, index) => (
             <div
               key={index}
               onClick={() => !eventObj.closed && router.push(`/registration/${eventObj.name.toLowerCase().replace(/\s+/g, '-')}`)}
-              className={`flex flex-col items-center group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} ${index === 0 || index === 2 ? 'lg:scale-100' : 'lg:scale-[1.2]'}
-                ${index === 1 ? 'order-first' : 'order-last'} lg:order-none`}
+className={`flex flex-col items-center mt-10  gap-4  h-[400px] sm:h-[500px] lg:h-[400px] lg:mr-12 group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} lg:scale-[1.2]
+                order-first lg:order-none w-full sm:w-1/2 lg:w-1/3`}
             >
               <Tilt
                 scale={1.2}
@@ -125,14 +151,14 @@ const AboutEvent = () => {
                 glareMaxOpacity={0.5}
                 glareColor={eventObj.color}
                 glarePosition="all"
-                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 ${index === 1 ? "z-100" : "z-0"} group-hover:z-20 group-hover:scale-105`}
+                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 z-100 group-hover:z-20 group-hover:scale-105`}
               >
                 <Image
                   src={eventObj.image}
                   alt={eventObj.name}
-                  width={600}
-                  height={600}
-                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 ${index === 1 ? "lg:scale-[1.15] rounded-xl" : "lg:scale-[0.9]"}`}
+                  width={350}
+                  height={350}
+                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 lg:scale-[1.15] rounded-xl`}
                 />
                 <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="font-semibold text-white text-center text-sm lg:text-sm lg:mx-6">{eventObj.description}</p>
@@ -141,9 +167,52 @@ const AboutEvent = () => {
 
               <Tilt
                 scale={1.5}
-                className={`flex transition-transform duration-300 ${index === 1 ? "z-10" : "z-0"} group-hover:z-20 group-hover:scale-105`}
+                className={`flex transition-transform duration-300 z-10 group-hover:z-20 group-hover:scale-105`}
               >
-                <div className={`text-center z-10 ${index == 0 && "w-4/5 mx-auto lg:w-auto"} ${index == 1 ? "lg:-mt-8" : "lg:-mt-16"}`}>
+                <div className={`text-center  z-10 sm:mt-2 md:mt-4 lg:mt-0`}>
+                  <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`}  color={eventObj.color} closed={eventObj.closed} />
+                </div>
+              </Tilt>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+         <SectionTitle title={"AIgnite Events on 14th Oct"} delay={12} />
+          {/* Events 14 */}
+          <motion.div className="flex justify-center items-center " style={{ opacity: eventOpacity }}>
+        <div className="relative w-full max-w-7xl mx-auto my-16 flex gap-12 flex-col sm:flex-col md:flex-row lg:flex-row justify-between px-4 sm:px-6 lg:px-8">
+          {eventsData14.map((eventObj, index) => (
+            <div
+              key={index}
+              onClick={() => !eventObj.closed && router.push(`/registration/${eventObj.name.toLowerCase().replace(/\s+/g, '-')}`)}
+className={`flex flex-col items-center mt-10  gap-4 h-[400px] sm:h-[500px] lg:h-[400px] lg:mr-12 group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} lg:scale-[1.2]
+                order-first lg:order-none w-full sm:w-1/2 lg:w-1/3`}
+            >
+              <Tilt
+                scale={1.2}
+                glareEnable
+                glareMaxOpacity={0.5}
+                glareColor={eventObj.color}
+                glarePosition="all"
+                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 z-100 group-hover:z-20 group-hover:scale-105`}
+              >
+                <Image
+                  src={eventObj.image}
+                  alt={eventObj.name}
+                  width={300}
+                  height={300}
+                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 lg:scale-[1.15] rounded-xl`}
+                />
+                <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="font-semibold text-white text-center text-sm lg:text-sm lg:mx-6">{eventObj.description}</p>
+                </div>
+              </Tilt>
+
+              <Tilt
+                scale={1.5}
+                className={`flex transition-transform duration-300 z-10 group-hover:z-20 group-hover:scale-105`}
+              >
+                <div className={`text-center z-10 sm:mt-2 md:mt-4 lg:mt-0`}>
                   <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`}  color={eventObj.color} closed={eventObj.closed} />
                 </div>
               </Tilt>

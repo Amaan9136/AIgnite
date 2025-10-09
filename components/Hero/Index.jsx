@@ -1,25 +1,22 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import React, {  useState } from 'react';
 import Image from "next/image";
+import { useState } from 'react';
 import Tilt from "react-parallax-tilt";
 import Typewriter from "typewriter-effect";
 import AIML_Logo from "../../images/logos/AIML-LOGO-WHITE.png";
 import AIT_Logo from "../../images/logos/AIT-LOGO.png";
-import AIgnite from "../../images/logos/Aignite2.0.png";
+import BackGroundMobile from "../../images/sectionsAssets/Hero-background-Mobile.png";
 import BackGround from "../../images/sectionsAssets/Hero-background.png";
-import Arrow from "../../images/shapes/Arrow.png";
 import Atom from "../../images/shapes/atomWhite.png";
 import Computer from "../../images/shapes/computerWhite.png";
 import Globe from "../../images/shapes/globe.png";
 import Maqam from "../../images/shapes/MaqamWhite.png";
 import Animate from "../helpers/Animate-motion";
-import Purpulebutton from "../helpers/Purpulebutton";
 import { BallCanvas } from './canvas';
 
 // import CounterContainer from "./CounterContainer";
-import Navbar from "./Navbar";
-import ThanksForParticipating from "./ThanksForParticipating";
 import { useEffect } from "react";
+import Navbar from "./Navbar";
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -48,20 +45,27 @@ const Hero = () => {
   return (
     <>
   
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section id="home" className="relative lg:min-h-screen overflow-hidden">
       
       {/* Animated background image with opacity transition */}
       <motion.div
         style={{ opacity: bgOpacity, y: -titleY }}
         className="absolute inset-0 -z-10"
       >
-        <Image
+        {IsSupportedDevice?<Image
           src={BackGround}
           alt="Background Image"
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           className="w-full h-full blur-sm"
-        />
+        />:<Image
+          src={BackGroundMobile}
+          alt="Background Image"
+          fill
+          style={{ objectFit: 'cover' }}
+          className="w-full h-full blur-sm"
+        />}
+        
       </motion.div>
 
       <div className="section-container pb-24 md:pb-0 mb-6 lg:mb-0">
@@ -124,7 +128,7 @@ const Hero = () => {
                 <motion.div
                   style={{ opacity: counterOpacity }}
                   className="relative lg:h-[67px] bounce h-[50px] w-[50px] lg:w-[67px]">
-                  {/* <Image src={Arrow} layout="fill" alt="Arrow" /> */}
+                  {/* <Image src={Arrow} fill alt="Arrow" /> */}
                 </motion.div>
                 <motion.div
                   style={{ scale: scaleTitle, x: RegBtnY, opacity: RegBtnOpa }}
@@ -137,7 +141,7 @@ const Hero = () => {
                 </motion.div>
               </Animate>
             </Animate>
-  <div id="ball-box" className="ball-box m-auto w-48 h-48 lg:w-96 lg:h-96 ">
+  <div id="ball-box" className="ball-box m-auto w-[9rem] h-48 lg:w-96 lg:h-96 ">
          
            
               <div

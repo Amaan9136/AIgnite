@@ -20,6 +20,11 @@ const TeamsSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  eventName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   collegeName: {
     type: String,
     trim: true,
@@ -43,6 +48,10 @@ const TeamsSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  esportEvent: {
+    type: String,
+    trim: true,
+  },
   projectTitle: {
     type: String,
     trim: true,
@@ -50,16 +59,20 @@ const TeamsSchema = new mongoose.Schema({
   projectCategory: [{
     type: String,
   }],
-  projectDescription: {
-    type: String,
-    trim: true,
-  },
   paymentScreenshot: [{
     type: mongoose.Schema.Types.Mixed,
   }],
   transactionId: {
     type: String,
     trim: true,
+  },
+  paymentVerified: {
+    type: Boolean,
+    default: false,
+  },
+    pptSelected: {
+    type: String,
+    default: "pending",
   },
   teamId: {
     type: String,

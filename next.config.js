@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: "export",
-  // images: {
-  //   unoptimized: true,
-  // },
-  reactStrictMode: true,
-  swcMinify: true,
+  reactStrictMode: true, // keeps React in strict mode for dev
+  images: {
+    domains: ['storage.tally.so'], // allow images from your domain
+    unoptimized: true,            // keeps legacy <Image full> working without breaking
+  },
 };
 
 module.exports = nextConfig;

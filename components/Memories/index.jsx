@@ -130,8 +130,8 @@ const Memories = () => {
   ];
 
   const { scrollY } = useScroll();
-  const largeScreenRanges = [1800, 2200];
-  const smallScreenRanges = [2900, 3000]
+  const largeScreenRanges = [1600, 1800];
+  const smallScreenRanges = [9100, 9500]
   const [scrollRange, setScrollRanges] = useState(largeScreenRanges);
 
   useEffect(() => {
@@ -146,8 +146,8 @@ const Memories = () => {
     return () => window.removeEventListener("resize", updateRanges);
   }, []);
 
-  const eventOpacity = useTransform(scrollY, scrollRange, [1, 0.3]);
-
+  // const eventOpacity = useTransform(scrollY, scrollRange, [1, 0.3]);
+const eventOpacity = 1;
   if (!isMounted) {
     return null;
   }
@@ -159,7 +159,7 @@ const Memories = () => {
       {/* Section Title */}
       <SectionTitle title="Previous year Memories" delay={12} />
 
-      <motion.div style={{ opacity: eventOpacity }}>
+      <motion.div style={{ opacity: eventOpacity}}>
         <Swiper
           spaceBetween={30}
           centeredSlides

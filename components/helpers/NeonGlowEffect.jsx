@@ -1,5 +1,6 @@
 import { off, onValue, ref, remove, set } from 'firebase/database';
-import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { database } from '../../server/firebase';
 
 export default function NeonGlowEffect() {
@@ -7,6 +8,7 @@ export default function NeonGlowEffect() {
   const [userId, setUserId] = useState(null);
   const [usersData, setUsersData] = useState({});
   const [isSupportedDevice, setIsSupportedDevice] = useState(false);
+  const router = useRouter();
 
   const generateRandomColor = () => {
     const letters = '0123456789ABCDEF';
@@ -25,11 +27,20 @@ export default function NeonGlowEffect() {
     };
     checkDevice(); 
     window.addEventListener('resize', checkDevice); 
-
     return () => {
       window.removeEventListener('resize', checkDevice);
     };
   }, []);
+
+  // Skip on registration pages
+  useEffect(() => {
+    if (!router.isReady) return;
+    if (router.asPath.startsWith('/registration/')) {
+      setIsSupportedDevice(false);
+    } else {
+      setIsSupportedDevice(window.innerWidth >= 600);
+    }
+  }, [router.isReady, router.asPath]);
 
   useEffect(() => {
     if (!isSupportedDevice) return;

@@ -5,7 +5,7 @@ import Tilt from "react-parallax-tilt";
 import { Autoplay } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import AIgnite from "../../images/sectionsAssets/AIgnite.jpg";
+import AIgnite from "../../images/sectionsAssets/AIgnite.png";
 import ait from "../../images/sectionsAssets/ait.png";
 import eve from "../../images/sectionsAssets/eve.jpg";
 import hrd from "../../images/sectionsAssets/hrd.jpg";
@@ -294,7 +294,7 @@ const AboutEvent = () => {
                 >
 <ParagSection2
   title="AIgnite Team"
-  paragraph="The AIgnite Team consists of passionate volunteers from the AIML Department, all committed to making this national technical fest a resounding success on October 16th and 17th. Working tirelessly behind the scenes, they are driven by a shared vision to offer attendees an immersive, hands-on experience that celebrates the innovative tech culture of AIML. Their mission is to ensure every participant feels part of the AIgnite journey, creating a unique and memorable experience that will resonate for years to come."
+  paragraph="The AIgnite Team consists of passionate volunteers from the AIML Department, all committed to making this national technical fest a resounding success on October 13th and 14th. Working tirelessly behind the scenes, they are driven by a shared vision to offer attendees an immersive, hands-on experience that celebrates the innovative tech culture of AIML. Their mission is to ensure every participant feels part of the AIgnite journey, creating a unique and memorable experience that will resonate for years to come."
   highlights={[
     "passionate volunteers",
     "national technical fest",
@@ -303,7 +303,7 @@ const AboutEvent = () => {
     "dedication to a vibrant technical community",
     "unique experience for all attendees",
     "memorable experience",
-    "October 16th and 17th"
+    "October 13th and 14th"
   ]}
   hoverColor="rgb(174, 60, 89)"
 />
@@ -337,9 +337,9 @@ const AboutEvent = () => {
           >
             <ParagSection2
               title="Event Date and Time"
-              paragraph={`Techxhibit (Oct 16-17) Step into a two-day tech exhibition where students, innovators, and creators showcase groundbreaking projects across AI, robotics, IoT, and sustainable tech. Explore interactive demos, live presentations, and future-driven solutions shaping industries. Engage with experts, discover fresh ideas, and celebrate the spirit of innovation. This isn’t just an exhibition—it’s a launchpad for tomorrow’s visionaries.`}
+              paragraph={`Techxhibit (Oct 13-14) Step into a two-day tech exhibition where students, innovators, and creators showcase groundbreaking projects across AI, robotics, IoT, and sustainable tech. Explore interactive demos, live presentations, and future-driven solutions shaping industries. Engage with experts, discover fresh ideas, and celebrate the spirit of innovation. This isn’t just an exhibition—it’s a launchpad for tomorrow’s visionaries.`}
               highlights={[
-                "Techxhibit (Oct 16-17)",
+                "Techxhibit (Oct 13-14)",
 
 "Two-day tech exhibition",
 

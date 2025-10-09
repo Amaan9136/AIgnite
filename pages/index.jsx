@@ -4,6 +4,7 @@ import AboutJury from "../components/AboutJury/Index";
 import AboutMentors from "../components/AboutMentors/Index";
 import ContactUs from "../components/ContactUs/Index";
 import EventLocation from "../components/EventLocation/Index";
+import EventUpdates from "../components/EventUpdates/Index";
 import Footer from "../components/Footer/Index";
 import Hero from "../components/Hero/Index";
 import Places from "../components/Places/Index";
@@ -11,7 +12,7 @@ import Schedule from "../components/Schedule/Index";
 import TheyTrustedUs from "../components/TheyTrustedUs/Index";
 import NeonGlowEffect from "../components/helpers/NeonGlowEffect";
 import Memories from "../components/Memories";
-
+import CountdownTimer from "../components/CountdownTimer/Index";
 export default function Home() {
   return (
     <>
@@ -25,17 +26,19 @@ export default function Home() {
       <Hero />
 
       <main className="font-IBM-Plex">
-      
-        <ContactUs />
+
+
   <AboutEvent />
- 
+  <EventUpdates />
+  <CountdownTimer />
+  <ContactUs />
         <Memories />
         <Places />
         <EventLocation />
         <Schedule />
         <AboutJury />
-        <AboutMentors />
-        {/* <TheyTrustedUs /> */}
+        {/* <AboutMentors /> */}
+        <TheyTrustedUs />
       </main>
       
       <Footer />
