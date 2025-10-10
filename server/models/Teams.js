@@ -85,6 +85,6 @@ const TeamsSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-}, { timestamps: true });
+}, { timestamps: true,collection: 'teams' });
 
 export default mongoose.models.Teams || mongoose.model('Teams', TeamsSchema);

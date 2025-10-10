@@ -112,7 +112,7 @@ const TeamNav = ({setActiveTab,team}) => {
                   transitionSpeed={200}
                   className="cursor-pointer">
                   
-                    <Animate  onClick={() =>{ setActiveTab(navLink.content.toLowerCase().replace(/\s/g, ""))}}
+            <Animate  onClick={() =>{ setActiveTab(navLink.content.toLowerCase().replace(/\s/g, "")); setIsNavToggled(false); }}
                       tag="li" delay={idx+ 1 + 2} y={idx+1 + 80} x={idx+1 + 80}
                       className="cursor-pointer relative transition-all duration-500 hover:text-qiskit-yellow"
                     >

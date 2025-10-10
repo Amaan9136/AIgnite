@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Teams from '../../components/Teams/Index';
 
 export async function getServerSideProps(context) {
+
   // Fetch teams data on the server
   try {
     console.log('Admin dashboard: Fetching teams from API...');
