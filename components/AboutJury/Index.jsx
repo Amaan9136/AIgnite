@@ -68,24 +68,6 @@ const juryData = [
     image: rohith,
     orderLast: false,
   },
-   {
-    title: "Gourav L R",
-    paragraph:
-      "An alumnus of the Artificial Intelligence & Machine Learning branch at AIT, Karnataka, brings a strong foundation in data-driven decision-making, process optimization, and product innovation. Currently contributing as a Business Analyst at InstaFix, a platform revolutionizing in-home and on-demand service management, Gourav bridges business goals with technical execution. He designs efficient workflows, analyzes user behavior, and leverages data insights to boost operational performance and customer satisfaction. Passionate about turning ideas into impactful business outcomes, he blends his AI/ML expertise with analytical acumen to identify growth opportunities and enhance service efficiency. His focus on innovation, user-centric design, and data intelligence continues to drive scalable, tech-enabled solutions shaping the future of home services.",
-    highlights: [
-      "alumnus of the Artificial Intelligence & Machine Learning branch at AIT, Karnataka",
-      "strong foundation in data-driven decision-making, process optimization, and product innovation",
-      "Business Analyst at InstaFix",
-      "designs efficient workflows, analyzes user behavior, and leverages data insights",
-      " boost operational performance and customer satisfaction",
-      "turning ideas into impactful business outcomes",
-      "blends AI/ML expertise with analytical acumen",
-      "identify growth opportunities and enhance service efficiency",
-      "focus on innovation, user-centric design, and data intelligence"
-    ],
-    image: gaurav,
-    orderLast: false,
-  },
      {
     title: "Karthick H",
     paragraph:
@@ -104,7 +86,26 @@ const juryData = [
     ],
     image: instafix_founder,
     orderLast: false,
-  }
+  },
+   {
+    title: "Gourav L R",
+    paragraph:
+      "An alumnus of the Artificial Intelligence & Machine Learning branch at AIT, Karnataka, brings a strong foundation in data-driven decision-making, process optimization, and product innovation. Currently contributing as a Business Analyst at InstaFix, a platform revolutionizing in-home and on-demand service management, Gourav bridges business goals with technical execution. He designs efficient workflows, analyzes user behavior, and leverages data insights to boost operational performance and customer satisfaction. Passionate about turning ideas into impactful business outcomes, he blends his AI/ML expertise with analytical acumen to identify growth opportunities and enhance service efficiency. His focus on innovation, user-centric design, and data intelligence continues to drive scalable, tech-enabled solutions shaping the future of home services.",
+    highlights: [
+      "alumnus of the Artificial Intelligence & Machine Learning branch at AIT, Karnataka",
+      "strong foundation in data-driven decision-making, process optimization, and product innovation",
+      "Business Analyst at InstaFix",
+      "designs efficient workflows, analyzes user behavior, and leverages data insights",
+      " boost operational performance and customer satisfaction",
+      "turning ideas into impactful business outcomes",
+      "blends AI/ML expertise with analytical acumen",
+      "identify growth opportunities and enhance service efficiency",
+      "focus on innovation, user-centric design, and data intelligence"
+    ],
+    image: gaurav,
+    orderLast: false,
+  },
+  
 ];
 
 const AboutJury = () => {

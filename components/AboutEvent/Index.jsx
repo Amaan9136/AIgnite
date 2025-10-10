@@ -58,7 +58,7 @@ const AboutEvent = () => {
       image: thinkNblink,
       color: "#4999D0",
       description: "Think N Blink is a competitive team-based game event with the tagline \"Play -  Solve -  Win\" designed for pairs of participants. The event emphasizes quick thinking and fast reactions.",
-      closed: false
+      closed: true
 
     },
 
