@@ -12,7 +12,7 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
   const [confirmMessage, setConfirmMessage] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredTeams = teams.filter(team => team.teamName.toLowerCase().includes(searchQuery.toLowerCase()));
+  const filteredTeams = teams.filter(team => (team.teamName || '').toLowerCase().includes(searchQuery.toLowerCase()));
 
   const handlePPTAction = async (action) => {
     setUpdatingPPT(true);
