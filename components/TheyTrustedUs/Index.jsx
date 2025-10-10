@@ -13,8 +13,10 @@ import maqam from "../../images/shapes/MaqamWhite.png";
 import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 import cakecorner from "../../images/logos/cakecorner.png";
-import lucent from "../../images/logos/lucent.png"
-import atok from "../../images/logos/atok.jpeg"
+import lucent from "../../images/logos/lucent.png";
+import atok from "../../images/logos/atok.jpeg";
+import instafix from "../../images/logos/Instafix.jpg";
+
 const sponsorsData = [
   {
     category: "Financial Sponsors",
@@ -132,6 +134,20 @@ const sponsorsData = [
           "supports students and developers in turning ideas into projects",
         ],
       },
+       {
+        name: "Instafix",
+        logo: instafix,
+        paragraph: "Instafix, a brand of the Bengaluru-based is a versatile home services company. We offer a complete spectrum of reliable, on-demand solutions for both homes and businesses, covering everything from routine maintenance like electrical, plumbing, carpentry, and cleaning to major projects such as painting, interior design, and construction. Instafix prioritizes customer convenience, safety, and satisfaction with 24/7 support and flexible scheduling. Our platform also acts as a vendor marketplace, giving skilled professionals the tools they need to efficiently manage bookings and expand their business.",
+        highlights: [
+          "versatile home services company",
+          "on-demand solutions for both homes and businesses",
+          " painting, interior design, and construction.",
+          "customer convenience, safety, and satisfaction",
+          "24/7 support and flexible scheduling",
+          "vendor marketplace for skilled professionals",
+          "tools for managing bookings and expanding business",
+        ],
+      },
       {
         name: "WETEAMRK7",
         logo: watermark,
@@ -150,6 +166,25 @@ const sponsorsData = [
           "focus on innovation",
           "commitment to knowledge-sharing",
         ],
+      },
+    ],
+  },
+    {
+    category: "Trophy Sponsors",
+    sponsors: [
+      {
+        name: "ATOK Esports",
+        logo: atok,
+        paragraph: "ATOK ESPORTS Rakesh Autokar T is Founder and Owner of ATOK Esports, ATOK esports is gaming and Content based Organisation.ATOK esports won Fight S1,S4 of FIGHT NIGHT Showdown. STICK Esports #6 in Jharkhand And JCL S1 #3",
+        highlights: [
+          "ATOK Esports",
+          "Founder and Owner: Rakesh Autokar T",
+          "gaming and content based organisation",
+          "won Fight S1, S4 of FIGHT NIGHT Showdown",
+          "STICK Esports #6 in Jharkhand",
+          "JCL S1 #3",
+        ],
+        link: "https://www.youtube.com/@Godinosuke"
       },
     ],
   },
@@ -175,6 +210,7 @@ const sponsorsData = [
           "sustainable rural income",
         ],
       },
+      
       {
         name: "Huco Chocolates",
         logo: huco,
@@ -207,25 +243,7 @@ const sponsorsData = [
       },
     ],
   },
-  {
-    category: "Trophy Sponsors",
-    sponsors: [
-      {
-        name: "ATOK Esports",
-        logo: atok,
-        paragraph: "ATOK ESPORTS Rakesh Autokar T is Founder and Owner of ATOK Esports, ATOK esports is gaming and Content based Organisation.ATOK esports won Fight S1,S4 of FIGHT NIGHT Showdown. STICK Esports #6 in Jharkhand And JCL S1 #3",
-        highlights: [
-          "ATOK Esports",
-          "Founder and Owner: Rakesh Autokar T",
-          "gaming and content based organisation",
-          "won Fight S1, S4 of FIGHT NIGHT Showdown",
-          "STICK Esports #6 in Jharkhand",
-          "JCL S1 #3",
-        ],
-        link: "https://www.youtube.com/@Godinosuke"
-      },
-    ],
-  },
+
 ];
 
 const TheyTrustedUs = () => {

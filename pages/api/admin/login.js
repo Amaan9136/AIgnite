@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import connectDB from '../../../server/mongodb';
 
 export default async function handler(req, res) {
@@ -14,14 +15,20 @@ export default async function handler(req, res) {
   try {
     const mongoose = await connectDB();
     const db = mongoose.connection.db;
-    const admin = await db.collection('admins').findOne({ username, password });
+
+    const admin = await db.collection('admins').findOne({ username });
 
     if (!admin) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    // Successful login
+    const isMatch = await bcrypt.compare(password, admin.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid username or password' });
+    }
+
     return res.status(200).json({ message: 'Login successful' });
+
   } catch (error) {
     console.error('Error during admin login:', error);
     return res.status(500).json({ message: 'Internal server error' });

@@ -9,7 +9,10 @@ const EventUpdates = () => {
 
   // Default sample data if no updates provided
   const data = [
-    {
+     {
+  text: "🎯 Exciting news! Instafix is partnering with our Project Exhibition to find the most innovative solutions to their challenge. 🚀 The top team wins an exclusive internship with Instafix! Bring your creativity, showcase your talent, and kickstart your career! 💼🌟",
+  link: "https://docs.google.com/forms/d/e/1FAIpQLSf41CjPBZ-kVkZkmLb39_FmdUX2fi2ojog69xFkiF2qi6DfLQ/viewform?usp=header&urp=gmail_link"
+},{
       text: "PPT submission deadline extended to 8th October. Submit now!",
       link: "/registration/techxhibit"
     },
@@ -21,6 +24,7 @@ const EventUpdates = () => {
       text: "Now you can access your dashboard using your team name!",
       link: "/getdashboard"
     },
+   
     // {
     //   text: "Workshop on AI/ML fundamentals scheduled for next week. Stay tuned!",
     //   link: "/schedule"
@@ -116,7 +120,7 @@ const EventUpdates = () => {
                   <div className="w-16 h-16 bg-gradient-to-r from-qiskit-blue-normal to-qiskit-purple-lighter rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
                     <span className="text-2xl font-bold text-white">!</span>
                   </div>
-                  <p className="text-gray-300 text-lg leading-relaxed hover:text-qiskit-white transition-colors">
+                  <p className="text-gray-300 lg:text-lg text-sm pt-5 leading-relaxed hover:text-qiskit-white transition-colors">
                     {data[currentIndex]?.text}
                   </p>
                   <div className="mt-6 text-qiskit-yellow font-medium text-sm opacity-0 hover:opacity-100 transition-opacity">

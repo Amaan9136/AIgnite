@@ -10,7 +10,8 @@ import aman from "../../images/speakers/aman.jpg";
 import NithinKamath from "../../images/speakers/NK.png";
 import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
-
+import gaurav from "../../images/speakers/gaurav.jpeg";
+import instafix_founder from "../../images/speakers/instafix_founder.jpeg";
 const juryData = [
   {
     title: "Nithin Kamath",
@@ -65,6 +66,43 @@ const juryData = [
       "commitment to both innovation and knowledge-sharing"
     ],
     image: rohith,
+    orderLast: false,
+  },
+   {
+    title: "Gourav L R",
+    paragraph:
+      "An alumnus of the Artificial Intelligence & Machine Learning branch at AIT, Karnataka, brings a strong foundation in data-driven decision-making, process optimization, and product innovation. Currently contributing as a Business Analyst at InstaFix, a platform revolutionizing in-home and on-demand service management, Gourav bridges business goals with technical execution. He designs efficient workflows, analyzes user behavior, and leverages data insights to boost operational performance and customer satisfaction. Passionate about turning ideas into impactful business outcomes, he blends his AI/ML expertise with analytical acumen to identify growth opportunities and enhance service efficiency. His focus on innovation, user-centric design, and data intelligence continues to drive scalable, tech-enabled solutions shaping the future of home services.",
+    highlights: [
+      "alumnus of the Artificial Intelligence & Machine Learning branch at AIT, Karnataka",
+      "strong foundation in data-driven decision-making, process optimization, and product innovation",
+      "Business Analyst at InstaFix",
+      "designs efficient workflows, analyzes user behavior, and leverages data insights",
+      " boost operational performance and customer satisfaction",
+      "turning ideas into impactful business outcomes",
+      "blends AI/ML expertise with analytical acumen",
+      "identify growth opportunities and enhance service efficiency",
+      "focus on innovation, user-centric design, and data intelligence"
+    ],
+    image: gaurav,
+    orderLast: false,
+  },
+     {
+    title: "Karthick H",
+    paragraph:
+      "Karthick H, the Founder of InstaFix.in, brings extensive experience in building and optimizing large-scale service networks across India. With a strong background in operations and vendor management, he established InstaFix in Bangalore to redefine reliability and efficiency in in-home service delivery. His career includes serving as the Vendor Supply Head (Pan India) at Housejoy.in, where he mastered scaling and quality control, and as the Lead Source Head at Bro4u.com, where he strengthened vendor acquisition and supply chain frameworks. Passionate about operational excellence and customer satisfaction, Karthick combines strategic vision with hands-on leadership to drive innovation and trust within the service ecosystem. Beyond business, his love for trekking and exploration mirrors his professional approach—always seeking new paths, better solutions, and higher standards. Under his leadership, InstaFix continues to evolve as a customer-centric platform, delivering seamless, technology-driven home services across India.",
+    highlights: [
+      "Founder of InstaFix.in",
+      "extensive experience in building and optimizing large-scale service networks across India",
+      "strong background in operations and vendor management",
+      "established InstaFix in Bangalore to redefine reliability and efficiency in in-home service delivery",
+
+      "served as the Vendor Supply Head (Pan India) at Housejoy.in",
+      "mastered scaling and quality control",
+      "Lead Source Head at Bro4u.com",
+      "strengthened vendor acquisition and supply chain frameworks",
+      "combines strategic vision with hands-on leadership to drive innovation and trust within the service ecosystem",
+    ],
+    image: instafix_founder,
     orderLast: false,
   }
 ];

@@ -125,8 +125,52 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
                 {selectedTeam.paymentScreenshot && selectedTeam.paymentScreenshot.map((screenshot, index) => (
                   <img key={index} src={screenshot.url} alt={`Payment Screenshot ${index + 1}`} className="w-full h-auto mb-2 rounded" />
                 ))}
-                {/* Conditional rendering based on event type */}
-                {selectedTeam.eventName === 'TECHXHIBIT REGISTRATION' ? (
+                {/* Payment Verification - shown for all events */}
+                <div className="mt-4">
+                  <p className="text-white font-semibold">
+                    Payment Verified: {selectedTeam.paymentVerified ? 'Yes' : 'No'}
+                  </p>
+                  <button
+                    onClick={async () => {
+                      const newValue = !selectedTeam.paymentVerified;
+                      setUpdatingPayment(true);
+                      try {
+                        const res = await fetch('/api/admin/team/payment-verified', {
+                          method: 'PUT',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                            teamId: selectedTeam.teamId,
+                            paymentVerified: newValue,
+                          }),
+                        });
+                        if (res.ok) {
+                          const data = await res.json();
+                          setSelectedTeam(data.team);
+                          setTeams((prevTeams) =>
+                            prevTeams.map((team) =>
+                              team._id === data.team._id ? data.team : team
+                            )
+                          );
+                        } else {
+                          console.error('Failed to update payment verification');
+                        }
+                      } catch (error) {
+                        console.error('Error updating payment verification:', error);
+                      } finally {
+                        setUpdatingPayment(false);
+                      }
+                    }}
+                    disabled={updatingPayment}
+                    className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
+                  >
+                    {updatingPayment ? 'Updating...' : selectedTeam.paymentVerified ? 'Unverify Payment' : 'Verify Payment'}
+                  </button>
+                </div>
+
+                {/* PPT Selection - shown for TECHXHIBIT REGISTRATION */}
+                {selectedTeam.eventName === 'TECHXHIBIT REGISTRATION' && (
                   <div className="mt-4">
                     <p className="text-white font-semibold mb-2">
                       PPT Status: <span className={`px-2 py-1 rounded text-sm ${
@@ -153,49 +197,6 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
                         {updatingPPT ? 'Updating...' : 'Reject'}
                       </button>
                     </div>
-                  </div>
-                ) : (
-                  <div className="mt-4">
-                    <p className="text-white font-semibold">
-                      Payment Verified: {selectedTeam.paymentVerified ? 'Yes' : 'No'}
-                    </p>
-                    <button
-                      onClick={async () => {
-                        const newValue = !selectedTeam.paymentVerified;
-                        setUpdatingPayment(true);
-                        try {
-                          const res = await fetch('/api/admin/team/payment-verified', {
-                            method: 'PUT',
-                            headers: {
-                              'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                              teamId: selectedTeam.teamId,
-                              paymentVerified: newValue,
-                            }),
-                          });
-                          if (res.ok) {
-                            const data = await res.json();
-                            setSelectedTeam(data.team);
-                            setTeams((prevTeams) =>
-                              prevTeams.map((team) =>
-                                team._id === data.team._id ? data.team : team
-                              )
-                            );
-                          } else {
-                            console.error('Failed to update payment verification');
-                          }
-                        } catch (error) {
-                          console.error('Error updating payment verification:', error);
-                        } finally {
-                          setUpdatingPayment(false);
-                        }
-                      }}
-                      disabled={updatingPayment}
-                      className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
-                    >
-                      {updatingPayment ? 'Updating...' : selectedTeam.paymentVerified ? 'Unverify Payment' : 'Verify Payment'}
-                    </button>
                   </div>
                 )}
               </div>

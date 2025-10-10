@@ -1,15 +1,12 @@
-# TODO: Add ATOK Esports to They Trusted Us Section
+# Admin Dashboard - Add Verify Payment Option for Techxhibit Registration
 
-- [x] Move ATOK Esports from Goodies Providers to new Trophy Sponsors category
-- [x] Add YouTube live link to ATOK Esports sponsor
-- [x] Verify the section renders correctly with the new category, sponsor, and clickable link
+## Completed Tasks
+- [x] Analyze the admin dashboard code to understand current implementation
+- [x] Identify that TECHXHIBIT REGISTRATION only shows PPT selection, while other events show payment verification
+- [x] Modify components/Teams/Index.jsx to show both payment verification and PPT selection for TECHXHIBIT REGISTRATION
+- [x] Verify that database schema (server/models/Teams.js) already supports paymentVerified field
+- [x] Verify that API endpoint (pages/api/admin/team/payment-verified.js) exists and works for all events
 
-# TODO: Add "Find Your Competitor" Section to Team Dashboard
-
-- [x] Add "Find Your Competitor" to components/Dashboard/links.js
-- [x] Create new API endpoint pages/api/team/random.js to return a random team name from the same event (excluding current team)
-- [x] In components/Dashboard/Index.jsx, add new tab 'findyourcompetitor' and renderFindCompetitor() function with button, spinning animation, and reveal display
-- [x] Ensure mobile responsiveness and theme consistency
-- [x] Test API endpoint for random team selection
-- [x] Test animation and responsiveness on mobile
-- [x] Verify integration with existing dashboard theme
+## Remaining Tasks
+- [ ] Test the admin dashboard to ensure both options appear for techxhibit registrations
+- [ ] Verify that payment verification works correctly for techxhibit teams

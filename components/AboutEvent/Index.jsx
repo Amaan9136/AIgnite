@@ -11,6 +11,7 @@ import techER from "../../images/speakers/techER.jpeg";
 
 import thinkNblink from "../../images/speakers/thinknblink.jpeg";
 import esports from "../../images/speakers/esports.jpeg";
+import Hackathon from "../../images/speakers/Hackathon.png";
 import GradientButton from "../helpers/GradientButton";
 import SectionTitle from "../helpers/SectionTitle";
 import { useRouter } from "next/router";
@@ -31,20 +32,20 @@ const AboutEvent = () => {
     
       
   ];
-const eventsData14 = [
+  const eventsData14 = [
     {
       name: "Tech Escape Room",
-    
+
       image: techER,
       color: "#7ce6e2",
       description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
        closed: false
 
     },
- 
+
       {
       name: "E Sports",
-    
+
       image: esports,
       color: "#7ce6e2",
       description:"Jump into the thrill of E Sports! Compete in exciting BGMI and FreeFire matches and prove your skills on the battleground.",
@@ -53,15 +54,29 @@ const eventsData14 = [
     },
     {
       name: "Think N Blink",
-    
+
       image: thinkNblink,
       color: "#4999D0",
       description: "Think N Blink is a competitive team-based game event with the tagline \"Play -  Solve -  Win\" designed for pairs of participants. The event emphasizes quick thinking and fast reactions.",
       closed: false
 
     },
-    
-      
+
+
+  ];
+
+  const eventsDataSpecial = [
+    {
+      name: "Mini Hackathon",
+
+      image: Hackathon,
+      color: "#FFA500",
+      description: "Dive into the Mini Hackathon! Collaborate, code, and create innovative solutions in a short for Instafix company problem statement , ",
+      closed: false
+
+    },
+
+
   ];
 
 
@@ -106,6 +121,8 @@ const eventsData14 = [
           alt="atom"
         />
       </div>
+
+     
 
       <SectionTitle title={"AIgnite Events on 13th Oct"} delay={12} />
 
@@ -177,6 +194,50 @@ className={`flex flex-col items-center mt-10  gap-4  h-[400px] sm:h-[500px] lg:h
           ))}
         </div>
       </motion.div>
+       {/* SPECIAL EVENT  */}
+       <SectionTitle title={"Special Event: Mini Hackathon"} delay={12} />
+      <motion.div className="flex justify-center items-center lg:mb-32" style={{ opacity: eventOpacity }}>
+        <div className="relative w-full max-w-7xl mx-auto my-16 flex gap-12 lg:mb-11 flex-col sm:flex-col md:flex-row lg:flex-row justify-between lg:justify-center px-4 sm:px-6 lg:px-8">
+          {eventsDataSpecial.map((eventObj, index) => (
+            <div
+              key={index}
+              onClick={() => !eventObj.closed && window.open("https://docs.google.com/forms/d/e/1FAIpQLSf41CjPBZ-kVkZkmLb39_FmdUX2fi2ojog69xFkiF2qi6DfLQ/viewform?usp=header&urp=gmail_link", "_blank")}
+              className={`flex flex-col items-center mt-10  gap-4  h-[400px] sm:h-[500px] lg:h-[400px] lg:mr-12 group transition-transform duration-300 ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} lg:scale-[1.2]
+                order-first lg:order-none w-full sm:w-1/2 lg:w-1/3`}
+            >
+              <Tilt
+                scale={1.2}
+                glareEnable
+                glareMaxOpacity={0.5}
+                glareColor={eventObj.color}
+                glarePosition="all"
+                className={`relative flex justify-center items-center ${eventObj.closed ? "cursor-not-allowed" : "cursor-pointer"} transition-transform duration-300 z-100 group-hover:z-20 group-hover:scale-105`}
+              >
+                <Image
+                  src={eventObj.image}
+                  alt={eventObj.name}
+                  width={350}
+                  height={350}
+                  className={`rounded-md shadow-md transition-transform duration-400 group-hover:opacity-25 lg:scale-[1.15] rounded-xl`}
+                />
+                <div className="absolute flex justify-center items-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="font-semibold text-white text-center text-sm lg:text-sm lg:mx-6">{eventObj.description}</p>
+                </div>
+              </Tilt>
+
+              <Tilt
+                scale={1.5}
+                className={`flex transition-transform duration-300 z-10 group-hover:z-20 group-hover:scale-105`}
+              >
+                <div className={`text-center  z-10 sm:mt-2 md:mt-4 lg:mt-0`}>
+                  <GradientButton title={eventObj.closed ? `${eventObj.name} Closed!` : `Register to ${eventObj.name}`}  color={eventObj.color} closed={eventObj.closed} />
+                </div>
+              </Tilt>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
          <SectionTitle title={"AIgnite Events on 14th Oct"} delay={12} />
           {/* Events 14 */}
           <motion.div className="flex justify-center items-center " style={{ opacity: eventOpacity }}>
@@ -220,7 +281,7 @@ className={`flex flex-col items-center mt-10  gap-4 h-[400px] sm:h-[500px] lg:h-
           ))}
         </div>
       </motion.div>
-
+   
 
         </div>
 
