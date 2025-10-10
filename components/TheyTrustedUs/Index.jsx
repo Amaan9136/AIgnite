@@ -14,7 +14,8 @@ import ParagSection2 from "../helpers/ParagSection2";
 import SectionTitle from "../helpers/SectionTitle";
 import cakecorner from "../../images/logos/cakecorner.png";
 import lucent from "../../images/logos/lucent.png";
-import atok from "../../images/logos/Atok.jpeg";
+import atok from "../../images/logos/atok.jpeg";
+
 import instafix from "../../images/logos/Instafix.jpg";
 
 const sponsorsData = [
