@@ -10,6 +10,9 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [confirmAction, setConfirmAction] = useState(null);
   const [confirmMessage, setConfirmMessage] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredTeams = teams.filter(team => (team.teamName || '').toLowerCase().includes(searchQuery.toLowerCase()));
 
   const handlePPTAction = async (action) => {
     setUpdatingPPT(true);
@@ -78,14 +81,29 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
           Logout
         </button>
       </div>
+      <div className="mb-4">
+        <input
+          type="text"
+          placeholder="Search teams by name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full p-2 rounded bg-gray-700 text-white placeholder-gray-400"
+        />
+      </div>
       <div className="flex flex-col space-y-6">
-        {teams.length === 0 ? (
+        {filteredTeams.length === 0 ? (
           <div className="text-center py-10">
-            <p className="text-gray-400 text-lg">No teams registered yet.</p>
-            <p className="text-gray-500 mt-2">Teams will appear here once they register for events.</p>
+            {teams.length === 0 ? (
+              <>
+                <p className="text-gray-400 text-lg">No teams registered yet.</p>
+                <p className="text-gray-500 mt-2">Teams will appear here once they register for events.</p>
+              </>
+            ) : (
+              <p className="text-gray-400 text-lg">No teams match your search.</p>
+            )}
           </div>
         ) : (
-          teams.map((team) => (
+          filteredTeams.map((team) => (
             <div
               key={team._id}
               className="bg-gray-800 p-6 rounded-lg m-auto w-[80%] cursor-pointer hover:bg-gray-700 transition"
