@@ -4,33 +4,33 @@ export const schedule = [
     center: true
   },
   {
-    Time: "08:00 AM - 09:00 AM",
+    Time: "09:00 AM - 09:30 AM",
     event: "Registration (Project Exhibition)",
     location: "HRD Block",
   },
     {
-    Time: "09:15 AM - 10:00 AM",
+    Time: "09:30 AM - 10:00 AM",
     event: "Inaugration Function ",
     location: "HRD Block",
   },
    {
-    Time: "10:00 AM - 10:30 AM",
+    Time: "10:00 AM - 10:15 AM",
     event: "Coffee/Tea Break",
     location: "HRD Block",
   },
   {
-    Time: "10:30 AM - 12:30 PM",
-    event: "Project Expo Session 1 (judging + Exhibition)",
+    Time: "10:30 AM - 1:00 PM",
+    event: "Project Expo + Hexathon (judging + Exhibition)",
     location: "Aiml Labs + Amphi-theatre",
   },
 {
-    Time: "12:30 PM - 01:30 PM",
+    Time: "1:00 PM - 02:00 PM",
     event: "Lunch Break",
     location: "Amphi-theatre",
   },
   {
-    Time: "01:30 PM - 05:00 PM",
-    event: "Project Expo Session 2 (judging + Exhibition)",
+    Time: "02:30 PM - 03:30 PM",
+    event: "Project Expo + Hexathon (judging + Exhibition)",
     location: "Aiml Labs + Ds Labs + Civil Labs ",
   },
    {
@@ -39,7 +39,7 @@ export const schedule = [
     location: "HRD Block",
   },
   {
-    Time: "05:00 PM - 06:00 PM",
+    Time: "03:40 PM - 04:40 PM",
     event: "Validictory",
     location: "HRD Block",
   },
