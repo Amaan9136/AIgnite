@@ -1,8 +1,16 @@
 import connectDB from '../../../../server/mongodb';
 import Teams from '../../../../server/models/Teams';
+import { getIronSession } from 'iron-session';
+import { sessionOptions } from '../../../../lib/session';
 
 export default async function handler(req, res) {
   await connectDB();
+
+  // Check for admin session
+  const session = await getIronSession(req, res, sessionOptions);
+  if (!session.admin) {
+    return res.status(401).json({ message: 'Unauthorized: Admin access required' });
+  }
 
   if (req.method === 'PUT') {
     const { teamId, paymentVerified } = req.body;

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Teams = ({ onLogout, initialTeams = [] }) => {
-  const [teams, setTeams] = useState(initialTeams);
+const Teams = ({ onLogout }) => {
+  const [teams, setTeams] = useState([]);
+  const [isFetchingTeams, setIsFetchingTeams] = useState(true);
+  const [fetchError, setFetchError] = useState('');
   const [selectedTeam, setSelectedTeam] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatingPayment, setUpdatingPayment] = useState(false);
   const [updatingPPT, setUpdatingPPT] = useState(false);
@@ -11,6 +12,31 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
   const [confirmAction, setConfirmAction] = useState(null);
   const [confirmMessage, setConfirmMessage] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Fetch teams on component mount
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        setIsFetchingTeams(true);
+        setFetchError('');
+        const res = await fetch('/api/teams');
+        if (res.ok) {
+          const data = await res.json();
+          setTeams(data);
+        } else {
+          const errorData = await res.json();
+          setFetchError(errorData.message || 'Failed to fetch teams');
+        }
+      } catch (error) {
+        console.error('Error fetching teams:', error);
+        setFetchError('An error occurred while fetching teams');
+      } finally {
+        setIsFetchingTeams(false);
+      }
+    };
+
+    fetchTeams();
+  }, []);
 
   const filteredTeams = teams.filter(team => (team.teamName || '').toLowerCase().includes(searchQuery.toLowerCase()));
 
@@ -68,7 +94,23 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
     setShowConfirmDialog(true);
   };
 
-  if (loading) return <div className="text-center py-10">Loading teams...</div>;
+  if (isFetchingTeams) return <div className="text-center py-10">Loading teams...</div>;
+
+  if (fetchError) {
+    return (
+      <div className="container mx-auto px-4 py-10">
+        <div className="text-center py-10">
+          <p className="text-red-500 text-lg mb-4">{fetchError}</p>
+          <button
+            onClick={onLogout}
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-10">
