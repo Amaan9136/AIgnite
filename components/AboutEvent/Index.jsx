@@ -39,7 +39,7 @@ const AboutEvent = () => {
       image: techER,
       color: "#7ce6e2",
       description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
-       closed: false
+       closed: true
 
     },
 
