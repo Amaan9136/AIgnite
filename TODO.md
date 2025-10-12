@@ -1,7 +1,13 @@
-# TODO: Add Search Bar to Admin Dashboard for Teams by Name
+# TODO: Secure Admin Data Fetching
 
-- [x] Add searchQuery state in components/Teams/Index.jsx
-- [x] Add search input field in the JSX after the header
-- [x] Implement filtering logic for teams based on teamName (case-insensitive)
-- [x] Update the teams display to use filteredTeams instead of teams
-- [x] Test the search functionality
+## Steps to Complete
+- [x] Install next-iron-session dependency
+- [x] Create lib/session.js for session configuration
+- [x] Update pages/api/admin/login.js to set admin session on successful login
+- [x] Update pages/api/teams.js to require admin session for fetching teams
+- [x] Update pages/api/admin/team/payment-verified.js to require admin session
+- [x] Update pages/api/admin/team/ppt-selection.js to require admin session
+- [x] Update pages/admin/index.jsx to remove getServerSideProps and pre-fetched data
+- [x] Update components/Teams/Index.jsx to fetch teams data client-side after login
+- [ ] Test the changes locally (login, data visibility, API access)
+- [ ] Deploy and verify on production

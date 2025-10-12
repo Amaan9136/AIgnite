@@ -1,5 +1,7 @@
 import bcrypt from 'bcryptjs';
 import connectDB from '../../../server/mongodb';
+import { getIronSession } from 'iron-session';
+import { sessionOptions } from '../../../lib/session';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -26,6 +28,11 @@ export default async function handler(req, res) {
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
+
+    // Set admin session
+    const session = await getIronSession(req, res, sessionOptions);
+    session.admin = { username: admin.username, id: admin._id };
+    await session.save();
 
     return res.status(200).json({ message: 'Login successful' });
 
