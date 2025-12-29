@@ -1,15 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Teams = ({ onLogout, initialTeams = [] }) => {
-  const [teams, setTeams] = useState(initialTeams);
+const Teams = ({ onLogout }) => {
+  const [teams, setTeams] = useState([]);
+  const [isFetchingTeams, setIsFetchingTeams] = useState(true);
+  const [fetchError, setFetchError] = useState('');
   const [selectedTeam, setSelectedTeam] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updatingPayment, setUpdatingPayment] = useState(false);
   const [updatingPPT, setUpdatingPPT] = useState(false);
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const [confirmAction, setConfirmAction] = useState(null);
   const [confirmMessage, setConfirmMessage] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Fetch teams on component mount
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        setIsFetchingTeams(true);
+        setFetchError('');
+        const res = await fetch('/api/teams');
+        if (res.ok) {
+          const data = await res.json();
+          setTeams(data);
+        } else {
+          const errorData = await res.json();
+          setFetchError(errorData.message || 'Failed to fetch teams');
+        }
+      } catch (error) {
+        console.error('Error fetching teams:', error);
+        setFetchError('An error occurred while fetching teams');
+      } finally {
+        setIsFetchingTeams(false);
+      }
+    };
+
+    fetchTeams();
+  }, []);
+
+  const filteredTeams = teams.filter(team => (team.teamName || '').toLowerCase().includes(searchQuery.toLowerCase()));
 
   const handlePPTAction = async (action) => {
     setUpdatingPPT(true);
@@ -65,7 +94,23 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
     setShowConfirmDialog(true);
   };
 
-  if (loading) return <div className="text-center py-10">Loading teams...</div>;
+  if (isFetchingTeams) return <div className="text-center py-10">Loading teams...</div>;
+
+  if (fetchError) {
+    return (
+      <div className="container mx-auto px-4 py-10">
+        <div className="text-center py-10">
+          <p className="text-red-500 text-lg mb-4">{fetchError}</p>
+          <button
+            onClick={onLogout}
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-10">
@@ -78,14 +123,29 @@ const Teams = ({ onLogout, initialTeams = [] }) => {
           Logout
         </button>
       </div>
+      <div className="mb-4">
+        <input
+          type="text"
+          placeholder="Search teams by name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-full p-2 rounded bg-gray-700 text-white placeholder-gray-400"
+        />
+      </div>
       <div className="flex flex-col space-y-6">
-        {teams.length === 0 ? (
+        {filteredTeams.length === 0 ? (
           <div className="text-center py-10">
-            <p className="text-gray-400 text-lg">No teams registered yet.</p>
-            <p className="text-gray-500 mt-2">Teams will appear here once they register for events.</p>
+            {teams.length === 0 ? (
+              <>
+                <p className="text-gray-400 text-lg">No teams registered yet.</p>
+                <p className="text-gray-500 mt-2">Teams will appear here once they register for events.</p>
+              </>
+            ) : (
+              <p className="text-gray-400 text-lg">No teams match your search.</p>
+            )}
           </div>
         ) : (
-          teams.map((team) => (
+          filteredTeams.map((team) => (
             <div
               key={team._id}
               className="bg-gray-800 p-6 rounded-lg m-auto w-[80%] cursor-pointer hover:bg-gray-700 transition"

@@ -39,7 +39,7 @@ const AboutEvent = () => {
       image: techER,
       color: "#7ce6e2",
       description: "Trapped inside a simulated AI world, you’ll need to crack tech puzzles, decode hidden passwords, and outsmart the system to break free and reach the next round.",
-       closed: false
+       closed: true
 
     },
 
@@ -58,7 +58,7 @@ const AboutEvent = () => {
       image: thinkNblink,
       color: "#4999D0",
       description: "Think N Blink is a competitive team-based game event with the tagline \"Play -  Solve -  Win\" designed for pairs of participants. The event emphasizes quick thinking and fast reactions.",
-      closed: false
+      closed: true
 
     },
 

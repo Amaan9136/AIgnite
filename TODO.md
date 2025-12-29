@@ -1,12 +1,13 @@
-# Admin Dashboard - Add Verify Payment Option for Techxhibit Registration
+# TODO: Secure Admin Data Fetching
 
-## Completed Tasks
-- [x] Analyze the admin dashboard code to understand current implementation
-- [x] Identify that TECHXHIBIT REGISTRATION only shows PPT selection, while other events show payment verification
-- [x] Modify components/Teams/Index.jsx to show both payment verification and PPT selection for TECHXHIBIT REGISTRATION
-- [x] Verify that database schema (server/models/Teams.js) already supports paymentVerified field
-- [x] Verify that API endpoint (pages/api/admin/team/payment-verified.js) exists and works for all events
-
-## Remaining Tasks
-- [ ] Test the admin dashboard to ensure both options appear for techxhibit registrations
-- [ ] Verify that payment verification works correctly for techxhibit teams
+## Steps to Complete
+- [x] Install next-iron-session dependency
+- [x] Create lib/session.js for session configuration
+- [x] Update pages/api/admin/login.js to set admin session on successful login
+- [x] Update pages/api/teams.js to require admin session for fetching teams
+- [x] Update pages/api/admin/team/payment-verified.js to require admin session
+- [x] Update pages/api/admin/team/ppt-selection.js to require admin session
+- [x] Update pages/admin/index.jsx to remove getServerSideProps and pre-fetched data
+- [x] Update components/Teams/Index.jsx to fetch teams data client-side after login
+- [ ] Test the changes locally (login, data visibility, API access)
+- [ ] Deploy and verify on production
